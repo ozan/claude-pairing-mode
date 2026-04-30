@@ -1,0 +1,16 @@
+[project]
+name = "ai-pair-proto"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "claude-agent-sdk>=0.1.71",
+    "fastapi>=0.136.1",
+    "uvicorn[standard]>=0.46.0",
+]
+
+[dependency-groups]
+dev = [
+    "pyte>=0.8.2",
+]
