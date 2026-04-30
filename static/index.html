@@ -7,16 +7,22 @@
   <style>
     :root {
       --bg: #0e0f12;
+      --panel: #14171c;
       --fg: #e6e6e6;
       --muted: #8a8f98;
       --accent: #6ea8fe;
+      --accent-2: #a371f7;
       --user: #c0c5cc;
       --tool: #b392f0;
       --rule: #2a2d34;
       --result: #6e7681;
       --error: #ff7b72;
+      --success: #56d364;
       --border: #23262d;
       --code-bg: #1a1d22;
+      --col-border: #2a2d34;
+      --col-border-chosen: var(--accent);
+      --col-border-dim: #1f2228;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -29,6 +35,7 @@
       line-height: 1.55;
     }
     body { display: flex; flex-direction: column; }
+
     header {
       padding: 6px 16px;
       border-bottom: 1px solid var(--border);
@@ -37,7 +44,7 @@
     }
     header h1 { font-size: 12px; font-weight: 500; margin: 0; color: var(--muted); }
     .status { color: var(--muted); }
-    .status.connected { color: #56d364; }
+    .status.connected { color: var(--success); }
     .status.disconnected { color: var(--error); }
 
     #transcript {
@@ -45,121 +52,108 @@
       overflow-y: auto;
       padding: 16px 24px;
     }
-    .turn { margin-bottom: 14px; }
-    .user-line {
+
+    .step { margin-bottom: 22px; }
+    .step-question {
       color: var(--user);
       white-space: pre-wrap;
       word-wrap: break-word;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    .user-line::before { content: "❯ "; color: var(--accent); }
+    .step-question::before { content: "❯ "; color: var(--accent); }
 
-    .assistant-msg .md {
-      /* markdown container — tag styles below */
+    /* Three columns */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 8px 0 12px 0;
     }
-    .assistant-msg .md p { margin: 0 0 8px 0; }
-    .assistant-msg .md p:last-child { margin-bottom: 0; }
-    .assistant-msg .md h1,
-    .assistant-msg .md h2,
-    .assistant-msg .md h3 {
-      font-size: 14px;
-      font-weight: 600;
-      margin: 8px 0 0 0;
-      padding-bottom: 4px;
-      border-bottom: 1px solid var(--rule);
-    }
-    .assistant-msg .md h1::before,
-    .assistant-msg .md h2::before,
-    .assistant-msg .md h3::before {
-      content: "⏺ "; color: var(--fg);
-    }
-    .assistant-msg .md ul,
-    .assistant-msg .md ol { margin: 4px 0 8px 0; padding-left: 18px; }
-    .assistant-msg .md li { margin: 2px 0; }
-    .assistant-msg .md code {
-      background: var(--code-bg);
-      padding: 1px 5px;
-      border-radius: 3px;
-      font-size: 13px;
-    }
-    .assistant-msg .md pre {
-      background: var(--code-bg);
-      padding: 8px 12px;
-      border-radius: 4px;
-      overflow-x: auto;
-      margin: 6px 0;
-    }
-    .assistant-msg .md pre code {
-      background: transparent;
-      padding: 0;
-    }
-    .assistant-msg .md strong { font-weight: 600; }
-    .assistant-msg .md em { font-style: italic; color: var(--fg); }
-    .assistant-msg .md a { color: var(--accent); }
-    .assistant-msg .md blockquote {
-      border-left: 2px solid var(--rule);
-      padding-left: 10px;
-      margin: 6px 0;
-      color: var(--muted);
-    }
-
-    /* Streaming raw-text fallback before a block is final */
-    .assistant-stream {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-
-    .tool-call {
-      color: var(--tool);
-      margin: 4px 0;
-      font-size: 13px;
-    }
-    .tool-call::before { content: "⏺ "; opacity: 0.85; }
-    .tool-call .args { color: var(--muted); }
-    .tool-summary {
-      color: var(--muted);
-      font-size: 12px;
-      margin: -2px 0 6px 18px;
+    .option {
+      background: var(--panel);
+      border: 1px solid var(--col-border);
+      border-radius: 6px;
+      padding: 12px 14px;
       cursor: pointer;
-      user-select: none;
+      transition: border-color 0.15s, opacity 0.15s, transform 0.05s;
+      display: flex; flex-direction: column;
+      min-height: 80px;
     }
-    .tool-summary.error { color: var(--error); }
-    .tool-summary .expand-hint { opacity: 0.6; }
-    .tool-output {
-      display: none;
-      background: var(--code-bg);
+    .option:hover {
+      border-color: var(--accent);
+    }
+    .option:active { transform: translateY(1px); }
+    .option .col-marker {
       color: var(--muted);
-      font-size: 12px;
-      padding: 8px 12px;
-      border-radius: 4px;
-      margin: 0 0 8px 18px;
-      max-height: 300px;
-      overflow: auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
     }
-    .tool-output.expanded { display: block; }
+    .option .title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--fg);
+    }
+    .option .body {
+      font-size: 13px;
+      color: var(--fg);
+      flex: 1;
+    }
+    .option.chosen {
+      border-color: var(--col-border-chosen);
+      box-shadow: 0 0 0 1px var(--col-border-chosen);
+    }
+    .option.chosen .col-marker { color: var(--accent); }
+    .option.chosen .col-marker::after { content: "  ✓"; color: var(--accent); }
+    .option.dimmed {
+      opacity: 0.45;
+      cursor: default;
+    }
+    .option.dimmed:hover { border-color: var(--col-border); }
+    .columns.locked .option { cursor: default; }
+    .columns.locked .option:not(.chosen) { opacity: 0.45; }
+    .columns.locked .option:hover:not(.chosen) { border-color: var(--col-border); }
 
-    .thinking-marker {
+    /* Markdown inside option body */
+    .option .body .md p { margin: 0 0 6px 0; }
+    .option .body .md p:last-child { margin-bottom: 0; }
+    .option .body .md ul, .option .body .md ol { margin: 4px 0; padding-left: 18px; }
+    .option .body .md code { background: var(--code-bg); padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+    .option .body .md pre { background: var(--code-bg); padding: 8px; border-radius: 4px; overflow-x: auto; }
+    .option .body .md pre code { background: transparent; padding: 0; }
+    .option .body .md strong { font-weight: 600; }
+    .option .body .md em { font-style: italic; }
+
+    /* Inline discussion / feedback prose under a step */
+    .inline-msg { margin: 8px 0 4px 0; }
+    .inline-msg.discuss::before { content: "💬 "; }
+    .inline-msg .md p { margin: 0 0 8px 0; }
+    .inline-msg .md p:last-child { margin-bottom: 0; }
+    .inline-msg .md h1, .inline-msg .md h2, .inline-msg .md h3 {
+      font-size: 14px; font-weight: 600; margin: 8px 0 4px 0;
+      padding-bottom: 4px; border-bottom: 1px solid var(--rule);
+    }
+    .inline-msg .md ul, .inline-msg .md ol { margin: 4px 0 8px 0; padding-left: 18px; }
+    .inline-msg .md code { background: var(--code-bg); padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+    .inline-msg .md pre { background: var(--code-bg); padding: 8px 12px; border-radius: 4px; overflow-x: auto; }
+    .inline-msg .md pre code { background: transparent; padding: 0; }
+    .inline-msg .md strong { font-weight: 600; }
+    .inline-msg .md em { font-style: italic; }
+    .inline-msg .stream { white-space: pre-wrap; word-wrap: break-word; }
+
+    .step-footer {
       color: var(--result);
       font-size: 11px;
-      font-style: italic;
-      margin: 2px 0;
-      opacity: 0.7;
+      margin-top: 6px;
     }
-    .thinking-marker::before { content: "◦ "; }
-
-    .turn-footer {
-      color: var(--result);
-      font-size: 11px;
-      margin: 4px 0 6px 0;
-    }
-    .turn-footer::before { content: "✻ "; }
+    .step-footer::before { content: "✻ "; }
 
     .spinner {
       color: var(--muted);
       font-size: 12px;
-      margin: 4px 0;
+      margin: 6px 0;
     }
     .spinner::before {
       content: "✳ ";
@@ -168,24 +162,19 @@
     }
     @keyframes pulse { 0%,100% { opacity: 0.3 } 50% { opacity: 1 } }
 
+    .selection-banner {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+      font-style: italic;
+    }
     .error-line { color: var(--error); margin: 6px 0; }
 
-    /* Input area styled to match CLI: rules above/below + ❯ prefix + status footer */
+    /* Composer */
     .composer { background: var(--bg); }
-    .composer .rule {
-      border-top: 1px solid var(--rule);
-      height: 0; margin: 0;
-    }
-    .composer .input-row {
-      display: flex; align-items: flex-start;
-      padding: 8px 16px;
-      gap: 8px;
-    }
-    .composer .prompt-mark {
-      color: var(--accent);
-      padding-top: 1px;
-      flex: 0 0 auto;
-    }
+    .composer .rule { border-top: 1px solid var(--rule); height: 0; margin: 0; }
+    .composer .input-row { display: flex; align-items: flex-start; padding: 8px 16px; gap: 8px; }
+    .composer .prompt-mark { color: var(--accent); padding-top: 1px; flex: 0 0 auto; }
     textarea {
       flex: 1;
       background: transparent;
@@ -202,11 +191,51 @@
     .composer .footer {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 4px 16px 8px 16px;
       color: var(--muted);
       font-size: 11px;
+      gap: 8px;
     }
-    .composer .footer .right { color: var(--result); }
+    .mode-buttons { display: flex; gap: 6px; }
+    .mode-btn {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-family: inherit;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .mode-btn.active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .mode-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .mode-hint { color: var(--result); }
+
+    .test-bar {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      padding: 6px 16px 0 16px;
+      font-size: 11px;
+      color: var(--result);
+    }
+    .test-bar .label { color: var(--result); }
+    .test-btn {
+      background: transparent;
+      color: var(--muted);
+      border: 1px dashed var(--rule);
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-family: inherit;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .test-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .test-btn:disabled { opacity: 0.4; cursor: not-allowed; }
   </style>
 </head>
 <body>
@@ -216,46 +245,48 @@
   </header>
   <div id="transcript"></div>
   <form id="form" class="composer">
+    <div class="test-bar">
+      <span class="label">starters ›</span>
+      <button type="button" class="test-btn" data-prompt="Let's build a tic-tac-toe game together.">Tic-tac-toe</button>
+      <button type="button" class="test-btn" data-prompt="Let's solve the Leetcode staircase ascent problem together.">Staircase</button>
+      <button type="button" class="test-btn" data-prompt="Let's solve the Exercism Luhn code problem together.">Luhn</button>
+    </div>
     <div class="rule"></div>
     <div class="input-row">
       <span class="prompt-mark">❯</span>
-      <textarea id="input" placeholder="Message Claude…   (Enter to send, Shift+Enter for newline)" autofocus></textarea>
+      <textarea id="input" placeholder="Describe a project to start. Once options appear, click one — or type a question to discuss." autofocus></textarea>
     </div>
     <div class="rule"></div>
     <div class="footer">
-      <span>⏵⏵ bypass permissions</span>
-      <span class="right" id="model-line">opus 4.7</span>
+      <span class="left">⏵⏵ bypass permissions · click an option, or type to discuss / steer</span>
+      <span class="right">opus 4.7</span>
     </div>
   </form>
 
   <script>
+    marked.setOptions({ gfm: true, breaks: false });
+
     const transcript = document.getElementById("transcript");
     const form = document.getElementById("form");
     const input = document.getElementById("input");
     const statusEl = document.getElementById("status");
 
-    // Configure marked: GFM, sensible breaks, no auto-headings
-    marked.setOptions({ gfm: true, breaks: false });
-
     let ws;
-    let currentTurn = null;
-    let currentMsgEl = null;
-    let blockEls = {};            // index -> {kind, raw, el, argsEl, jsonBuf, mdEl}
-    let toolUsesById = {};        // tool_use_id -> {nameEl, summaryEl, outputEl}
-    let activeSpinnerEl = null;
+    let currentExchangeEl = null;     // wrap for the in-flight exchange (one user-action -> one assistant turn)
+    let currentInlineMsg = null;      // {wrap, stream, finalized} for the active streaming text block
+    let currentStreamRaw = "";
+    let currentSpinnerEl = null;
+
+    // Track the most-recent columns block so the user's click can be routed correctly
+    // and so the columns can be locked when picked. Older columns blocks remain visible
+    // and clickable too, but selecting an old one is unusual — we only lock the latest.
+    let lastColumnsBlock = null;
+    let lastToolUseId = null;
+    let lastColumnsLocked = false;
 
     function setStatus(text, cls) {
       statusEl.textContent = text;
       statusEl.className = "status " + (cls || "");
-    }
-
-    function ensureTurn() {
-      if (!currentTurn) {
-        currentTurn = document.createElement("div");
-        currentTurn.className = "turn";
-        transcript.appendChild(currentTurn);
-      }
-      return currentTurn;
     }
 
     function scrollDown() {
@@ -263,181 +294,143 @@
     }
 
     function showSpinner() {
-      if (activeSpinnerEl) return;
-      activeSpinnerEl = document.createElement("div");
-      activeSpinnerEl.className = "spinner";
-      activeSpinnerEl.textContent = "Thinking…";
-      ensureTurn().appendChild(activeSpinnerEl);
+      hideSpinner();
+      currentSpinnerEl = document.createElement("div");
+      currentSpinnerEl.className = "spinner";
+      currentSpinnerEl.textContent = "Thinking…";
+      (currentExchangeEl || transcript).appendChild(currentSpinnerEl);
       scrollDown();
     }
     function hideSpinner() {
-      if (activeSpinnerEl) {
-        activeSpinnerEl.remove();
-        activeSpinnerEl = null;
-      }
+      if (currentSpinnerEl) { currentSpinnerEl.remove(); currentSpinnerEl = null; }
     }
 
-    function renderUserInput(text) {
-      currentTurn = document.createElement("div");
-      currentTurn.className = "turn";
-      const div = document.createElement("div");
-      div.className = "user-line";
-      div.textContent = text;
-      currentTurn.appendChild(div);
-      transcript.appendChild(currentTurn);
+    function startExchange(userText /* string | null */) {
+      currentExchangeEl = document.createElement("div");
+      currentExchangeEl.className = "step"; // reuse existing styling
+      if (userText) {
+        const q = document.createElement("div");
+        q.className = "step-question";
+        q.textContent = userText;
+        currentExchangeEl.appendChild(q);
+      }
+      transcript.appendChild(currentExchangeEl);
+      currentInlineMsg = null;
+      currentStreamRaw = "";
       showSpinner();
       scrollDown();
     }
 
-    function startNewAssistantMessage() {
+    function startInlineMsg() {
       hideSpinner();
-      const turn = ensureTurn();
-      currentMsgEl = document.createElement("div");
-      currentMsgEl.className = "assistant-msg";
-      turn.appendChild(currentMsgEl);
-      blockEls = {};
+      const div = document.createElement("div");
+      div.className = "inline-msg";
+      const stream = document.createElement("div");
+      stream.className = "stream";
+      div.appendChild(stream);
+      (currentExchangeEl || transcript).appendChild(div);
+      currentInlineMsg = { wrap: div, stream, finalized: false };
+      currentStreamRaw = "";
+      scrollDown();
+      return currentInlineMsg;
     }
 
-    function ensureBlock(index, contentBlock) {
-      if (blockEls[index]) return blockEls[index];
-      if (!currentMsgEl) startNewAssistantMessage();
-
-      let entry;
-      if (contentBlock.type === "text") {
-        const el = document.createElement("div");
-        el.className = "assistant-stream";
-        currentMsgEl.appendChild(el);
-        entry = { kind: "text", el, raw: "" };
-      } else if (contentBlock.type === "tool_use") {
-        const el = document.createElement("div");
-        el.className = "tool-call";
-        const name = document.createElement("span");
-        name.textContent = contentBlock.name || "tool";
-        const args = document.createElement("span");
-        args.className = "args";
-        el.appendChild(name);
-        el.appendChild(document.createTextNode("("));
-        el.appendChild(args);
-        el.appendChild(document.createTextNode(")"));
-        currentMsgEl.appendChild(el);
-        entry = { kind: "tool_use", el, argsEl: args, jsonBuf: "", id: contentBlock.id };
-      } else if (contentBlock.type === "thinking") {
-        const el = document.createElement("div");
-        el.className = "thinking-marker";
-        el.textContent = "thinking";
-        currentMsgEl.appendChild(el);
-        entry = { kind: "thinking", el };
-      } else {
-        entry = { kind: "unknown" };
-      }
-      blockEls[index] = entry;
-      return entry;
-    }
-
-    function summarizeToolInput(input) {
-      if (!input || typeof input !== "object") return "";
-      const preferred = ["command", "file_path", "path", "pattern", "url", "prompt", "query"];
-      for (const k of preferred) {
-        if (typeof input[k] === "string") {
-          const v = input[k];
-          return v.length > 80 ? v.slice(0, 80) + "…" : v;
-        }
-      }
-      try {
-        const s = JSON.stringify(input);
-        return s.length > 80 ? s.slice(0, 80) + "…" : s;
-      } catch {
-        return "";
-      }
-    }
-
-    function summarizeToolResult(name, text, isError) {
-      if (isError) {
-        const firstLine = (text || "Error").split("\n")[0].trim();
-        return firstLine.length > 100 ? firstLine.slice(0, 100) + "…" : firstLine;
-      }
-      const lines = (text || "").split("\n").filter((l) => l.length > 0);
-      switch (name) {
-        case "Read":
-          return `Read ${lines.length} line${lines.length === 1 ? "" : "s"}`;
-        case "Write":
-          return "Wrote file";
-        case "Edit":
-          return "Applied edit";
-        case "Bash": {
-          if (lines.length === 0) return "(no output)";
-          if (lines.length === 1) return lines[0].length > 80 ? lines[0].slice(0, 80) + "…" : lines[0];
-          return `${lines.length} lines`;
-        }
-        case "Glob":
-        case "Grep":
-          return `${lines.length} match${lines.length === 1 ? "" : "es"}`;
-        case "TodoWrite":
-          return "Updated todos";
-        default:
-          if (!lines.length) return "ok";
-          if (lines.length === 1) return lines[0].length > 80 ? lines[0].slice(0, 80) + "…" : lines[0];
-          return `${lines.length} lines`;
-      }
-    }
-
-    function renderToolResult(block) {
-      const turn = ensureTurn();
-      let text = "";
-      if (typeof block.content === "string") {
-        text = block.content;
-      } else if (Array.isArray(block.content)) {
-        text = block.content
-          .map((c) => (typeof c === "object" && c && c.text != null ? c.text : ""))
-          .join("");
-      }
-
-      // Find the corresponding tool_use block to learn its name
-      let name = "Tool";
-      const tu = toolUsesById[block.tool_use_id];
-      if (tu && tu.name) name = tu.name;
-
-      const summary = document.createElement("div");
-      summary.className = "tool-summary" + (block.is_error ? " error" : "");
-      const summaryText = summarizeToolResult(name, text, block.is_error);
-      summary.appendChild(document.createTextNode(summaryText));
-      const hint = document.createElement("span");
-      hint.className = "expand-hint";
-      hint.textContent = text ? "  · click to expand" : "";
-      summary.appendChild(hint);
-
-      const output = document.createElement("div");
-      output.className = "tool-output";
-      output.textContent = text || "";
-
-      summary.addEventListener("click", () => {
-        if (!text) return;
-        output.classList.toggle("expanded");
-      });
-
-      turn.appendChild(summary);
-      turn.appendChild(output);
-
-      // After tool result, prepare for the next assistant message in this turn
-      currentMsgEl = null;
-      blockEls = {};
+    function streamTextDelta(text) {
+      if (!currentInlineMsg) startInlineMsg();
+      currentStreamRaw += text;
+      currentInlineMsg.stream.textContent = currentStreamRaw;
       scrollDown();
     }
 
-    function finalizeTextBlock(entry) {
-      if (entry.kind !== "text" || entry.finalized) return;
-      entry.finalized = true;
+    function finalizeStreamingMsg() {
+      if (!currentInlineMsg || currentInlineMsg.finalized) return;
+      currentInlineMsg.finalized = true;
       try {
-        const html = marked.parse(entry.raw || "");
+        const html = marked.parse(currentStreamRaw || "");
         const md = document.createElement("div");
         md.className = "md";
         md.innerHTML = html;
-        entry.el.replaceWith(md);
-        entry.el = md;
-      } catch (err) {
-        // Leave raw text in place if marked fails
-        console.error("markdown parse failed", err);
-      }
+        currentInlineMsg.stream.replaceWith(md);
+      } catch { /* leave raw */ }
+    }
+
+    function renderColumns(toolUseId, options) {
+      hideSpinner();
+      // If text was streaming, finalize it first so columns appear after.
+      finalizeStreamingMsg();
+      currentInlineMsg = null;
+      currentStreamRaw = "";
+
+      const columnsEl = document.createElement("div");
+      columnsEl.className = "columns";
+      options.forEach((opt, i) => {
+        const card = document.createElement("div");
+        card.className = "option";
+        card.dataset.index = i;
+
+        const marker = document.createElement("div");
+        marker.className = "col-marker";
+        marker.textContent = "Option " + (i + 1);
+        card.appendChild(marker);
+
+        const title = document.createElement("div");
+        title.className = "title";
+        title.textContent = opt.title || "(untitled)";
+        card.appendChild(title);
+
+        const body = document.createElement("div");
+        body.className = "body";
+        const md = document.createElement("div");
+        md.className = "md";
+        try { md.innerHTML = marked.parse(opt.body || ""); }
+        catch { md.textContent = opt.body || ""; }
+        body.appendChild(md);
+        card.appendChild(body);
+
+        card.addEventListener("click", () => onSelectColumn(columnsEl, toolUseId, i));
+        columnsEl.appendChild(card);
+      });
+
+      (currentExchangeEl || transcript).appendChild(columnsEl);
+      lastColumnsBlock = columnsEl;
+      lastToolUseId = toolUseId;
+      lastColumnsLocked = false;
+      scrollDown();
+    }
+
+    function onSelectColumn(columnsEl, toolUseId, columnIndex) {
+      // Allow clicking only on the most recent unlocked columns block
+      if (columnsEl !== lastColumnsBlock || lastColumnsLocked) return;
+      lastColumnsLocked = true;
+      columnsEl.classList.add("locked");
+      const cards = columnsEl.querySelectorAll(".option");
+      cards.forEach((c, i) => {
+        if (i === columnIndex) c.classList.add("chosen");
+        else c.classList.add("dimmed");
+      });
+      ws.send(JSON.stringify({
+        type: "user_message",
+        kind: "selected",
+        tool_use_id: toolUseId,
+        option_index: columnIndex,
+      }));
+      input.disabled = true;
+      // Begin a new exchange for the assistant's follow-up (feedback + next options)
+      startExchange(null);
+    }
+
+    function endExchange(durationMs) {
+      finalizeStreamingMsg();
+      hideSpinner();
+      const footer = document.createElement("div");
+      footer.className = "step-footer";
+      footer.textContent = `Crunched for ${(durationMs / 1000).toFixed(1)}s`;
+      (currentExchangeEl || transcript).appendChild(footer);
+      input.disabled = false;
+      input.focus();
+      currentInlineMsg = null;
+      currentStreamRaw = "";
+      scrollDown();
     }
 
     function handleStreamEvent(ev) {
@@ -445,104 +438,47 @@
       if (!inner) return;
       switch (inner.type) {
         case "message_start":
-          startNewAssistantMessage();
+          // New assistant message — could be feedback prose, or empty (tool-only)
+          // We start a fresh streaming container only when text actually arrives.
+          activeStreamingMsgEl = null;
+          activeStreamRaw = "";
           break;
         case "content_block_start": {
           const cb = inner.content_block || {};
-          const entry = ensureBlock(inner.index, cb);
-          if (cb.type === "tool_use" && cb.id) {
-            toolUsesById[cb.id] = { name: cb.name, ...(toolUsesById[cb.id] || {}) };
+          if (cb.type === "text") {
+            startInlineMsg("feedback");
           }
           break;
         }
         case "content_block_delta": {
-          const entry = blockEls[inner.index];
-          if (!entry) return;
           const delta = inner.delta || {};
-          if (delta.type === "text_delta" && entry.kind === "text") {
-            entry.raw += delta.text || "";
-            entry.el.textContent = entry.raw;
-            scrollDown();
-          } else if (delta.type === "input_json_delta" && entry.kind === "tool_use") {
-            entry.jsonBuf += delta.partial_json || "";
-            try {
-              const parsed = JSON.parse(entry.jsonBuf);
-              entry.argsEl.textContent = summarizeToolInput(parsed);
-            } catch { /* incomplete */ }
+          if (delta.type === "text_delta") {
+            streamTextDelta(delta.text || "");
           }
           break;
         }
-        case "content_block_stop": {
-          const entry = blockEls[inner.index];
-          if (entry && entry.kind === "text") finalizeTextBlock(entry);
+        case "content_block_stop":
+          finalizeStreamingMsg();
           break;
-        }
       }
-    }
-
-    function handleAssistant(msg) {
-      const content = (msg && msg.content) || [];
-      content.forEach((block, i) => {
-        const entry = blockEls[i];
-        if (!entry) return;
-        if (block.type === "tool_use" && entry.kind === "tool_use") {
-          entry.argsEl.textContent = summarizeToolInput(block.input);
-          if (block.id) toolUsesById[block.id] = { name: block.name };
-        } else if (block.type === "text" && entry.kind === "text") {
-          // Ensure final markdown render in case stop didn't fire yet
-          if (!entry.finalized && (entry.raw || block.text)) {
-            entry.raw = block.text || entry.raw;
-            entry.el.textContent = entry.raw;
-            finalizeTextBlock(entry);
-          }
-        }
-      });
-    }
-
-    function handleUser(msg) {
-      const content = (msg && msg.content) || [];
-      for (const block of content) {
-        if (block.type === "tool_result") {
-          renderToolResult(block);
-        }
-      }
-    }
-
-    function handleResult(ev) {
-      hideSpinner();
-      const seconds = (ev.duration_ms || 0) / 1000;
-      const footer = document.createElement("div");
-      footer.className = "turn-footer";
-      footer.textContent = `Crunched for ${seconds.toFixed(1)}s`;
-      ensureTurn().appendChild(footer);
-      input.disabled = false;
-      input.focus();
-      currentMsgEl = null;
-      blockEls = {};
-      currentTurn = null;
-      scrollDown();
     }
 
     function handleEvent(ev) {
       switch (ev.type) {
-        case "user": {
-          const content = (ev.message && ev.message.content) || [];
-          const first = content[0];
-          if (first && first.type === "text") {
-            renderUserInput(first.text);
-          } else {
-            handleUser(ev.message);
-          }
+        case "user":
+          // Server-echoed user message; we already rendered ours optimistically.
           break;
-        }
         case "stream_event":
           handleStreamEvent(ev);
           break;
         case "assistant":
-          handleAssistant(ev.message);
+          // Stream events are sufficient for rendering text/columns.
+          break;
+        case "options":
+          renderColumns(ev.tool_use_id, ev.options || []);
           break;
         case "result":
-          handleResult(ev);
+          endExchange(ev.duration_ms || 0);
           break;
         case "system":
           break;
@@ -551,7 +487,7 @@
           const div = document.createElement("div");
           div.className = "error-line";
           div.textContent = "error: " + ev.message;
-          ensureTurn().appendChild(div);
+          (currentExchangeEl || transcript).appendChild(div);
           input.disabled = false;
           break;
         }
@@ -575,9 +511,12 @@
 
     function send() {
       const text = input.value.trim();
-      if (!text || ws.readyState !== WebSocket.OPEN) return;
+      if (!text) return;
+      if (ws.readyState !== WebSocket.OPEN) return;
+      startExchange(text);
       ws.send(JSON.stringify({ type: "user_message", text }));
       input.value = "";
+      input.style.height = "auto";
       input.disabled = true;
     }
 
@@ -585,12 +524,26 @@
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
     });
-
-    // Auto-grow textarea
     input.addEventListener("input", () => {
       input.style.height = "auto";
       input.style.height = Math.min(input.scrollHeight, 200) + "px";
     });
+
+    // Quick-launch test prompts: fill the textarea and fire as a step.
+    const testBtns = document.querySelectorAll(".test-btn");
+    function setTestBtnsDisabled(b) {
+      testBtns.forEach((btn) => { btn.disabled = b; });
+    }
+    testBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (input.disabled || btn.disabled) return;
+        input.value = btn.dataset.prompt || "";
+        send();
+      });
+    });
+    // Mirror input.disabled into the test buttons via a tiny observer.
+    new MutationObserver(() => setTestBtnsDisabled(input.disabled))
+      .observe(input, { attributes: true, attributeFilter: ["disabled"] });
 
     connect();
   </script>
