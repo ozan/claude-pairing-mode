@@ -170,6 +170,46 @@
     }
     .error-line { color: var(--error); margin: 6px 0; }
 
+    /* Tool calls and results */
+    .tool-call {
+      color: var(--tool);
+      margin: 4px 0;
+      font-size: 13px;
+    }
+    .tool-call::before { content: "⏺ "; opacity: 0.85; }
+    .tool-call .args { color: var(--muted); }
+    .tool-summary {
+      color: var(--muted);
+      font-size: 12px;
+      margin: -2px 0 6px 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tool-summary.error { color: var(--error); }
+    .tool-summary .expand-hint { opacity: 0.6; }
+    .tool-output {
+      display: none;
+      background: var(--code-bg);
+      color: var(--muted);
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin: 0 0 8px 18px;
+      max-height: 300px;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .tool-output.expanded { display: block; }
+
+    /* Diff coloring inside markdown code blocks */
+    pre.diff-block { background: var(--code-bg); padding: 8px 12px; border-radius: 4px; overflow-x: auto; margin: 6px 0; }
+    pre.diff-block code { background: transparent; padding: 0; display: block; }
+    .diff-add { color: #56d364; }
+    .diff-del { color: #ff7b72; }
+    .diff-meta { color: var(--muted); }
+    .diff-hunk { color: #79b8ff; }
+
     /* Composer */
     .composer { background: var(--bg); }
     .composer .rule { border-top: 1px solid var(--rule); height: 0; margin: 0; }
@@ -266,6 +306,87 @@
   <script>
     marked.setOptions({ gfm: true, breaks: false });
 
+    function escapeHtml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+    function colorizeDiffLines(text) {
+      return (text || "").split("\n").map((line) => {
+        let cls = null;
+        if (line.startsWith("+++") || line.startsWith("---")) cls = "diff-meta";
+        else if (line.startsWith("+")) cls = "diff-add";
+        else if (line.startsWith("-")) cls = "diff-del";
+        else if (line.startsWith("@@")) cls = "diff-hunk";
+        return cls ? `<span class="${cls}">${escapeHtml(line)}</span>` : escapeHtml(line);
+      }).join("\n");
+    }
+    // Run after marked.parse(). Detect diff blocks (by lang tag OR by content)
+    // and replace their inner HTML with colored spans. Robust to marked
+    // version differences and to Claude omitting the "diff" lang tag.
+    function postProcessDiffs(html) {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = html;
+      tmp.querySelectorAll("pre code").forEach((codeEl) => {
+        const cls = codeEl.className || "";
+        const text = codeEl.textContent || "";
+        const isDiffLang = /\blanguage-diff\b/i.test(cls);
+        // Heuristic: contains a unified-diff hunk header, or has +/- lines
+        // that aren't just C-style ++/-- operators.
+        const isDiffContent =
+          /^@@[^\n]*@@/m.test(text) ||
+          /^(?:\+\+\+|---)\s/m.test(text) ||
+          (/(^|\n)[+\-][^\+\-]/.test(text) && /(^|\n)[+\-]/g.test(text));
+        if (isDiffLang || isDiffContent) {
+          const pre = codeEl.parentElement;
+          if (pre) pre.classList.add("diff-block");
+          codeEl.innerHTML = colorizeDiffLines(text);
+        }
+      });
+      return tmp.innerHTML;
+    }
+    function renderMarkdown(src) {
+      try { return postProcessDiffs(marked.parse(src || "")); }
+      catch { return escapeHtml(src || ""); }
+    }
+
+    // Format a tool's input arguments as a single short summary string.
+    function summarizeToolInputForCall(input) {
+      if (!input || typeof input !== "object") return "";
+      const preferred = ["command", "file_path", "path", "pattern", "url", "prompt", "query"];
+      for (const k of preferred) {
+        if (typeof input[k] === "string") {
+          const v = input[k];
+          return v.length > 80 ? v.slice(0, 80) + "…" : v;
+        }
+      }
+      try {
+        const s = JSON.stringify(input);
+        return s.length > 80 ? s.slice(0, 80) + "…" : s;
+      } catch { return ""; }
+    }
+
+    function summarizeToolResult(name, text, isError) {
+      if (isError) {
+        const firstLine = (text || "Error").split("\n")[0].trim();
+        return firstLine.length > 100 ? firstLine.slice(0, 100) + "…" : firstLine;
+      }
+      const lines = (text || "").split("\n").filter((l) => l.length > 0);
+      switch (name) {
+        case "Read": return `Read ${lines.length} line${lines.length === 1 ? "" : "s"}`;
+        case "Write": return "Wrote file";
+        case "Edit": return "Applied edit";
+        case "Bash":
+          if (lines.length === 0) return "(no output)";
+          if (lines.length === 1) return lines[0].length > 80 ? lines[0].slice(0, 80) + "…" : lines[0];
+          return `${lines.length} lines`;
+        case "Glob":
+        case "Grep": return `${lines.length} match${lines.length === 1 ? "" : "es"}`;
+        default:
+          if (!lines.length) return "ok";
+          if (lines.length === 1) return lines[0].length > 80 ? lines[0].slice(0, 80) + "…" : lines[0];
+          return `${lines.length} lines`;
+      }
+    }
+
     const transcript = document.getElementById("transcript");
     const form = document.getElementById("form");
     const input = document.getElementById("input");
@@ -276,6 +397,11 @@
     let currentInlineMsg = null;      // {wrap, stream, finalized} for the active streaming text block
     let currentStreamRaw = "";
     let currentSpinnerEl = null;
+
+    // Per-message tool-use tracking: index → {el, argsEl, jsonBuf, name, id}
+    let activeToolCalls = {};
+    // tool_use_id → {name} so we can render results with the right tool name
+    let toolUsesById = {};
 
     // Track the most-recent columns block so the user's click can be routed correctly
     // and so the columns can be locked when picked. Older columns blocks remain visible
@@ -317,6 +443,7 @@
       transcript.appendChild(currentExchangeEl);
       currentInlineMsg = null;
       currentStreamRaw = "";
+      activeToolCalls = {};
       showSpinner();
       scrollDown();
     }
@@ -342,14 +469,79 @@
       scrollDown();
     }
 
+    function startToolCall(index, id, name) {
+      // Finalize streaming text so the tool pill appears below the prose.
+      finalizeStreamingMsg();
+      currentInlineMsg = null;
+      currentStreamRaw = "";
+
+      const div = document.createElement("div");
+      div.className = "tool-call";
+      const nameEl = document.createElement("span");
+      nameEl.textContent = name || "tool";
+      const args = document.createElement("span");
+      args.className = "args";
+      div.appendChild(nameEl);
+      div.appendChild(document.createTextNode("("));
+      div.appendChild(args);
+      div.appendChild(document.createTextNode(")"));
+      (currentExchangeEl || transcript).appendChild(div);
+
+      activeToolCalls[index] = { el: div, argsEl: args, jsonBuf: "", name, id };
+      if (id) toolUsesById[id] = { name };
+      scrollDown();
+    }
+
+    function streamToolInputDelta(index, partial) {
+      const entry = activeToolCalls[index];
+      if (!entry) return;
+      entry.jsonBuf += partial;
+      try {
+        const parsed = JSON.parse(entry.jsonBuf);
+        entry.argsEl.textContent = summarizeToolInputForCall(parsed);
+      } catch { /* not yet valid JSON */ }
+    }
+
+    function renderToolResultBlock(block) {
+      let text = "";
+      if (typeof block.content === "string") text = block.content;
+      else if (Array.isArray(block.content)) {
+        text = block.content
+          .map((c) => (typeof c === "object" && c && c.text != null ? c.text : ""))
+          .join("");
+      }
+      const tu = toolUsesById[block.tool_use_id];
+      const name = (tu && tu.name) || "Tool";
+
+      const summary = document.createElement("div");
+      summary.className = "tool-summary" + (block.is_error ? " error" : "");
+      summary.appendChild(document.createTextNode(summarizeToolResult(name, text, block.is_error)));
+      const hint = document.createElement("span");
+      hint.className = "expand-hint";
+      hint.textContent = text ? "  · click to expand" : "";
+      summary.appendChild(hint);
+
+      const output = document.createElement("div");
+      output.className = "tool-output";
+      output.textContent = text || "";
+
+      summary.addEventListener("click", () => {
+        if (!text) return;
+        output.classList.toggle("expanded");
+      });
+
+      (currentExchangeEl || transcript).appendChild(summary);
+      (currentExchangeEl || transcript).appendChild(output);
+      scrollDown();
+    }
+
     function finalizeStreamingMsg() {
       if (!currentInlineMsg || currentInlineMsg.finalized) return;
       currentInlineMsg.finalized = true;
       try {
-        const html = marked.parse(currentStreamRaw || "");
         const md = document.createElement("div");
         md.className = "md";
-        md.innerHTML = html;
+        md.innerHTML = renderMarkdown(currentStreamRaw);
         currentInlineMsg.stream.replaceWith(md);
       } catch { /* leave raw */ }
     }
@@ -382,8 +574,7 @@
         body.className = "body";
         const md = document.createElement("div");
         md.className = "md";
-        try { md.innerHTML = marked.parse(opt.body || ""); }
-        catch { md.textContent = opt.body || ""; }
+        md.innerHTML = renderMarkdown(opt.body);
         body.appendChild(md);
         card.appendChild(body);
 
@@ -438,15 +629,18 @@
       if (!inner) return;
       switch (inner.type) {
         case "message_start":
-          // New assistant message — could be feedback prose, or empty (tool-only)
-          // We start a fresh streaming container only when text actually arrives.
-          activeStreamingMsgEl = null;
-          activeStreamRaw = "";
+          currentInlineMsg = null;
+          currentStreamRaw = "";
+          activeToolCalls = {};
           break;
         case "content_block_start": {
           const cb = inner.content_block || {};
           if (cb.type === "text") {
-            startInlineMsg("feedback");
+            startInlineMsg();
+          } else if (cb.type === "tool_use") {
+            // Server already filters out our propose tool's stream events,
+            // so any tool_use here is a real CLI tool (Read/Write/Edit/Bash/...).
+            startToolCall(inner.index, cb.id, cb.name);
           }
           break;
         }
@@ -454,6 +648,8 @@
           const delta = inner.delta || {};
           if (delta.type === "text_delta") {
             streamTextDelta(delta.text || "");
+          } else if (delta.type === "input_json_delta") {
+            streamToolInputDelta(inner.index, delta.partial_json || "");
           }
           break;
         }
@@ -465,15 +661,36 @@
 
     function handleEvent(ev) {
       switch (ev.type) {
-        case "user":
-          // Server-echoed user message; we already rendered ours optimistically.
+        case "user": {
+          // Two flavors: text echo (already rendered optimistically when user typed),
+          // or a tool_result block (when a real tool finished). Render the latter.
+          const content = (ev.message && ev.message.content) || [];
+          for (const block of content) {
+            if (block.type === "tool_result") renderToolResultBlock(block);
+          }
           break;
+        }
         case "stream_event":
           handleStreamEvent(ev);
           break;
-        case "assistant":
-          // Stream events are sufficient for rendering text/columns.
+        case "assistant": {
+          // Backstop: in case the consolidated assistant message has tool_use input
+          // that didn't fully stream as input_json_delta, update the args text.
+          const content = (ev.message && ev.message.content) || [];
+          content.forEach((block) => {
+            if (block.type === "tool_use" && block.id) {
+              toolUsesById[block.id] = { name: block.name };
+              // Find the matching active tool call by id to fix up args.
+              for (const k in activeToolCalls) {
+                const e = activeToolCalls[k];
+                if (e.id === block.id) {
+                  e.argsEl.textContent = summarizeToolInputForCall(block.input);
+                }
+              }
+            }
+          });
           break;
+        }
         case "options":
           renderColumns(ev.tool_use_id, ev.options || []);
           break;

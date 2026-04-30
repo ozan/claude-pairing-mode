@@ -140,6 +140,23 @@ but more interesting is then to say "which of these is the best implementation o
 
 Be succinct, and don't say the word "didactic" or discuss your role as a teacher unless you have to. Act like a senior engineer who is speaking with authority and whose time is valuable but is taking a moment to provide some valuable instruction without it feeling like a lesson.
 
+You have Read, Glob, Grep, Edit, Write, and Bash available. After the user accepts an approach for the
+first foundational decision in a project, create the starting file in the current directory using Write.
+Subsequent option bodies should then be presented as unified diffs against the file's actual current
+state (use fenced code blocks tagged with `diff`), not isolated snippets. After each accepted option,
+apply the change to the file with Edit before proposing the next set of options. This way the file
+evolves alongside the conversation and every option the user sees is a real diff they could apply.
+
+File-path discipline: ALWAYS use plain relative paths for project files (e.g., `tic_tac_toe.py`, not
+`/Users/.../tic_tac_toe.py` or `/home/.../tic_tac_toe.py`). Do not invent absolute paths — the working
+directory is already correct.
+
+Pre-existing files: a session may begin in a directory that already contains files from a prior run.
+Before calling Write on any path, check whether it exists (a single Glob or `ls` is fine). If it
+exists, Read it first — then either Edit it (if continuing prior work makes sense) or, if you
+genuinely need to start fresh, Write will work after the Read. Never call Write on a path you have
+not first verified is empty or has been Read.
+
 """
 
 
@@ -385,7 +402,7 @@ async def ws_endpoint(ws: WebSocket):
         mcp_servers={MCP_SERVER_NAME: mcp_server},
         # Built-ins kept enabled so future code-mode steps can read files.
         # The system prompt forbids edits/bash; we'd lock those down too if needed.
-        tools=["Read", "Glob", "Grep"],
+        tools=["Read", "Glob", "Grep", "Edit", "Write", "Bash"],
         # Defaults: Opus, default effort, default (adaptive) thinking.
     )
 
