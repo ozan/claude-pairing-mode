@@ -1,5 +1,4 @@
 import json
-import random
 from pathlib import Path
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
@@ -23,7 +22,7 @@ from claude_agent_sdk import (
 
 STATIC_DIR = Path(__file__).parent / "static"
 
-PROPOSE_TOOL_NAME = "propose_three_options"
+PROPOSE_TOOL_NAME = "propose_options"
 MCP_SERVER_NAME = "proto_pair"
 # Full name as Claude sees it after MCP registration:
 FULL_TOOL_NAME = f"mcp__{MCP_SERVER_NAME}__{PROPOSE_TOOL_NAME}"
@@ -33,8 +32,8 @@ PROPOSE_INPUT_SCHEMA = {
     "properties": {
         "options": {
             "type": "array",
-            "minItems": 3,
-            "maxItems": 3,
+            "minItems": 2,
+            "maxItems": 2,
             "items": {
                 "type": "object",
                 "properties": {
@@ -46,7 +45,8 @@ PROPOSE_INPUT_SCHEMA = {
                         "type": "string",
                         "description": (
                             "Brief markdown justification: 1-3 short sentences, ~40 words "
-                            "max. Save deeper explanation for the post-selection feedback."
+                            "max. Use fenced ```diff blocks for code changes. Save deeper "
+                            "explanation for the post-selection feedback."
                         ),
                     },
                 },
@@ -56,126 +56,113 @@ PROPOSE_INPUT_SCHEMA = {
         "private_notes": {
             "type": "object",
             "description": (
-                "Hidden notes you keep for the followup turn. The user does NOT see "
-                "this until after they make a selection."
+                "Hidden notes you keep for the followup turn. The user does NOT see this."
             ),
             "properties": {
                 "best_index": {
                     "type": "integer",
-                    "description": "0-based index of the option you most recommend.",
-                },
-                "tradeoffs_summary": {
-                    "type": "string",
-                    "description": "Brief description of the meaningful differences between the three options.",
-                },
-                "trap_index": {
-                    "type": "integer",
-                    "description": "0-based index of the deliberate distractor option.",
+                    "description": "0-based index of your honest best recommendation (0 or 1).",
                 },
                 "trap_flaw": {
                     "type": "string",
-                    "description": "What is subtly wrong with the trap option.",
+                    "description": "What is subtly wrong with the OTHER (distractor) option.",
                 },
             },
-            "required": ["best_index", "tradeoffs_summary", "trap_index", "trap_flaw"],
+            "required": ["best_index", "trap_flaw"],
         },
     },
     "required": ["options", "private_notes"],
 }
 
 SYSTEM_PROMPT = """\
-You are an AI pair programmer, designed to teach the user while you build the project together. Your challenge
-is to balance productivity with pedagogy, and you will do so by picking opportune times to ask the user didactic
-questions.
+You are an AI pair programmer designed to teach the user while you build the project together. Your
+challenge is to balance productivity with pedagogy by picking opportune times to ask *didactic* questions.
 
-A didactic question is one where you already have some (or total) confidence in the answer, and so would like to use it as a
-teaching opportunity. This is in contrast to a clarifying question, where you need a response from a user in order
-to proceed productively, and there is not really a meaningful "wrong" answer so much as a user preference.
+A didactic question is one where you have confidence in the right answer and want to use the moment as a
+teaching opportunity. This is in contrast to a clarifying question, where you genuinely need user preference
+to proceed (no "wrong" answer). For clarifying questions, just assume sensible defaults inline (e.g., "I'll
+go with Python") and proceed — don't stall on them. The user can redirect later.
 
-By breaking a large task into a series of smaller tasks, you may identify more opportunities for didactic questions.
-For instance, if the user wishes to work on a tic-tac-toe implementation together, a first didactic question may be "how
-should we model the board state" where a good answer may lead to easier implementation of checking win conditions later.
-A clarifying question may be whether the user prefers to build this as a CLI or web app: there is no pedagogical weight
-to this question; it is merely to clarify user preferences, so you should ask it in your ordinary way.
-
-Important: do not let clarifying questions block the first didactic question. When a user gives you a project goal,
-assume reasonable defaults for purely-preference choices (e.g., "I'll assume Python unless you'd prefer otherwise")
-in a one-line aside, and then call propose_three_options for the first real didactic question in the same turn.
-The user can redirect on language/setup later. Stalling on preference questions before any options appear defeats
-the point of this UI.
-
-When you do identify an opportunity for a didactic question, you will call the propose_three_options tool. This is
-effectively a quiz, where you will present:
+When you identify a didactic moment, call the propose_options tool with TWO options:
 
   1. Your honest best recommendation.
-  2. A substantially different alternative with genuinely interesting tradeoffs (NOT a strawman).
-  3. A plausible-looking distractor: tempting at first glance but with a subtle flaw to learn from.
+  2. A plausible-looking distractor — tempting at first glance, but with a subtle flaw worth learning from.
 
-The user will be presented with all 3 options in the UI, and select one. In doing so, you will be sent a system-generated
-message in the form:
-  
-  <message kind="selected" original_index="N" title="...">User chose option N: "...".</message>
+Examples of good didactic decisions for a tic-tac-toe build:
+  - Modeling the board state (1D list vs nested vs string)
+  - Win-detection style (precomputed lines vs row/col/diag iteration)
+  - Implementation correctness ("which of these two move() functions is correct?")
 
-If the user types a clarifying question or asks to change direction, just respond conversationally. If the user does
-select an option, do one of three things:
+Randomize the order yourself: sometimes the best is index 0, sometimes index 1. The user shouldn't be
+able to predict which is which. Set private_notes.best_index to 0 or 1 to record your recommendation,
+and private_notes.trap_flaw to the subtle problem with the OTHER option.
 
-    - If they selected your favorite approach, express enthusiasm but also reveal some of your rationale in favor of the second favorite approach, then ask which one they want to proceed with
-    - If they selected the "reasonable alternative" option, again provide rationale for both good options, with perhaps more of an argument for the "better" one, then again allow them to choose
-    - If they pick the "bad"/"distractor" option, be curious and not disparaging, but do confidently state why you don't think it's ideal, and again give them a chance to justify and stick with their choice, or switch to another
+KEEP OPTIONS SHORT. Each option body: 1-3 short sentences, ~40 words max. Title: 2-5 words. Don't hint
+at which is best — present both even-handedly.
 
-In all cases then, you are engaging in some conversation about their choice, then when it becomes clear that they want to
-proceed with one option or another, take that as your direction for the project and continue, most likely implementing
-that step (as well as any other obvious or non-didactic steps) and then asking another didicatic question when the
-opportunity arises.
+DIFF FORMAT (REQUIRED for code options): use fenced ```diff blocks containing UNIFIED DIFF format with
+a hunk header. The hunk header is required so the UI can render line numbers. Example:
 
-The question granularity should be such that the options are expressible in a few sentences or a 5-10 line diff. A problem
-like designing tic tac toe may be 10-20 such choices for instance. They can be expressed as text, or ideally, as short code
-snippets such as diffs against the current state of the code. KEEP OPTIONS SHORT. Each option body is 1-3 short sentences,
-~40 words max. Title is 2-5 words. Do not provide hints as to which you think is the best, just describe or present the option
-even handedly.
+  ```diff
+  +++ tic_tac_toe.py
+  @@ -3,2 +3,5 @@
+       board = [' '] * 9
+  -    print(board)
+  +    LINES = [(0,1,2),(3,4,5),(6,7,8),
+  +             (0,3,6),(1,4,7),(2,5,8),
+  +             (0,4,8),(2,4,6)]
+  ```
 
-Design questions can be useful didactic questions, but try to prefer implementation questions where you point to real code,
-for instance you might ask how to model the board state for tic tac toe (since some approaches are genuinely worse than others)
-but more interesting is then to say "which of these is the best implementation of what we just discussed". Some might have subtle bugs, performance issues or other objectively problematic flaws that you can use for the purpose of teaching. Before writing code or applying a diff, use this as an opportunity to quiz the user: provide two other options and ask which is correct. This way, the updates to the code will all be things the user has at least seen, such that they build familiarity as they go.
+Include a `+++ <filename>` header above the hunk so the UI picks the right syntax highlighter. For the
+FIRST foundational decision when no file exists yet, treat the "before" file as empty: use
+`@@ -0,0 +1,N @@` (where N is the line count) and prefix every line with `+`. Never use plain ```python
+or ```js fences for option code — always ```diff with hunk headers.
 
-Be succinct, and don't say the word "didactic" or discuss your role as a teacher unless you have to. Act like a senior engineer who is speaking with authority and whose time is valuable but is taking a moment to provide some valuable instruction without it feeling like a lesson.
+After you call propose_options, the UI displays the two options as columns A and B. The user replies in
+plain text — typically just "A" or "B", or a phrase like "the first one" or "let's go with B". Parse intent
+freely. Then respond per role:
 
-You have Read, Glob, Grep, Edit, Write, and Bash available. After the user accepts an approach for the
-first foundational decision in a project, create the starting file in the current directory using Write.
-Subsequent option bodies should then be presented as unified diffs against the file's actual current
-state (use fenced code blocks tagged with `diff`), not isolated snippets. After each accepted option,
-apply the change to the file with Edit before proposing the next set of options. This way the file
-evolves alongside the conversation and every option the user sees is a real diff they could apply.
+  - If they picked your best (private_notes.best_index): brief enthusiasm. Apply the change with Edit/Write
+    and continue toward the next decision.
+  - If they picked the distractor: be curious, not disparaging. Confidently state the subtle flaw (from
+    private_notes.trap_flaw). Give them a chance to justify their choice, stick with it, or switch to the
+    other option.
 
-File-path discipline: ALWAYS use plain relative paths for project files (e.g., `tic_tac_toe.py`, not
-`/Users/.../tic_tac_toe.py` or `/home/.../tic_tac_toe.py`). Do not invent absolute paths — the working
-directory is already correct.
+The question granularity should be such that the options are a few sentences or a 5-10 line diff. A
+problem like tic-tac-toe might unfold across 10-20 such decisions.
 
-Pre-existing files: a session may begin in a directory that already contains files from a prior run.
-Before calling Write on any path, check whether it exists (a single Glob or `ls` is fine). If it
-exists, Read it first — then either Edit it (if continuing prior work makes sense) or, if you
-genuinely need to start fresh, Write will work after the Read. Never call Write on a path you have
-not first verified is empty or has been Read.
+Workflow for incremental code changes: after the first foundational decision is accepted, create the
+starting file with Write. From then on, before proposing options for an incremental change, Read the
+current file. Express each option as a unified diff in a ```diff fenced block. After the user picks,
+apply that option's change with Edit before moving on.
 
+File-path discipline: ALWAYS use plain relative paths (e.g. `tic_tac_toe.py`, not `/Users/.../...`).
+The working directory is already correct. Before Write on a project file, check whether it exists
+(Glob or `ls`). If it does, Read it first — then either Edit it or proceed with Write (now permitted
+post-Read). Never Write a path you haven't verified is empty or have not Read.
+
+Be succinct. Don't say the word "didactic" or discuss your role as a teacher. Act like a senior engineer
+whose time is valuable but who occasionally slows down to share something worth learning.
 """
 
 
 @tool(
     PROPOSE_TOOL_NAME,
     (
-        "Propose exactly three options for the user to choose from. Use this only when the user message "
-        'is wrapped with kind="new_step" or kind="next_step". Do not use this for discuss or selected kinds.'
+        "Propose exactly two options for the user to choose between at a didactic decision point. "
+        "One option is your honest best recommendation; the other is a plausible-looking distractor "
+        "with a subtle flaw to learn from. Randomize order. The user replies in plain text with their pick."
     ),
     PROPOSE_INPUT_SCHEMA,
 )
-async def propose_three_options(args):  # noqa: ARG001
+async def propose_options(args):  # noqa: ARG001
     # Body is intentionally trivial. The SDK still routes the args through the
     # message stream, where the WS handler intercepts and reshapes them.
     return {"content": [{"type": "text", "text": "Options recorded; awaiting user selection."}]}
 
 
 mcp_server = create_sdk_mcp_server(
-    name=MCP_SERVER_NAME, tools=[propose_three_options]
+    name=MCP_SERVER_NAME, tools=[propose_options]
 )
 
 
@@ -204,8 +191,9 @@ class Connection:
 
     def __init__(self, ws: WebSocket):
         self.ws = ws
-        # tool_use_id -> {column_to_original, original_options, private_notes}
-        self.shuffle_maps: dict[str, dict] = {}
+        # tool_use_ids of our own propose_options calls — used to suppress the
+        # synthetic "ok" tool_result when forwarding user messages to the browser.
+        self.propose_tool_use_ids: set[str] = set()
         # Indices of stream content blocks to suppress in the current message
         self.suppressed_indices: set[int] = set()
 
@@ -224,44 +212,30 @@ class Connection:
             }
         )
 
-    async def emit_options(self, tool_use_id: str, shuffled_options: list):
-        public = [
-            {"title": o.get("title", ""), "body": o.get("body", "")}
-            for o in shuffled_options
-        ]
-        await self.send(
-            {
-                "type": "options",
-                "tool_use_id": tool_use_id,
-                "options": public,
-            }
-        )
-
     async def process_propose(self, block: ToolUseBlock):
         args = block.input or {}
         options = args.get("options") or []
-        private_notes = args.get("private_notes") or {}
 
-        if not isinstance(options, list) or len(options) != 3:
+        if not isinstance(options, list) or len(options) != 2:
             await self.send(
                 {
                     "type": "error",
-                    "message": f"propose_three_options expected exactly 3 options, got {len(options) if isinstance(options, list) else 'non-list'}",
+                    "message": f"propose_options expected exactly 2 options, got {len(options) if isinstance(options, list) else 'non-list'}",
                 }
             )
             return
 
-        indices = list(range(3))
-        random.shuffle(indices)
-        shuffled = [options[i] for i in indices]
-
-        self.shuffle_maps[block.id] = {
-            "column_to_original": indices,
-            "original_options": options,
-            "private_notes": private_notes,
-        }
-
-        await self.emit_options(block.id, shuffled)
+        # No server-side shuffle: the model orders options itself, and its
+        # private_notes references the same indices the browser displays.
+        public = [{"title": o.get("title", ""), "body": o.get("body", "")} for o in options]
+        self.propose_tool_use_ids.add(block.id)
+        await self.send(
+            {
+                "type": "options",
+                "tool_use_id": block.id,
+                "options": public,
+            }
+        )
 
     async def handle_sdk_msg(self, sdk_msg):
         if isinstance(sdk_msg, StreamEvent):
@@ -341,7 +315,7 @@ class Connection:
         for block in msg.content:
             if (
                 isinstance(block, ToolResultBlock)
-                and block.tool_use_id in self.shuffle_maps
+                and block.tool_use_id in self.propose_tool_use_ids
             ):
                 # Suppress the synthetic tool_result for our own tool
                 continue
@@ -358,35 +332,10 @@ class Connection:
             )
 
     def format_outgoing(self, msg: dict) -> str:
-        kind = msg.get("kind")
-        if kind == "selected":
-            tool_use_id = msg.get("tool_use_id")
-            option_index = msg.get("option_index")
-            mapping = self.shuffle_maps.get(tool_use_id)
-            if not mapping or not isinstance(option_index, int):
-                return f'<message kind="discuss">User attempted a selection but the server lost the mapping.</message>'
-            try:
-                original_index = mapping["column_to_original"][option_index]
-            except (IndexError, TypeError):
-                return f'<message kind="discuss">User selection had invalid index.</message>'
-            title = (
-                mapping["original_options"][original_index].get("title", "")
-                if 0 <= original_index < len(mapping["original_options"])
-                else ""
-            )
-            return (
-                f'<message kind="selected" original_index="{original_index}" title="{title}">'
-                f'User chose option {original_index}: "{title}".'
-                f'</message>'
-            )
         return msg.get("text", "")
 
     def echo_text_for_browser(self, msg: dict) -> str | None:
         """Text to echo in the transcript for a user-initiated message; None to skip."""
-        kind = msg.get("kind")
-        if kind == "selected":
-            # The column highlight conveys the choice; no separate echo needed.
-            return None
         return msg.get("text", "") or None
 
 
