@@ -50,7 +50,7 @@ const EXT_TO_LANG: Record<string, string> = {
   json: 'json', yaml: 'yaml', yml: 'yaml', md: 'markdown', toml: 'ini',
 };
 
-function detectLang(rawDiff: string): string | undefined {
+export function detectLang(rawDiff: string): string | undefined {
   const m = rawDiff.match(/^(?:\+\+\+|---) (?:[ab]\/)?(\S+)/m);
   if (!m || !m[1]) return undefined;
   const ext = m[1].split('.').pop()?.toLowerCase();
@@ -70,13 +70,13 @@ function highlightCode(code: string, lang: string | undefined): string {
   }
 }
 
-type Line = {
+export type Line = {
   kind: 'add' | 'del' | 'ctx' | 'hunk' | 'meta';
   num: number | null;
   text: string;
 };
 
-function parse(raw: string): Line[] {
+export function parse(raw: string): Line[] {
   const hunkRe = /^@@ -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@/;
   let oldLine: number | null = null;
   let newLine: number | null = null;

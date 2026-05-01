@@ -1,44 +1,62 @@
-// ChatApp — full-screen alt-screen Ink layout matching `claude` CLI.
+// Generic chat shell. Renders core entry kinds itself; experiments inject a
+// `renderExtra` callback for any additional kinds (e.g. pair/'s `options`).
 //
-// Architecture:
-//   - One long-running `Session` (in agent/runner.ts) owns a single SDK
-//     `query()` call for the entire app lifetime, so conversation history
-//     persists across user turns. Submitting pushes a user message into the
-//     session's queue; events flow back through a listener.
-//   - Transcript is plain React state (not <Static>) — re-renders are cheap
-//     at chat scale and Static's "above-the-current-frame" semantics don't
-//     play well with alt-screen.
-//   - The loader only shows when we're waiting on the model AND nothing is
-//     currently streaming on screen — otherwise we'd see "Pondering…" stuck
-//     under a fully-rendered response, which is wrong.
+// Layout: <Static> for committed past entries (Ink writes them once, never
+// re-renders, so layout can't corrupt while streaming), live region below
+// for the currently-streaming assistant block / running tool pill, input
+// row pinned at the bottom with thin grey rule lines above and below.
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Box, Static, Text, useStdout } from 'ink';
+import React, { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { Box, Static, Text } from 'ink';
 import { Spinner } from '@inkjs/ui';
 import { ChatInput } from './components/Input.js';
-import { Session, type AgentEvent } from './agent/runner.js';
+import { type Session } from './Session.js';
+import { type CoreAgentEvent } from './types.js';
 import {
   AssistantBlock,
   ErrorLine,
-  OptionsBlock,
   StepFooter,
   ToolPillRunning,
   ToolResult,
   UserLine,
 } from './components/Entries.js';
 
-type FrozenEntry =
+
+// "Committed" entries — already past, won't change. Subset of AgentEvent
+// kinds plus the entry envelope.
+type CoreFrozenEntry =
   | { kind: 'user'; text: string }
   | { kind: 'assistant'; text: string }
-  | { kind: 'tool'; name: string; input: unknown; result: { text: string; isError: boolean } | null }
-  | { kind: 'options'; options: { title: string; body: string }[] }
+  | {
+      kind: 'tool';
+      name: string;
+      input: unknown;
+      result: { text: string; isError: boolean } | null;
+    }
   | { kind: 'footer'; elapsedSec: number }
   | { kind: 'error'; message: string };
 
-type LiveEntry =
+// "Live" entries — currently streaming.
+type CoreLiveEntry =
   | { kind: 'assistant'; text: string }
   | { kind: 'tool'; id: string; name: string; input: unknown }
   | null;
+
+/**
+ * Optional extension point for experiments: when the session emits an event
+ * with a kind core doesn't handle, the App passes it to `renderExtraEvent`,
+ * which can:
+ *   - Return an `ExtraEntry` to freeze in the transcript.
+ *   - Return `null` to ignore the event.
+ *   - Return a `{ render: ReactNode }` directly to render once-only (rare).
+ *
+ * The extra entries are then rendered via `renderExtra(entry)`.
+ */
+export type ExtraExtension<E, X> = {
+  reduce: (event: E) => X | null;
+  render: (entry: X, index: number) => ReactNode;
+};
+
 
 const LOADING_WORDS = [
   'Thinking', 'Pondering', 'Cogitating', 'Musing', 'Ruminating',
@@ -51,51 +69,54 @@ function pickLoadingWord(): string {
   return LOADING_WORDS[Math.floor(Math.random() * LOADING_WORDS.length)]!;
 }
 
-export function App() {
-  const { stdout } = useStdout();
-  const rows = stdout.rows;
 
-  const [frozen, setFrozen] = useState<FrozenEntry[]>([]);
-  const [live, setLive] = useState<LiveEntry>(null);
+export function App<E = never, X = never>({
+  session,
+  extra,
+}: {
+  session: Session<E>;
+  extra?: ExtraExtension<E, X>;
+}) {
+  const [frozen, setFrozen] = useState<Array<CoreFrozenEntry | { kind: '__extra__'; entry: X }>>([]);
+  const [live, setLive] = useState<CoreLiveEntry>(null);
   const [busy, setBusy] = useState(false);
-  // True only between submit and the first agent event for this turn. Once
-  // any content arrives we hide the loader — even if the turn continues
-  // (e.g., the model keeps streaming or runs more tools after options).
+  // True between submit and the first agent event for this turn.
   const [waitingForFirst, setWaitingForFirst] = useState(false);
   const [loadingWord, setLoadingWord] = useState(() => pickLoadingWord());
   const [inputKey, setInputKey] = useState(0);
   const turnStartRef = useRef<number>(0);
-  const sessionRef = useRef<Session | null>(null);
 
-  const freeze = useCallback((entry: FrozenEntry) => {
-    setFrozen((prev) => [...prev, entry]);
-  }, []);
+  const freeze = useCallback(
+    (entry: CoreFrozenEntry | { kind: '__extra__'; entry: X }) => {
+      setFrozen((prev) => [...prev, entry]);
+    },
+    [],
+  );
 
   const handleEvent = useCallback(
-    (ev: AgentEvent) => {
-      // Hide the loader on the first visible event of the turn. Tool starts
-      // count too, since the running tool pill is itself the progress
-      // indicator. (We filter ToolSearch upstream so it doesn't trigger this
-      // prematurely.)
+    (ev: CoreAgentEvent | E) => {
+      // Hide the loader on the first visible event of the turn.
+      const e = ev as { kind: string };
       if (
-        ev.kind === 'text_delta' ||
-        ev.kind === 'tool_use_start' ||
-        ev.kind === 'tool_result' ||
-        ev.kind === 'options'
+        e.kind === 'text_delta' ||
+        e.kind === 'tool_use_start' ||
+        e.kind === 'tool_result' ||
+        (extra && (extra.reduce(ev as E) !== null))
       ) {
         setWaitingForFirst(false);
       }
 
-      if (ev.kind === 'text_delta') {
+      if (e.kind === 'text_delta') {
+        const t = (ev as { text: string }).text;
         setLive((cur) => {
           if (cur && cur.kind === 'assistant') {
-            return { ...cur, text: cur.text + ev.text };
+            return { ...cur, text: cur.text + t };
           }
-          return { kind: 'assistant', text: ev.text };
+          return { kind: 'assistant', text: t };
         });
         return;
       }
-      if (ev.kind === 'text_block_done') {
+      if (e.kind === 'text_block_done') {
         setLive((cur) => {
           if (cur && cur.kind === 'assistant') {
             freeze({ kind: 'assistant', text: cur.text });
@@ -105,56 +126,49 @@ export function App() {
         });
         return;
       }
-      if (ev.kind === 'tool_use_start') {
+      if (e.kind === 'tool_use_start') {
+        const t = ev as { id: string; name: string; input: unknown };
         setLive((cur) => {
           if (cur && cur.kind === 'assistant') {
             freeze({ kind: 'assistant', text: cur.text });
           }
-          return { kind: 'tool', id: ev.id, name: ev.name, input: ev.input };
+          return { kind: 'tool', id: t.id, name: t.name, input: t.input };
         });
         return;
       }
-      if (ev.kind === 'tool_use_done') {
+      if (e.kind === 'tool_use_done') {
+        const t = ev as { id: string; input: unknown };
         setLive((cur) => {
-          if (cur && cur.kind === 'tool' && cur.id === ev.id) {
-            return { ...cur, input: ev.input };
+          if (cur && cur.kind === 'tool' && cur.id === t.id) {
+            return { ...cur, input: t.input };
           }
           return cur;
         });
         return;
       }
-      if (ev.kind === 'tool_result') {
+      if (e.kind === 'tool_result') {
+        const t = ev as { toolUseId: string; name: string; text: string; isError: boolean };
         setLive((cur) => {
-          if (cur && cur.kind === 'tool' && cur.id === ev.toolUseId) {
+          if (cur && cur.kind === 'tool' && cur.id === t.toolUseId) {
             freeze({
               kind: 'tool',
               name: cur.name,
               input: cur.input,
-              result: { text: ev.text, isError: ev.isError },
+              result: { text: t.text, isError: t.isError },
             });
             return null;
           }
           freeze({
             kind: 'tool',
-            name: ev.name,
+            name: t.name,
             input: {},
-            result: { text: ev.text, isError: ev.isError },
+            result: { text: t.text, isError: t.isError },
           });
           return cur;
         });
         return;
       }
-      if (ev.kind === 'options') {
-        setLive((cur) => {
-          if (cur && cur.kind === 'assistant') {
-            freeze({ kind: 'assistant', text: cur.text });
-          }
-          freeze({ kind: 'options', options: ev.options });
-          return null;
-        });
-        return;
-      }
-      if (ev.kind === 'result') {
+      if (e.kind === 'result') {
         setLive((cur) => {
           if (cur && cur.kind === 'assistant') {
             freeze({ kind: 'assistant', text: cur.text });
@@ -166,25 +180,36 @@ export function App() {
         setBusy(false);
         return;
       }
-      if (ev.kind === 'error') {
-        freeze({ kind: 'error', message: ev.message });
+      if (e.kind === 'error') {
+        const t = ev as { message: string };
+        freeze({ kind: 'error', message: t.message });
         setBusy(false);
         return;
       }
+      // Unknown kind — try the experiment extension.
+      if (extra) {
+        const x = extra.reduce(ev as E);
+        if (x !== null && x !== undefined) {
+          // Promote any in-flight assistant block before the extension entry.
+          setLive((cur) => {
+            if (cur && cur.kind === 'assistant') {
+              freeze({ kind: 'assistant', text: cur.text });
+            }
+            return null;
+          });
+          freeze({ kind: '__extra__', entry: x });
+        }
+      }
     },
-    [freeze],
+    [extra, freeze],
   );
 
-  // Boot the long-running Session once.
+  // Wire session.
   useEffect(() => {
-    const s = new Session();
-    s.onEvent(handleEvent);
-    s.start();
-    sessionRef.current = s;
-    return () => {
-      s.close();
-    };
-  }, [handleEvent]);
+    session.onEvent(handleEvent);
+    session.start();
+    return () => session.close();
+  }, [session, handleEvent]);
 
   // Rotate loader word every ~2.2s while busy.
   useEffect(() => {
@@ -197,33 +222,27 @@ export function App() {
     (text: string) => {
       const trimmed = text.trim();
       if (!trimmed || busy) return;
-      const s = sessionRef.current;
-      if (!s) return;
       setInputKey((k) => k + 1);
       setBusy(true);
       setWaitingForFirst(true);
       setLoadingWord(pickLoadingWord());
       freeze({ kind: 'user', text: trimmed });
       turnStartRef.current = Date.now();
-      s.send(trimmed);
+      session.send(trimmed);
     },
-    [busy, freeze],
+    [busy, freeze, session],
   );
 
-  // Show the loader only while we're waiting on the FIRST event of the
-  // current turn. Once anything arrives (text, tool call, options) the
-  // loader hides — even if the turn continues for a while afterwards.
   const showLoader = busy && waitingForFirst;
 
   return (
     <>
-      {/* Static commits past entries permanently — Ink writes them once and
-          never re-renders them. This prevents the layout corruption we saw
-          with plain state (where streaming text deltas would re-render the
-          whole transcript on each tick and Ink couldn't reliably clear
-          previous frames). */}
       <Static items={frozen.map((entry, i) => ({ entry, i }))}>
         {({ entry, i }) => {
+          if (entry.kind === '__extra__') {
+            if (extra) return <React.Fragment key={i}>{extra.render(entry.entry, i)}</React.Fragment>;
+            return null;
+          }
           if (entry.kind === 'user') return <UserLine key={i} text={entry.text} />;
           if (entry.kind === 'assistant') return <AssistantBlock key={i} text={entry.text} />;
           if (entry.kind === 'tool') {
@@ -240,18 +259,15 @@ export function App() {
             }
             return <ToolPillRunning key={i} name={entry.name} input={entry.input} />;
           }
-          if (entry.kind === 'options') return <OptionsBlock key={i} options={entry.options} />;
           if (entry.kind === 'footer') return <StepFooter key={i} elapsedSec={entry.elapsedSec} />;
           if (entry.kind === 'error') return <ErrorLine key={i} message={entry.message} />;
           return null;
         }}
       </Static>
 
-      {/* Live region: streaming assistant block / running tool pill */}
       {live && live.kind === 'assistant' ? <AssistantBlock text={live.text} /> : null}
       {live && live.kind === 'tool' ? <ToolPillRunning name={live.name} input={live.input} /> : null}
 
-      {/* Loader: only when busy AND nothing is on screen yet for this turn */}
       {showLoader ? (
         <Box marginTop={1}>
           <Box marginRight={1}>
@@ -261,7 +277,6 @@ export function App() {
         </Box>
       ) : null}
 
-      {/* Input area with thin grey rule lines above and below — matches CC. */}
       <Box
         marginTop={1}
         flexDirection="column"

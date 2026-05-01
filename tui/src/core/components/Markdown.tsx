@@ -10,7 +10,7 @@ import { Diff } from './Diff.js';
 
 const INLINE_CODE = '#afd7ff'; // 153
 
-type Segment =
+export type Segment =
   | { kind: 'text'; value: string }
   | { kind: 'code'; value: string }
   | { kind: 'bold'; value: string }
@@ -22,7 +22,7 @@ type Segment =
 // when we encounter an unclosed special character. (A streamed `\`code` may
 // arrive with the closing backtick still in flight; if we don't advance, the
 // loop hangs forever and locks up the entire UI.)
-function splitInline(input: string): Segment[] {
+export function splitInline(input: string): Segment[] {
   const out: Segment[] = [];
   let i = 0;
   while (i < input.length) {
@@ -89,11 +89,11 @@ function InlineLine({ line }: { line: string }) {
 }
 
 // Split source into prose blocks and fenced blocks.
-type Block =
+export type Block =
   | { kind: 'prose'; text: string }
   | { kind: 'fence'; lang: string; body: string };
 
-function splitBlocks(src: string): Block[] {
+export function splitBlocks(src: string): Block[] {
   const out: Block[] = [];
   const lines = src.split('\n');
   let i = 0;
@@ -131,7 +131,7 @@ function splitBlocks(src: string): Block[] {
   return out;
 }
 
-function isDiffBlock(lang: string, body: string): boolean {
+export function isDiffBlock(lang: string, body: string): boolean {
   if (lang.toLowerCase() === 'diff') return true;
   if (/^@@[^\n]*@@/m.test(body)) return true;
   if (/^(?:\+\+\+|---)\s/m.test(body)) return true;

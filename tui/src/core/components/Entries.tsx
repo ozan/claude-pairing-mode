@@ -1,6 +1,5 @@
-// One component per entry kind in the transcript. Each renders a single
-// "block" in the conversation: user line, assistant prose, tool pill +
-// result, options, step footer, error.
+// One component per generic entry kind in the transcript. Experiment-specific
+// entries (like the 2-column options panel) live next to their experiment.
 
 import React, { memo, useEffect, useState } from 'react';
 import { Box, Text } from 'ink';
@@ -9,9 +8,9 @@ import { EditDiff, WriteDiff } from './Diff.js';
 
 const COLOR_GREY = '#949494';      // 246
 const COLOR_USER = '#c0c5cc';       // soft white
-const COLOR_INLINE_CODE = '#afd7ff'; // 153
 const COLOR_ERROR = '#ff8787';      // 211
 const COLOR_TOOL_DONE = '#50c850';  // green ● for a successfully-completed tool
+
 
 export const UserLine = memo(function UserLine({ text }: { text: string }) {
   return (
@@ -21,9 +20,8 @@ export const UserLine = memo(function UserLine({ text }: { text: string }) {
   );
 });
 
+
 export const AssistantBlock = memo(function AssistantBlock({ text }: { text: string }) {
-  // ⏺ marker on the first line; subsequent lines indent 2 cols (Ink's flexbox
-  // layout with marginLeft on the body achieves this naturally).
   return (
     <Box flexDirection="row" marginTop={1}>
       <Box width={2}>
@@ -36,7 +34,8 @@ export const AssistantBlock = memo(function AssistantBlock({ text }: { text: str
   );
 });
 
-function summarizeInput(input: unknown): string {
+
+export function summarizeInput(input: unknown): string {
   if (!input || typeof input !== 'object') return '';
   const obj = input as Record<string, unknown>;
   if (Object.keys(obj).length === 0) return '';
@@ -51,13 +50,15 @@ function summarizeInput(input: unknown): string {
   return '';
 }
 
-function shortToolName(name: string): string {
+
+export function shortToolName(name: string): string {
   if (!name) return 'tool';
   const raw = name.replace(/^mcp__/, '').split('__').pop() ?? name;
   // CC renames Edit → Update in its TUI. Match that.
   if (raw === 'Edit') return 'Update';
   return raw;
 }
+
 
 // Animated dots after the tool name to signal that it's still running.
 function useRunningDots(): string {
@@ -68,6 +69,7 @@ function useRunningDots(): string {
   }, []);
   return '.'.repeat(n) + ' '.repeat(3 - n);
 }
+
 
 export const ToolPillRunning = memo(function ToolPillRunning({ name, input }: { name: string; input: unknown }) {
   const short = shortToolName(name);
@@ -90,9 +92,10 @@ export const ToolPillRunning = memo(function ToolPillRunning({ name, input }: { 
   );
 });
 
-function buildResultSummary(name: string, text: string, isError: boolean) {
+
+export function buildResultSummary(name: string, text: string, isError: boolean) {
   if (isError) {
-    const first = (text || 'Error').split('\n')[0].trim();
+    const first = (text || 'Error').split('\n')[0]?.trim() ?? 'Error';
     return <Text color={COLOR_ERROR}>{first.slice(0, 200)}</Text>;
   }
   const lines = (text || '').split('\n').filter((l) => l.length > 0);
@@ -108,11 +111,11 @@ function buildResultSummary(name: string, text: string, isError: boolean) {
     return <NumText pre="Read " n={lines.length} suf={` line${lines.length === 1 ? '' : 's'}`} />;
   }
   if (short === 'Write') return <Text color={COLOR_GREY}>Wrote file</Text>;
-  if (short === 'Edit') return <Text color={COLOR_GREY}>Applied edit</Text>;
+  if (short === 'Update') return <Text color={COLOR_GREY}>Applied edit</Text>;
   if (short === 'Bash') {
     if (!lines.length) return <Text color={COLOR_GREY}>(no output)</Text>;
     if (lines.length === 1) {
-      const t = lines[0];
+      const t = lines[0]!;
       return (
         <Text color={COLOR_GREY}>{t.length <= 80 ? t : t.slice(0, 80) + '…'}</Text>
       );
@@ -125,6 +128,7 @@ function buildResultSummary(name: string, text: string, isError: boolean) {
   if (!lines.length) return <Text color={COLOR_GREY}>ok</Text>;
   return <NumText pre="" n={lines.length} suf=" lines" />;
 }
+
 
 export const ToolResult = memo(function ToolResult({
   name,
@@ -159,8 +163,7 @@ export const ToolResult = memo(function ToolResult({
   const short = shortToolName(name);
 
   // Update (the SDK calls it Edit; CC renames in its TUI): render the actual
-  // diff inline. Header is `● Update(filepath)`, then `  └ Added N lines,
-  // removed M line(s)` summary, then the diff.
+  // diff inline.
   if (short === 'Update' && input && typeof input === 'object') {
     const obj = input as Record<string, unknown>;
     const filePath = typeof obj.file_path === 'string' ? obj.file_path : '';
@@ -197,7 +200,7 @@ export const ToolResult = memo(function ToolResult({
     }
   }
 
-  // Write: render the new file content as an all-`+` diff.
+  // Write: render new file content as an all-`+` diff.
   if (short === 'Write' && input && typeof input === 'object') {
     const obj = input as Record<string, unknown>;
     const filePath = typeof obj.file_path === 'string' ? obj.file_path : '';
@@ -232,28 +235,6 @@ export const ToolResult = memo(function ToolResult({
   );
 });
 
-export const OptionsBlock = memo(function OptionsBlock({
-  options,
-}: {
-  options: { title: string; body: string }[];
-}) {
-  return (
-    <Box flexDirection="row" marginTop={1} columnGap={2}>
-      {options.map((opt, i) => {
-        const letter = String.fromCharCode(65 + i);
-        return (
-          <Box key={i} flexDirection="column" flexBasis="50%" flexGrow={1}>
-            <Text bold>{letter}.  {opt.title}</Text>
-            <Box height={1} />
-            <Box marginLeft={4} flexDirection="column">
-              <Markdown src={opt.body} />
-            </Box>
-          </Box>
-        );
-      })}
-    </Box>
-  );
-});
 
 const FOOTER_VERBS = [
   'Cooked', 'Cogitated', 'Pondered', 'Brewed', 'Mulled', 'Reflected',
@@ -270,6 +251,7 @@ export const StepFooter = memo(function StepFooter({ elapsedSec }: { elapsedSec:
     </Box>
   );
 });
+
 
 export const ErrorLine = memo(function ErrorLine({ message }: { message: string }) {
   return (
