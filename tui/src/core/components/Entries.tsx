@@ -4,7 +4,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Box, Text } from 'ink';
 import { Markdown } from './Markdown.js';
-import { EditDiff, WriteDiff } from './Diff.js';
+import { EditDiff, WriteDiff, countAddRemove, lineDiff } from './Diff.js';
 
 const COLOR_GREY = '#949494';      // 246
 const COLOR_USER = '#c0c5cc';       // soft white
@@ -93,6 +93,13 @@ export const ToolPillRunning = memo(function ToolPillRunning({ name, input }: { 
 });
 
 
+// Tools whose output is generally short and worth showing inline, vs. tools
+// where output is potentially huge and should stay collapsed.
+const TOOLS_WITH_INLINE_OUTPUT = new Set(['Bash', 'Glob', 'Grep']);
+const MAX_OUTPUT_LINES = 10;
+const MAX_LINE_CHARS = 200;
+
+
 export function buildResultSummary(name: string, text: string, isError: boolean) {
   if (isError) {
     const first = (text || 'Error').split('\n')[0]?.trim() ?? 'Error';
@@ -112,21 +119,62 @@ export function buildResultSummary(name: string, text: string, isError: boolean)
   }
   if (short === 'Write') return <Text color={COLOR_GREY}>Wrote file</Text>;
   if (short === 'Update') return <Text color={COLOR_GREY}>Applied edit</Text>;
-  if (short === 'Bash') {
-    if (!lines.length) return <Text color={COLOR_GREY}>(no output)</Text>;
-    if (lines.length === 1) {
-      const t = lines[0]!;
-      return (
-        <Text color={COLOR_GREY}>{t.length <= 80 ? t : t.slice(0, 80) + '…'}</Text>
-      );
-    }
-    return <NumText pre="" n={lines.length} suf=" lines" />;
+  if (short === 'Bash' && !lines.length) {
+    return <Text color={COLOR_GREY}>(no output)</Text>;
+  }
+  if (TOOLS_WITH_INLINE_OUTPUT.has(short) && lines.length === 1) {
+    const t = lines[0]!;
+    return (
+      <Text color={COLOR_GREY}>
+        {t.length <= MAX_LINE_CHARS ? t : t.slice(0, MAX_LINE_CHARS) + '…'}
+      </Text>
+    );
   }
   if (short === 'Glob' || short === 'Grep') {
     return <NumText pre="" n={lines.length} suf={` match${lines.length === 1 ? '' : 'es'}`} />;
   }
+  if (short === 'Bash') {
+    return <NumText pre="" n={lines.length} suf=" lines" />;
+  }
   if (!lines.length) return <Text color={COLOR_GREY}>ok</Text>;
   return <NumText pre="" n={lines.length} suf=" lines" />;
+}
+
+
+/**
+ * Renders the full multi-line output of a tool, indented with `└` on the
+ * first line and 2-space continuation thereafter — matching CC. Truncates
+ * to MAX_OUTPUT_LINES and adds a "… N more lines" footer if exceeded.
+ * Each line itself is truncated to MAX_LINE_CHARS so a single huge line
+ * (e.g. minified JSON) doesn't blow up the layout.
+ */
+function ToolOutputBlock({ text }: { text: string }) {
+  const lines = (text || '').split('\n').filter((l) => l.length > 0);
+  const visible = lines.slice(0, MAX_OUTPUT_LINES);
+  const remaining = lines.length - visible.length;
+  return (
+    <Box flexDirection="column">
+      {visible.map((line, i) => {
+        const display =
+          line.length <= MAX_LINE_CHARS ? line : line.slice(0, MAX_LINE_CHARS) + '…';
+        return (
+          <Box key={i}>
+            <Text color={COLOR_GREY}>{i === 0 ? '  └ ' : '    '}</Text>
+            <Text color={COLOR_GREY}>{display}</Text>
+          </Box>
+        );
+      })}
+      {remaining > 0 ? (
+        <Box>
+          <Text color={COLOR_GREY}>
+            {'    … '}
+            <Text bold color="white">{remaining}</Text>
+            {` more line${remaining === 1 ? '' : 's'}`}
+          </Text>
+        </Box>
+      ) : null}
+    </Box>
+  );
 }
 
 
@@ -170,8 +218,8 @@ export const ToolResult = memo(function ToolResult({
     const oldString = typeof obj.old_string === 'string' ? obj.old_string : '';
     const newString = typeof obj.new_string === 'string' ? obj.new_string : '';
     if (filePath && (oldString || newString)) {
-      const removed = oldString ? oldString.split('\n').length : 0;
-      const added = newString ? newString.split('\n').length : 0;
+      const ops = lineDiff(oldString.split('\n'), newString.split('\n'));
+      const { added, removed } = countAddRemove(ops);
       return (
         <Box flexDirection="column" marginTop={1}>
           <Box>
@@ -227,10 +275,29 @@ export const ToolResult = memo(function ToolResult({
     }
   }
 
+  // All other tools (Glob, Read, Bash, Grep, …): show the `● Name(args)`
+  // head. For tools whose output is generally short (Bash, Glob, Grep) we
+  // show the actual lines; for everything else (Read in particular, where
+  // file content can be huge) we show a one-line summary.
+  const args = summarizeInput(input);
+  const lines = (text || '').split('\n').filter((l) => l.length > 0);
+  const showOutput =
+    TOOLS_WITH_INLINE_OUTPUT.has(short) && lines.length > 1;
   return (
-    <Box>
-      <Text>  </Text>
-      {buildResultSummary(name, text, isError)}
+    <Box flexDirection="column" marginTop={1}>
+      <Box>
+        <Text color={COLOR_TOOL_DONE}>● </Text>
+        <Text bold>{short}</Text>
+        {args ? <Text>({args})</Text> : null}
+      </Box>
+      {showOutput ? (
+        <ToolOutputBlock text={text} />
+      ) : (
+        <Box>
+          <Text color={COLOR_GREY}>  └ </Text>
+          {buildResultSummary(name, text, isError)}
+        </Box>
+      )}
     </Box>
   );
 });

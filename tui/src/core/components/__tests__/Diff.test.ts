@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import { detectLang, parse } from '../Diff';
+import { countAddRemove, detectLang, lineDiff, parse } from '../Diff';
 
 describe('detectLang', () => {
   it('detects python from `+++ filename.py`', () => {
@@ -56,5 +56,58 @@ describe('parse', () => {
   it('handles diffs with no hunk header (line numbers null)', () => {
     const out = parse('+a\n+b\n+c');
     expect(out.map((l) => l.num)).toEqual([null, null, null]);
+  });
+});
+
+
+describe('lineDiff', () => {
+  it('returns all eq when both sides are identical', () => {
+    const ops = lineDiff(['a', 'b', 'c'], ['a', 'b', 'c']);
+    expect(ops.every((op) => op.kind === 'eq')).toBe(true);
+    expect(countAddRemove(ops)).toEqual({ added: 0, removed: 0 });
+  });
+
+  it('treats unchanged leading lines as eq when only appending (the bug)', () => {
+    // Regression: old="a\nb", new="a\nb\nc" used to render every old line as
+    // `-` and every new line as `+`, showing the leading 2 lines twice.
+    const ops = lineDiff(['a', 'b'], ['a', 'b', 'c']);
+    expect(ops).toEqual([
+      { kind: 'eq', line: 'a' },
+      { kind: 'eq', line: 'b' },
+      { kind: 'add', line: 'c' },
+    ]);
+    expect(countAddRemove(ops)).toEqual({ added: 1, removed: 0 });
+  });
+
+  it('handles pure deletion', () => {
+    const ops = lineDiff(['a', 'b', 'c'], ['a', 'c']);
+    expect(countAddRemove(ops)).toEqual({ added: 0, removed: 1 });
+    // 'a' and 'c' should be eq.
+    expect(ops.filter((o) => o.kind === 'eq').map((o) => o.line)).toEqual(['a', 'c']);
+    expect(ops.filter((o) => o.kind === 'del').map((o) => o.line)).toEqual(['b']);
+  });
+
+  it('handles a mid-line replacement', () => {
+    const ops = lineDiff(['a', 'b', 'c'], ['a', 'x', 'c']);
+    expect(countAddRemove(ops)).toEqual({ added: 1, removed: 1 });
+    expect(ops.filter((o) => o.kind === 'eq').map((o) => o.line)).toEqual(['a', 'c']);
+    expect(ops.filter((o) => o.kind === 'add').map((o) => o.line)).toEqual(['x']);
+    expect(ops.filter((o) => o.kind === 'del').map((o) => o.line)).toEqual(['b']);
+  });
+
+  it('handles empty old (Write-style)', () => {
+    const ops = lineDiff([], ['a', 'b']);
+    expect(ops).toEqual([
+      { kind: 'add', line: 'a' },
+      { kind: 'add', line: 'b' },
+    ]);
+  });
+
+  it('handles empty new', () => {
+    const ops = lineDiff(['a', 'b'], []);
+    expect(ops).toEqual([
+      { kind: 'del', line: 'a' },
+      { kind: 'del', line: 'b' },
+    ]);
   });
 });

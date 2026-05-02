@@ -85,11 +85,12 @@ describe('ToolPillRunning', () => {
 
 
 describe('ToolResult — non-Edit/Write', () => {
-  it('collapses Read result to `Read N lines`', () => {
+  it('collapses Read result to `Read N lines` (file content can be huge)', () => {
     const { lastFrame } = render(
       <ToolResult name="Read" input={{ file_path: 'a.py' }} text={'a\nb\nc'} isError={false} />,
     );
     const out = stripAnsi(lastFrame());
+    expect(out).toContain('● Read');
     expect(out).toContain('Read 3 lines');
   });
 
@@ -105,6 +106,57 @@ describe('ToolResult — non-Edit/Write', () => {
       <ToolResult name="Bash" input={{ command: 'true' }} text="" isError={false} />,
     );
     expect(stripAnsi(lastFrame())).toContain('(no output)');
+  });
+
+  it('shows actual multi-line Bash output (does not collapse to "N lines")', () => {
+    const { lastFrame } = render(
+      <ToolResult
+        name="Bash"
+        input={{ command: 'ls' }}
+        text={'foo.py\nbar.py\nbaz.py'}
+        isError={false}
+      />,
+    );
+    const out = stripAnsi(lastFrame());
+    // Each file should appear in the output
+    expect(out).toContain('foo.py');
+    expect(out).toContain('bar.py');
+    expect(out).toContain('baz.py');
+    // Should not show the bare collapsed "3 lines" form
+    expect(out).not.toMatch(/└ 3 lines\b/);
+  });
+
+  it('truncates Bash output above the line cap', () => {
+    const lines = Array.from({ length: 15 }, (_, i) => `line${i + 1}`);
+    const { lastFrame } = render(
+      <ToolResult
+        name="Bash"
+        input={{ command: 'ls' }}
+        text={lines.join('\n')}
+        isError={false}
+      />,
+    );
+    const out = stripAnsi(lastFrame());
+    expect(out).toContain('line1');
+    expect(out).toContain('line10');
+    // Should NOT show all 15 (we cap at 10)
+    expect(out).not.toContain('line15');
+    // Truncation footer
+    expect(out).toMatch(/…\s+5 more lines/);
+  });
+
+  it('shows Glob matches inline rather than just "N matches"', () => {
+    const { lastFrame } = render(
+      <ToolResult
+        name="Glob"
+        input={{ pattern: '*.py' }}
+        text={'foo.py\nbar.py'}
+        isError={false}
+      />,
+    );
+    const out = stripAnsi(lastFrame());
+    expect(out).toContain('foo.py');
+    expect(out).toContain('bar.py');
   });
 
   it('on error, shows `● <Name>(<args>)` head + `└ <reason>`', () => {
@@ -129,7 +181,7 @@ describe('ToolResult — Update (Edit) inline diff', () => {
     const { lastFrame } = render(
       <ToolResult
         name="Edit"
-        input={{ file_path: 'foo.py', old_string: 'a\nb', new_string: 'a\nb\nc' }}
+        input={{ file_path: 'foo.py', old_string: 'a\nb\nc', new_string: 'a\nx\nc' }}
         text=""
         isError={false}
       />,
@@ -139,6 +191,29 @@ describe('ToolResult — Update (Edit) inline diff', () => {
     expect(out).toContain('(foo.py)');
     expect(out).toContain('Added');
     expect(out).toContain('removed');
+  });
+
+  it('shows unchanged leading lines as context, not as both -/+', () => {
+    // Regression: old="a\nb", new="a\nb\nc" used to render `-a -b +a +b +c`.
+    // Now `a` and `b` should appear as context (no leading +/-), and only
+    // `c` should be in the added set.
+    const { lastFrame } = render(
+      <ToolResult
+        name="Edit"
+        input={{ file_path: 'foo.py', old_string: 'a\nb', new_string: 'a\nb\nc' }}
+        text=""
+        isError={false}
+      />,
+    );
+    const out = stripAnsi(lastFrame());
+    // Summary should report 1 added, 0 removed (so `removed` clause is omitted).
+    expect(out).toMatch(/Added\s+1\s+line\b/);
+    expect(out).not.toMatch(/removed\s+\d/);
+    // Diff body should include the new line `c` exactly once with a `+` marker.
+    expect(out).toMatch(/\+\s+c\b/);
+    // And NOT contain a `- a` or `- b` line — those should be context.
+    expect(out).not.toMatch(/-\s+a\b/);
+    expect(out).not.toMatch(/-\s+b\b/);
   });
 });
 

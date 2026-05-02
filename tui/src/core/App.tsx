@@ -80,11 +80,22 @@ export function App<E = never, X = never>({
   const [frozen, setFrozen] = useState<Array<CoreFrozenEntry | { kind: '__extra__'; entry: X }>>([]);
   const [live, setLive] = useState<CoreLiveEntry>(null);
   const [busy, setBusy] = useState(false);
-  // True between submit and the first agent event for this turn.
-  const [waitingForFirst, setWaitingForFirst] = useState(false);
   const [loadingWord, setLoadingWord] = useState(() => pickLoadingWord());
   const [inputKey, setInputKey] = useState(0);
+  const [history, setHistory] = useState<string[]>([]);
   const turnStartRef = useRef<number>(0);
+  // Mirror of `live` we can read SYNCHRONOUSLY inside event handlers. React
+  // would otherwise queue setLive callbacks behind direct setFrozen calls,
+  // producing wrong-order commits (we hit a real bug where the step footer
+  // was queued before the assistant text it should follow). All `freeze`
+  // calls now run in raw call order; `setLive` and `liveRef.current` are
+  // kept in lockstep via a wrapper.
+  const liveRef = useRef<CoreLiveEntry>(null);
+
+  const updateLive = useCallback((next: CoreLiveEntry) => {
+    liveRef.current = next;
+    setLive(next);
+  }, []);
 
   const freeze = useCallback(
     (entry: CoreFrozenEntry | { kind: '__extra__'; entry: X }) => {
@@ -95,86 +106,69 @@ export function App<E = never, X = never>({
 
   const handleEvent = useCallback(
     (ev: CoreAgentEvent | E) => {
-      // Hide the loader on the first visible event of the turn.
       const e = ev as { kind: string };
-      if (
-        e.kind === 'text_delta' ||
-        e.kind === 'tool_use_start' ||
-        e.kind === 'tool_result' ||
-        (extra && (extra.reduce(ev as E) !== null))
-      ) {
-        setWaitingForFirst(false);
-      }
-
       if (e.kind === 'text_delta') {
         const t = (ev as { text: string }).text;
-        setLive((cur) => {
-          if (cur && cur.kind === 'assistant') {
-            return { ...cur, text: cur.text + t };
-          }
-          return { kind: 'assistant', text: t };
-        });
+        const cur = liveRef.current;
+        if (cur && cur.kind === 'assistant') {
+          updateLive({ ...cur, text: cur.text + t });
+        } else {
+          updateLive({ kind: 'assistant', text: t });
+        }
         return;
       }
       if (e.kind === 'text_block_done') {
-        setLive((cur) => {
-          if (cur && cur.kind === 'assistant') {
-            freeze({ kind: 'assistant', text: cur.text });
-            return null;
-          }
-          return cur;
-        });
+        const cur = liveRef.current;
+        if (cur && cur.kind === 'assistant') {
+          updateLive(null);
+          freeze({ kind: 'assistant', text: cur.text });
+        }
         return;
       }
       if (e.kind === 'tool_use_start') {
         const t = ev as { id: string; name: string; input: unknown };
-        setLive((cur) => {
-          if (cur && cur.kind === 'assistant') {
-            freeze({ kind: 'assistant', text: cur.text });
-          }
-          return { kind: 'tool', id: t.id, name: t.name, input: t.input };
-        });
+        const cur = liveRef.current;
+        if (cur && cur.kind === 'assistant') {
+          freeze({ kind: 'assistant', text: cur.text });
+        }
+        updateLive({ kind: 'tool', id: t.id, name: t.name, input: t.input });
         return;
       }
       if (e.kind === 'tool_use_done') {
         const t = ev as { id: string; input: unknown };
-        setLive((cur) => {
-          if (cur && cur.kind === 'tool' && cur.id === t.id) {
-            return { ...cur, input: t.input };
-          }
-          return cur;
-        });
+        const cur = liveRef.current;
+        if (cur && cur.kind === 'tool' && cur.id === t.id) {
+          updateLive({ ...cur, input: t.input });
+        }
         return;
       }
       if (e.kind === 'tool_result') {
         const t = ev as { toolUseId: string; name: string; text: string; isError: boolean };
-        setLive((cur) => {
-          if (cur && cur.kind === 'tool' && cur.id === t.toolUseId) {
-            freeze({
-              kind: 'tool',
-              name: cur.name,
-              input: cur.input,
-              result: { text: t.text, isError: t.isError },
-            });
-            return null;
-          }
+        const cur = liveRef.current;
+        if (cur && cur.kind === 'tool' && cur.id === t.toolUseId) {
+          updateLive(null);
+          freeze({
+            kind: 'tool',
+            name: cur.name,
+            input: cur.input,
+            result: { text: t.text, isError: t.isError },
+          });
+        } else {
           freeze({
             kind: 'tool',
             name: t.name,
             input: {},
             result: { text: t.text, isError: t.isError },
           });
-          return cur;
-        });
+        }
         return;
       }
       if (e.kind === 'result') {
-        setLive((cur) => {
-          if (cur && cur.kind === 'assistant') {
-            freeze({ kind: 'assistant', text: cur.text });
-          }
-          return null;
-        });
+        const cur = liveRef.current;
+        if (cur && cur.kind === 'assistant') {
+          updateLive(null);
+          freeze({ kind: 'assistant', text: cur.text });
+        }
         const elapsed = (Date.now() - turnStartRef.current) / 1000;
         freeze({ kind: 'footer', elapsedSec: elapsed });
         setBusy(false);
@@ -190,18 +184,16 @@ export function App<E = never, X = never>({
       if (extra) {
         const x = extra.reduce(ev as E);
         if (x !== null && x !== undefined) {
-          // Promote any in-flight assistant block before the extension entry.
-          setLive((cur) => {
-            if (cur && cur.kind === 'assistant') {
-              freeze({ kind: 'assistant', text: cur.text });
-            }
-            return null;
-          });
+          const cur = liveRef.current;
+          if (cur && cur.kind === 'assistant') {
+            updateLive(null);
+            freeze({ kind: 'assistant', text: cur.text });
+          }
           freeze({ kind: '__extra__', entry: x });
         }
       }
     },
-    [extra, freeze],
+    [extra, freeze, updateLive],
   );
 
   // Wire session.
@@ -224,8 +216,8 @@ export function App<E = never, X = never>({
       if (!trimmed || busy) return;
       setInputKey((k) => k + 1);
       setBusy(true);
-      setWaitingForFirst(true);
       setLoadingWord(pickLoadingWord());
+      setHistory((h) => (h[h.length - 1] === trimmed ? h : [...h, trimmed]));
       freeze({ kind: 'user', text: trimmed });
       turnStartRef.current = Date.now();
       session.send(trimmed);
@@ -233,7 +225,11 @@ export function App<E = never, X = never>({
     [busy, freeze, session],
   );
 
-  const showLoader = busy && waitingForFirst;
+  // Show the spinner whenever the model is doing something but there's
+  // nothing visible streaming yet — i.e. before the first event of a turn
+  // AND in the gaps between tool_result and the next assistant block (the
+  // model is "thinking up" a follow-up).
+  const showLoader = busy && live === null;
 
   return (
     <>
@@ -285,7 +281,7 @@ export function App<E = never, X = never>({
         borderRight={false}
         borderColor="#808080"
       >
-        <ChatInput key={inputKey} isDisabled={busy} onSubmit={onSubmit} />
+        <ChatInput key={inputKey} isDisabled={busy} onSubmit={onSubmit} history={history} />
       </Box>
     </>
   );

@@ -128,6 +128,38 @@ describe('Session.translate — regular tools', () => {
     });
   });
 
+  it('strips <tool_use_error> wrapper from error tool_result text', () => {
+    const { session, events } = captureEvents();
+    session.translate({
+      type: 'assistant',
+      message: {
+        content: [
+          { type: 'tool_use', id: 'toolu_w1', name: 'Write', input: { file_path: 'x.py', content: 'hi' } },
+        ],
+      },
+    });
+    events.length = 0;
+
+    session.translate({
+      type: 'user',
+      message: {
+        content: [
+          {
+            type: 'tool_result',
+            tool_use_id: 'toolu_w1',
+            content: '<tool_use_error>File has not been read yet. Read it first before writing to it.</tool_use_error>',
+            is_error: true,
+          },
+        ],
+      },
+    });
+
+    expect(events).toHaveLength(1);
+    expect((events[0] as { text: string }).text).toBe(
+      'File has not been read yet. Read it first before writing to it.',
+    );
+  });
+
   it('extracts text from array-shaped tool_result content', () => {
     const { session, events } = captureEvents();
     session.translate({

@@ -177,6 +177,55 @@ export function Diff({
 }
 
 
+export type DiffOp = { kind: 'eq' | 'add' | 'del'; line: string };
+
+/**
+ * Line-level LCS diff. Walks an O(n*m) DP table — fine for the edit sizes we
+ * ever see from the SDK (whole-function replacements, not whole-file). The
+ * naive `-old / +new` rendering used to show identical leading lines as
+ * both removed and re-added; this gives proper context (eq) lines instead.
+ */
+export function lineDiff(a: string[], b: string[]): DiffOp[] {
+  const n = a.length;
+  const m = b.length;
+  const dp: number[][] = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= m; j++) {
+      if (a[i - 1] === b[j - 1]) dp[i]![j] = dp[i - 1]![j - 1]! + 1;
+      else dp[i]![j] = Math.max(dp[i - 1]![j]!, dp[i]![j - 1]!);
+    }
+  }
+  const ops: DiffOp[] = [];
+  let i = n;
+  let j = m;
+  while (i > 0 && j > 0) {
+    if (a[i - 1] === b[j - 1]) {
+      ops.push({ kind: 'eq', line: a[i - 1]! });
+      i--; j--;
+    } else if (dp[i - 1]![j]! >= dp[i]![j - 1]!) {
+      ops.push({ kind: 'del', line: a[i - 1]! });
+      i--;
+    } else {
+      ops.push({ kind: 'add', line: b[j - 1]! });
+      j--;
+    }
+  }
+  while (i > 0) { ops.push({ kind: 'del', line: a[i - 1]! }); i--; }
+  while (j > 0) { ops.push({ kind: 'add', line: b[j - 1]! }); j--; }
+  ops.reverse();
+  return ops;
+}
+
+export function countAddRemove(ops: DiffOp[]): { added: number; removed: number } {
+  let added = 0;
+  let removed = 0;
+  for (const op of ops) {
+    if (op.kind === 'add') added++;
+    else if (op.kind === 'del') removed++;
+  }
+  return { added, removed };
+}
+
 /** Synthesize and render a unified diff from old_string → new_string. */
 export function EditDiff({
   filePath,
@@ -189,14 +238,18 @@ export function EditDiff({
 }) {
   const oldLines = oldString.split('\n');
   const newLines = newString.split('\n');
-  const oldCount = oldLines.length;
-  const newCount = newLines.length;
+  const ops = lineDiff(oldLines, newLines);
+  const body = ops
+    .map((op) => {
+      if (op.kind === 'eq') return ` ${op.line}`;
+      if (op.kind === 'add') return `+${op.line}`;
+      return `-${op.line}`;
+    })
+    .join('\n');
   const synthetic =
     `+++ ${filePath}\n` +
-    `@@ -1,${oldCount} +1,${newCount} @@\n` +
-    oldLines.map((l) => `-${l}`).join('\n') +
-    (oldLines.length > 0 ? '\n' : '') +
-    newLines.map((l) => `+${l}`).join('\n');
+    `@@ -1,${oldLines.length} +1,${newLines.length} @@\n` +
+    body;
   return <Diff raw={synthetic} showFileHeader={false} />;
 }
 

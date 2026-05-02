@@ -27,6 +27,16 @@ import {
 const HIDDEN_TOOL_NAMES = new Set(['ToolSearch']);
 
 
+// Some tool errors come back wrapped in `<tool_use_error>...</tool_use_error>`
+// (e.g. Write's "File has not been read yet"), others come as plain prose
+// (e.g. Read's "File does not exist."). Strip the wrapper so the rendered
+// error line is consistent.
+function stripToolUseErrorWrapper(text: string): string {
+  const m = text.match(/^<tool_use_error>([\s\S]*)<\/tool_use_error>\s*$/);
+  return m ? m[1]!.trim() : text;
+}
+
+
 /** Async queue with a `push` method that satisfies AsyncIterable<SDKUserMessage>. */
 class UserMessageQueue implements AsyncIterable<SDKUserMessage> {
   private buffered: SDKUserMessage[] = [];
@@ -272,7 +282,7 @@ export class Session<E = never> {
           kind: 'tool_result',
           toolUseId: tuId,
           name: this.toolNames.get(tuId) ?? 'Tool',
-          text,
+          text: stripToolUseErrorWrapper(text),
           isError: Boolean(block.is_error),
         });
       }
