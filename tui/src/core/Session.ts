@@ -76,6 +76,15 @@ export type SessionOptions<E> = {
   systemPrompt: string;
   mcpServers?: Record<string, McpServerConfig>;
   allowedTools?: string[];
+  disallowedTools?: string[];
+  /** Working directory the SDK uses for tool calls (defaults to process.cwd()). */
+  cwd?: string;
+  /** Override the model id (defaults to whatever the SDK chooses). */
+  model?: string;
+  /** Hard cap on spend for this session (USD). SDK stops the query if exceeded. */
+  maxBudgetUsd?: number;
+  /** Hard cap on the number of agentic turns. Prevents runaway tool loops. */
+  maxTurns?: number;
   /**
    * Map of tool name (full SDK name like `mcp__server__tool_name`) → handler.
    * When the assistant calls a tool whose name is a key here, the handler
@@ -91,6 +100,8 @@ export class Session<E = never> {
   private queue = new UserMessageQueue();
   private listener: ((ev: CoreAgentEvent | E) => void) | null = null;
   private consumePromise: Promise<void> | null = null;
+  private isAborted = false;
+  private abortController: AbortController | null = null;
 
   // Tool ids whose tool_result we should suppress (because a custom handler
   // is owning the rendering for that tool).
@@ -112,6 +123,8 @@ export class Session<E = never> {
   /** Begin consuming the long-running Query. Call once at app start. */
   start(): void {
     if (this.consumePromise) return;
+    this.isAborted = false;
+    this.abortController = new AbortController();
     const q = query({
       prompt: this.queue,
       options: {
@@ -119,18 +132,28 @@ export class Session<E = never> {
         systemPrompt: this.opts.systemPrompt,
         permissionMode: 'bypassPermissions',
         allowedTools: this.opts.allowedTools ?? ['Read', 'Glob', 'Grep', 'Edit', 'Write', 'Bash'],
+        disallowedTools: this.opts.disallowedTools ?? [],
         includePartialMessages: true,
+        abortController: this.abortController,
+        ...(this.opts.cwd ? { cwd: this.opts.cwd } : {}),
+        ...(this.opts.model ? { model: this.opts.model } : {}),
+        ...(this.opts.maxBudgetUsd !== undefined ? { maxBudgetUsd: this.opts.maxBudgetUsd } : {}),
+        ...(this.opts.maxTurns !== undefined ? { maxTurns: this.opts.maxTurns } : {}),
       },
     });
 
     this.consumePromise = (async () => {
       try {
         for await (const msg of q) {
+          if (this.isAborted) break;
           this.translate(msg);
         }
       } catch (e) {
+        // AbortError is expected when the user interrupts — not a real error.
         const err = e as Error;
-        this.emit({ kind: 'error', message: `${err.name}: ${err.message}` } as CoreAgentEvent);
+        if (err.name !== 'AbortError') {
+          this.emit({ kind: 'error', message: `${err.name}: ${err.message}` } as CoreAgentEvent);
+        }
       }
     })();
   }
@@ -143,6 +166,7 @@ export class Session<E = never> {
   /** Send a user prompt; events flow back via the listener. */
   send(text: string): void {
     this.turnStartedAt = Date.now();
+    this.isAborted = false;
     this.suppressedIndices.clear();
     this.queue.push({
       type: 'user',
@@ -153,6 +177,13 @@ export class Session<E = never> {
 
   close(): void {
     this.queue.close();
+  }
+
+  /** Cancel the current turn: abort the HTTP request and emit a cancellation result. */
+  abort(): void {
+    this.isAborted = true;
+    this.abortController?.abort();
+    this.emit({ kind: 'result', durationMs: Date.now() - this.turnStartedAt, totalCostUsd: 0, numTurns: 0 } as CoreAgentEvent);
   }
 
   private emit(ev: CoreAgentEvent | E): void {

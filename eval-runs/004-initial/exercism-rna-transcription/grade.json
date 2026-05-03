@@ -1,0 +1,36 @@
+{
+  "ts": 1777769285153,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-rna-transcription",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair offered exactly one didactic choice (A vs B at turn 1) and asked one closing question ('add tests, or move on?'). No follow-up probes about edge cases, validation strategies, or trade-offs beyond that single fork."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The single fork targets a real trade-off (single-pass dict-lookup with loud failure vs. translate+guard with silent passthrough), which is genuinely the crux of this problem. However, neither option exposes the classic chained-`.replace` interference gotcha that would have been the most instructive trap."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "One well-framed choice followed by a relevant subtlety (translate's silent passthrough) reinforced after the user picks. But with only one decision point there's no real progression or gradient — it's a single step rather than a scaffolded sequence."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is crisp and warm, the Pair acknowledges the user's reasoning ('Exactly right'), adds a substantive follow-up insight, and runs a manual REPL test when asked. Conversational flow is natural, though brief."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly maps DNA→RNA, validates input via KeyError→ValueError, handles empty strings, and was verified with REPL tests. Functionally equivalent to the baseline's solution, though slightly less defensive (no upfront bulk-validation reporting all bad chars)."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Experiment finished in 75s vs baseline's 281s, with one clean fork, immediate file creation, and a verification pass. Tighter than baseline despite incorporating a didactic choice."
+    }
+  }
+}

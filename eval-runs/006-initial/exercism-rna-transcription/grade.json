@@ -1,0 +1,37 @@
+{
+  "ts": 1777777349978,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-rna-transcription",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.8,
+  "finalScore": 0.7,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two distinct two-option choices across a short problem — one on overall approach, one on loop body refactor. That's a high density of didactic forks for a tiny exercise, though no further teachable moments (e.g., bulk validation, str.translate trade-offs) were surfaced as questions."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "Both forks targeted the same core theme — silent validation failure (translate's pass-through, then get's default fallback). The first fork hits a real crux (validation requirement), but the second is essentially a reskin of the same gotcha rather than exploring a new tension like atomic substitution or performance."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Difficulty progression is reasonable: pick the structural approach, then refine the implementation. However, the second question repeats the validation theme rather than escalating to a new concept, and the distractor pattern (silently swallow invalid input) is identical, limiting pedagogical breadth."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Exchanges are crisp and warm (\"Good catch — same trap, different disguise\"), with the Pair acknowledging the user's reasoning and adding a small lesson on exception chaining via `from e`. Flow is natural with no friction, though the closing teaching is brief."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly converts and validates, equivalent in behavior to the baseline. It's slightly less robust than baseline's bulk-validation/translate solution (reports only the first bad char, doesn't leverage str.translate's atomicity) but fully meets requirements."
+    },
+    "friction": {
+      "score": 5,
+      "rationale": "Experiment finished in 83s vs baseline's 281s, with two didactic forks delivered cleanly and no wasted exploration. Substantially tighter than baseline while providing more teaching structure."
+    }
+  }
+}

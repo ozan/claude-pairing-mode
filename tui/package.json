@@ -6,7 +6,9 @@
   "scripts": {
     "start": "bun run src/index.tsx",
     "typecheck": "tsc --noEmit",
-    "test": "bun test"
+    "test": "bun test",
+    "eval": "bun run src/eval/runEval.ts",
+    "grade": "bun run src/eval/grade.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",

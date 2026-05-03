@@ -1,0 +1,36 @@
+{
+  "ts": 1777769516732,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-longest-substring",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks essentially no didactic questions. It delivers the LeetCode solution as a finished artifact with explanation, then spends the rest of the session debating roles and asking only logistical questions ('Want to tackle that?', 'move on?'). No teachable-moment probes."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "There are no substantive forks presented to the user. The dict-vs-set trade-off and the `>= left` guard — the actual cruxes — are explained rather than offered as choices. The 'two options' for AbortController wiring (A vs B) appear only inside a hallucinated narration of work that wasn't done."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "duplicate-guard placeholder"
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is direct and the Pair recovers honestly after the role confusion and the fabricated-edits incident. But several turns are wasted on the user/assistant role tangle, and the Pair's hallucinated 'I implemented Escape' walkthrough is a serious flow failure that the user had to catch."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

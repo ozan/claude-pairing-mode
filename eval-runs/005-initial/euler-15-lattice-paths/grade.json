@@ -1,0 +1,37 @@
+{
+  "ts": 1777774528358,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-15-lattice-paths",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.9,
+  "finalScore": 0.725,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "A single well-placed didactic question (21×21 vs 20×20 grid) at the key implementation decision. No follow-up questions on Pascal's triangle connection or space optimization, which were teachable moments left as commentary."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The fence-post question hits a genuine crux — it's the exact off-by-one trap that distinguishes 'grid of squares' from 'lattice points,' and option B would silently produce a wrong answer. Sharply targeted at the most consequential subtlety in the problem."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Combinatorics framing first, then DP recurrence, then the implementation choice — clean progression with no spoilers. The two options are visually similar enough that the user must reason about indexing rather than pattern-match."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Warm and natural: 'Exactly right... classic fence-post trap' affirms without being saccharine, and the Pair openly corrects its own earlier wrong figure ('I misstated it earlier as ...640; Python's the source of truth') — honest and conversational."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 5,
+      "rationale": "Final answer 137,846,528,820 is correct (C(40,20)). The baseline confidently stated 137,846,528,640, which is wrong by 180. The experiment caught its own initial misstatement by actually running the code, producing a verified, noticeably better solution than baseline."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Two turns / 72s vs. one turn / 42s — modestly longer, but the extra turn delivered both a substantive teaching moment (fence-post) and self-corrected a numerical error the baseline shipped uncaught. Proportional payoff for the added length."
+    }
+  }
+}

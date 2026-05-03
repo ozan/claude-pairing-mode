@@ -1,0 +1,37 @@
+{
+  "ts": 1777777246175,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-10-sum-primes",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.8,
+  "finalScore": 0.7,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two substantive didactic questions (start of inner loop, choice of sieve container) across a small problem space. For a single-function Euler problem, this is a high frequency of teachable engagement without padding."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Both forks target the actual cruxes of an efficient sieve: the p*p optimization (the canonical sieve trick) and bytearray vs list[bool] (the memory/cache reason a Python sieve is fast). These are precisely the two things that distinguish a textbook sieve from a slow one."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from algorithmic correctness (where to start crossing off) to data-structure performance (storage type), with no spoilers. The distractors are plausible rather than trivially wrong, and difficulty escalates appropriately, though the second question's hint (\"Both are O(n) space. Which is faster…\") nudges fairly directly."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tight, warm acknowledgments (\"Exactly right\"), clean diff-formatted options, and a crisp wrap-up summarizing all three optimizations. The back-and-forth feels like a natural pair session rather than a quiz."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final answer 142,913,828,922 matches the baseline and the canonical Project Euler solution. However, the experiment never actually shows the assembled code or executes it — it asserts the answer at the end without a Bash run visible in the transcript, whereas the baseline both wrote and ran the sieve."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "87s and 2 turns vs baseline's 22s and 1 turn — roughly 4x longer, but the extra length delivers two genuinely substantive teaching moments (p*p optimization and bytearray rationale) that the baseline merely narrated. The pedagogical payoff is proportional to the added length."
+    }
+  }
+}

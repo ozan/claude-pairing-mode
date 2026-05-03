@@ -1,0 +1,37 @@
+{
+  "ts": 1777777439431,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-caesar-cipher",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.8,
+  "finalScore": 0.7,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two distinct didactic forks at the two genuinely meaningful decision points (shift implementation, decode strategy), which covers most of the meaningful decisions for this small problem. Not 5 because there's no engagement around case-preservation or the non-letter passthrough, which could have been a third teachable beat."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Both forks hit the crux: modulo vs conditional wrap directly probes correctness under large/negative shifts (the classic Caesar gotcha), and the decode A/B forces the DRY-vs-duplication trade-off. Both distractors are plausible and reveal real understanding when rejected."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from the atomic shift primitive to the encode/decode pairing, building on the prior choice. The first question 'Which handles shift=30 correctly?' is a fairly direct hint, slightly spoiling the answer rather than letting the user discover the failure mode unprompted."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tone is concise and confirmatory ('Spot on', 'Exactly right'), and the conversation flows naturally from option to confirmation to next option to verification. No friction, no non sequiturs, and the closing summary ties the three decisions together cleanly."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is functionally identical to the baseline — same modulo trick, same case-preservation via base, same decode-as-negated-encode. Verified with a round-trip test including large shifts, negative shifts, and punctuation."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Three turns and ~96s vs the baseline's one turn and ~34s, roughly 3x longer. The extra length buys two genuine teaching moments on the central trade-offs of the problem, which is a proportional payoff for a medium task of this size."
+    }
+  }
+}

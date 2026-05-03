@@ -1,0 +1,37 @@
+{
+  "ts": 1777774492812,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-1-multiples",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 4.2,
+  "finalScore": 0.8,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair offered one substantive choice (loop vs. formula) and one follow-up check (stick with A or switch to B). For a problem this small that's reasonable, but no further didactic prompts emerged (e.g., asking the user to derive the formula or anticipate the scaling regime)."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single A/B choice hits the genuine crux for Project Euler: brute force vs. closed-form, with the scaling concern being the actual lesson. The Pair surfaced the inclusion-exclusion structure and the n=10^18 stress test, which is the right teachable hinge."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Nice progression: present both options without spoiling, accept the user's pick, then reveal the scaling tradeoff so the user can re-decide with new info. No abrupt jumps and no premature reveals; could have pushed slightly further by asking the user to derive m=(n-1)//k."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Conversational, warm, and respectful of the user's reasoning (\"sound learning strategy\"). The back-and-forth feels natural and the Pair validates the user's tradeoff thinking before shipping."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 5,
+      "rationale": "Produced correct, working code (233168 verified by execution) in a single file, idiomatic Python. The baseline never produced any code at all — it spiraled into 28 turns of role-confusion meta-discussion, so the experiment is dramatically better."
+    },
+    "friction": {
+      "score": 5,
+      "rationale": "3 turns / 71 seconds vs. baseline's 28 turns / 514 seconds, with a real didactic exchange and a working solution. Tight, focused, and substantially better teaching for far less length."
+    }
+  }
+}

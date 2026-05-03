@@ -1,0 +1,36 @@
+{
+  "ts": 1777769197504,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-mini-calculator",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never asked the user a single didactic question. It went straight to writing both files, fixing a bug, and presenting a post-hoc explanation. Decision points (grammar choice, division semantics, error handling) were all made unilaterally."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed for the user. The recursive-descent vs shunting-yard fork, int-vs-float division behavior, and unary operator handling were all consequential forks that went unsurfaced."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolded sequence — just a monolithic implementation followed by a lecture-style explanation. The CLAUDE.md mandate of two-option didactic prompts was completely ignored."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is competent and the post-hoc walkthrough of `3 + 4 * (2 - 1)` is clear, but there is no back-and-forth — the user only chimes in at the end to confirm. It reads as a solo demonstration, not pair programming."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

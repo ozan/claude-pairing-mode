@@ -1,0 +1,36 @@
+{
+  "ts": 1777769384728,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-mini-calculator",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 4.6,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 5,
+      "rationale": "The Pair posed a didactic two-option choice at every meaningful decision point: parsing strategy, position tracking, recursive vs iterative chaining, strict vs lenient paren handling, trailing-token check, and unary recursion target. Six substantive forks across seven turns is high frequency."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Choices hit genuine cruxes: left- vs right-associativity (the recursive vs iterative fork), silent vs loud failure on unbalanced parens, trailing-token detection, and unary precedence binding. These are the classic recursive-descent gotchas, not cosmetic forks."
+    },
+    "scaffolding": {
+      "score": 5,
+      "rationale": "Progression flowed cleanly: high-level strategy → state representation → grammar level by level (expr, then atom, then trailing check, then unary) with difficulty rising in step. The Pair never spoiled answers — each question asked the user to trace before revealing — and built each new fork on prior commitments."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Brief affirmations (\"Exactly right — you nailed it\") followed by immediate code application kept momentum. The Pair's framing (\"What does Option B return for...\") prompted concrete traces rather than abstract reasoning, and the back-and-forth read as a genuine collaborative build."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final code correctly handles all four operators, parentheses, precedence, left-associativity, unary minus, and rejects malformed input — verified against 8 test cases. Slightly stronger than baseline in error-handling discipline (trailing-token check), though it lacks the baseline's pytest suite."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Roughly 3x the baseline's wall time (329s vs 116s) and 7 turns vs 1, but the extra length delivered clear teaching value: each fork mapped to a real parser concept the user reasoned through. Proportional payoff for the added length."
+    }
+  }
+}

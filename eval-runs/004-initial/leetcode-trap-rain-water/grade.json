@@ -1,0 +1,36 @@
+{
+  "ts": 1777769322748,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-trap-rain-water",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.9,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 5,
+      "rationale": "The Pair posed four distinct didactic A/B choices across the build (min vs max, left_max loop form, right_max iteration direction, compute-then-advance vs advance-then-compute), engaging the user at every meaningful decision point in both the DP and two-pointer solutions."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "Choices targeted real conceptual cruxes: the bounded-by-shorter-wall insight, the off-by-one in the DP recurrence, iteration direction dependency, and the ordering subtlety that makes the two-pointer invariant work. The final compute-vs-advance question is slightly contrived since the actual code updates max at the top of the loop, but it still surfaced the invariant."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression flows naturally from formula → DP recurrence → symmetric direction → space optimization, with each question building on the prior. The jump from DP to the two-pointer invariant is bridged by prose rather than a stepping-stone question, but no spoilers are given and difficulty escalates smoothly."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Affirmations are crisp (\"Spot on\", \"Exactly right — and Option B would just rebuild left_max\"), and the Pair offers an opt-in to the optimization rather than railroading. The closing comparison table and note about why no max(0,...) guard is needed land cleanly without being preachy."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final two-pointer code passes all tests and matches the baseline's correctness. It is functionally equivalent — slightly different style (updates maxes at top of loop, no separate max(0,...) guard needed) but solves the problem correctly."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "305s vs baseline's 82s (~3.7x) and 6 turns vs 2, but the extra length delivers genuine pedagogical payoff: the user reasoned through four substantive decisions and built both solutions incrementally rather than receiving a finished walkthrough. The trade is proportional given the didactic goal."
+    }
+  }
+}

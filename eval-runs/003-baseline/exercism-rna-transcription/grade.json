@@ -1,0 +1,36 @@
+{
+  "ts": 1777769108380,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-rna-transcription",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 2.7,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair only presented one didactic choice point (the A/B options in turn 2), and only after the user explicitly demanded it. No follow-up questions probed the user's understanding before or after the choice."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single A/B choice hits the actual crux of this problem — the sequential-vs-atomic substitution gotcha when mappings cycle (G↔C). That's the textbook teachable moment for this exercise."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "There is essentially one question with no progression. Worse, Option A's framing ('applies the entire mapping atomically in a single pass') arguably hints at the flaw in B by contrast, weakening the discovery aspect."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the Pair gracefully owned the missed setup ('You're right, my mistake'). But flow is poor: the Pair shipped a solution unprompted in turn 1, ignoring the entire didactic premise until corrected."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

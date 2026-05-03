@@ -1,0 +1,37 @@
+{
+  "ts": 1777777407624,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-trap-rain-water",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.6,
+  "finalScore": 0.65,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two structured option-questions at meaningful decision points (algorithm choice, then pointer-advance condition), plus a probing follow-up after the user picked the wrong option. For a short three-turn problem, that's solid frequency at the genuine forks."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "The second choice (max-comparison vs height-comparison) hits the exact crux of this problem — the most common subtle bug in two-pointer trap-rain-water. It's a textbook teachable moment, not a cosmetic fork."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from approach selection → invariant subtlety, with no spoilers in the option text (both variants look plausible). The jump to the counterexample-driven correction was well-timed, though the final test verification was glossed over rather than walked through."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "The Pair pushed back firmly but warmly when the user confidently picked the wrong option, used a concrete trace as evidence, and the user's reflective final response showed genuine learning. Excellent didactic dynamic."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 2,
+      "rationale": "Unlike the baseline, no Python file was actually written or executed in the experiment — the user claims 'all tests pass' but no Write/Bash tool calls appear in the transcript. The chosen algorithm is correct, but the deliverable (working file with tests) is missing."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "139s vs 82s baseline (~1.7x) with one extra turn, but the additional time bought a genuinely valuable lesson on a classic gotcha that the baseline didn't surface. Proportional pedagogical payoff, though offset by the missing implementation."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777777391583,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-longest-substring",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 4.1,
+  "finalScore": 0.775,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 5,
+      "rationale": "The Pair structured nearly every meaningful decision as an A/B choice — data structure for #3, three decisions for #4 (binary search target, boundary handling, partition validity), three for #5 (algorithm, bounds vs length, tracking strategy). Almost every decision point became a teachable question."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Choices consistently hit the crux: the `max()` guard trap with `\"abba\"`, the vacuous within-array check vs cross-array partition validity in #4, sentinel values vs excluding boundaries. These are exactly the subtle gotchas that distinguish understanding from rote memorization."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Decision sequences within each problem progressed logically (algorithm choice → boundaries → validity). However, the Pair sometimes spoiled answers by immediately revealing the correct option after posing the question (e.g., 'The answer: Approach A has a subtle bug' right after asking), undermining the scaffolding intent."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone was warm and the technical content flowed well, but turns 5–8 were a painful confused loop where the user (acting as junior) and Pair kept swapping roles about who should launch the TUI. The Pair eventually broke the loop, but it consumed substantial conversational bandwidth without pedagogical payoff."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final code for all three LeetCode problems passes its tests, and the user emerged with a deeper pattern-level understanding than the baseline provided. Solutions are correct and well-commented, exceeding the original scope productively."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "About 2.3x baseline duration with 2x the turns. The extra time mostly bought legitimate teaching (two more problems plus a retrospective), but the turn 5–8 role-confusion loop was pure waste. Proportional but not tight."
+    }
+  }
+}

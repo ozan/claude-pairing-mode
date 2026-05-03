@@ -1,0 +1,36 @@
+{
+  "ts": 1777769083289,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-bowling",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It went straight from problem statement to a complete written solution with embedded test verification, then a post-hoc walkthrough. No teachable moments (strike bonus mechanics, 10th-frame edge cases, validation strategy) were turned into user-facing choices."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "There are no choices or framings of forks at all — the bowling problem is rich with cruxes (cursor vs. frame-list representation, how 10th-frame strikes interact with the 'bonus rolls aren't re-scored' rule, validation depth) and none were surfaced to the user."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "No scaffolding exists because there is no question sequence. The walkthrough at the end is exposition, not pedagogy, and reveals the full design rather than guiding the user to discover any of it."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is competent and clear, but the dynamic is a one-shot dump-and-summarize rather than back-and-forth. The user's only contribution is acknowledging the finished solution; there is no conversational flow to evaluate."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

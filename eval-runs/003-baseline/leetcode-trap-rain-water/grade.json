@@ -1,0 +1,36 @@
+{
+  "ts": 1777769137941,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-trap-rain-water",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 2,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never poses a didactic question to the user. It presents three approaches, then writes and runs the code without engaging the user on any decision point (e.g., why min vs max, how to handle empty input, what edge cases to test)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "There are essentially no questions or framed choices for the user. The Pair offers approaches as a menu but does not surface a real decision crux — the user picks Approach 2 unprompted, and no trade-off discussion is invited."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there are no progressive questions. The Pair dumps the full optimal solution including the proof up front, spoiling the most interesting insight rather than guiding the user toward it."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is clear and warm, and the explanations are well-structured. However, it's largely a monologue — the Pair lectures and executes rather than engaging in back-and-forth dialogue, and the user's role is reduced to acknowledgments."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

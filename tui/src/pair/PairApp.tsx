@@ -26,10 +26,18 @@ export function PairApp() {
       new Session<OptionsEvent>({
         systemPrompt: SYSTEM_PROMPT,
         mcpServers: { [MCP_SERVER_NAME]: pairMcpServer },
-        allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'Write', 'Bash'],
+        // MCP tool name MUST be in allowedTools or the SDK filters it from
+        // the model's tool list — Sonnet then declares "the tool isn't
+        // registered" and silently falls back to inline markdown options.
+        allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'Write', 'Bash', FULL_PROPOSE_TOOL_NAME],
+        // SDK auto-exposes AskUserQuestion; the pair model would happily
+        // call it for didactic moments, bypassing propose_options entirely.
+        disallowedTools: ['AskUserQuestion'],
         customToolHandlers: {
           [FULL_PROPOSE_TOOL_NAME]: proposeOptionsHandler,
         },
+        maxBudgetUsd: 5,
+        maxTurns: 20,
       }),
     [],
   );

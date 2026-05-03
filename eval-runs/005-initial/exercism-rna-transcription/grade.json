@@ -1,0 +1,37 @@
+{
+  "ts": 1777774597242,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-rna-transcription",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.8,
+  "finalScore": 0.7,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two distinct option-choices across the short session (translate vs dict, then try/except vs pre-validate), engaging the user at both meaningful decision points. Given the problem's small scope, this is a high frequency of didactic engagement."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The second choice (try/except vs pre-validate) is a substantive idiomatic trade-off. However, the first choice frames str.translate as the 'looks correct but quietly swallows invalid input' option — which is a real point but misses the more famous gotcha of this exercise (chained .replace interference, or that translate also silently passes through non-mapped chars), and the framing is a bit shallow."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "The progression (core mapping → error handling) is logical and difficulty-appropriate. But the Pair telegraphs the 'right' answer in turn 1 ('str.translate quietly swallows invalid input') before the user has even committed, which softens the pedagogical tension."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm, affirming, and the back-and-forth feels natural; the user's reasoning is acknowledged specifically rather than generically. Minor ding: the Pair validates choices very quickly ('Spot on') without probing deeper, which limits true dialogue."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly solves the problem with validation via KeyError→ValueError conversion. Comparable to baseline; arguably slightly less robust (single bad char vs collected set) but still meets the Exercism contract."
+    },
+    "friction": {
+      "score": 5,
+      "rationale": "Experiment finished in 102s vs baseline's 281s, with two clean didactic forks and no wasted exploration. Tighter than baseline while delivering more teaching."
+    }
+  }
+}

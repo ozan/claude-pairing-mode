@@ -1,0 +1,37 @@
+{
+  "ts": 1777777567570,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-15-lattice-paths",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 2.5,
+  "finalScore": 0.375,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "Only one didactic question is posed (iteration direction for the rolling array). It's a single teachable moment in a session that could have offered more (e.g., why DP equals binomial, overflow trade-offs, when to prefer closed form)."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single question is genuinely substantive — iteration direction in a rolling-array DP is a classic gotcha, and the Pair's follow-up connects the wrong answer to Pascal's recurrence and the 0/1 knapsack mirror. High-value crux even if isolated."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Reasonable single-step setup: derive recurrence, motivate space compression, then ask the direction question without spoilers. But with only one question there's no real progression or gradient to evaluate."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Clean back-and-forth: the user explains, the Pair affirms and extends with the knapsack analogy. Tone is collegial and the response is actionable. Slightly marred by the Pair shipping a wrong number (137,846,528,820 vs correct 137,846,528,640) without flagging it explicitly as an error in the prior turn."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 2,
+      "rationale": "Final answer printed is 137,846,528,820, off from the correct 137,846,528,640. Baseline was correct. The DP code is fine in structure but the executed/reported result is wrong, which is a hard miss for a numerical Project Euler problem."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "About 3× the baseline wall time and double the turns for one teachable question and an analogy, while delivering a wrong final number. The pedagogical payoff doesn't justify the extra length given the correctness regression."
+    }
+  }
+}

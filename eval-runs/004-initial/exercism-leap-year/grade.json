@@ -1,0 +1,36 @@
+{
+  "ts": 1777769560598,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-leap-year",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 2.4,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair only poses one open-ended prompt at the end of Turn 1 ('Want to add tests, or move on to something else?'). There are no didactic questions at the actual decision points (e.g., asking the user to predict behavior on 2000 or to derive the parenthesization)."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The Pair surfaces the genuine crux (the century/400 trap and operator precedence) but presents them as exposition rather than as choices for the user. The lone question is logistical, not pedagogical."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "The solution and the explanation of precedence are revealed immediately, so there's no progression — the user is handed both the answer and the reasoning at once. The later turns scaffold test verification, not conceptual learning."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the back-and-forth on test verification is responsive and actionable (finding the test path, then synthesizing Exercism's known cases inline). The note about the MCP tool not being wired in is a minor meta-distraction."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is identical to the baseline and correct; additionally, the Pair verified against Exercism's actual test cases, which is a small plus over baseline."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "441s vs. baseline's 26s (~17x) and 3 turns vs. 1, largely spent hunting for a nonexistent local test file before reproducing tests inline. The extra time yielded test verification but little proportional pedagogical payoff."
+    }
+  }
+}

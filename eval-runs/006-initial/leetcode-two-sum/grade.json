@@ -1,0 +1,37 @@
+{
+  "ts": 1777777424003,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-two-sum",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 4.4,
+  "finalScore": 0.85,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two didactic two-option choices in a 4-turn conversation (algorithm choice, then test design for the self-match guard), and also surfaced a teachable observation about check-before-insert. Given the problem's small surface area, this is solid frequency, though not every meaningful decision (e.g., test framework/structure) was made interactive."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Both choices hit real cruxes: nested loops vs hash map is the canonical algorithmic trade-off, and the [3,5] vs [3,3] test design question targets exactly what 'tests the self-match guard' means — a subtle but important distinction about what a test actually exercises."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from algorithm → implementation → testing, with the self-match invariant introduced after the algorithm choice and then probed via the test-design question. No spoilers. Slightly abrupt that the full test suite was written without further interaction after the second choice."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tone is warm and concise ('Classic.', 'Exactly right.'), responses are direct and actionable, and the back-and-forth feels natural. The Pair acknowledges the user's reasoning before moving on, and the wrap-up cleanly signals completion."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final code is correct, clean, and tested with 5 passing tests including the critical [3,3] self-match case. Slightly less thorough than baseline (no semantic-validation assertion or no-solution test), but functionally equivalent and arguably cleaner."
+    },
+    "friction": {
+      "score": 5,
+      "rationale": "Finished in 4 turns / 127s vs baseline's 11 turns / 359s. The baseline burned ~7 turns on a role-confusion meta-loop; the experiment delivered better pedagogy in roughly a third of the time."
+    }
+  }
+}

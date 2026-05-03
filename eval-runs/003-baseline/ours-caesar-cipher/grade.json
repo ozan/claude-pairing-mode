@@ -1,0 +1,36 @@
+{
+  "ts": 1777769170161,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-caesar-cipher",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 2,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It went straight to writing the full solution and explaining it post-hoc, with no choice points surfaced to the user — directly contrary to the project's two-option didactic premise."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all. Natural forks (modulo-on-negatives behavior, whether to reuse encode for decode, isalpha vs explicit range check) were merely narrated, never offered as decisions."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no question sequence to scaffold. The walkthrough spoils every subtlety (negative shift handling, base trick, decode-as-encode) before the user could engage with them."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is clear and the explanation is accurate and well-organized, but it's a one-way monologue rather than a back-and-forth. The user's reply is just verification, not interaction."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

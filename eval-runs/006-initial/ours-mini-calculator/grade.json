@@ -1,0 +1,37 @@
+{
+  "ts": 1777777485241,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-mini-calculator",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 4.3,
+  "finalScore": 0.825,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "Three substantive didactic questions at meaningful decision points (grammar layering, parenthesis recursion target, unary recursion target), plus a reflective 'why does the while loop give left-assoc' check. Most major forks involved the user."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Each question targets a classic parser-design crux: associativity via iteration vs right-recursion, precedence reset inside parens, and unary-operator binding tightness. These are exactly the gotchas that trip people learning recursive descent."
+    },
+    "scaffolding": {
+      "score": 5,
+      "rationale": "Progression is clean: overall grammar shape → parens recursion → unary recursion, with a reflective trace-through in between. Difficulty rises naturally and no answers are spoiled — diffs differ by one word, forcing the user to reason."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Pair affirms correct reasoning briefly, builds on the user's own framing ('the intuition generalizes'), and transitions smoothly between question, code, and next question. The aside about the MCP tool not being wired is honest and unobtrusive."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final evaluator correctly handles all four required ops, parens, precedence, left-assoc, and unary, with 8/8 tests passing. Slightly less coverage than baseline's 32-test pytest suite, but the core problem is solved cleanly and the unary extension goes beyond the prompt."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "5 turns / 294s vs baseline's 1 turn / 116s — ~2.5x longer, but the extra time delivers three high-value teachable moments (associativity, precedence reset, unary tightness) plus a unary-minus extension. The pedagogical payoff justifies the added length."
+    }
+  }
+}

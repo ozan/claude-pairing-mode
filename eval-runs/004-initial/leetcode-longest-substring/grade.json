@@ -1,0 +1,36 @@
+{
+  "ts": 1777769576941,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-longest-substring",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.8,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed one substantive didactic question (set vs dict approach in Turn 1) and a follow-up offering tests vs. moving on. Decision points were limited but the key one was offered to the user rather than decided unilaterally."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The set-vs-dict choice hits the actual crux of this problem — the subtle 'left jumps backward' bug in the naive dict version is the canonical gotcha for LC #3, and Option B is a perfect plausible-looking distractor with exactly that flaw."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Clean progression: present the fork, let user reason about correctness, correct the user's slightly-off diagnosis precisely, then implement and discuss complexity nuance. No spoilers — the bug isn't named upfront. Could have invited the user to construct the failing input themselves rather than offering 'abba' implicitly via the trace."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tight back-and-forth, warm but direct. The Pair's correction in Turn 2 ('precise failure mode is slightly different') is exactly the kind of accurate, respectful feedback you want — affirms the user's instinct then sharpens the mechanism."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final solution is correct, tested with good edge cases including 'dvdf' and 'abba', and verified to pass. Equivalent to baseline's correctness; baseline picked the dict approach with the guard, experiment picked the set approach — both valid."
+    },
+    "friction": {
+      "score": 5,
+      "rationale": "112s / 3 turns vs baseline's 375s / 7 turns. Experiment stayed on-task (the baseline got tangled in a long meta-argument about role-play and fabricated edits), delivered a working, tested solution faster, and provided more pedagogical value via the option fork."
+    }
+  }
+}

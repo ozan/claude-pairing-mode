@@ -7,7 +7,7 @@
 // row pinned at the bottom with thin grey rule lines above and below.
 
 import React, { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
-import { Box, Static, Text } from 'ink';
+import { Box, Static, Text, useInput } from 'ink';
 import { Spinner } from '@inkjs/ui';
 import { ChatInput } from './components/Input.js';
 import { type Session } from './Session.js';
@@ -223,6 +223,17 @@ export function App<E = never, X = never>({
       session.send(trimmed);
     },
     [busy, freeze, session],
+  );
+
+  // Interrupt handler: Escape cancels a running turn.
+  useInput(
+    (input, key) => {
+      if (key.escape && busy) {
+        session.abort();
+        setBusy(false);
+      }
+    },
+    { isActive: busy },
   );
 
   // Show the spinner whenever the model is doing something but there's

@@ -1,0 +1,37 @@
+{
+  "ts": 1777774506841,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-10-sum-primes",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.7,
+  "finalScore": 0.675,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two substantive didactic questions before writing any code (outer-loop bound, inner-loop starting point), covering the meaningful decision points in the sieve. It missed a third potential teachable moment (the bytearray vs list choice) which it merely narrated at the end rather than turning into a question."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Both questions hit the crux of sieve efficiency: the √n outer bound and the p*p inner start are exactly the two classic optimizations of the Sieve of Eratosthenes, and each contrasts a correct-but-wasteful option against the optimal one."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Questions progressed logically from outer loop to inner loop, with a smooth difficulty gradient and no spoilers — both options were presented as 'both produce correct answers.' Slight ding for the awkward meta-comment about propose_options not being wired, which leaked implementation detail into the pedagogy."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm, affirming ('Exactly right'), and the back-and-forth feels natural; the user explicitly reported the design decisions 'made the solution click.' The propose_options tool-not-wired aside is a minor flow blemish."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final answer 142913828922 matches the baseline and the code is clean and idiomatic. Equivalent to baseline in correctness; the saved file is a small bonus over baseline's inline command."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Took 3 turns and 134s vs baseline's 1 turn and 22s — roughly 6× longer, but the extra length delivered two substantive teachable questions that the user engaged with deeply. Some friction came from the python/python3 path fumbling, which was unrelated to teaching."
+    }
+  }
+}

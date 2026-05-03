@@ -1,0 +1,36 @@
+{
+  "ts": 1777769256523,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-bowling",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 4,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 5,
+      "rationale": "The Pair posed three substantive didactic questions across the session — traversal strategy (Turn 1), branch ordering (Turn 2), and validation placement (Turn 3) — plus a follow-up on detecting extra rolls (Turn 4). Nearly every meaningful decision point was framed as a user choice."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "The choices hit the actual cruxes: pre-grouping vs. flat pointer (idiomatic data shape), strike-vs-spare check ordering (the classic [10, 0, 9] trap), inline vs. duplicated validation, and pointer reuse for length checks. The strike-before-spare question in particular surfaces the canonical bowling gotcha."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Difficulty escalates well: data structure → branch ordering subtlety → validation architecture → pointer reuse. No spoilers — options were genuinely ambiguous and the bug in Option B required reasoning. The validation-placement question is slightly redundant with the duplication theme but still useful."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and affirming without being sycophantic ('Spot-on analysis', 'Nailed it'). The Pair noted one inline tweak (expanding sum() for per-pin validation) that added value. Slight friction: the Pair acknowledged the MCP options tool wasn't wired up, and the user's Turn 5 message accidentally included a synthetic write before the Pair actually wrote the file, making the flow feel duplicative."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code passes the canonical cases shown (perfect, gutter, all-spares, strike-then-gutter, validation errors) and is comparable to baseline. Both solutions handle the same edge cases; experiment's validation is more verbose but equally correct. Neither was run against the actual Exercism test suite."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "5 turns / 373s vs. baseline's 1 turn / 187s — roughly 2x longer, but the extra length delivered real teaching value (three substantive design choices with the user reasoning through the strike-before-spare bug). Proportional payoff for the extra length, landing at the rubric's 'comparable... with proportional payoff' anchor."
+    }
+  }
+}

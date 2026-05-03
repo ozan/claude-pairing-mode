@@ -18,6 +18,12 @@ export type OptionsEvent = {
   kind: 'options';
   toolUseId: string;
   options: { title: string; body: string }[];
+  /**
+   * Model's private annotations. Not rendered in the UI — preserved on the
+   * event so the eval/transcript layer can score "did the user pick the
+   * model's preferred option?" Absent if validation failed.
+   */
+  privateNotes?: { bestIndex?: number; trapFlaw?: string };
 };
 
 
@@ -59,6 +65,12 @@ const proposeOptionsTool = tool(
       { type: 'text' as const, text: 'Options recorded; awaiting user selection.' },
     ],
   }),
+  // alwaysLoad keeps the tool's schema in the model's prompt instead of
+  // deferring it behind ToolSearch. Without this, models inconsistently do
+  // the ToolSearch dance — sometimes calling propose_options correctly,
+  // sometimes claiming "the tool isn't registered" and falling back to
+  // inline markdown, which defeats the whole experiment.
+  { alwaysLoad: true },
 );
 
 
@@ -88,6 +100,9 @@ export const proposeOptionsHandler: CustomToolHandler<OptionsEvent> = (block: To
         typeof (o as { body?: unknown }).body === 'string',
     )
   ) {
+    const pn = args.private_notes as { best_index?: unknown; trap_flaw?: unknown } | undefined;
+    const bestIndex = typeof pn?.best_index === 'number' ? pn.best_index : undefined;
+    const trapFlaw = typeof pn?.trap_flaw === 'string' ? pn.trap_flaw : undefined;
     return {
       kind: 'options',
       toolUseId: block.id,
@@ -95,6 +110,7 @@ export const proposeOptionsHandler: CustomToolHandler<OptionsEvent> = (block: To
         title: o.title,
         body: o.body,
       })),
+      privateNotes: { bestIndex, trapFlaw },
     };
   }
   // Malformed — return null so the id is claimed (SDK validation error

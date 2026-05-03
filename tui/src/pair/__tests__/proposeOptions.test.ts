@@ -43,6 +43,7 @@ describe('proposeOptionsHandler', () => {
         { title: 'A', body: 'first' },
         { title: 'B', body: 'second' },
       ],
+      privateNotes: { bestIndex: 0, trapFlaw: 'b is wrong' },
     });
   });
 
@@ -112,6 +113,7 @@ describe('Session integration with proposeOptionsHandler', () => {
         { title: 'A', body: 'first' },
         { title: 'B', body: 'second' },
       ],
+      privateNotes: { bestIndex: 0, trapFlaw: '' },
     });
   });
 

@@ -1,0 +1,37 @@
+{
+  "ts": 1777777230820,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-1-multiples",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 4.1,
+  "finalScore": 0.775,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed one substantive didactic question (which of A vs B is correct) at the single meaningful decision point. Given the problem's small surface, that's a reasonable teachable moment, but there was little additional probing (e.g., on complexity, generalization, or how to derive m)."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "The framed choice hits the exact crux of Project Euler #1: the inclusion-exclusion gotcha of double-counting multiples of 15. The two options are nearly identical except for the subtractive term, forcing the user to reason about set overlap rather than surface syntax."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Good progression: closed-form is presented first as common ground, then the choice isolates the one conceptual subtlety. No spoilers — the Pair didn't reveal which was correct until the user answered. Slight ding for not building up from a naive loop to motivate why the closed-form matters."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tone is warm and concise (\"Classic.\" / \"Exactly right.\"). The follow-up after the correct answer adds the generalization to inclusion-exclusion with alternating signs, which feels like a natural senior-engineer aside rather than a lecture."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final code is correct (returns 233168), uses the optimal O(1) closed-form, and is actually written to a file and executed — which the baseline never did. Baseline only produced a math derivation in prose; experiment delivered working, verified code."
+    },
+    "friction": {
+      "score": 5,
+      "rationale": "Two turns, ~60 seconds, vs. the baseline's 28-turn 514-second meltdown over who could run the TUI. The experiment stayed laser-focused on the actual problem and produced more value with a fraction of the friction."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777774738974,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-mini-calculator",
+  "isBaseline": false,
+  "baselineCollection": "003-baseline",
+  "weightedScore": 3.7,
+  "finalScore": 0.675,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair surfaced three substantive A/B choices across the session (parsing strategy, tokenizer regex, unary placement) plus a fourth on return type. Most meaningful decision points became user choices rather than silent code-writing."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Each question hit a real crux: recursive-descent vs shunting-yard (algorithmic trade-off), `[\\d.]+` vs `\\d+(?:\\.\\d+)?` (a classic regex-character-class gotcha), and where unary minus lives in the grammar (the canonical precedence subtlety). These are exactly the teachable forks of expression parsing."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression went strategy → tokenizer → unary → return-type polish, which mirrors how the parser is built up. Difficulty stepped up smoothly with no spoilers, though the unary question's prompt (\"Which handles `2 * -3` correctly?\") nearly hands the user the answer."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Brief, warm confirmations (\"Exactly — the call stack *is* the precedence stack\") reinforce the user's reasoning without flattery. The path-confusion detour where Write landed in the wrong directory is a minor flow hiccup, but the Pair recovered cleanly and didactic momentum was preserved."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly evaluates the target expression plus unary cases, comparable to baseline. Baseline shipped a 32-test pytest suite and a hardened `consume()` with EOF guards; experiment lacks formal tests and that error-path robustness, so it's slightly thinner but functionally equivalent."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "5 turns / 250s vs baseline's 1 turn / 116s — roughly 2x. The extra length bought three real teaching moments (algorithm choice, regex character-class pitfall, unary precedence placement), a roughly proportional payoff. The Write-to-wrong-directory detour was avoidable friction that ate tool calls without teaching value."
+    }
+  }
+}
