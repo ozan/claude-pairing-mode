@@ -1,0 +1,37 @@
+{
+  "ts": 1777864486445,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-acronym",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.1,
+  "finalScore": 0.525,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The pair posed one substantive A/B choice and a follow-up 'do you see any edge case' prompt, then offered the walrus pattern as an aside. Engagement at the key decision point was solid but there were no further didactic prompts beyond the initial fork."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The A vs B choice hits the actual crux of the problem — `\\b`'s misleading semantics around apostrophes — and the pair invited the user to spot the failure rather than revealing it. Strong conceptual target, though a single fork limited breadth."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression: surface the choice, let the user reason about contractions, confirm with concrete failures (`It's a trap!`), then verify traces across canonical cases. No spoilers; the user discovered the bug before the pair confirmed it."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "The pair acknowledged the user's correct diagnosis directly, gave a precise mechanical explanation of `\\b`, and the walrus aside felt natural rather than tacked on. The brief 'tool isn't available' meta-blip was a small flow hiccup."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 2,
+      "rationale": "The final solution misses camelCase splitting that the baseline discovered empirically (`HyperText Markup Language` → `HML` instead of `HTML`). The pair never tested against actual cases, so a real Exercism gotcha went unhandled — a regression vs. baseline correctness."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "About 2x baseline duration (130s vs 68s, 3 turns vs 1) with a genuine pedagogical payoff on the `\\b`/apostrophe gotcha. Proportional teaching gain, though skipping empirical test runs is what cost the camelCase coverage the baseline got 'for free' via its verification loop."
+    }
+  }
+}

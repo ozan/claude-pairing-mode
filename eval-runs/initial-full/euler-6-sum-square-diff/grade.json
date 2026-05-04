@@ -1,0 +1,37 @@
+{
+  "ts": 1777798590026,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-6-sum-square-diff",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.2,
+  "finalScore": 0.55,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed one substantive didactic question (A vs B approach choice) at the natural decision point. For a trivial Euler problem with effectively one decision, this is reasonable but not high-frequency."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The loop-vs-closed-form choice hits the actual crux of Euler #6 — recognizing the Gauss/sum-of-squares identities and the O(1) vs O(n) trade-off. It's the most consequential pedagogical fork available for this problem."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Single question with no progression. The framing 'Both give the right answer — which would you pick?' avoids spoilers and invites reasoning, but there's no follow-up depth (e.g., why integer division matters, or deriving the formulas) before jumping to implementation."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and concise ('Good classic problem', 'Exactly right'). The affirmation after the user's answer reinforces the math identities, and the closing note about `//` adds a small idiomatic teaching point naturally."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code produces 25,164,150 correctly using the closed-form approach, equivalent to the baseline's verification. Both arrive at the same answer; experiment actually writes and executes the file rather than just printing inline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took 2 turns / 53s vs baseline's 1 turn / 12s, but the extra time bought a genuine pedagogical exchange about closed-form vs loop and an actual file write+run. Proportional payoff for modest extra length."
+    }
+  }
+}

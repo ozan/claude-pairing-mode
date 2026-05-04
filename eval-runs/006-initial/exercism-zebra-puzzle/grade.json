@@ -1,0 +1,37 @@
+{
+  "ts": 1777864496990,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-zebra-puzzle",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.7,
+  "finalScore": 0.675,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two substantive didactic forks (search strategy: product+filter vs nested+prune; data representation: house→attribute vs attribute→house) at the two genuinely consequential design moments before writing code. It then surfaced (without questioning) the constraint-ordering and directional-clue insights as teaching points. More forks possible (e.g., on the directional bug itself), but coverage of the major decision points is solid."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Both choices target the crux: option A's filter-after-product vs nested pruning is the central performance tradeoff for this puzzle, and the perm-encoding choice (value→house vs house→value) directly shapes constraint readability/speed. Neither is cosmetic; both have a defensible 'best' answer the user can reason toward."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression: search strategy → data representation → implementation → post-hoc insights (constraint ordering, directional bug). The two questions build on each other without spoilers, and the difficulty gradient is appropriate. The directional-clue gotcha is delivered as commentary rather than as a third question, a small missed scaffolding opportunity."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the back-and-forth feels natural — the Pair affirms the user's reasoning specifically (\"you nailed the asymmetry\") rather than generically. Slight friction: the diff-format options for a non-existent file are slightly artificial, and the post-solution commentary is monologue rather than dialogue, but overall flow is smooth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly returns Norwegian/Japanese in 0.2 ms, equivalent to the baseline's solution. Both implement permutations + early pruning with the same answers; experiment is comparable to baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment ran 3 turns / 154s vs baseline's 1 turn / 120s. The ~30% extra time bought two genuine teaching exchanges plus the directional-bug insight, which is a proportional pedagogical payoff. Not tighter than baseline, but reasonable for the value added."
+    }
+  }
+}

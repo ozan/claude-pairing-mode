@@ -1,0 +1,37 @@
+{
+  "ts": 1777798888307,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-caesar-cipher",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 2.2,
+  "finalScore": 0.3,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair framed one rhetorical question ('Which implementation... is correct?') but immediately answered it itself after noting the propose_options tool failed. There was no actual engagement of the user with a teachable moment."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The chosen topic — operator precedence of `%` vs. parenthesizing the full offset — is a genuinely subtle gotcha and a reasonable crux. But it was presented as a self-answered comparison rather than a real choice, and the explanation arguably misstates the precedence issue (the bug in A is more about wrapping a partial expression than `%` binding before subtraction)."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "Only one 'choice' was surfaced and the answer was revealed in the same breath ('Option B is correct'). There is no progression, no graduated difficulty, and the user was never given space to think."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanation is clear and actionable, but the conversation is essentially a monologue — the Pair posed a question and answered itself, leaving no back-and-forth. The user's only turn is a closing affirmation."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, tested, and equivalent to the baseline (same algorithm, same `decode = encode(-shift)` trick). Slightly leaner test coverage than baseline but functionally complete."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "71s vs baseline's 46s, with a single extra explanation pass. The added length brought a small didactic note about the precedence trap, roughly proportional to the modest extra time."
+    }
+  }
+}

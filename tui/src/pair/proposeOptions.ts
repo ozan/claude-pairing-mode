@@ -8,7 +8,7 @@ import { z } from 'zod';
 import { type CustomToolHandler, type ToolUseBlock } from '../core/types';
 
 export const PROPOSE_TOOL_NAME = 'propose_options';
-export const MCP_SERVER_NAME = 'proto_pair';
+export const MCP_SERVER_NAME = 'pairing';
 export const FULL_PROPOSE_TOOL_NAME =
   `mcp__${MCP_SERVER_NAME}__${PROPOSE_TOOL_NAME}`;
 
@@ -23,53 +23,59 @@ export type OptionsEvent = {
    * event so the eval/transcript layer can score "did the user pick the
    * model's preferred option?" Absent if validation failed.
    */
-  privateNotes?: { bestIndex?: number; trapFlaw?: string };
+  privateNotes?: { bestIndex?: number; rationale?: string };
 };
 
 
-// MCP tool definition. Body is intentionally a no-op; the SDK still routes
-// args through the message stream where our Session intercepts and reshapes
-// them via the custom-tool handler below.
+// FLAT SCHEMA. The original schema had nested `options: Array<{title,
+// body}>` + `private_notes: {best_index, rationale}` shape. Sonnet/Opus
+// frequently serialized those nested fields as JSON-encoded strings,
+// which the SDK pre-rejected with "No such tool available" — leaking
+// the error into Sonnet's conversation history and breaking ~83% of
+// runs in 006-initial. Verified via diag-minimal-mcp.ts that flat-arg
+// MCP tools dispatch cleanly. The handler reconstructs the OptionsEvent
+// from the six flat fields.
 const proposeOptionsTool = tool(
   PROPOSE_TOOL_NAME,
   'Propose exactly two options for the user to choose between at a didactic decision point. ' +
-    'One option is your honest best recommendation; the other is a plausible-looking distractor ' +
-    'with a subtle flaw to learn from. Randomize order. The user replies in plain text with their pick.',
+    'Option A is what you would do if the user just asked, and option B is a plausible-looking ' +
+    'alternative presented for educational purposes (or vice versa — vary which letter is your ' +
+    'preference). Pass each field as a plain string or integer; do not JSON-encode them.',
   {
-    options: z
-      .array(
-        z.object({
-          title: z.string().describe('Very short label, 2-5 words. No punctuation.'),
-          body: z
-            .string()
-            .describe(
-              'Brief markdown justification: 1-3 short sentences, ~40 words max. ' +
-                'Use fenced ```diff blocks for code changes.',
-            ),
-        }),
-      )
-      .min(2)
-      .max(2),
-    private_notes: z.object({
-      best_index: z
-        .number()
-        .int()
-        .describe('0-based index of your honest best recommendation (0 or 1).'),
-      trap_flaw: z
-        .string()
-        .describe('What is subtly wrong with the OTHER (distractor) option.'),
-    }),
+    option_a_title: z.string().describe('Short label for option A, 2-5 words. No punctuation.'),
+    option_a_body: z
+      .string()
+      .describe(
+        'Markdown justification for option A. Ideally 1-3 sentences. For code options, use a fenced ' +
+          '```diff block with a `+++ filename` header and a `@@ -OLD,_ +NEW,_ @@` hunk header.',
+      ),
+    option_b_title: z.string().describe('Short label for option B, 2-5 words. No punctuation.'),
+    option_b_body: z
+      .string()
+      .describe(
+        'Markdown justification for option B. Same formatting rules as option_a_body.',
+      ),
+    best_letter: z
+      .enum(['A', 'B'])
+      .describe('"A" if option A is your honest best recommendation, "B" if option B is.'),
+    rationale: z
+      .string()
+      .describe(
+        'Your reasoning for and against the preferred option. Hidden from the user; used by ' +
+          'the eval/transcript layer to score whether the user picked correctly.',
+      ),
   },
   async () => ({
     content: [
       { type: 'text' as const, text: 'Options recorded; awaiting user selection.' },
     ],
   }),
-  // alwaysLoad keeps the tool's schema in the model's prompt instead of
-  // deferring it behind ToolSearch. Without this, models inconsistently do
-  // the ToolSearch dance — sometimes calling propose_options correctly,
-  // sometimes claiming "the tool isn't registered" and falling back to
-  // inline markdown, which defeats the whole experiment.
+  // alwaysLoad: true makes the tool eager (in main tools list, no
+  // ToolSearch dance). With a deferred tool (alwaysLoad omitted), Sonnet
+  // sometimes skips ToolSearch and calls directly; the SDK then rejects
+  // with "No such tool available" because the schema isn't loaded.
+  // alwaysLoad eliminates that protocol gap. Combined with the flat
+  // all-string schema this should yield reliable dispatch.
   { alwaysLoad: true },
 );
 
@@ -89,28 +95,28 @@ export const pairMcpServer = createSdkMcpServer({
  * the model can retry without leaking errors into the transcript).
  */
 export const proposeOptionsHandler: CustomToolHandler<OptionsEvent> = (block: ToolUseBlock) => {
-  const args = (block.input ?? {}) as Record<string, unknown>;
-  const options = args.options;
+  const a = (block.input ?? {}) as Record<string, unknown>;
+  const aT = a.option_a_title;
+  const aB = a.option_a_body;
+  const bT = a.option_b_title;
+  const bB = a.option_b_body;
   if (
-    Array.isArray(options) &&
-    options.length === 2 &&
-    options.every(
-      (o) => o && typeof o === 'object' &&
-        typeof (o as { title?: unknown }).title === 'string' &&
-        typeof (o as { body?: unknown }).body === 'string',
-    )
+    typeof aT === 'string' &&
+    typeof aB === 'string' &&
+    typeof bT === 'string' &&
+    typeof bB === 'string'
   ) {
-    const pn = args.private_notes as { best_index?: unknown; trap_flaw?: unknown } | undefined;
-    const bestIndex = typeof pn?.best_index === 'number' ? pn.best_index : undefined;
-    const trapFlaw = typeof pn?.trap_flaw === 'string' ? pn.trap_flaw : undefined;
+    const bestLetter = a.best_letter;
+    const bestIndex = bestLetter === 'A' ? 0 : bestLetter === 'B' ? 1 : undefined;
+    const rationale = typeof a.rationale === 'string' ? a.rationale : undefined;
     return {
       kind: 'options',
       toolUseId: block.id,
-      options: (options as { title: string; body: string }[]).map((o) => ({
-        title: o.title,
-        body: o.body,
-      })),
-      privateNotes: { bestIndex, trapFlaw },
+      options: [
+        { title: aT, body: aB },
+        { title: bT, body: bB },
+      ],
+      privateNotes: { bestIndex, rationale },
     };
   }
   // Malformed — return null so the id is claimed (SDK validation error

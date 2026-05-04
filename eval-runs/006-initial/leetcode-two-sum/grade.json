@@ -1,37 +1,37 @@
 {
-  "ts": 1777777424003,
+  "ts": 1777864510765,
   "graderModel": "claude-opus-4-7",
   "experimentSlug": "leetcode-two-sum",
   "isBaseline": false,
-  "baselineCollection": "003-baseline",
-  "weightedScore": 4.4,
-  "finalScore": 0.85,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.9,
+  "finalScore": 0.725,
   "pedagogical": {
     "question_frequency": {
       "score": 4,
-      "rationale": "The Pair posed two didactic two-option choices in a 4-turn conversation (algorithm choice, then test design for the self-match guard), and also surfaced a teachable observation about check-before-insert. Given the problem's small surface area, this is solid frequency, though not every meaningful decision (e.g., test framework/structure) was made interactive."
+      "rationale": "The Pair posed two well-timed didactic choices: brute force vs. hash map (Turn 1), and two-pass vs. single-pass insertion (Turn 2). For an easy problem with limited decision points, this hits most of the meaningful forks."
     },
     "question_quality": {
       "score": 5,
-      "rationale": "Both choices hit real cruxes: nested loops vs hash map is the canonical algorithmic trade-off, and the [3,5] vs [3,3] test design question targets exactly what 'tests the self-match guard' means — a subtle but important distinction about what a test actually exercises."
+      "rationale": "Both choices target the actual crux: the time/space tradeoff is the canonical lesson of Two Sum, and the single-pass vs. two-pass framing surfaces the subtle duplicate-index gotcha that makes the lazy-build pattern click."
     },
     "scaffolding": {
-      "score": 4,
-      "rationale": "Logical progression from algorithm → implementation → testing, with the self-match invariant introduced after the algorithm choice and then probed via the test-design question. No spoilers. Slightly abrupt that the full test suite was written without further interaction after the second choice."
+      "score": 5,
+      "rationale": "Progression is clean: first pick the algorithm class, then pick the implementation ordering once committed. No spoilers — the duplicate-index issue is embedded in the diff via the `!= i` guard rather than spelled out, letting the user discover the rationale."
     },
     "flow_and_tone": {
       "score": 5,
-      "rationale": "Tone is warm and concise ('Classic.', 'Exactly right.'), responses are direct and actionable, and the back-and-forth feels natural. The Pair acknowledges the user's reasoning before moving on, and the wrap-up cleanly signals completion."
+      "rationale": "Replies are concise, validate the user's reasoning (\"Nailed it\"), and connect the pattern to broader problems (subarray sums, pair differences). Back-and-forth feels natural and the user's final summary shows the lesson landed."
     }
   },
   "productivity": {
     "effectiveness": {
-      "score": 4,
-      "rationale": "Final code is correct, clean, and tested with 5 passing tests including the critical [3,3] self-match case. Slightly less thorough than baseline (no semantic-validation assertion or no-solution test), but functionally equivalent and arguably cleaner."
+      "score": 3,
+      "rationale": "Final code is correct, passes tests covering normal, offset, and duplicate cases — equivalent to the baseline's solution. Slightly more compact than baseline (no docstring/comments) but functionally identical."
     },
     "friction": {
-      "score": 5,
-      "rationale": "Finished in 4 turns / 127s vs baseline's 11 turns / 359s. The baseline burned ~7 turns on a role-confusion meta-loop; the experiment delivered better pedagogy in roughly a third of the time."
+      "score": 3,
+      "rationale": "73s vs baseline's 69s and 3 turns vs 2 — essentially the same length, and the extra turn buys two genuine pedagogical decisions including the non-obvious insertion-order question. Proportional payoff for negligible extra cost."
     }
   }
 }

@@ -1,0 +1,37 @@
+{
+  "ts": 1777804653724,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-median-two-sorted",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks zero didactic questions. It dumps the complete optimal solution with explanation in a single turn, and the user simply confirms. There are no teachable moments surfaced as choices."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No questions or choices are framed at all. The two-option didactic format the project is designed around is entirely absent — no fork between e.g. merge-based O(m+n) vs partition-based O(log min(m,n)), no choice on handling odd/even totals or boundary sentinels."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there is no progression. The full solution, invariant explanation, and complexity analysis are delivered in one block with no graduated reveal."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and the explanation is well-organized, but it's a monologue rather than a conversation. The user's only contribution is 'Perfect!' — there's no back-and-forth at all."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

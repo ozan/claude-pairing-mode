@@ -1,0 +1,37 @@
+{
+  "ts": 1777798562489,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-14-collatz",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 2.8,
+  "finalScore": 0.45,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "Only one didactic question is posed (the A/B choice on caching). The user never actually answered (stream timeout), and the Pair proceeded without further questioning, missing chances to probe e.g. recursion vs iteration, or why the cache helps."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single choice posed targets the central algorithmic crux of this problem — memoization vs naive recomputation — which is exactly the trade-off Project Euler #14 is designed to teach. It's the right fork to surface, even if it's the only one."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "The fork is presented cleanly with both options as concrete diffs and no spoiler about which is correct. However, with only one question and then the Pair revealing the answer itself after the timeout, there's no real progression or gradient."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the post-solution explanation about shared suffixes and recursion limits is actionable and well-targeted. But the conversational flow was broken by the stream timeout; the Pair recovered gracefully but the back-and-forth never materialized."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code returns the correct answer 837799 in ~0.4s, equivalent to the baseline. The recursive approach with setrecursionlimit works but is arguably slightly more fragile than the baseline's iterative-with-cache version."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Two turns vs one in baseline, with one option panel and a brief explanation — modest extra length for a real teachable fork. The stream timeout cost a turn but the Pair handled it efficiently by self-answering and proceeding."
+    }
+  }
+}

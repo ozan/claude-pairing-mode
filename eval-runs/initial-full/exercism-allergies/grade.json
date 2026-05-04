@@ -1,0 +1,37 @@
+{
+  "ts": 1777798803310,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-allergies",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 4.4,
+  "finalScore": 0.85,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 5,
+      "rationale": "The Pair posed three distinct didactic forks across the short session — registry storage (list vs dict), bit-check idiom (== 1 vs bool), and allergies() composition (duplicate vs reuse). Nearly every meaningful decision was put to the user."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "The == 1 vs bool() fork is the classic bitfield gotcha and the crux of the problem; the registry and DRY-vs-direct questions surface real design tensions. These are the consequential choices, not cosmetic ones."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression goes from data structure → core bit operation → composition, a natural gradient. The is_allergic_to fork has a clear correct answer (a near-trick question) which is fine pedagogically, though the difficulty step from that to the DRY question is modest. No spoilers."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Exchanges are crisp, the Pair affirms reasoning briefly and moves on, and even gracefully handles the missing propose_options tool by asking inline. Slight awkwardness at the very start with the meta-comment about the tool being unavailable, but otherwise smooth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct and equivalent to baseline's solution (dict variant rather than list, but functionally identical and tested implicitly by the user's reasoning). The Pair noted the >255 edge case but did not actually run tests, unlike baseline."
+    },
+    "friction": {
+      "score": 5,
+      "rationale": "Completed in 4 turns / 168s versus baseline's 7 turns / 224s of confused role-reversal back-and-forth. The experiment is tighter AND delivers substantially more teaching — a clear win on both axes."
+    }
+  }
+}

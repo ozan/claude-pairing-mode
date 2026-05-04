@@ -1,0 +1,37 @@
+{
+  "ts": 1777838200075,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-mini-calculator",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.3,
+  "finalScore": 0.575,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed two didactic choices in the session: parsing strategy (recursive descent vs. shunting-yard) and where to place unary minus. These hit the natural decision points but other teachable moments (tokenizer regex tradeoffs, int vs float handling, division-by-zero, associativity) passed without questions."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "Both choices are substantive and target real conceptual cruxes — algorithmic strategy and the precedence-binding insight behind unary placement. The unary-in-factor-vs-expr question is especially well-chosen because the wrong answer produces an actual precedence bug."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression is logical: pick parsing approach → see tokenizer/parser → tackle a precedence subtlety. The difficulty gradient is reasonable, though the unary question's diff hint with `return -self.factor()` (recursive) versus `-self.term()` partially telegraphs the answer via the recursion difference."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the back-and-forth feels coherent; the Pair commits to a choice, builds, then asks the next question at a natural seam. The closing turn slightly muddles things by claiming the implementation 'already chose A' when in fact the user just selected A, but conversational flow stays smooth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code passes 5 sample expressions and meets stated requirements (+, -, *, /, parens, precedence, unary minus). The baseline solution is more thorough — 16 tests including error cases, decimals, int coercion — so the experiment is comparable but slightly less robust."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "The experiment took 2 turns / 102s versus baseline's 1 turn / 135s, so wall-clock is actually tighter, and the extra turn delivered two real teaching moments. Reasonable trade for the pedagogical payoff."
+    }
+  }
+}

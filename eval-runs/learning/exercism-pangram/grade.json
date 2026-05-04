@@ -1,0 +1,37 @@
+{
+  "ts": 1777840389984,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-pangram",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 2,
+  "finalScore": 0.25,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks zero didactic questions. It delivers a complete solution with explanation and never engages the user with a choice or prompt, despite the project's two-option premise."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices are framed at all. The comparison table of alternatives is presented as exposition, not as a fork for the user to reason through."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no progression — the answer is fully revealed in the first message, which is the maximal spoiler. No skill-building sequence exists."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanation is clear, but there is no back-and-forth — the user just rubber-stamps the solution. Conversational flow is one-sided."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct and essentially identical to the baseline's primary solution; solves the problem cleanly."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "One turn, ~21s vs baseline's 13s — slightly longer due to a richer comparison table, but no real friction. No pedagogical payoff to justify even the small extra length, but it's not bloated."
+    }
+  }
+}

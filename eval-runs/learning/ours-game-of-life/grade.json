@@ -1,0 +1,37 @@
+{
+  "ts": 1777840462695,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-game-of-life",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.8,
+  "finalScore": 0.2,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never asks the user a single didactic question. It writes the file, runs it, and delivers a post-hoc walkthrough — no choices, no engagement at decision points."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No questions or framed choices exist. Subtleties like the read-old/write-new invariant, wrapping vs clamping boundaries, and animation tradeoffs were prime teachable forks but presented as fait accompli."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolded sequence — just a monolithic implementation followed by a summary. The 'one-line collapsed expression' is actually a spoiler of the rule-engine insight rather than a guided derivation."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanation is clear and well-organized, but the conversation is a one-shot delivery with no back-and-forth. The user's reply is just a recap, indicating no real dialogue occurred."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code works and meets the stated requirements (grid, step, pretty-print, demo pattern), comparable to the baseline. The experiment defaults to running only the blinker (glider commented out) whereas baseline ran both, a minor regression."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "Took ~96s vs baseline's ~49s (roughly 2x), with an extra Write/Read/Write detour after discovering an existing file, and delivered no pedagogical payoff to justify the overhead."
+    }
+  }
+}

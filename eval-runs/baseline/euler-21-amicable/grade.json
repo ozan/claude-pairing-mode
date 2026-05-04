@@ -1,0 +1,37 @@
+{
+  "ts": 1777804587043,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-21-amicable",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It immediately solved the problem and explained the solution. No teachable moments (e.g., why √n suffices, perfect-number edge case, walrus operator trade-offs) were turned into prompts for the user."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all. The Pair never surfaced a fork — neither algorithmic (sieve vs. trial division), nor boundary-condition (handling n=1, perfect squares, perfect numbers), nor stylistic. The two-option didactic premise of the project was entirely bypassed."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there is no progression — a single turn delivered the full solution and answer. The user had nothing to build up through, and the final number was spoiled immediately."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is warm and the explanation is clear and accurate, but the 'flow' is one-shot solver→summary with no back-and-forth. The user's only contribution was acknowledgement, which is not pedagogical engagement."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777838092739,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-6-sum-square-diff",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.6,
+  "finalScore": 0.4,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair asks essentially one didactic question (loop vs closed-form) and repeats it after the user mirrors back. No follow-up questions about why the formulas work, integer division, or overflow considerations."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The single fork — iteration vs closed-form — is the central decision for this problem and a legitimate teachable moment about recognizing closed forms in Euler problems. But it's the only choice surfaced; subtleties like `//` vs `/` or derivation of the sum-of-squares formula are not probed."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "Only one question is posed, then when the user deflected the Pair gave away its preferred answer (B) along with the formulas before the user committed. That spoils the very choice it just framed."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the 'roles got swapped' acknowledgment is graceful, but the conversation devolves into ping-pong because the user model echoes the Pair's question back. The Pair handled it reasonably but didn't pin down a clean back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final answer 25,164,150 is correct and matches the baseline. Code shown is correct closed-form Python; comparable to baseline output."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Two turns, 65s vs baseline's 46s — slightly longer due to the role-swap detour, but proportionate given the didactic framing attempt. No major wasted effort."
+    }
+  }
+}

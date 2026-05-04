@@ -48,8 +48,12 @@ for await (const msg of q) {
     const init = msg as {
       tools: string[];
       mcp_servers: Array<{ name: string; status: string }>;
+      output_style?: string;
+      available_output_styles?: string[];
     };
     console.log('=== SDK INIT MESSAGE ===');
+    console.log('output_style:', init.output_style ?? '(unset)');
+    console.log('available_output_styles:', init.available_output_styles ?? '(unset)');
     console.log('mcp_servers:', JSON.stringify(init.mcp_servers, null, 2));
     console.log('\ntools available to model (' + init.tools.length + '):');
     for (const t of init.tools) {

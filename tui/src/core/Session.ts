@@ -11,6 +11,7 @@
 
 import {
   query,
+  type CanUseTool,
   type McpServerConfig,
   type SDKUserMessage,
 } from '@anthropic-ai/claude-agent-sdk';
@@ -81,6 +82,21 @@ export type SessionOptions<E> = {
   cwd?: string;
   /** Override the model id (defaults to whatever the SDK chooses). */
   model?: string;
+  /**
+   * Output style name (e.g. 'Learning', 'Explanatory', 'default'). Only
+   * effective when paired with `settingSources` containing 'project' or
+   * 'user' AND a `.claude/settings.json` with `outputStyle: <name>` exists
+   * at the corresponding path. Per-query alone is silently ignored by the
+   * SDK — see diag-init.ts for the experiment that confirmed this.
+   */
+  outputStyle?: string;
+  /**
+   * Where the SDK loads filesystem settings from. Defaults to none, meaning
+   * settings.json files are ignored. Pass ['project'] to read
+   * `<cwd>/.claude/settings.json` — required to actually activate
+   * outputStyle.
+   */
+  settingSources?: ('user' | 'project' | 'local')[];
   /** Hard cap on spend for this session (USD). SDK stops the query if exceeded. */
   maxBudgetUsd?: number;
   /** Hard cap on the number of agentic turns. Prevents runaway tool loops. */
@@ -93,15 +109,38 @@ export type SessionOptions<E> = {
    * tool_use_start), and their tool_results are swallowed.
    */
   customToolHandlers?: Record<string, CustomToolHandler<E>>;
+  /**
+   * Optional callback the SDK invokes before dispatching each tool call.
+   * Returning `{ behavior: 'allow', updatedInput }` rewrites args before
+   * dispatch — the lever we use to repair the model's JSON-string args
+   * (Sonnet sometimes serializes `options` as a JSON string instead of an
+   * array, which the SDK then rejects with "No such tool available"
+   * before reaching the MCP tool body). Note: requires `permissionMode`
+   * other than `bypassPermissions` for the callback to fire.
+   */
+  canUseTool?: CanUseTool;
 };
 
+
+export type InitInfo = {
+  tools: string[];
+  mcpServers: { name: string; status: string }[];
+};
 
 export class Session<E = never> {
   private queue = new UserMessageQueue();
   private listener: ((ev: CoreAgentEvent | E) => void) | null = null;
+  private rawListener: ((msg: unknown) => void) | null = null;
   private consumePromise: Promise<void> | null = null;
   private isAborted = false;
   private abortController: AbortController | null = null;
+  // Resolved on the first `system/init` message so callers can verify MCP
+  // server registration succeeded before sending any prompts. The agent
+  // SDK occasionally fails to register in-process MCP servers; the eval
+  // uses this to detect-and-retry rather than running with a broken tool
+  // list.
+  private initResolve: ((info: InitInfo) => void) | null = null;
+  readonly initialized: Promise<InitInfo>;
 
   // Tool ids whose tool_result we should suppress (because a custom handler
   // is owning the rendering for that tool).
@@ -115,28 +154,42 @@ export class Session<E = never> {
   private toolNames = new Map<string, string>();
   // Ids of tools registered as hidden (ToolSearch + any custom-handled).
   private hiddenToolIds = new Set<string>();
+  // Stream indices belonging to thinking blocks; accumulator keyed by index.
+  private thinkingIndices = new Set<number>();
+  private thinkingAccum = new Map<number, string>();
 
   private turnStartedAt = Date.now();
 
-  constructor(private opts: SessionOptions<E>) {}
+  constructor(private opts: SessionOptions<E>) {
+    this.initialized = new Promise<InitInfo>((resolve) => {
+      this.initResolve = resolve;
+    });
+  }
 
   /** Begin consuming the long-running Query. Call once at app start. */
   start(): void {
     if (this.consumePromise) return;
     this.isAborted = false;
     this.abortController = new AbortController();
+    // canUseTool only fires when permissionMode != 'bypassPermissions'.
+    // Default to 'default' if a canUseTool was provided, else
+    // 'bypassPermissions' for the original frictionless behavior.
+    const permissionMode = this.opts.canUseTool ? 'default' : 'bypassPermissions';
     const q = query({
       prompt: this.queue,
       options: {
         mcpServers: this.opts.mcpServers ?? {},
         systemPrompt: this.opts.systemPrompt,
-        permissionMode: 'bypassPermissions',
+        permissionMode,
         allowedTools: this.opts.allowedTools ?? ['Read', 'Glob', 'Grep', 'Edit', 'Write', 'Bash'],
         disallowedTools: this.opts.disallowedTools ?? [],
         includePartialMessages: true,
         abortController: this.abortController,
+        ...(this.opts.canUseTool ? { canUseTool: this.opts.canUseTool } : {}),
         ...(this.opts.cwd ? { cwd: this.opts.cwd } : {}),
         ...(this.opts.model ? { model: this.opts.model } : {}),
+        ...(this.opts.outputStyle ? { outputStyle: this.opts.outputStyle } : {}),
+        ...(this.opts.settingSources ? { settingSources: this.opts.settingSources } : {}),
         ...(this.opts.maxBudgetUsd !== undefined ? { maxBudgetUsd: this.opts.maxBudgetUsd } : {}),
         ...(this.opts.maxTurns !== undefined ? { maxTurns: this.opts.maxTurns } : {}),
       },
@@ -146,6 +199,16 @@ export class Session<E = never> {
       try {
         for await (const msg of q) {
           if (this.isAborted) break;
+          this.rawListener?.(msg);
+          // Capture the init message for caller-side MCP-status checking.
+          const m = msg as { type?: string; subtype?: string; tools?: string[]; mcp_servers?: Array<{ name: string; status: string }> };
+          if (m.type === 'system' && m.subtype === 'init' && this.initResolve) {
+            this.initResolve({
+              tools: m.tools ?? [],
+              mcpServers: m.mcp_servers ?? [],
+            });
+            this.initResolve = null;
+          }
           this.translate(msg);
         }
       } catch (e) {
@@ -161,6 +224,17 @@ export class Session<E = never> {
   /** Subscribe to events. Only one listener supported. */
   onEvent(handler: (ev: CoreAgentEvent | E) => void): void {
     this.listener = handler;
+  }
+
+  /**
+   * Subscribe to raw SDK messages (pre-translation). Used by the eval to
+   * write a verbose jsonl alongside the translated event stream — necessary
+   * because Session suppresses tool_use_start / tool_results for
+   * custom-handled tools, so malformed `propose_options` calls would be
+   * invisible in the translated stream alone. Only one listener supported.
+   */
+  onRawMessage(handler: (msg: unknown) => void): void {
+    this.rawListener = handler;
   }
 
   /** Send a user prompt; events flow back via the listener. */
@@ -211,13 +285,15 @@ export class Session<E = never> {
           type: string;
           index?: number;
           content_block?: { type: string; name?: string; id?: string };
-          delta?: { type: string; text?: string };
+          delta?: { type: string; text?: string; thinking?: string };
         };
       }).event;
       const et = ev.type;
 
       if (et === 'message_start') {
         this.suppressedIndices.clear();
+        this.thinkingIndices.clear();
+        this.thinkingAccum.clear();
         return;
       }
       if (et === 'content_block_start') {
@@ -239,6 +315,13 @@ export class Session<E = never> {
           });
           return;
         }
+        if (cb.type === 'thinking') {
+          if (idx !== undefined) {
+            this.thinkingIndices.add(idx);
+            this.thinkingAccum.set(idx, '');
+          }
+          return;
+        }
         if (cb.type === 'text') return;
         return;
       }
@@ -249,9 +332,21 @@ export class Session<E = never> {
           this.emit({ kind: 'text_delta', text: d.text ?? '' });
           return;
         }
+        if (d.type === 'thinking_delta' && ev.index !== undefined && this.thinkingIndices.has(ev.index)) {
+          const prev = this.thinkingAccum.get(ev.index) ?? '';
+          this.thinkingAccum.set(ev.index, prev + (d.thinking ?? ''));
+          return;
+        }
       }
       if (et === 'content_block_stop') {
         if (ev.index !== undefined && this.suppressedIndices.has(ev.index)) return;
+        if (ev.index !== undefined && this.thinkingIndices.has(ev.index)) {
+          const text = this.thinkingAccum.get(ev.index) ?? '';
+          this.thinkingIndices.delete(ev.index);
+          this.thinkingAccum.delete(ev.index);
+          this.emit({ kind: 'thinking_block_done', text });
+          return;
+        }
         this.emit({ kind: 'text_block_done' });
       }
       return;

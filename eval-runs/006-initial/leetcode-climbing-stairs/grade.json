@@ -1,0 +1,37 @@
+{
+  "ts": 1777864497482,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-climbing-stairs",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.3,
+  "finalScore": 0.575,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed one substantive choice (Option A vs B with a follow-up 'why is B better on space?') and engaged the user's follow-up question pedagogically. Only one real didactic fork in a short problem, but it was well-placed."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The A/B framing targets the central teaching point of this problem — recognizing that you only need the last two values, hence O(1) vs O(n) space. The follow-up 'which is better on space, and why?' forces the user to articulate the key insight rather than just pick a letter."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Smooth gradient — recurrence first, then implementation choice, then base-case justification, then pattern abstraction. No spoilers and the user's curiosity drove the depth."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Conversational, validates the user's correct trace, then layers a combinatorics insight (empty-path convention) and a transferable pattern. One minor blemish: the Pair initially used OPTIONS/diff syntax (apparently a tool that wasn't available) and had to re-present the options as plain code, which slightly disrupts flow."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, runs, and matches expected outputs for n=1..7. Equivalent in correctness to the baseline; arguably slightly tighter (no n<=2 branch needed) thanks to the (1,1) seeding."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "About 2x the baseline (73s vs 34s, 2 turns vs 1) but the extra length delivered real teaching: the user reasoned about space complexity, traced the loop, and learned the ways(0)=1 convention and the two-step-recurrence pattern. Proportional payoff for the extra cost."
+    }
+  }
+}

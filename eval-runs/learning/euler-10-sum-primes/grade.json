@@ -1,0 +1,37 @@
+{
+  "ts": 1777840348617,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-10-sum-primes",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 2,
+  "finalScore": 0.25,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks zero questions of the user. Despite the 'Learning' output style and the project's premise of two-option didactic choices, the assistant just delivered a complete solution with explanation in one shot."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all — the propose_options mechanism that's central to this project was not used. The classic teachable forks (bytearray vs list, starting at p² vs 2p, isqrt vs int(sqrt)) were narrated rather than offered as decisions."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolded sequence — it's a monologue. Concepts are presented top-down with the answer revealed immediately, leaving no room for graduated discovery."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is clear and well-organized with tidy tables and a code walkthrough, but it's a one-way lecture. The user's only response is to confirm what was already done, so there's no real back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final answer 142,913,828,922 is correct, runtime ~33 ms, and the implementation is essentially identical to the baseline (uses math.isqrt instead of int(limit**0.5), otherwise the same). Comparable to baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Both runs converged in a single turn (~27s vs ~30s) with similar prose volume. The experiment adds slightly more pedagogical framing up front but no real teaching gain over baseline."
+    }
+  }
+}

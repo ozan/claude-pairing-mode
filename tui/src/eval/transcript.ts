@@ -10,10 +10,18 @@ import { appendFileSync, writeFileSync } from 'node:fs';
 import type { AnyEvent } from './render.js';
 
 export type TranscriptRecord =
-  | { kind: 'run_start'; ts: number; problem: { slug: string; prompt: string; source?: string; difficulty?: 'easy' | 'medium' | 'hard' }; pairModel: string; userModel: string; cwd: string; pairSystemPrompt: string; userSystemPrompt: string }
+  | { kind: 'run_start'; ts: number; problem: { slug: string; prompt: string; source?: string; difficulty?: 'easy' | 'medium' | 'hard' }; pairModel: string; userModel: string; cwd: string; pairSystemPrompt: string; userSystemPrompt: string; outputStyle?: string }
   | { kind: 'user_message'; ts: number; turn: number; text: string }
   | { kind: 'pair_event'; ts: number; turn: number; event: AnyEvent }
   | { kind: 'pair_event_with_notes'; ts: number; turn: number; event: AnyEvent; privateNotes: unknown }
+  // Raw, untranslated SDK message from the pair-model session. Captured so
+  // we can see tool_use blocks Session.translate suppresses (custom-handled
+  // tools, malformed args, etc.) — invisible in pair_event records alone.
+  | { kind: 'pair_raw'; ts: number; turn: number; msg: unknown }
+  // Exact text sent to the user-model session for this turn. Captures the
+  // post-render redacted view so we can verify the user-model isn't seeing
+  // Sonnet's private thinking or rationale.
+  | { kind: 'user_input'; ts: number; turn: number; text: string }
   | { kind: 'turn_summary'; ts: number; turn: number; rendered: string }
   | { kind: 'run_end'; ts: number; reason: 'done' | 'max_turns' | 'error'; turns: number; durationMs: number; error?: string };
 

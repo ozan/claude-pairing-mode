@@ -1,0 +1,37 @@
+{
+  "ts": 1777804662254,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-two-sum",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair (acting as the assistant) asked essentially no didactic questions. Turn 1 just dumps the optimal solution; Turn 2 only asks 'A or B?' as a cosmetic pick after already labeling A as 'Best'; Turn 3 just summarizes. No teachable forks were genuinely posed to the user."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "The single choice presented (hash map vs two-pointer) was pre-decided — Option A is explicitly tagged 'Best' and B 'Requires index mapping' before the user picks. No real crux question (e.g., why store after checking, why complement lookup beats nested loop) was actually put to the user as a decision."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no progression — the full optimal solution with complexity analysis and edge cases is revealed in Turn 1 before any user reasoning is invited. The 'choice' in Turn 2 is a spoiler since the answer is labeled in the option headers."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is warm and the prose is clean, but the conversation is a monologue rather than back-and-forth. The Pair preempts the user's thinking, then congratulates them; there's no genuine dialogue or actionable prompts for the learner."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

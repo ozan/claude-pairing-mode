@@ -1,0 +1,37 @@
+{
+  "ts": 1777838215166,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-word-counter",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.6,
+  "finalScore": 0.65,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two substantive didactic questions across the short session — punctuation-stripping approach (regex vs translate) and the Counter alternative (`get` vs `+=` KeyError). For a one-function problem, that's a solid cadence at meaningful decision points."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "Both questions hit real teachable moments: the regex-vs-translate trade is a genuine performance/idiom lesson, and the `+=` KeyError gotcha is a classic Python pitfall. They're not the deepest possible forks (e.g., Unicode handling, contractions) but they're substantive, not cosmetic."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from preprocessing choice → counting choice → smoke test → extensions, with no spoilers in the question framings. The Pair gracefully handled the user role-reversing in Turn 2 and reasserted a recommendation with justification, keeping the difficulty gradient smooth."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the 'took the teacher's seat' moment was handled with humor while still delivering substantive reasoning. Conversation flows naturally; the final 'your call' deference is appropriate rather than sycophantic."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly solves the problem and was actually executed/tested, which the baseline did not do. Slightly less robust than baseline on apostrophe handling (baseline preserves contractions like `don't`; this strips the apostrophe leaving `dont`), so functionally comparable but not strictly better."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Took 4 turns / 105s vs baseline's 1 turn / 23s, but delivered two genuine teaching moments plus a verified test run. The extra length is roughly proportional to the pedagogical payoff for an easy problem."
+    }
+  }
+}

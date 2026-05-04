@@ -1,0 +1,37 @@
+{
+  "ts": 1777804673629,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-fizzbuzz",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 2.1,
+  "finalScore": 0.275,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never asks didactic questions. The role inversion is striking — the User (simulated) proposes the two options and asks the Pair to choose, rather than the Pair scaffolding choices for the User. No teachable forks are surfaced by the Pair."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The one substantive choice (A vs B with the if/elif vs double-if bug) does hit a real gotcha about mutual exclusivity, but it was framed by the User, not the Pair. The Pair's analysis of Option B's two bugs is solid but it's evaluation, not question-framing."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding from the Pair — it answers a single forced choice and then writes/runs the code. No progression, no graduated questions, and the answer to the only choice is essentially given away in the User's prompt."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the Pair gracefully reorients when the User asks it to choose next steps (\"I'm the assistant here\"). But the inverted dynamic makes the flow feel awkward rather than a natural pedagogical exchange."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

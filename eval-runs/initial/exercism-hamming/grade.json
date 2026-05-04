@@ -1,0 +1,37 @@
+{
+  "ts": 1777838116567,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-hamming",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.9,
+  "finalScore": 0.475,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "Only one didactic question is posed across the entire session (zip vs zip_longest). For a trivial problem there are few teachable moments, but the Pair could have surfaced more (e.g., why raise vs return None, generator vs list comprehension, what about case sensitivity)."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The zip vs zip_longest choice is somewhat instructive about Python iteration semantics, but it's a minor stylistic distinction rather than the crux of Hamming distance. The actual interesting question — error handling philosophy or the mismatch-counting idiom itself — is left untouched."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Single question, no progression to evaluate. The question is at appropriate difficulty and doesn't spoil the answer, but with only one fork there's no real scaffolding arc."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and concise; the Pair frames the choice cleanly and the user's selection is acknowledged with a brief verification. Conversation flows naturally for a one-turn problem, though it's too short to demonstrate sustained back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is identical in behavior to the baseline — correct guard, zip+sum idiom, handles empty strands. Equivalent solution quality."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Experiment was actually slightly faster (27s vs 33s) and added a small didactic moment with the A/B choice. Modest pedagogical value at no productivity cost."
+    }
+  }
+}

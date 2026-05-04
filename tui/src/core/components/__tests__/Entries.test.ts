@@ -7,7 +7,7 @@ describe('shortToolName', () => {
   });
 
   it('strips the mcp__server__ prefix', () => {
-    expect(shortToolName('mcp__proto_pair__propose_options')).toBe('propose_options');
+    expect(shortToolName('mcp__pairing__propose_options')).toBe('propose_options');
   });
 
   it('renames Edit to Update (CC convention)', () => {

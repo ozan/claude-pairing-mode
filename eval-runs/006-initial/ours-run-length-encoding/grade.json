@@ -1,0 +1,37 @@
+{
+  "ts": 1777864540295,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-run-length-encoding",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.4,
+  "finalScore": 0.35,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair attempted one didactic question (A vs B for encode), but immediately abandoned it claiming the 'pairing tool isn't available' and proceeded unilaterally. No further questions were posed at other decision points (decode approach, regex generality, multi-digit handling)."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The single offered choice — groupby vs manual accumulator loop — is a genuinely substantive Pythonic-vs-explicit trade-off that hits a real teachable distinction. However, decode (where the parsing approach has more interesting trade-offs around multi-digit counts) was never offered as a choice."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "Only one choice was presented before the Pair bailed and wrote everything itself, so there's no real progression. The post-hoc commentary on groupby gotchas and regex generality is informative but not scaffolded learning."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the closing notes are useful and actionable, but the flow is broken by the Pair's mid-turn abandonment of its own option-presentation framework with a confusing 'tool isn't available' aside. The user never got to actually choose."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code works: all five round-trip tests pass, groupby + regex implementation is clean and correct. Comparable to baseline, though baseline tested 7 cases vs experiment's 5 and explicitly handled malformed input with ValueError."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "Experiment took 399s vs baseline's 54s (~7x longer) for a roughly equivalent solution. The pedagogical payoff is modest — one aborted choice and some post-hoc notes — which doesn't justify the time multiplier."
+    }
+  }
+}

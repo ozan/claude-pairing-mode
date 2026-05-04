@@ -3,7 +3,7 @@
 // stream every event into a JSONL transcript alongside any files the pair
 // model writes, and stop when either side wraps up or we hit the turn cap.
 
-import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { Session } from '../core/Session.js';
@@ -17,13 +17,31 @@ import {
 import { SYSTEM_PROMPT } from '../pair/systemPrompt.js';
 import { renderTurn, type AnyEvent } from './render.js';
 import { Transcript, type TranscriptRecord } from './transcript.js';
-import { callUserModel, isDone, stripDone, DEFAULT_USER_MODEL, USER_SYSTEM_PROMPT } from './userModel.js';
+import { isDone, stripDone, DEFAULT_USER_MODEL, USER_SYSTEM_PROMPT } from './userModel.js';
+import type { CoreAgentEvent } from '../core/types.js';
 
 const DEFAULT_PAIR_MODEL = 'claude-opus-4-7';
 const DEFAULT_MAX_TURNS = 50;
 // Reject a turn if no events arrive for this long. Prevents silent hangs
 // if the SDK subprocess dies or the OS suspends the process.
-const TURN_IDLE_TIMEOUT_MS = 5 * 60 * 1000;
+const TURN_IDLE_TIMEOUT_MS = 10 * 60 * 1000;
+
+// Every SDK builtin tool we want the user-model session to NOT have access
+// to. allowedTools: [] alone doesn't filter these — the SDK exposes them
+// regardless. Captured from `init.tools` via diag-modes.ts.
+const USER_MODEL_DISALLOWED_TOOLS = [
+  // SDK builtins
+  'Task', 'AskUserQuestion', 'Bash', 'CronCreate', 'CronDelete', 'CronList',
+  'Edit', 'EnterPlanMode', 'EnterWorktree', 'ExitPlanMode', 'ExitWorktree',
+  'Glob', 'Grep', 'Monitor', 'NotebookEdit', 'PushNotification', 'Read',
+  'RemoteTrigger', 'ScheduleWakeup', 'Skill', 'TaskOutput', 'TaskStop',
+  'TodoWrite', 'ToolSearch', 'WebFetch', 'WebSearch', 'Write',
+  // claude.ai-shipped MCP tools (Gmail/Drive/Calendar) — they need OAuth
+  // that the user model doesn't have, but block for cleanliness.
+  'mcp__claude_ai_Gmail__authenticate', 'mcp__claude_ai_Gmail__complete_authentication',
+  'mcp__claude_ai_Google_Calendar__authenticate', 'mcp__claude_ai_Google_Calendar__complete_authentication',
+  'mcp__claude_ai_Google_Drive__authenticate', 'mcp__claude_ai_Google_Drive__complete_authentication',
+];
 
 type Problem = {
   slug: string;
@@ -43,6 +61,8 @@ type CliArgs = {
   tag: string | null;
   baseline: boolean;
   firstPerBucket: boolean;
+  outputStyle: string | null;
+  concurrency: number;
 };
 
 function parseArgs(argv: string[]): CliArgs {
@@ -57,6 +77,8 @@ function parseArgs(argv: string[]): CliArgs {
     tag: null,
     baseline: false,
     firstPerBucket: false,
+    outputStyle: null,
+    concurrency: 4,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]!;
@@ -69,6 +91,8 @@ function parseArgs(argv: string[]): CliArgs {
     else if (a === '-n' || a === '--num') args.numProblems = Number(next());
     else if (a === '--baseline') args.baseline = true;
     else if (a === '--first-per-bucket') args.firstPerBucket = true;
+    else if (a === '--output-style') args.outputStyle = next();
+    else if (a === '--concurrency' || a === '-j') args.concurrency = Number(next());
     else if (a === '--only') args.only = next();
     else if (a === '--tag') args.tag = next();
     else if (a === '-h' || a === '--help') { printHelp(); process.exit(0); }
@@ -97,6 +121,8 @@ Options:
                        (reference for productivity grading)
   --first-per-bucket   Pick the first problem from each (source,difficulty)
                        combo. With the canonical 4×3 problem set, yields 12.
+  --output-style NAME  Set CC's output style (e.g. 'Learning', 'Explanatory')
+  -j, --concurrency N  Number of problems to run in parallel. Default: 4
 `);
 }
 
@@ -141,6 +167,37 @@ function waitForTurn(
 }
 
 /**
+ * Wait for a single user-model turn to complete, accumulating text deltas
+ * into the reply string. The user-model session has no tools (allowedTools:
+ * []) so we expect only text events.
+ */
+function waitForUserReply(session: Session): Promise<string> {
+  return new Promise((resolve, reject) => {
+    let text = '';
+    let idleTimer: ReturnType<typeof setTimeout>;
+    const armIdle = () => {
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        reject(new Error(`user-model idle for ${TURN_IDLE_TIMEOUT_MS / 1000}s`));
+      }, TURN_IDLE_TIMEOUT_MS);
+    };
+    armIdle();
+    session.onEvent((ev) => {
+      const e = ev as CoreAgentEvent;
+      armIdle();
+      if (e.kind === 'text_delta') text += e.text;
+      else if (e.kind === 'result') {
+        clearTimeout(idleTimer);
+        resolve(text.trim());
+      } else if (e.kind === 'error') {
+        clearTimeout(idleTimer);
+        reject(new Error(e.message));
+      }
+    });
+  });
+}
+
+/**
  * Copy the contents of the sandbox cwd into the run dir for analysis, then
  * delete the sandbox. Skips noisy bookkeeping like __pycache__.
  */
@@ -175,6 +232,18 @@ async function runOne(problem: Problem, collectionDir: string, args: CliArgs): P
   // and wrote files there, even editing tui/src/. /tmp has no such cues.
   const sandboxDir = mkdtempSync(join(tmpdir(), `ai-pair-eval-${problem.slug}-`));
 
+  // The SDK's per-query `outputStyle` option is silently ignored — we
+  // confirmed via diag-init.ts. The only way to actually activate a style
+  // is via filesystem settings + settingSources. Drop a settings.json into
+  // the sandbox and tell the SDK to load it as the 'project' source.
+  if (args.outputStyle) {
+    mkdirSync(join(sandboxDir, '.claude'));
+    writeFileSync(
+      join(sandboxDir, '.claude', 'settings.json'),
+      JSON.stringify({ outputStyle: args.outputStyle }),
+    );
+  }
+
   console.log(`\n▶ ${problem.slug} → ${runDir}  (sandbox: ${sandboxDir})`);
 
   const pairSystemPrompt = args.baseline ? '' : SYSTEM_PROMPT;
@@ -187,12 +256,14 @@ async function runOne(problem: Problem, collectionDir: string, args: CliArgs): P
     cwd: sandboxDir,
     pairSystemPrompt,
     userSystemPrompt: USER_SYSTEM_PROMPT,
+    ...(args.outputStyle ? { outputStyle: args.outputStyle } : {}),
   });
   const meta: string[] = [];
   if (problem.source) meta.push(`- Source: \`${problem.source}\``);
   if (problem.difficulty) meta.push(`- Difficulty: \`${problem.difficulty}\``);
   meta.push(`- Pair model: \`${args.pairModel}\``);
   meta.push(`- User model: \`${args.userModel}\``);
+  if (args.outputStyle) meta.push(`- Output style: \`${args.outputStyle}\``);
   meta.push(`- Started: ${new Date().toISOString()}`);
   transcript.writeHuman(
     `# ${problem.slug}\n\n` +
@@ -200,29 +271,85 @@ async function runOne(problem: Problem, collectionDir: string, args: CliArgs): P
     `---\n\n`,
   );
 
-  const session = new Session<OptionsEvent>({
+  // Declared up here so the raw-message listener below can close over it.
+  let turn = 0;
+
+  // The agent SDK occasionally fails to register our in-process MCP server
+  // — `pairing.status === "failed"` in the init message, and the tool
+  // doesn't appear in the model's tool list. Detect this via Session's
+  // `initialized` promise and retry with a fresh Session up to N times.
+  const buildPairSession = () => new Session<OptionsEvent>({
     systemPrompt: pairSystemPrompt,
     mcpServers: args.baseline ? {} : { [MCP_SERVER_NAME]: pairMcpServer },
-    // Include the MCP tool name in allowedTools when running the experiment;
-    // without it the SDK whitelist hides the tool and Sonnet falls back to
-    // inline markdown options, defeating the experiment.
     allowedTools: args.baseline
       ? ['Read', 'Glob', 'Grep', 'Edit', 'Write', 'Bash']
       : ['Read', 'Glob', 'Grep', 'Edit', 'Write', 'Bash', FULL_PROPOSE_TOOL_NAME],
-    // Keep PairApp and the eval in lockstep — see PairApp.tsx for why.
     disallowedTools: ['AskUserQuestion'],
     customToolHandlers: args.baseline ? {} : { [FULL_PROPOSE_TOOL_NAME]: proposeOptionsHandler },
     cwd: sandboxDir,
     model: args.pairModel,
+    ...(args.outputStyle
+      ? { outputStyle: args.outputStyle, settingSources: ['project' as const] }
+      : {}),
   });
-  session.start();
 
-  // Cumulative transcript text the user model sees.
-  let conversation = `Problem: ${problem.prompt}\n`;
+  const MAX_MCP_RETRIES = 4;
+  const INIT_TIMEOUT_MS = 30_000;
+  let pairSession = buildPairSession();
+  pairSession.onRawMessage((rawMsg) => {
+    transcript.write({ kind: 'pair_raw', ts: Date.now(), turn, msg: rawMsg });
+  });
+  pairSession.start();
+  if (!args.baseline) {
+    let attempt = 1;
+    while (attempt <= MAX_MCP_RETRIES) {
+      const init = await Promise.race([
+        pairSession.initialized,
+        new Promise<null>((resolve) => setTimeout(() => resolve(null), INIT_TIMEOUT_MS)),
+      ]);
+      const pairingMcp = init?.mcpServers.find((s) => s.name === MCP_SERVER_NAME);
+      if (pairingMcp?.status === 'connected') {
+        if (attempt > 1) console.log(`  ↺ ${problem.slug}: MCP registered on attempt ${attempt}`);
+        break;
+      }
+      const reason = init === null ? 'timeout' : (pairingMcp?.status ?? 'absent');
+      console.log(`  ↺ ${problem.slug}: MCP ${reason} attempt ${attempt}/${MAX_MCP_RETRIES}, retrying`);
+      // abort() terminates the SDK subprocess (close() alone leaks it).
+      pairSession.abort();
+      pairSession.close();
+      attempt++;
+      if (attempt > MAX_MCP_RETRIES) {
+        console.log(`  ✗ ${problem.slug}: gave up after ${MAX_MCP_RETRIES} MCP retries`);
+        break;
+      }
+      pairSession = buildPairSession();
+      pairSession.onRawMessage((rawMsg) => {
+        transcript.write({ kind: 'pair_raw', ts: Date.now(), turn, msg: rawMsg });
+      });
+      pairSession.start();
+    }
+  }
+
+  // Long-lived user-model session: the SDK manages multi-turn history,
+  // so we don't have to dump role-marker-laden text into a single user
+  // message and pray the model infers role boundaries correctly. Pair
+  // outputs flow in as user messages; user-model replies come back as
+  // proper SDK assistant turns.
+  //
+  // `allowedTools: []` is silently ignored by the SDK — we still get the
+  // full builtin tool list (33 tools, see diag-modes.ts). disallowedTools
+  // is the only way to actually take them away. The list is exhaustive so
+  // the user model has nothing to call but text.
+  const userSession = new Session({
+    systemPrompt: USER_SYSTEM_PROMPT,
+    allowedTools: [],
+    disallowedTools: USER_MODEL_DISALLOWED_TOOLS,
+    model: args.userModel,
+  });
+  userSession.start();
 
   // First user message — the problem prompt itself.
   let nextUserMsg: string = problem.prompt;
-  let turn = 0;
   let endReason: 'done' | 'max_turns' | 'error' = 'max_turns';
   const startedAt = Date.now();
 
@@ -230,30 +357,38 @@ async function runOne(problem: Problem, collectionDir: string, args: CliArgs): P
     while (turn < args.maxTurns) {
       turn++;
       transcript.write({ kind: 'user_message', ts: Date.now(), turn, text: nextUserMsg });
-      conversation += `\nUser: ${nextUserMsg}\n`;
       transcript.writeHuman(
         `## Turn ${turn}\n\n` +
         `**User:**\n\n${nextUserMsg.trim()}\n\n` +
         `**Pair:**\n\n`,
       );
 
-      const turnEventsPromise = waitForTurn(session, (ev) => {
+      const turnEventsPromise = waitForTurn(pairSession, (ev) => {
         const rec: TranscriptRecord = ev.kind === 'options' && ev.privateNotes
           ? { kind: 'pair_event_with_notes', ts: Date.now(), turn, event: ev, privateNotes: ev.privateNotes }
           : { kind: 'pair_event', ts: Date.now(), turn, event: ev };
         transcript.write(rec);
       });
 
-      session.send(nextUserMsg);
+      pairSession.send(nextUserMsg);
       const events = await turnEventsPromise;
 
       const rendered = renderTurn(events);
       transcript.write({ kind: 'turn_summary', ts: Date.now(), turn, rendered });
-      conversation += '\n' + rendered + '\n';
       transcript.writeHuman(`${rendered}\n\n---\n\n`);
 
-      // User model's turn.
-      const userReply = await callUserModel(conversation, { model: args.userModel });
+      // User-model gets a redacted view that strips the pair's thinking
+      // blocks. Without this, Haiku saw lines like "Thinking: option B is
+      // the optimal solution..." and metagamed its choice from them — a
+      // methodology bug that ran across every prior eval. Discovered
+      // 2026-05-04 via a transcript audit.
+      const userRendered = renderTurn(events, { forUser: true });
+      const userInput = turn === 1
+        ? `(You're working on this problem with the pair: ${problem.prompt})\n\n---\n\n${userRendered}`
+        : userRendered;
+      transcript.write({ kind: 'user_input', ts: Date.now(), turn, text: userInput });
+      userSession.send(userInput);
+      const userReply = await waitForUserReply(userSession);
       const done = isDone(userReply);
       const cleanReply = stripDone(userReply);
 
@@ -287,9 +422,10 @@ async function runOne(problem: Problem, collectionDir: string, args: CliArgs): P
       error: err.message,
     });
     transcript.writeHuman(`**Run end**: error after ${turn} turns — ${err.message}\n`);
-    session.close();
+    pairSession.close();
+    userSession.close();
     harvestSandbox(sandboxDir, runDir);
-    console.log(`  ✗ error after ${turn} turns: ${err.message}`);
+    console.log(`  ✗ ${problem.slug}: error after ${turn} turns: ${err.message}`);
     return;
   }
 
@@ -302,9 +438,10 @@ async function runOne(problem: Problem, collectionDir: string, args: CliArgs): P
     durationMs: Date.now() - startedAt,
   });
   transcript.writeHuman(`**Run end**: ${endReason} after ${turn} turn${turn === 1 ? '' : 's'} (${elapsedSec}s)\n`);
-  session.close();
+  pairSession.close();
+  userSession.close();
   harvestSandbox(sandboxDir, runDir);
-  console.log(`  ✓ ${endReason} after ${turn} turns (${elapsedSec}s)`);
+  console.log(`  ✓ ${problem.slug}: ${endReason} after ${turn} turns (${elapsedSec}s)`);
 }
 
 async function main() {
@@ -342,13 +479,35 @@ async function main() {
   const collectionDir = resolve(join(args.outDir, collectionName));
   mkdirSync(collectionDir, { recursive: true });
 
-  console.log(`Eval: ${problems.length} problem(s), pair=${args.pairModel}, user=${args.userModel}, max-turns=${args.maxTurns}`);
+  console.log(`Eval: ${problems.length} problem(s), pair=${args.pairModel}, user=${args.userModel}, max-turns=${args.maxTurns}, concurrency=${args.concurrency}`);
   console.log(`Collection: ${collectionDir}`);
 
-  for (const p of problems) {
-    await runOne(p, collectionDir, args);
-  }
+  await runPool(problems, args.concurrency, (p) => runOne(p, collectionDir, args));
   console.log('\nDone.');
+}
+
+/**
+ * Simple concurrency-limited worker pool. Items are pulled off a shared
+ * cursor by `concurrency` workers running in parallel. No batching — when
+ * a worker finishes one item, it grabs the next immediately, so a slow
+ * item doesn't stall an entire batch.
+ */
+async function runPool<T>(items: T[], concurrency: number, worker: (item: T) => Promise<void>): Promise<void> {
+  const limit = Math.max(1, Math.min(concurrency, items.length));
+  let next = 0;
+  const work = async () => {
+    while (next < items.length) {
+      const i = next++;
+      try {
+        await worker(items[i]!);
+      } catch (e) {
+        // Worker is responsible for its own logging; we just keep the pool
+        // running so a single failure doesn't stall the whole sweep.
+        console.error(`pool worker error: ${(e as Error).message}`);
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: limit }, work));
 }
 
 main()

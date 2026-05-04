@@ -1,0 +1,37 @@
+{
+  "ts": 1777798929260,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-word-counter",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 4.3,
+  "finalScore": 0.825,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed didactic two-option choices at three meaningful junctures: punctuation strategy (Turn 1), test structure (Turn 3), and word-boundary semantics after the failing test (Turn 4). That's a high frequency relative to the problem's small surface area, though some incidental teachable moments (e.g., Counter-as-dict-subclass) were stated rather than asked."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "The choices target the actual cruxes: strip-vs-translate exposes the classic edge-only stripping bug, and the delete-vs-replace choice surfaces the subtle 'itsa' merging artifact that only appears once tests are run. These are exactly the gotchas that distinguish a beginner implementation from a thoughtful one."
+    },
+    "scaffolding": {
+      "score": 5,
+      "rationale": "Progression is excellent: implementation strategy → test organization → discovered semantic flaw via failing test → corrective design choice. The third decision arises organically from the test failure, giving a natural difficulty gradient without spoilers; distractors are plausible and each carries a real-world lesson."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Affirmations are specific (referencing 'well-known' surviving strip, naming the maketrans 3-arg signature), questions are crisp, and the Pair flexibly accepts the user's reasoning while adding a nuance (Counter-as-dict). Back-and-forth feels like genuine collaboration rather than scripted Q&A."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 5,
+      "rationale": "The experiment lands on a stronger solution than baseline: punctuation-as-word-boundary semantics with passing pytest coverage, whereas baseline left the 'don't'→'dont' merging behavior unexamined and skipped tests entirely. Final code is correct and tests pass."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Five turns / 162s vs baseline's 2 turns / 43s — roughly 4x longer, but the pedagogical payoff is proportional: the user actively reasoned through three substantive design decisions and the team caught a real semantic bug baseline missed. Some shell-path retries on pytest added minor noise."
+    }
+  }
+}

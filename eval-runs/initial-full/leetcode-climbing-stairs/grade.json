@@ -1,0 +1,37 @@
+{
+  "ts": 1777798851196,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-climbing-stairs",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 2.9,
+  "finalScore": 0.475,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed exactly one didactic question (A vs B for rolling variables vs DP array) at the start. There were no follow-up questions about base cases, the tuple-swap mechanics, or the Fibonacci connection — all teachable moments that went unprobed."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The single choice — rolling variables vs DP array — does target a real space/clarity trade-off and is a legitimate decision point. But it's a fairly soft fork (both work, the 'distractor' isn't subtly flawed), and richer cruxes like memoization vs bottom-up or base-case handling were skipped."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "Only one decision point with no progression. The Pair also mostly gave away the answer in the framing ('it's Fibonacci') before asking, leaving little room for the user to derive the recurrence themselves."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the Pair affirmed the user's reasoning crisply ('The array version tempts you because DP feels like it needs a table'). Flow is natural but very short — wrapped in two turns without much back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, tested, and matches the baseline's preferred approach. Slightly less thorough than baseline (no memoization comparison, no extension discussion) but solves the stated problem cleanly."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Resolved in 2 turns / 54s vs baseline's 5 turns / 138s, with one substantive choice posed to the user. Tighter than baseline with modest pedagogical content preserved."
+    }
+  }
+}

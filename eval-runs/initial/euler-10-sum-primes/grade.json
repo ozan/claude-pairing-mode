@@ -1,0 +1,37 @@
+{
+  "ts": 1777838079365,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-10-sum-primes",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.8,
+  "finalScore": 0.7,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two substantive didactic questions at meaningful decision points: where to start crossing off multiples (2*p vs p*p), and which slice-assignment variant is faster (list vs bytearray). Two questions across three turns is a solid frequency for this short problem, though a third probe (e.g., on time complexity or wheel optimization) could have pushed it higher."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "Both questions targeted real cruxes: the p*p start is the canonical sieve subtlety, and the list-vs-bytearray comparison surfaces Python object overhead and cache locality — exactly the memory-bound insight worth teaching. The framing as A/B with reasoning hooks was sharp, though the second question's two options were more 'pick the better one' than a genuine design tension."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from algorithmic correctness (where to start) → micro-optimization (slice assignment) → data-structure choice (bytearray), with measurements grounding the final lesson. No spoilers in the questions themselves. The jump from 'should I write the sieve' to a multi-pronged bytearray+slice diff is mildly abrupt but the user handled it."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and concise; the Pair acknowledges the user's reasoning ('Spot on', 'Exactly right') and follows through with measurements that validate the user's intuition. The 'tool isn't loading — I'll just pose the question directly' aside is a small flow hiccup but handled gracefully."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final code is correct (142,913,828,922) and ends up at essentially the same bytearray+slice solution as baseline, with the added value of an in-file benchmark comparing all three variants. Slightly better than baseline because the comparative measurement is preserved in the artifact."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took 3 turns / 124s vs baseline's 1 turn / 27s — roughly 4–5× longer. The extra length bought genuine pedagogical payoff (two real questions, measured comparison) that baseline skipped entirely, so the cost is proportional to the teaching gain but not tighter."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777864486841,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-roman-numerals",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.7,
+  "finalScore": 0.425,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair asked exactly one didactic question at the end (time complexity). It briefly framed a 'core design question' but then abandoned it because the propose_options tool was unavailable, falling back to exposition rather than substituting another question."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The single question about O(1) vs O(log n) vs O(n) is genuinely substantive — it surfaces a non-obvious insight about why the Roman numeral constraint bounds iterations. But the more consequential design fork (greedy table vs digit-by-digit lookup) was decided unilaterally rather than offered as a choice."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "With essentially one question, there's no real progression to evaluate. The Pair's mid-turn explanations of 'why greedy works' and 'why while not if' preempt natural follow-up questions — they spoil the teachable moments by giving the answers before asking."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and explanations are crisp and actionable. The single quiz at the end lands cleanly and the user engages thoughtfully. Conversational flow is fine but mostly monologic rather than back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, passes all 12 test cases including edges (1, 4, 9, 3999), and is essentially equivalent to the baseline solution. Writes to a relative path cleanly versus the baseline's path-fumbling detour."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Roughly the same length as baseline (48s vs 45s, one turn each) and actually tighter on file-writing (no absolute-path detour). Minor friction from the failed propose_options tool call and the python/python3 retry, but the modest pedagogical payoff (the complexity quiz) is proportional."
+    }
+  }
+}

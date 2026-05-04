@@ -1,0 +1,37 @@
+{
+  "ts": 1777838074603,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-14-collatz",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.8,
+  "finalScore": 0.45,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed exactly one didactic question (A vs B on memoization). It's a single decision point in a problem that admittedly has limited forks, but no follow-ups about recursion depth, iterative+cache hybrids, or upper bounds were raised."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The memoization-vs-no-cache fork hits the central performance insight of the problem. However, it misses adjacent cruxes like Python recursion-limit risk for deep Collatz chains or whether to cache only small values — the 'best' option silently has a real gotcha."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Order is reasonable: motivate overlap, then offer two concrete diffs. The setup prose ('every Collatz chain eventually merges') heavily telegraphs the answer before the choice is even posed, weakening the pedagogical lift."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the diffs are concrete and actionable. Flow is clean with a single back-and-forth, though the Pair never acknowledges or extends the user's strong reasoning before stating the answer."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final answer 837799 matches the baseline and the chosen memoized solution is correct and idiomatic. Equivalent quality to baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "65s vs baseline's 22s (~3x), but only one extra turn for a genuine teaching moment about memoization tradeoffs. The extra length is proportional to the pedagogical payoff for a problem this small."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777799065624,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-valid-parens",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.5,
+  "finalScore": 0.625,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed two substantive didactic questions (counters vs. stack, dict layout direction) across a short 3-turn session. That's a reasonable density given the problem size, but it stopped short — no question about the `not stack` short-circuit, the final emptiness check, or potential extensions."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The counters-vs-stack question hits the actual crux of the problem — the case `([)]` that distinguishes order-aware from order-blind approaches. The dict-layout question is more cosmetic but still surfaces a real implementation taste decision. Together they target the most consequential design choice."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression: data-structure choice → implementation detail → write & test. No spoilers — the Pair let the user articulate why counters fail before agreeing. The gradient is smooth, though the session ends abruptly without scaffolding any extension or having the user write the code themselves."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Clean back-and-forth, warm acknowledgments (\"Spot on\"), and the Pair builds on the user's reasoning rather than overriding. Minor blemish: the first turn has a false-start \"Let me just kick things off directly\" after an initial half-question, which reads as a self-correction artifact."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, passes all 8 test cases including the `([)]` trap, and complexity discussion is accurate. Roughly equivalent to baseline; baseline went further with a position-tracking variant, but the core deliverable is solid."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "3 turns / 102s vs. baseline's 5 turns / 149s — tighter while still surfacing two real didactic forks. The trade-off (`([)]` insight elicited rather than asserted) is a clean pedagogical win at lower cost."
+    }
+  }
+}

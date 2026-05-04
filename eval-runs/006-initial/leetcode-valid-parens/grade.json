@@ -1,0 +1,37 @@
+{
+  "ts": 1777864536997,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-valid-parens",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.8,
+  "finalScore": 0.45,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed essentially one didactic question (closer→opener vs opener→closer mapping) in turn 1, and then handed the answer over directly in turn 2 rather than asking about the empty-stack edge case or the final `return not stack` check. Other teachable moments (e.g. the `([)]` interleaving case) were narrated rather than questioned."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The single framed choice — direction of the matching dict — is a real design tension and a legitimate teachable fork, but it's a relatively minor stylistic decision. The crux moments (empty-stack guard, final stack-empty check, why interleaving fails) were not turned into questions."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "The one question is well-pitched and avoids spoilers, with both options laid out symmetrically. But there's no progression — after the first choice, the Pair just writes the full solution and explains, so the scaffold is one step deep rather than a sequence."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the back-and-forth reads naturally; the Pair acknowledges the user's reasoning before extending it. Slight friction from the visible `propose_options` tool failure and meta-comment, but recovery was smooth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final solution is correct, passes tests, and is essentially equivalent to the baseline — same O(n)/O(n), handles empty stack, mismatches, and leftover openers. Test coverage is lighter than the baseline's 15-case suite but still adequate."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took ~114s vs baseline ~62s (roughly 2x) with one extra didactic turn. The payoff — getting the user to reason about and choose between the two dict directions — is proportional to the modest extra length."
+    }
+  }
+}

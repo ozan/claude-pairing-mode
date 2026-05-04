@@ -1,0 +1,37 @@
+{
+  "ts": 1777838230797,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-todo-cli",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.7,
+  "finalScore": 0.675,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed a didactic question at nearly every meaningful decision point: ID scheme (turn 1), dispatch style (turn 2), pop vs comprehension (turn 3), and corrupt-JSON handling (turn 4). Four substantive questions in a 6-turn session is high frequency for a problem this small."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The stable-vs-index ID question and the silent-data-loss question both hit genuine cruxes (a real correctness hazard, and a cardinal data-integrity principle). The dispatch-style and pop-vs-comprehension questions are more cosmetic for a 4-command CLI, which the Pair itself acknowledged — substantive but not all maximally consequential."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Progression flows reasonably from data model → control flow → implementation detail → error handling. However, the Pair telegraphs the answers (\"There's a subtle hazard with one of them\", \"which is safer, and why?\"), which nudges the user toward the intended choice rather than letting them weigh independently."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm, concise, and consistently actionable; the Pair acknowledges the user's reasoning and moves forward without rehashing. Minor friction: the opening \"options tool isn't available\" meta-comment briefly breaks frame, but otherwise the back-and-forth is fluid."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final code meets the spec with all four subcommands working, plus stable IDs and a graceful corrupt-JSON guard the baseline lacks. Smoke test confirmed correct behavior including the stable-ID property post-delete — a modest improvement over baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "299s vs baseline's 60s (~5x) and 6 turns vs 1, but the extra time delivered three substantive teaching moments and a real robustness improvement (corrupt-JSON handling). The pop-vs-comprehension detour was low-payoff filler that inflated length without proportional gain."
+    }
+  }
+}

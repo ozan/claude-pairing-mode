@@ -1,0 +1,37 @@
+{
+  "ts": 1777840452055,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-caesar-cipher",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked the user zero didactic questions. It wrote the full solution and explained it, never engaging the user at any decision point (e.g., negative-shift handling, case preservation strategy, decode-as-negated-encode)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all. The two-option didactic format the project is built around was completely bypassed — no forks were surfaced, consequential or otherwise."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there are no questions. The Pair delivered the answer wholesale, including the 'key insight' about `% 26` handling negatives, which would have been the ideal teachable moment to elicit."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is warm and the explanation is clear, but the conversation is one-shot monologue with no back-and-forth. The user's Turn 2 message is itself just a recap, indicating no real dialogue occurred."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "The code is correct and equivalent to the baseline (same algorithm, same edge-case handling). Note the Pair claimed it 'can't write to disk' despite a Write tool call shown in the transcript, but the resulting code is functionally identical to baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Slightly longer than baseline (45s vs 33s, one extra turn of recap) with no pedagogical payoff to justify the extra length. Roughly comparable in efficiency."
+    }
+  }
+}

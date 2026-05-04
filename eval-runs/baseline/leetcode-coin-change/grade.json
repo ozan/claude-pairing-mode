@@ -1,0 +1,37 @@
+{
+  "ts": 1777804639369,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-coin-change",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 2,
+  "finalScore": 0.25,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks essentially no didactic questions. Turn 1 dumps the full solution, complexity analysis, and a 'why not greedy' aside without prompting the user to think. Turn 2 asks 'what's most useful for you?' — a logistics question, not a teaching one. No teachable moments are turned into questions."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "There are no substantive choices framed for the user. The only questions posed ('what would you like to do next?', 'Should I go ahead and run the Python code?') are about workflow, not algorithmic trade-offs, recurrence design, sentinel choice, or the bottom-up vs top-down decision — all of which would have been the actual cruxes."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolded sequence — the full DP solution, transition, sentinel trick, complexity, and greedy counterexample are all spoiled in Turn 1. The user is left to confirm understanding rather than discover anything; difficulty gradient is irrelevant because nothing is asked."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the trace table in Turn 3 is genuinely clear and well-organized. However the flow is essentially monologue-then-acknowledge; the Pair correctly catches the role confusion in Turn 2 ('I'm the one who wrote that solution') but the conversation never becomes a real back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

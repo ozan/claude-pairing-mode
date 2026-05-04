@@ -1,0 +1,37 @@
+{
+  "ts": 1777798874135,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-trap-rain-water",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.7,
+  "finalScore": 0.675,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two distinct didactic OPTIONS forks (algorithm choice, then `<` vs `<=`) plus a follow-up probe about the `while left < right` termination. That's a solid cadence for a problem of this size, hitting the major teachable moments without over-prompting."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The first option (DP arrays vs two pointers) hits the central trade-off. The `<` vs `<=` question is a genuine subtlety worth pausing on, and the termination-condition follow-up forces the user to articulate the loop invariant. The strict-vs-non-strict comparison is slightly stylistic rather than a correctness crux, knocking it from a 5."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression is logical: pick the algorithm → implement → interrogate a branching subtlety → verify termination. No spoilers, and the difficulty escalates smoothly from high-level choice to fine-grained invariant reasoning. The `<=` question's payoff is a bit thin given it's not actually a correctness issue."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Conversational flow is natural and the Pair's pushback on the user's 'cleaner' framing is handled gracefully — affirming the correct reasoning while correcting the style claim. The closing offer of LC #407 as an extension feels organic, not tacked on."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, passes tests, and matches the baseline's two-pointer solution. Equivalent quality to baseline; no notable improvement or regression."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment ran 4 turns / 190s vs baseline's 2 turns / 110s — roughly 1.7x longer. The extra length is justified by genuine pedagogical content (the `<` vs `<=` discussion and the termination-invariant prompt), so the overhead is proportional to the teaching payoff."
+    }
+  }
+}

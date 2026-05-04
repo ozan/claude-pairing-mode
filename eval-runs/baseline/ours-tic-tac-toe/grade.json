@@ -1,0 +1,37 @@
+{
+  "ts": 1777804692787,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-tic-tac-toe",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It immediately wrote the full solution and explained it after the fact. No teachable moments were surfaced as choices for the user."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all. The system was supposed to propose two-option forks (per CLAUDE.md), but the Pair never invoked propose_options or surfaced any decision — minimax vs heuristics, first-move randomness, X/O assignment, etc., were all decided unilaterally."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there is no progression of questions. The entire solution is dumped in one turn with a post-hoc summary."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is friendly and the explanation is organized, but there is no back-and-forth — the user's second turn is essentially a self-directed code review with no further engagement from the Pair. Conversational dynamic is one-shot delivery, not pairing."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

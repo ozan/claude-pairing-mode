@@ -1,0 +1,37 @@
+{
+  "ts": 1777838172096,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-valid-parens",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.7,
+  "finalScore": 0.675,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two distinct didactic questions at meaningful decision points (what to push on the stack; how to guard the pop) before writing any code. For a short easy problem this is a high density of teachable prompts, though it stops at two."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "Both questions hit real cruxes: the 'push opener vs expected closer' framing exposes a genuine design trade-off, and the 'not stack or' guard targets the classic empty-stack IndexError gotcha. Neither is cosmetic; the second in particular is the canonical bug to catch."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression goes from a high-level design choice to a subtle implementation detail to coding — a clean gradient with no spoilers. The first question slightly nudges by labeling Option A's lookup as 'extra layer'-ish via framing, but answers aren't given away."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tone is warm and crisp ('Spot on', 'great reasoning'), affirmations are tied to the substantive reason (short-circuit evaluation), and turns flow naturally from question → user reasoning → confirmation → code. No non-sequiturs."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly solves the problem and passes 8 test cases including key edge cases. It's slightly less thoroughly tested than the baseline (8 vs 15 cases) but functionally equivalent and arguably cleaner via the push-expected-closer idiom."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "84s vs baseline 62s and 3 turns vs 2 — modestly longer, with proportional pedagogical payoff via two well-chosen didactic forks. No wasted turns; the `python` vs `python3` retry was trivial."
+    }
+  }
+}

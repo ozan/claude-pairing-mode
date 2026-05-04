@@ -1,0 +1,37 @@
+{
+  "ts": 1777840362991,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-21-amicable",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks zero didactic questions. Despite the 'Learning' output style and the project's two-option didactic premise, it never engages the user with a choice or question — it just presents a strategy and the answer."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices are framed at all. Teachable forks like the √n optimization, the perfect-square double-count, or the a≠b check are mentioned but never posed as decisions for the user."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolded sequence — the Pair dumps the full strategy and solution in one shot, immediately spoiling every interesting subproblem (divisor sum trick, factor-pair dedup, perfect-number exclusion)."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and the explanation is well-organized, but it's a one-way lecture. The user's only role is to acknowledge completion; there's no back-and-forth at all."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly produces 31626 with the same O(√n) divisor-sum approach as baseline. Equivalent correctness; slightly nicer presentation with the verification print and pair listing."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Roughly comparable to baseline (1 turn, 28s vs 22s) with marginally more output. No extra teaching to justify any extra length, but it's not bloated either."
+    }
+  }
+}

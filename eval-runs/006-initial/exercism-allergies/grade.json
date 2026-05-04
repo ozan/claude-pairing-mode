@@ -1,0 +1,37 @@
+{
+  "ts": 1777864467484,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-allergies",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.5,
+  "finalScore": 0.375,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair attempted to use the propose_options tool but it failed, then proceeded to present options as text without actually asking the user to choose. The only question was a perfunctory 'Want to add tests, or move on?' at the end. No real didactic engagement happened."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The Pair did surface a genuinely interesting fork (plain dict vs IntFlag, with the >255 gotcha), which is the crux of the problem's design space. However, it immediately answered its own question rather than letting the user engage with the trade-off."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "There's no real progression because the Pair made all decisions itself. The IntFlag gotcha was named but spoiled in the same breath ('has a gotcha: ...leaks into iteration'), so the user got the answer handed to them rather than discovering it."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanation is clear and actionable. Flow is one-sided — the Pair monologues through the decision rather than engaging the user, but there's no friction or non sequiturs."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, handles >255 scores, preserves canonical order, and passes the inline assertions. Functionally equivalent to the baseline; the baseline additionally raises on unknown allergens, but that's not a stated requirement."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "44s vs baseline's 25s — modestly longer with a small didactic payoff (the IntFlag contrast and the >255 explanation). Still a single turn to convergence, no churn."
+    }
+  }
+}

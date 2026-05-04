@@ -1,0 +1,37 @@
+{
+  "ts": 1777840428178,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-group-anagrams",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.4,
+  "finalScore": 0.35,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair asks a few didactic questions (predict edge case outputs in turn 3, 'Want to try writing that key-building logic yourself before I show it?' in turn 4), but turn 1 dumps both complete solutions with complexity analysis and takeaways before any user engagement. Most decision points are pre-resolved by the Pair."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The edge case prediction prompt (empty string, duplicates) is decent and probes whether the abstraction handles them naturally. But the central trade-off — sorted key vs. count key — is presented as exposition rather than a real fork; by turn 1 the user has already seen both implementations, so no consequential choice remains."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "Turn 1 spoils the entire problem: both solutions, complexity table, and 'Key Takeaways' all delivered upfront. The later edge-case exploration and frequency-key derivation are nicely paced, but the initial mega-dump means there's no real difficulty gradient — the user is reproducing what was already shown."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the Pair gracefully handles the user's apparent paste-error in turn 2 ('I already showed you both implementations above 😄'). Back-and-forth feels natural, with collapsible expected-answer hints and concrete bash runs to verify predictions."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Both implementations are correct and verified via runs against the canonical example and edge cases. Equivalent in correctness to the baseline, though the experiment never wrote a persistent file with a test suite (baseline produced group_anagrams.py with 8 passing tests)."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "5 turns and 133s vs. baseline's 2 turns and 76s — roughly 2x longer. The extra length yields some pedagogical value (edge case prediction, frequency-tuple visualization), but the gain is modest given turn 1 already exhaustively explained both approaches, making much of the subsequent work redundant rederivation."
+    }
+  }
+}

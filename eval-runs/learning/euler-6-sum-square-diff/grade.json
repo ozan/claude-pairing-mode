@@ -1,0 +1,37 @@
+{
+  "ts": 1777840367024,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-6-sum-square-diff",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.7,
+  "finalScore": 0.425,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair offers two options once and tacks a softball 'Which appeals to you?' at the end of turn 1, but in turn 2 it doesn't pose any further questions — it just gives its recommendation, a third variant, and a summary table. Only one real engagement point across the session."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The framed choice (closed-form vs. loop) is the obvious axis for this problem but is fairly cosmetic at n=100, and the Pair itself acknowledges 'O(1) vs O(n) distinction is noise.' No deeper crux is surfaced — e.g., integer overflow, floating-point division with `/` vs integer math, or why the formulas hold."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Progression is reasonable: present options, then give a recommendation with a sanity-check trick (i=3 mental check) and a rule-of-thumb table. But the Pair largely answers its own question rather than letting the user reason, and reveals the verdict immediately rather than scaffolding the user toward it."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm, concrete, and the recommendation is actionable with a useful mental sanity check and a comparison table. Flow is smooth across two turns, though it's more lecture-with-options than back-and-forth dialogue."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final answer 25,164,150 is correct and the chosen TypeScript loop implementation is clean and verified — equivalent to baseline's outcome. Neither version is actually executed against a runtime; both rely on the user's claimed test."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Same 2-turn length as baseline (52s vs 46s) with modestly more prose (third option, rule-of-thumb table, sanity-check tip). Length is comparable and the extra content carries proportional teaching value."
+    }
+  }
+}

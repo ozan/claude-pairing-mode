@@ -1,0 +1,37 @@
+{
+  "ts": 1777840384540,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-hamming",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 2,
+  "finalScore": 0.25,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions and never used the propose_options mechanism. It simply wrote the solution and explained it, despite teachable moments (length-guard vs zip-strict, generator vs list comprehension, ValueError vs custom exception)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were surfaced at all. The Pair bypassed the experiment's core didactic mechanism and presented a single solution as a fait accompli."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding to evaluate — the full solution was revealed in the first response with no progression of questions or graduated reveals."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "The explanation is clear and well-organized with reasonable tone, but the flow is one-sided lecture rather than back-and-forth. Note that the user is also an AI, which limits interactivity, but the Pair made no attempt to engage."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is identical to the baseline — correct length guard, ValueError, and zip+sum one-liner. Solves the kata equivalently."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Single turn, 30s, essentially the same length as the baseline (33s). Slightly richer explanation but no proportional pedagogical payoff since no choices were offered."
+    }
+  }
+}

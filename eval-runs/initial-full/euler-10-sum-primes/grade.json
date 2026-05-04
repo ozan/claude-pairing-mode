@@ -1,0 +1,37 @@
+{
+  "ts": 1777798562804,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-10-sum-primes",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 2.3,
+  "finalScore": 0.325,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed one rhetorical question ('where should we start?') and a closing offer to explore further, but immediately answered itself when propose_options was unavailable. No actual didactic engagement was solicited from the user during the meaningful decisions."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The one question raised — where to start marking multiples — does target a genuine subtlety (the p² optimization), so it has pedagogical merit. But it was rhetorical rather than a real choice, and the trade-off between bytearray vs list, or sieve vs trial division, was never offered as a fork."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "There's no real progression because the Pair abandoned questioning after the tool failure and dumped the answer plus all explanations at once. The closing 'want to explore NumPy or √N?' offer hints at scaffolding but was declined before any sequencing materialized."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanations (p=7 worked example, memory math for bytearray) are clear and actionable. But the flow is monologic — Pair asks, Pair answers, Pair implements — rather than a back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code produces the correct answer 142,913,828,922 and uses the same core optimizations as baseline (bytearray, p² start, slice assignment). Equivalent solution, written to a file rather than inline."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "Run took 60s vs baseline's 36s with no proportional pedagogical payoff — the Pair attempted a didactic move, hit a tool-availability error, and fell back to a baseline-style monologue. The extra time bought a slightly richer explanation but no genuine user engagement."
+    }
+  }
+}

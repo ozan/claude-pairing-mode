@@ -1,37 +1,37 @@
 {
-  "ts": 1777777567570,
+  "ts": 1777864453377,
   "graderModel": "claude-opus-4-7",
   "experimentSlug": "euler-15-lattice-paths",
   "isBaseline": false,
-  "baselineCollection": "003-baseline",
-  "weightedScore": 2.5,
-  "finalScore": 0.375,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.5,
+  "finalScore": 0.625,
   "pedagogical": {
     "question_frequency": {
-      "score": 2,
-      "rationale": "Only one didactic question is posed (iteration direction for the rolling array). It's a single teachable moment in a session that could have offered more (e.g., why DP equals binomial, overflow trade-offs, when to prefer closed form)."
+      "score": 4,
+      "rationale": "The Pair posed two substantive didactic forks across the conversation: full grid vs. single row DP in turn 1, and factorial vs. incremental binomial computation in turn 2. Both occurred at genuine decision points, though after the first one the Pair partially answered its own question before the user could respond."
     },
     "question_quality": {
       "score": 4,
-      "rationale": "The single question is genuinely substantive — iteration direction in a rolling-array DP is a classic gotcha, and the Pair's follow-up connects the wrong answer to Pascal's recurrence and the 0/1 knapsack mirror. High-value crux even if isolated."
+      "rationale": "Both choices target real ideas: the O(n²) vs O(n) DP rolling-array trick is a classic transferable pattern, and the incremental binomial formulation surfaces the integer-invariant insight central to combinatorial computation. Neither is cosmetic, though the Pair could have pushed further on why the left-to-right order specifically works."
     },
     "scaffolding": {
       "score": 3,
-      "rationale": "Reasonable single-step setup: derive recurrence, motivate space compression, then ask the direction question without spoilers. But with only one question there's no real progression or gradient to evaluate."
+      "rationale": "Progression from combinatorics → DP recurrence → space optimization → comb implementation is logical. However, the Pair gave away the answer to option B immediately after presenting the choice (\"The single-row version (B) works because…\"), and similarly explained the incremental approach before the user picked — undermining the choice as a teaching device."
     },
     "flow_and_tone": {
       "score": 4,
-      "rationale": "Clean back-and-forth: the user explains, the Pair affirms and extends with the knapsack analogy. Tone is collegial and the response is actionable. Slightly marred by the Pair shipping a wrong number (137,846,528,820 vs correct 137,846,528,640) without flagging it explicitly as an error in the prior turn."
+      "rationale": "Tone is warm and the back-and-forth feels natural; the user actively traces through code and articulates insights, which the Pair builds on with the side-by-side grid table. The repeated \"tool isn't loading\" meta-commentary is a minor friction but doesn't derail the conversation."
     }
   },
   "productivity": {
     "effectiveness": {
-      "score": 2,
-      "rationale": "Final answer printed is 137,846,528,820, off from the correct 137,846,528,640. Baseline was correct. The DP code is fine in structure but the executed/reported result is wrong, which is a hard miss for a numerical Project Euler problem."
+      "score": 4,
+      "rationale": "Final code is correct (137,846,528,820), includes both DP variants plus closed form, and verifies all three agree. Notably better than the baseline, which had a typo (640 vs 820) in the written answer and never wrote a clean reusable file."
     },
     "friction": {
       "score": 2,
-      "rationale": "About 3× the baseline wall time and double the turns for one teachable question and an analogy, while delivering a wrong final number. The pedagogical payoff doesn't justify the extra length given the correctness regression."
+      "rationale": "Experiment took 3 turns and 540s vs baseline's 1 turn and 53s — roughly 10× longer. The pedagogical payoff (rolling array trick, incremental binomial) is real but the Pair undercut its own questions by answering them immediately, reducing the marginal value of the extra length."
     }
   }
 }

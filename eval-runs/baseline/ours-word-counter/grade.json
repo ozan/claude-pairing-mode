@@ -1,0 +1,37 @@
+{
+  "ts": 1777804702938,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-word-counter",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never poses a didactic question. It delivers a complete solution as 'A:' (no B option, despite the project's two-option premise) and only at the very end offers generic follow-up menu items (add tests? adjust contractions?), which are not teachable-moment prompts."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No real choice is framed. Genuine forks — contractions as one word vs. split, Unicode letters vs. ASCII-only, returning Counter vs. dict — are mentioned as asides in prose rather than surfaced as decisions for the user to make."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no progression to scaffold; the entire solution is dumped in one turn with explanation appended. The user never gets to attempt, predict, or decide anything."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and friendly and the explanation is competent, but it's a monologue. The 'final' turn is the user (a Haiku model) merely validating the solution, so there's no genuine back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777804678191,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-game-of-life",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never asked the user a single didactic question. Despite the project being explicitly about a two-option pair-programming UI where 'every code change' should be 'seen and chosen,' the Pair simply wrote the entire implementation in one turn and explained it after the fact."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were offered at all. Rich teachable forks (in-place vs. new-grid mutation, edge wrapping vs. clamping, neighbor-counting strategies) were resolved unilaterally and explained post-hoc rather than presented as decisions."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no question sequence to scaffold. The post-hoc explanation is competent but it's exposition, not graduated learning — the user makes no decisions and exercises no reasoning."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and the writeup is well-organized with tables and code highlights, but it's a monologue. There is no back-and-forth — the 'User' second turn is itself just a recap, suggesting the conversation never engaged the user pedagogically."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

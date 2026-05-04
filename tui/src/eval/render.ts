@@ -84,8 +84,14 @@ function renderOptions(ev: OptionsEvent): string {
  * reply up to and including the `result` (or end of stream). Filter
  * `text_delta`/`text_block_done` happen here; the caller doesn't have to
  * pre-aggregate.
+ *
+ * `forUser=true` strips content the user-model shouldn't see: the pair's
+ * private thinking blocks (which would include the pair's preferred
+ * answer to a propose_options decision, biasing the user's "choice").
+ * Use `forUser=false` for the human-readable transcript.md.
  */
-export function renderTurn(events: AnyEvent[]): string {
+export function renderTurn(events: AnyEvent[], opts: { forUser?: boolean } = {}): string {
+  const forUser = opts.forUser ?? false;
   const lines: string[] = [];
   const tools = new Map<string, ToolRecord>();
   let curText = '';
@@ -105,6 +111,18 @@ export function renderTurn(events: AnyEvent[]): string {
         break;
       case 'text_block_done':
         flushText();
+        break;
+      case 'thinking_block_done':
+        flushText();
+        // Render thinking as a marked block so it's visually distinct from
+        // assistant prose. Useful for debugging tool-use decisions; ignore
+        // when reading the conversation casually. When forUser=true, skip
+        // entirely — Sonnet's thinking often states its preferred option
+        // and the user-model would metagame from it.
+        if (!forUser && ev.text.trim()) {
+          lines.push('Thinking: ' + ev.text.trim().split('\n').join('\n  '));
+          lines.push('');
+        }
         break;
       case 'tool_use_start':
         flushText();

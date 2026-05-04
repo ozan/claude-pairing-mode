@@ -1,0 +1,37 @@
+{
+  "ts": 1777864494530,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-coin-change",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 4.4,
+  "finalScore": 0.85,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 5,
+      "rationale": "The Pair posed three distinct didactic forks (greedy vs DP, sentinel choice, loop order), engaging the user at essentially every meaningful decision point in the implementation."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Each question hit a genuine crux: the greedy counterexample, the domain-aware infinity (with the C++/Java overflow connection), and the loop-order subtlety that connects unbounded coin change to 0/1 knapsack. These are exactly the parts experienced practitioners think about."
+    },
+    "scaffolding": {
+      "score": 5,
+      "rationale": "The progression moved from algorithm choice → initialization detail → loop structure, each layer building on a settled prior decision. No spoilers — the loop-order question explicitly invited the user to reason before the explanation, and the answer arrived only after the user committed an attempt."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Responses validated the user's intuitions without flattery, answered the user's tangential question about Option B substantively, and kept a natural back-and-forth. The 0/1 knapsack contrast was offered as a payoff to the user's curiosity rather than imposed."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, runs against the standard test cases including edge cases, and matches the baseline's algorithm and complexity. Equivalent quality to baseline."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "About 2x baseline duration (159s vs 76s, 4 turns vs 3) but with a clearly proportional teaching payoff: three substantive forks taught versus baseline's single explanation. The brief MCP tool hiccup at the start was minor and self-corrected."
+    }
+  }
+}

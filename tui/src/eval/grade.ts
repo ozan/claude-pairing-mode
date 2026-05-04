@@ -16,6 +16,7 @@ type CliArgs = {
   graderModel: string;
   only: string | null;
   force: boolean;
+  concurrency: number;
 };
 
 function parseArgs(argv: string[]): CliArgs {
@@ -25,6 +26,7 @@ function parseArgs(argv: string[]): CliArgs {
     graderModel: DEFAULT_GRADER_MODEL,
     only: null,
     force: false,
+    concurrency: 4,
   };
   const positional: string[] = [];
   for (let i = 0; i < argv.length; i++) {
@@ -34,6 +36,7 @@ function parseArgs(argv: string[]): CliArgs {
     else if (a === '--grader-model') args.graderModel = next();
     else if (a === '--only') args.only = next();
     else if (a === '--force' || a === '-f') args.force = true;
+    else if (a === '--concurrency' || a === '-j') args.concurrency = Number(next());
     else if (a === '-h' || a === '--help') { printHelp(); process.exit(0); }
     else if (a.startsWith('-')) { console.error(`unknown arg: ${a}`); process.exit(2); }
     else positional.push(a);
@@ -58,6 +61,7 @@ Options:
   --grader-model MODEL  Default: ${DEFAULT_GRADER_MODEL}
   --only SLUG           Grade only the run matching this slug.
   -f, --force           Re-grade runs that already have grade.json.
+  -j, --concurrency N   Number of grades to run in parallel. Default: 4
 `);
 }
 
@@ -135,16 +139,16 @@ async function main() {
     for (const r of findRuns(baseDir)) baselineBySlug.set(r.slug, r.transcript);
   }
 
-  console.log(`Grading ${experiments.length} run(s) in ${basename(expDir)} via ${args.graderModel}${baseDir ? `, baseline=${basename(baseDir)}` : ' (no baseline)'}\n`);
+  console.log(`Grading ${experiments.length} run(s) in ${basename(expDir)} via ${args.graderModel}${baseDir ? `, baseline=${basename(baseDir)}` : ' (no baseline)'}, concurrency=${args.concurrency}\n`);
 
   let graded = 0;
   let skipped = 0;
-  for (const r of experiments) {
+  const gradeOne = async (r: RunDir): Promise<void> => {
     const gradePath = join(r.dir, 'grade.json');
     if (existsSync(gradePath) && !args.force) {
       console.log(`  ⊘ ${r.slug} (already graded; pass -f to re-grade)`);
       skipped++;
-      continue;
+      return;
     }
     const expMd = readFileSync(r.transcript, 'utf8');
     const baseMdPath = baselineBySlug.get(r.slug);
@@ -157,7 +161,14 @@ async function main() {
         baseline: baseMd ? { slug: r.slug, markdown: baseMd } : undefined,
         opts: { model: args.graderModel },
       });
-      const grade = r.isBaseline ? applyBaselineOverride(rawGrade) : rawGrade;
+      // Pin productivity to 3 only when (a) the run was launched in
+      // baseline mode (empty system prompt) AND (b) there's no baseline
+      // reference to compare against. With a reference, the LLM's
+      // productivity scoring is meaningful even for "baseline-mode" runs
+      // — important for variants like the Learning trial which also runs
+      // with no system prompt but is *not* the productivity reference.
+      const shouldPinProductivity = r.isBaseline && !baseDir;
+      const grade = shouldPinProductivity ? applyBaselineOverride(rawGrade) : rawGrade;
       const weighted = weightedScore(grade);
       const final = normalizedScore(grade);
       const out = {
@@ -182,9 +193,27 @@ async function main() {
       const err = e as Error;
       console.log(`  ✗ ${r.slug}: ${err.message}`);
     }
-  }
+  };
 
+  await runPool(experiments, args.concurrency, gradeOne);
   console.log(`\nDone: ${graded} graded, ${skipped} skipped.`);
+}
+
+/** Same minimal pool used by runEval; copy avoids cross-file imports for now. */
+async function runPool<T>(items: T[], concurrency: number, worker: (item: T) => Promise<void>): Promise<void> {
+  const limit = Math.max(1, Math.min(concurrency, items.length));
+  let next = 0;
+  const work = async () => {
+    while (next < items.length) {
+      const i = next++;
+      try {
+        await worker(items[i]!);
+      } catch (e) {
+        console.error(`pool worker error: ${(e as Error).message}`);
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: limit }, work));
 }
 
 main().catch((e) => {

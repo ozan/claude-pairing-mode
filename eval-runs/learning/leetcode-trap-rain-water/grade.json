@@ -1,0 +1,37 @@
+{
+  "ts": 1777840439900,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-trap-rain-water",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks essentially zero didactic questions. Turn 1 is a full lecture dumping all three approaches with code. Turn 2 asks logistical clarifying questions (language? which approach? tests?) which the Pair then ignores by just writing all three. No teachable-moment probes occur."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "The only questions are cosmetic logistics (pick a language, pick an approach). They don't surface any algorithmic crux — the shorter-side-binding insight, the off-by-one on equality, the no-need-for-max(0,...) guard — all of these are just narrated, never asked."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is effectively no scaffolding. The Pair front-loads the optimal solution plus two alternatives and a complexity table in Turn 1, spoiling everything. Subsequent turns just write the file and run tests; no graded difficulty or guided discovery."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is warm and well-formatted, but flow is one-directional: the Pair monologues, the user (acting as a 'pair') tries to redirect, and the Pair brushes past with 'we already have all three implementations above.' The conversation is the Pair lecturing rather than collaborating."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly solves the problem with all three approaches and 11/11 tests passing, comparable to the baseline's working solution."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Shorter than baseline (2 turns / 104s vs. 5 turns / 147s) but the brevity comes from skipping pedagogy rather than tightening it. Roughly comparable productivity, no proportional teaching payoff for the time saved."
+    }
+  }
+}

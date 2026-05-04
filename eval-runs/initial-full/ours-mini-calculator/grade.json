@@ -1,0 +1,37 @@
+{
+  "ts": 1777798910570,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-mini-calculator",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 2.5,
+  "finalScore": 0.375,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair poses end-of-turn 'want to extend?' questions but rarely engages the user before making decisions. At the two key decision points (parser strategy, token representation) it explicitly bails — 'Let me just proceed' and 'I'll just call it: named tuple is the right move' — turning potential didactic moments into monologues."
+    },
+    "question_quality": {
+      "score": 2,
+      "rationale": "The choices surfaced (shunting-yard vs recursive descent; named tuple vs parallel lists) do hit real design tensions, but the Pair answers them itself instead of letting the user reason through them. The follow-up offers ('unary minus, exponentiation, variables, error messages') are menu-style scope questions, not crux questions about the problem."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "There is some progression (parser → error handling → caret messages), but each 'choice' is presented and immediately resolved by the Pair, so there's no real difficulty gradient for the learner. Spoilers are baked in — the recommended answer is given in the same breath as the alternatives."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanations (precedence falling out of the call graph, walrus operator, ParseError subclassing) are genuinely useful and actionable. But conversational flow is one-directional: the Pair lectures and the user mostly affirms; there's little real back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly handles +, -, *, /, parens, precedence, and adds nice caret-style error messages. It lacks unary minus that the baseline supports, but the user explicitly declared that out of scope, and all 5 happy-path + 3 error tests pass."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Two turns / 158s vs baseline's one turn / 135s — only modestly longer, and the extra turn delivered real value (position-tracked errors). Pedagogical payoff per added length is modest because the Pair short-circuited its own didactic prompts, but overall friction is comparable to baseline."
+    }
+  }
+}

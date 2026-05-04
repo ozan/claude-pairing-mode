@@ -1,0 +1,9 @@
+{
+  "next_id": 3,
+  "items": {
+    "1": {
+      "text": "buy milk",
+      "done": true
+    }
+  }
+}

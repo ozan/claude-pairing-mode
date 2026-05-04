@@ -1,0 +1,37 @@
+{
+  "ts": 1777840474677,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-run-length-encoding",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never asks the user a single didactic question. It delivers a complete solution in one shot with no engagement at decision points (e.g., multi-digit count handling, empty string, error handling on malformed input)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices are surfaced at all. Potentially crucial forks like multi-digit decoding strategy, error handling, or whether to encode runs of length 1 are mentioned only in passing prose, never framed as a decision."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding — the solution is presented in full immediately, with explanation following. The user has no opportunity to progress through difficulty levels or contribute reasoning."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and the explanation is well-organized, but the 'conversation' is a one-way monologue. The user's only reply is a recap; there is no back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "The final code correctly solves the problem and round-trip tests pass on six cases, equivalent to the baseline. The baseline arguably has a slight edge by adding explicit ValueError handling for malformed input, but functional correctness is comparable."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "The experiment is actually shorter than the baseline (23s vs 54s, one turn each) with comparable output. However, since there's no pedagogical payoff at all, the brevity reflects a missed teaching opportunity rather than efficient didactic pairing."
+    }
+  }
+}

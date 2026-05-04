@@ -1,0 +1,37 @@
+{
+  "ts": 1777840478154,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-tic-tac-toe",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks zero didactic questions. It writes the entire solution in one shot and then explains it, with no engagement of the user at any decision point (board representation, AI algorithm choice, input validation strategy)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices are framed for the user. Decisions like minimax vs. alpha-beta vs. heuristic, dict vs. list board, or how to handle ties are made unilaterally and presented as fait accompli."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no question sequence to scaffold. The post-hoc explanation walks through the code linearly but doesn't build skill progressively or invite the learner to reason about anything."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is warm and the explanation is clear, but it's a one-way lecture rather than a back-and-forth. The 'conversation' is essentially Pair monologue followed by user echoing 'looks good'."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is a working, unbeatable minimax tic-tac-toe — comparable to baseline. Baseline added alpha-beta pruning and randomized first move; experiment skipped both but is otherwise equivalent and arguably cleaner with the dict-based board."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Runtime (75s) and turn count (1) are essentially identical to baseline (73s, 1 turn). The experiment adds a more thorough explanatory walkthrough but no extra round trips."
+    }
+  }
+}

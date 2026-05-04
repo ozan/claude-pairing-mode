@@ -1,0 +1,37 @@
+{
+  "ts": 1777838167818,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-two-sum",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.5,
+  "finalScore": 0.625,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed two didactic two-option choices (algorithm approach, then test style). That hits the main forks but doesn't probe deeper at finer-grained moments (e.g., why store after checking, complexity analysis, edge cases as questions)."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The first choice (nested loop vs hash map) targets the core algorithmic trade-off — the heart of Two Sum. The second (assert vs unittest) is a real but lower-stakes stylistic choice; still substantive enough to warrant discussion."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from algorithm choice → testing style, with appropriate difficulty ordering and no spoiling of the right answer in the first prompt. The Pair did volunteer the `[3,3]` insight rather than ask the user about it, missing a teachable probe."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and affirming (\"Exactly right — and you nailed the framing\"), guidance is actionable, and the structured A/B format flows cleanly. Slightly formulaic but conversational."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, idiomatic, includes asserts covering basic, middle-insertion, and duplicate cases. Comparable to baseline; baseline included a brief complexity discussion that this run skipped, but functional output is equivalent."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Experiment ran 2 turns in 52s vs baseline's 2 turns in 69s — tighter than baseline while delivering two genuine didactic choices. Good payoff per unit length."
+    }
+  }
+}

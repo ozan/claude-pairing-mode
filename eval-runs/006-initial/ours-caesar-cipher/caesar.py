@@ -6,8 +6,10 @@ def _shift_char(c, shift):
 
 
 def encode(text, shift):
+    """Encrypt text using a Caesar cipher with the given shift."""
     return ''.join(_shift_char(c, shift) for c in text)
 
 
 def decode(text, shift):
+    """Decrypt text encoded with a Caesar cipher using the given shift."""
     return encode(text, -shift)

@@ -1,37 +1,37 @@
 {
-  "ts": 1777777318443,
+  "ts": 1777864472149,
   "graderModel": "claude-opus-4-7",
   "experimentSlug": "exercism-bowling",
   "isBaseline": false,
-  "baselineCollection": "003-baseline",
-  "weightedScore": 3.7,
-  "finalScore": 0.675,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.7,
+  "finalScore": 0.425,
   "pedagogical": {
     "question_frequency": {
-      "score": 5,
-      "rationale": "The Pair surfaced five explicit decision points (scorer structure, frame loop structure, validation placement, frame-10 state tracking, error message verbosity) plus several smaller check-ins about testing approach. Nearly every meaningful design fork was offered to the user."
+      "score": 2,
+      "rationale": "The Pair attempted one didactic question via the (unavailable) options tool at the start, then proceeded without further questioning. The user drove the second teachable moment (the 10th-frame bug) themselves; the Pair didn't proactively probe. Effectively only one attempted didactic question in the entire session."
     },
     "question_quality": {
-      "score": 4,
-      "rationale": "Decisions 2 (uniform vs split frame loop) and 3 (eager vs lazy validation) hit genuine cruxes of the bowling problem. Decision 1 (class vs function) is largely Exercism-interface trivia, and Decision 5 (error message style) is cosmetic, but the core algorithmic forks were well-chosen."
+      "score": 3,
+      "rationale": "The single attempted choice (flat roll array vs. Frame objects) is genuinely substantive and hits a real design crux. However, since the tool wasn't available, the Pair immediately resolved it themselves rather than reframing as a discussion question, blunting the impact."
     },
     "scaffolding": {
-      "score": 4,
-      "rationale": "Progression flows cleanly from interface → loop shape → validation timing → frame-10 state → messages, with difficulty increasing appropriately. The Pair occasionally hinted strongly (e.g. flagging that B 'silently accepts garbage' before the user answered Decision 2 — though here the hint came after), and the late turn collapses into one big concatenated pseudocode-then-code block instead of staged questions."
+      "score": 2,
+      "rationale": "Almost no actual scaffolding occurred — the one question was abandoned immediately when the tool failed, and the Pair just announced the answer. The richest pedagogical moment (10th-frame validation) was driven by the user's own trace, with the Pair responding rather than scaffolding toward the insight."
     },
     "flow_and_tone": {
       "score": 4,
-      "rationale": "Tone is warm and the Pair affirms reasoning crisply ('the real nail in the coffin for B'). However, turn 4 is a chaotic concatenation of multiple simulated User/A exchanges fused into one message, which hurts the conversational rhythm and makes the final stretch feel like a monologue rather than back-and-forth."
+      "rationale": "Tone is warm, explanations are clear, and the Pair responds well to the user's bug trace with a clean table distinguishing the three paths. The abandoned options question creates a small awkward beat, but the back-and-forth in turns 2-3 is genuinely collaborative and actionable."
     }
   },
   "productivity": {
     "effectiveness": {
       "score": 3,
-      "rationale": "The final solution implements the Exercism class interface with eager validation and reportedly passes 13 tests, comparable in correctness to the baseline's pure-function approach. The actual final bowling.py is never shown in full in the transcript, so verification relies on the Pair's summary, but the described logic covers the standard cases."
+      "rationale": "Final code passes 16 self-written tests and handles the 10th-frame strike-then-invalid-bonus case the baseline arguably handles more thoroughly via its dedicated `_validate_tenth_frame`. Both solutions are functional; the experiment's validation is somewhat less comprehensive (e.g., the baseline explicitly handles more 10th-frame sub-cases) but solves the core problem correctly."
     },
     "friction": {
-      "score": 2,
-      "rationale": "Runtime (321s vs 187s) and prose volume are roughly 2x the baseline, and the final turn devolves into a run-on series of fused User/A exchanges with elided code ('Done.' without showing the file) and elided test runs. The pedagogical payoff on Decisions 2–3 partially justifies the extra length, but the messy final turn drags the ratio down."
+      "score": 3,
+      "rationale": "Experiment took 193s vs baseline 166s and 2 turns vs 1 — modestly longer with a real pedagogical payoff in turn 2 where the user identified and understood a validation bug. The extra length is roughly proportional to the teaching gained, though the failed options-tool attempt added some noise."
     }
   }
 }

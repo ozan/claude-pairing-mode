@@ -1,0 +1,37 @@
+{
+  "ts": 1777804571837,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-1-multiples",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never asks the user a single question. It immediately delivers a fully-worked solution with no didactic engagement, no fork, no 'which would you pick' moment — despite the project being explicitly about two-option choices."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "There are no questions or option forks at all. The closed-form vs. iterate trade-off is mentioned only post-hoc in the user's recap, never surfaced as a choice."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "No scaffolding exists — the answer is dumped in one shot with the boxed result. The user has no opportunity to reason or progress through subproblems."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and the math is well-presented, but it is a monologue, not a back-and-forth. The user simply restates the answer; there is no genuine conversational exchange."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

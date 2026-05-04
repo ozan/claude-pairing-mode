@@ -1,0 +1,37 @@
+{
+  "ts": 1777840413054,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-edit-distance",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.6,
+  "finalScore": 0.15,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair dumped the full solution in Turn 1, then spent the remaining turns trying to escape an echo loop. There were essentially no didactic questions — just menu options ('which path do you want?') that never developed into actual teaching."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "The only 'choices' offered were meta-choices about learning modality (trace vs. code vs. test). None engaged the crux of the problem (why insert means j-1, base cases, space optimization tradeoffs). The one substantive correction (the Pair noting dp[4][3] vs dp[5][3]) was a brief aside, not a question."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "The very first message revealed the full solution including the space optimization, which is a maximal spoiler. There is no progression — the conversation immediately collapsed into a confused echo loop and never recovered into structured teaching."
+    },
+    "flow_and_tone": {
+      "score": 1,
+      "rationale": "The conversation is dominated by the Pair noticing it's stuck in a loop ('That's my message looping back again!'), with five turns essentially wasted on meta-confusion. Tone is friendly but the flow is broken; no real back-and-forth pedagogy occurs."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Working code exists (the user eventually 'implements' and reports passing tests), and the solution shown in Turn 1 is correct including the space-optimized version. Final state matches the baseline's correctness, just with much less ownership by the user."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "Comparable wall time to baseline (191s vs 182s) but five of seven turns were burned on a loop with no pedagogical payoff. The baseline produced a clean guided-implementation arc with hand-tracing and a substantive insert-direction check; the experiment produced none of that for similar length."
+    }
+  }
+}

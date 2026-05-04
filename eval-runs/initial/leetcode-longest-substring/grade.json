@@ -1,0 +1,37 @@
+{
+  "ts": 1777838157384,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-longest-substring",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 4,
+  "finalScore": 0.75,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "Two substantive didactic questions in a short session: the initial A/B choice with an explicit bug-hunt framing, and a follow-up complexity question about the suspicious nested while loop. Given the problem's compactness, this is high frequency relative to opportunities."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Both questions hit the crux. The A/B framing targets the classic 'abba' gotcha that distinguishes correct sliding-window implementations, and the follow-up probes the canonical amortized-O(n) misconception about nested while loops — exactly the two things worth knowing about this problem."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from correctness (spot the bug) to complexity (analyze the loop). The pair telegraphed 'one has a subtle bug,' which is a mild spoiler but appropriate for the difficulty. The leap from bug-spotting to amortized analysis was reasonable, though the complexity question came with little setup."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tone is crisp and warm ('Exactly right'), validates the user's diagnosis, then pivots cleanly to the next teachable moment. The pair offers the fix for B as an aside without dwelling, and the back-and-forth feels natural for a strong learner."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is a correct sliding-window solution using a set; equivalent in correctness to baseline though baseline used the dict-jump variant (with the implicit `>= left` guard, which is the more common interview answer). Both solve the problem correctly."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "78s vs 19s and 2 turns vs 1, but the extra time bought two genuine teaching moments (the abba bug and amortized complexity) that the baseline glossed over. Proportional payoff for the added length."
+    }
+  }
+}

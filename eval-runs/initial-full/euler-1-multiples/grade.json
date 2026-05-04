@@ -1,0 +1,37 @@
+{
+  "ts": 1777798561091,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-1-multiples",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.5,
+  "finalScore": 0.625,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed exactly one didactic question (the A/B choice in Turn 1) and then proceeded straight to implementation. No follow-up questions about modulo, range bounds, or inclusion-exclusion intuition were surfaced."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single choice it did frame hits a real tension — pragmatic readability vs. the mathematical 'aha' that Project Euler is designed to teach — and the Pair pushed back substantively on the user's reasoning rather than just rubber-stamping. That's the crux of this problem."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Sequencing is fine — options shown before code, with diff-formatted previews — but there's no gradient: it's one question and done. No follow-up on why the triangle formula works or what 15 represents in inclusion-exclusion."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and concise; the Pair respectfully disagrees with the user's choice while still shipping their pick. Conversation feels natural, though brief enough that there's not much flow to evaluate."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final code is correct (outputs 233168), actually written to disk and executed — better than the baseline, which only printed code inline and never created/ran a file. Solution matches user's chosen approach."
+    },
+    "friction": {
+      "score": 5,
+      "rationale": "Two turns / 57s vs. baseline's four turns / 74s, and the baseline got derailed by a confused role-swap in Turn 3. The experiment is tighter and cleaner while still delivering a teachable moment."
+    }
+  }
+}

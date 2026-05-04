@@ -1,80 +1,64 @@
-import re
-
-# ---------------------------------------------------------------------------
-# Tokenizer
-# ---------------------------------------------------------------------------
-
-def tokenize(s: str) -> list:
-    """Split expression string into a flat list of ints/floats and operator chars."""
-    raw = re.findall(r'\d+(?:\.\d+)?|[+\-*/()]', s)
-    return [float(t) if re.fullmatch(r'\d+(?:\.\d+)?', t) else t for t in raw]
-
-
-# ---------------------------------------------------------------------------
-# Recursive-descent parser
-# Grammar:
-#   expr   → term   (('+' | '-') term)*
-#   term   → factor (('*' | '/') factor)*
-#   factor → NUMBER | '(' expr ')'
-# ---------------------------------------------------------------------------
-
-def expr(tokens: list, pos: int) -> tuple[float, int]:
-    left, pos = term(tokens, pos)
-    while pos < len(tokens) and tokens[pos] in ('+', '-'):
-        op, pos = tokens[pos], pos + 1
-        right, pos = term(tokens, pos)
-        left = left + right if op == '+' else left - right
-    return left, pos
+def tokenize(expr):
+    tokens, i = [], 0
+    while i < len(expr):
+        if expr[i].isspace():
+            i += 1
+        elif expr[i].isdigit() or expr[i] == '.':
+            j = i
+            while j < len(expr) and (expr[j].isdigit() or expr[j] == '.'):
+                j += 1
+            tokens.append(float(expr[i:j]))
+            i = j
+        elif expr[i] in '+-*/()':
+            tokens.append(expr[i])
+            i += 1
+        else:
+            raise ValueError(f"Unexpected character: {expr[i]}")
+    return tokens
 
 
-def term(tokens: list, pos: int) -> tuple[float, int]:
-    left, pos = factor(tokens, pos)
-    while pos < len(tokens) and tokens[pos] in ('*', '/'):
-        op, pos = tokens[pos], pos + 1
-        right, pos = factor(tokens, pos)
-        left = left * right if op == '*' else left / right
-    return left, pos
+class Parser:
+    def __init__(self, tokens):
+        self.tokens = tokens
+        self.pos = 0
+
+    def peek(self):
+        return self.tokens[self.pos] if self.pos < len(self.tokens) else None
+
+    def consume(self):
+        tok = self.tokens[self.pos]; self.pos += 1; return tok
+
+    def parse_expr(self):
+        left = self.parse_term()
+        while self.peek() in ('+', '-'):
+            op = self.consume()
+            right = self.parse_term()
+            left = left + right if op == '+' else left - right
+        return left
+
+    def parse_term(self):
+        left = self.parse_factor()
+        while self.peek() in ('*', '/'):
+            op = self.consume()
+            right = self.parse_factor()
+            left = left * right if op == '*' else left / right
+        return left
+
+    def parse_factor(self):
+        tok = self.consume()
+        if isinstance(tok, float):
+            return tok
+        if tok == '(':
+            val = self.parse_expr()
+            self.consume()  # ')'
+            return val
+        raise ValueError(f"Unexpected token: {tok}")
 
 
-def factor(tokens: list, pos: int) -> tuple[float, int]:
-    if isinstance(tokens[pos], str) and tokens[pos] in ('+', '-'):
-        op, pos = tokens[pos], pos + 1
-        val, pos = factor(tokens, pos)
-        return (-val if op == '-' else val), pos
-    if isinstance(tokens[pos], float):
-        return tokens[pos], pos + 1
-    if tokens[pos] == '(':
-        val, pos = expr(tokens, pos + 1)
-        if tokens[pos] != ')':
-            raise ValueError("Expected ')'")
-        return val, pos + 1
-    raise ValueError(f"Unexpected token: {tokens[pos]!r}")
-
-
-# ---------------------------------------------------------------------------
-# Public entry point
-# ---------------------------------------------------------------------------
-
-def evaluate(s: str) -> float:
-    tokens = tokenize(s)
-    result, pos = expr(tokens, 0)
-    if pos != len(tokens):
-        raise ValueError(f"Unexpected token at position {pos}: {tokens[pos]!r}")
+def evaluate(expr):
+    tokens = tokenize(expr)
+    parser = Parser(tokens)
+    result = parser.parse_expr()
+    if parser.peek() is not None:
+        raise ValueError(f"Unexpected token: {parser.peek()}")
     return result
-
-
-if __name__ == '__main__':
-    tests = [
-        ('3 + 4 * (2 - 1)', 7.0),
-        ('10 - 5 - 2',       3.0),   # left-assoc
-        ('8 / 4 / 2',        1.0),   # left-assoc
-        ('2 * (3 + 4)',      14.0),
-        ('-3 + 4',           1.0),   # unary: binds tight
-        ('-(3 + 4)',        -7.0),   # unary over parens
-        ('--3',              3.0),   # double negation
-        ('-3 * -2',          6.0),   # unary on both sides
-    ]
-    for expr_str, expected in tests:
-        got = evaluate(expr_str)
-        status = '✓' if got == expected else '✗'
-        print(f'{status}  {expr_str!r:30s}  →  {got}  (expected {expected})')

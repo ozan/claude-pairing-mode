@@ -1,0 +1,37 @@
+{
+  "ts": 1777840373578,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-acronym",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.6,
+  "finalScore": 0.15,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks zero didactic questions. It announces a plan, writes the code, and explains it — never engaging the user at any teachable fork (e.g., camelCase handling, regex vs str.split, edge cases)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices are surfaced at all. The classic Exercism 'Acronym' gotcha (camelCase boundaries, leading punctuation like underscores in 'The Road _Not_ Taken') is never raised — the most consequential design tensions are entirely absent."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there is no progression of questions. The Pair simply hands over a finished solution with a post-hoc explanation."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanation table is clear and actionable, but it's a monologue rather than a back-and-forth. No genuine conversational dynamic emerges."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 2,
+      "rationale": "The submitted solution does NOT handle camelCase (e.g., 'HyperText Markup Language' → 'HML' instead of 'HTML') or leading non-alpha characters in tokens like '_Not_' — both of which the baseline caught and fixed. The verification table in the user's reply is fabricated; the code would fail standard Exercism tests."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "Shorter than baseline (42s vs 68s) but only because it shipped an incorrect solution without testing. The baseline ran a test harness, discovered the camelCase failure, and fixed it; the experiment skipped verification entirely, trading correctness for brevity with no pedagogical payoff."
+    }
+  }
+}

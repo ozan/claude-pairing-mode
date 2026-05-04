@@ -1,37 +1,37 @@
 {
-  "ts": 1777777246175,
+  "ts": 1777864449435,
   "graderModel": "claude-opus-4-7",
   "experimentSlug": "euler-10-sum-primes",
   "isBaseline": false,
-  "baselineCollection": "003-baseline",
-  "weightedScore": 3.8,
-  "finalScore": 0.7,
+  "baselineCollection": "baseline",
+  "weightedScore": 3,
+  "finalScore": 0.5,
   "pedagogical": {
     "question_frequency": {
-      "score": 4,
-      "rationale": "The Pair posed two substantive didactic questions (start of inner loop, choice of sieve container) across a small problem space. For a single-function Euler problem, this is a high frequency of teachable engagement without padding."
+      "score": 3,
+      "rationale": "The Pair posed exactly one didactic question before writing any code. For a single-turn problem this is reasonable, but other teachable moments (bytearray vs list, slice assignment, sqrt bound) were left untouched."
     },
     "question_quality": {
-      "score": 5,
-      "rationale": "Both forks target the actual cruxes of an efficient sieve: the p*p optimization (the canonical sieve trick) and bytearray vs list[bool] (the memory/cache reason a Python sieve is fast). These are precisely the two things that distinguish a textbook sieve from a slow one."
+      "score": 4,
+      "rationale": "The 2p vs p² choice is a genuine crux of the Sieve of Eratosthenes — it directly tests understanding of why the sieve works, not just syntax. It's a classic, well-chosen fork."
     },
     "scaffolding": {
-      "score": 4,
-      "rationale": "Logical progression from algorithmic correctness (where to start crossing off) to data-structure performance (storage type), with no spoilers. The distractors are plausible rather than trivially wrong, and difficulty escalates appropriately, though the second question's hint (\"Both are O(n) space. Which is faster…\") nudges fairly directly."
+      "score": 3,
+      "rationale": "A single question with no spoilers and well-framed alternatives, but the Pair never built on it — no follow-up about the √limit bound, bytearray choice, or slice-assignment vectorization. The session ended without progressing the difficulty."
     },
     "flow_and_tone": {
-      "score": 5,
-      "rationale": "Tight, warm acknowledgments (\"Exactly right\"), clean diff-formatted options, and a crisp wrap-up summarizing all three optimizations. The back-and-forth feels like a natural pair session rather than a quiz."
+      "score": 4,
+      "rationale": "Tone is warm and the question is actionable. Minor friction: the Pair tried to use a tool that wasn't available and visibly fell back to plain text, which leaks plumbing into the conversation, but the recovery was clean."
     }
   },
   "productivity": {
     "effectiveness": {
-      "score": 3,
-      "rationale": "Final answer 142,913,828,922 matches the baseline and the canonical Project Euler solution. However, the experiment never actually shows the assembled code or executes it — it asserts the answer at the end without a Bash run visible in the transcript, whereas the baseline both wrote and ran the sieve."
+      "score": 2,
+      "rationale": "Unlike the baseline, the experiment never actually wrote the file, ran the code, or produced the answer 142,913,828,922. The user reasoned about the choice but no working solution was delivered before <done/>."
     },
     "friction": {
       "score": 3,
-      "rationale": "87s and 2 turns vs baseline's 22s and 1 turn — roughly 4x longer, but the extra length delivers two genuinely substantive teaching moments (p*p optimization and bytearray rationale) that the baseline merely narrated. The pedagogical payoff is proportional to the added length."
+      "rationale": "Turn count and prose volume are comparable to the baseline (1 turn, ~29s vs 27s). The pedagogical exchange was tight, though the missing final implementation/verification means the modest extra framing didn't yield a complete solution."
     }
   }
 }

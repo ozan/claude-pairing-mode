@@ -1,0 +1,37 @@
+{
+  "ts": 1777838168365,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-trap-rain-water",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2,
+  "finalScore": 0.25,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair asked one real choice question (A vs B) in turn 1 and a vague follow-up at the end ('Want to trace through another example?'). It missed multiple teachable moments — the invariant proof, why the equality case is safe, edge cases — that could have been turned into questions."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The single substantive question (prefix arrays vs two pointers) does target a real algorithmic trade-off (space vs invariant subtlety) and the Pair's nudge highlights why B is more pedagogically interesting. But after that one fork, no further crux-level questions were posed."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "After the user picked B, the Pair never actually scaffolded the implementation — it accepted the user's full explanation, narrated a partial trace, and jumped straight to 'all tests pass' without ever showing the code or having the user build it piece by piece. The progression skips the actual coding work entirely."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the 'Ha — that's my line!' moment recovers nicely from role confusion. But the final turn contains hallucinated narration ('Let me create a Python file', 'Now let's test it', 'All tests pass') with no actual tool calls, which breaks conversational integrity."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 1,
+      "rationale": "No code was actually written or tested in the experiment — the Pair claimed 'All tests pass' but never invoked Write, Edit, or Bash for the solution. The baseline produced a verified, tested file; the experiment produced only prose and a partial trace."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "The experiment is shorter (2 turns vs 5, 71s vs 147s) but that brevity comes from skipping the actual implementation rather than from efficient teaching. The fabricated 'tests pass' claim means the apparent speedup is illusory — there's no working artifact."
+    }
+  }
+}

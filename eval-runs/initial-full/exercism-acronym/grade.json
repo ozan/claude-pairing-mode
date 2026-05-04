@@ -1,0 +1,37 @@
+{
+  "ts": 1777798801505,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-acronym",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.3,
+  "finalScore": 0.575,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed exactly one didactic question (Option A vs B for regex approach). The follow-up failure on `_Not_` was diagnosed and fixed unilaterally rather than turned into another teachable question, despite being a clear teachable moment about token-vs-character semantics."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single question hits a genuinely consequential crux: the subtle but classic gotcha that `\\b` matches at apostrophes, which is exactly the kind of regex trap worth internalizing. It's a high-quality fork even if it's the only one."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Reasonable progression — propose two alternatives, let the user reason, then surface a real failing case to motivate refinement. But the second refinement (walrus + first-letter search) was handed to the user rather than scaffolded as another decision, and the walrus pattern was introduced post-hoc rather than offered as a choice."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Conversational flow is natural and warm (\"Exactly right — that's the key insight\"), the test-driven reveal of the `_Not_` bug feels organic, and the closing explanation of the walrus idiom is concise and actionable."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "The final solution correctly handles all the edge cases including `_Not_` which the baseline only handled by accidentally including `_` in its separator class. The experiment's solution is arguably more principled (find first letter rather than treating underscore as a separator), though it was never run against the official Exercism test suite as the baseline did."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Roughly the same total time (91s vs 87s) and turn count as baseline, with a substantive teaching moment about `\\b` semantics and the walrus operator added — proportional pedagogical payoff for negligible extra length."
+    }
+  }
+}

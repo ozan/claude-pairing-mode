@@ -1,0 +1,37 @@
+{
+  "ts": 1777840465670,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-lru-cache",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.7,
+  "finalScore": 0.175,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never asks the user a single didactic question. It writes the file, runs a demo, and delivers a lecture-style walkthrough. No teachable forks (e.g., OrderedDict vs explicit DLL, return None vs -1, sentinel design) are surfaced as choices for the user."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "There are no questions at all, so there is no crux-targeting to evaluate. Several rich decision points (sentinel design, evict-before-insert, dict+DLL pairing) are explained as conclusions rather than posed as choices."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "Without questions there is no scaffolded progression. The Pair dumps a full implementation plus a post-hoc explanation, which is the opposite of a difficulty gradient — every insight is spoiled before the user could engage with it."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is warm and the explanation is well-structured, but there is no back-and-forth — it's a monologue. The user's only contribution is a final affirmation, so conversational flow as a pedagogical experience is minimal."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is functionally equivalent to the baseline: dict + DLL with sentinels, generics, __slots__, evict-before-insert, and a working demo. Slightly nicer docstring/demo but no substantive improvement over baseline."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "At 151s vs the baseline's 84s (~1.8x) with no didactic payoff — no questions, no user choices — the extra length is largely spent on a longer monologue and a redundant rewrite of an already-existing file. Cost without proportional teaching gain."
+    }
+  }
+}

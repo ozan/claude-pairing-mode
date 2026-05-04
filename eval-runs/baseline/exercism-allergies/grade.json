@@ -1,0 +1,37 @@
+{
+  "ts": 1777804611881,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-allergies",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It immediately dumped a complete solution with explanation, never engaging the user at any decision point (e.g., dict vs. list mapping, error handling philosophy, generator vs. list comprehension)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all. The two-option didactic format that the project is built around was entirely absent."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding — the full answer is revealed in the first turn, eliminating any opportunity for graduated learning."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and the explanation is well-organized, but it's a one-way lecture. The 'final' turn is bizarre — the Pair speaks as if it were the user ('The solution I provided...'), which is a confusing role inversion."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

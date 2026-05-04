@@ -1,0 +1,37 @@
+{
+  "ts": 1777798846875,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-zebra-puzzle",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 2.9,
+  "finalScore": 0.475,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed exactly one didactic question (loop ordering for pruning) in turn 1. After the user answered, the rest was implementation and explanation with no further forks surfaced (e.g., representation choice, constraint solver vs permutations, how to encode 'next to')."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single choice presented hits a genuinely consequential CSP concept — ordering loops by constraint tightness for early pruning. It's a substantive teachable moment with a real performance implication, even if other forks were left unexplored."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "The one question is well-framed with a hint to think about inner iterations, and the follow-up explanation reinforces the principle. But with only one fork, there's no real progression or gradient — it's a single beat rather than a scaffolded sequence."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and concise; the Pair confirms the user's reasoning, builds on it, and presents a clean recap table. Conversation flows naturally, though it's brief enough that 'flow' is barely tested."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly returns Norwegian drinks water / Japanese owns zebra, equivalent to baseline. Implementation is cleaner than baseline (single solve, no duplicate scripts), though functionally the same outcome."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took 2 turns / 119s vs baseline's 1 turn / 55s — roughly 2x longer, but the extra time delivered a genuine teaching beat about pruning order with a clear payoff. Proportional trade-off."
+    }
+  }
+}

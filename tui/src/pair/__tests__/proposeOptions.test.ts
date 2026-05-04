@@ -1,7 +1,5 @@
 // Tests the propose_options handler in isolation, plus its integration
-// through core Session via customToolHandlers. These were the "burned-the-
-// fingers" cases that motivated the runtime suppression of malformed
-// propose_options validation errors.
+// through core Session via customToolHandlers.
 
 import { describe, expect, it } from 'bun:test';
 import { Session } from '../../core/Session';
@@ -28,11 +26,12 @@ describe('proposeOptionsHandler', () => {
       id: 'toolu_1',
       name: FULL_PROPOSE_TOOL_NAME,
       input: {
-        options: [
-          { title: 'A', body: 'first' },
-          { title: 'B', body: 'second' },
-        ],
-        private_notes: { best_index: 0, trap_flaw: 'b is wrong' },
+        option_a_title: 'A',
+        option_a_body: 'first',
+        option_b_title: 'B',
+        option_b_body: 'second',
+        best_letter: 'A',
+        rationale: 'A is best because foo',
       },
     });
 
@@ -43,37 +42,49 @@ describe('proposeOptionsHandler', () => {
         { title: 'A', body: 'first' },
         { title: 'B', body: 'second' },
       ],
-      privateNotes: { bestIndex: 0, trapFlaw: 'b is wrong' },
+      privateNotes: { bestIndex: 0, rationale: 'A is best because foo' },
     });
   });
 
-  it('returns null for malformed args (suppresses but emits nothing)', () => {
+  it('returns null when a required string field is missing', () => {
     const result = proposeOptionsHandler({
       id: 'toolu_2',
       name: FULL_PROPOSE_TOOL_NAME,
-      input: { options: 'not an array' },
+      input: {
+        option_a_title: 'A',
+        option_a_body: 'first',
+        option_b_title: 'B',
+        // option_b_body missing
+      },
     });
     expect(result).toBeNull();
   });
 
-  it('returns null when array length is wrong', () => {
+  it('omits private notes when best_index/rationale are absent', () => {
     const result = proposeOptionsHandler({
       id: 'toolu_3',
       name: FULL_PROPOSE_TOOL_NAME,
-      input: { options: [{ title: 'lonely', body: 'option' }] },
+      input: {
+        option_a_title: 'A',
+        option_a_body: 'first',
+        option_b_title: 'B',
+        option_b_body: 'second',
+      },
     });
-    expect(result).toBeNull();
+    expect(result).not.toBeNull();
+    expect(result?.options).toHaveLength(2);
+    expect(result?.privateNotes).toEqual({ bestIndex: undefined, rationale: undefined });
   });
 
-  it('returns null when option entries are missing title/body', () => {
+  it('returns null when a field is the wrong type', () => {
     const result = proposeOptionsHandler({
       id: 'toolu_4',
       name: FULL_PROPOSE_TOOL_NAME,
       input: {
-        options: [
-          { title: 'A' },
-          { title: 'B', body: 'fine' },
-        ],
+        option_a_title: 'A',
+        option_a_body: 42, // not a string
+        option_b_title: 'B',
+        option_b_body: 'second',
       },
     });
     expect(result).toBeNull();
@@ -94,11 +105,12 @@ describe('Session integration with proposeOptionsHandler', () => {
             id: 'toolu_a',
             name: FULL_PROPOSE_TOOL_NAME,
             input: {
-              options: [
-                { title: 'A', body: 'first' },
-                { title: 'B', body: 'second' },
-              ],
-              private_notes: { best_index: 0, trap_flaw: '' },
+              option_a_title: 'A',
+              option_a_body: 'first',
+              option_b_title: 'B',
+              option_b_body: 'second',
+              best_letter: 'A',
+              rationale: '',
             },
           },
         ],
@@ -113,7 +125,7 @@ describe('Session integration with proposeOptionsHandler', () => {
         { title: 'A', body: 'first' },
         { title: 'B', body: 'second' },
       ],
-      privateNotes: { bestIndex: 0, trapFlaw: '' },
+      privateNotes: { bestIndex: 0, rationale: '' },
     });
   });
 
@@ -128,7 +140,7 @@ describe('Session integration with proposeOptionsHandler', () => {
             type: 'tool_use',
             id: 'toolu_b',
             name: FULL_PROPOSE_TOOL_NAME,
-            input: { options: 'not an array' },
+            input: { option_a_title: 'A' }, // missing required fields
           },
         ],
       },
@@ -167,7 +179,7 @@ describe('Session integration with proposeOptionsHandler', () => {
       event: {
         type: 'content_block_delta',
         index: 0,
-        delta: { type: 'input_json_delta', partial_json: '{"options":[' },
+        delta: { type: 'input_json_delta', partial_json: '{"option_a_title":"A"' },
       },
     });
     session.translate({

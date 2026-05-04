@@ -1,0 +1,37 @@
+{
+  "ts": 1777838130264,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-rna-transcription",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.2,
+  "finalScore": 0.3,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked no didactic questions. It explicitly noted 'No propose_options tool available' and proceeded directly to implementation with inline teaching notes. The closing 'Want to run the official Exercism test suite...?' is a logistics question, not a teachable-moment prompt."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No substantive choices were surfaced to the user. The implementation decisions (translate vs dict, validation strategy, module-level constants) were all made unilaterally and explained post-hoc rather than framed as forks."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolded sequence — the Pair wrote the full solution in one shot. The 'teaching notes' are a monologue lecture, not a progression of graduated questions."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanations are clear and accurate, but there is essentially no back-and-forth — the user only echoed a summary. Conversational flow is one-sided."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is functionally equivalent to the baseline: same `str.maketrans`/`translate` approach, same frozenset validation, ValueError on bad input, all assertions pass. Minor cosmetic differences in error formatting."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Completed in 39s vs baseline's 70s with comparable output and added (one-sided) teaching commentary. Tighter than baseline, though without genuine pedagogical interaction the extra context is mostly explanatory prose."
+    }
+  }
+}

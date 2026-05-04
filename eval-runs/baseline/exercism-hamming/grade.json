@@ -1,0 +1,37 @@
+{
+  "ts": 1777804610193,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-hamming",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 2,
+  "finalScore": 0.25,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. Despite the project's core premise being two-option didactic choices, the assistant simply wrote the solution and explained it. No teachable moments (e.g., zip's truncation behavior, why ValueError vs custom exception, strict zip in 3.10+) were surfaced as questions."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all. The 'A:' prefix appears but no 'B' alternative is ever offered, and no decision points are presented to the user. The crux of the problem (length-validation strategy, zip semantics) is never explored as a fork."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there are no questions. The solution is delivered immediately and fully, with explanation but no progression of difficulty or guided discovery."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is clear and the explanation with examples table is helpful and actionable. However, there is no back-and-forth — the user (a haiku model) just acknowledges completion. It reads as a monologue rather than a pair-programming dialogue."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

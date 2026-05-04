@@ -1,0 +1,37 @@
+{
+  "ts": 1777838104020,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-acronym",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never actually engages the user with a question. It opens with 'one key design question' but immediately pivots to 'Let me just walk through the approach' and answers itself. No didactic prompts are posed to the user at any decision point."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "There are no real questions surfaced for the user. The Pair presents the strip-first approach vs. `re.findall` distractor as exposition rather than as a fork the user chooses, so the most consequential trade-off is narrated, not explored interactively."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "Without questions there is no scaffolded sequence. The narrative does walk from edge cases → strategy → camelCase fix in a logical order, but the user is a passive observer rather than guided through a difficulty gradient."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is clear and the explanations are crisp and well-structured, but the conversation is essentially a monologue. There's no back-and-forth — the user only appears at the end to confirm — so the flow is one-sided rather than collaborative."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final solution matches the baseline's three-step approach (camelCase split → punctuation strip → first-letter join) and passes all 8 self-tests, equivalent in correctness and clarity to baseline."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "Run took 154s vs. baseline 68s (~2.3x) and produced more prose, yet delivered no real pedagogical payoff because no questions were actually posed to the user. The extra length is narration, not teaching."
+    }
+  }
+}

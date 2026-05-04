@@ -1,0 +1,37 @@
+{
+  "ts": 1777798870785,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-longest-substring",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 2.9,
+  "finalScore": 0.475,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed two real didactic questions — the set-vs-dict choice in Turn 1 and the 'why update last_seen on every iteration' question in Turn 2. That's a reasonable cadence for a short problem, but other teachable moments (e.g., why `max` vs `>= left` guard, complexity analysis framing) were narrated rather than asked."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "Both questions hit substantive forks: the data-structure choice frames the jump-vs-crawl tradeoff, and the 'update on every iteration' question targets the exact invariant that distinguishes correct from buggy implementations. The stale-index trap is the crux of this problem and the Pair surfaced it well."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Progression is logical: pick structure → see the gotcha → understand the invariant. However, the Pair effectively spoiled its own first question by noting the user 'already identified the exact gotcha' and then immediately revealing `max` rather than letting the user derive it. The second question landed well, but the first hint-and-reveal pattern weakens the gradient."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the back-and-forth is coherent, but Turn 3 is messy — the user model hallucinated a multi-turn dialogue inside a single message (fake 'User:'/'A:' interleavings, claiming the file 'wasn't actually created yet' when it was), and the Pair had to gently correct that in Turn 4. Flow is functional but not fluid."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final solution is correct, uses `max(left, last_seen[char]+1)` properly, and ships with 14 passing tests covering edge cases and stale-index traps. Comparable in quality to the baseline; arguably slightly broader test coverage but the algorithm and outcome are equivalent."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "Experiment ran 177s vs baseline's 104s (~70% longer) with no proportional pedagogical payoff — the extra time was largely spent untangling the user model's hallucinated self-dialogue in Turn 3, not on deeper teaching. The baseline actually delivered a tighter didactic arc (jump-vs-crawl options, explicit guard discussion) in less time."
+    }
+  }
+}

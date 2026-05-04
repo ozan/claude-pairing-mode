@@ -4,6 +4,7 @@
 export type CoreAgentEvent =
   | { kind: 'text_delta'; text: string }
   | { kind: 'text_block_done' }
+  | { kind: 'thinking_block_done'; text: string }
   | { kind: 'tool_use_start'; id: string; name: string; input: unknown }
   | { kind: 'tool_use_done'; id: string; input: unknown }
   | {

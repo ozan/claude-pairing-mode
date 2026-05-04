@@ -1,0 +1,37 @@
+{
+  "ts": 1777799011284,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-bowling",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 4.1,
+  "finalScore": 0.775,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 5,
+      "rationale": "The Pair posed a didactic two-option question at every meaningful decision point: algorithm choice (index vs frame objects), scoring loop body, validation placement, state representation, and roll() structure. Five substantive forks across a short problem."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Each fork hit a real crux: the 10th-frame variable-length problem, the 'works by accident' coincidental correctness in Option B's spare math, the eager-vs-lazy validation tradeoff, and the bonus-roll validation gap hidden by Option B's silent `else: game_over = True`. These are exactly the gotchas that distinguish a thoughtful bowling implementation from a buggy one."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression flowed logically from algorithm → scoring body → validation strategy → state design → roll() structure, with each choice building on the previous answer. The Turn 4 moment — where the Pair pre-emptively argued the user's Option B was wrong before letting them implement it, then immediately walked back via the user's correction — was useful but a bit of a difficulty jolt that revealed the answer rather than letting the user discover it."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "The Pair's responses validated correct reasoning specifically (\"works by accident phrasing is exactly right\"), pushed back substantively where warranted (Turn 4's API critique), and gracefully accepted the user's counter-points. The closing recap of the four key decisions reinforces the lessons. Conversation feels like a genuine collaboration."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code passes all smoke tests (perfect game, gutter, spares, strikes, 10th-frame bonus, three error paths). It lacks the formal pytest suite the baseline wrote, and the validation isn't fully comprehensive (e.g., no `score()` completeness check was actually implemented despite being discussed), but it correctly solves the stated problem comparably to baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "7 turns / 372s vs baseline's 1 turn / 172s — roughly 2.2x longer. The pedagogical payoff is substantial (five well-targeted decision points and a memorable 'coincidental correctness' lesson), which roughly justifies the overhead, though the Turn 6 tangled diff and Turn 7's bash retry added some unnecessary friction."
+    }
+  }
+}

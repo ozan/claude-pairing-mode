@@ -1,0 +1,37 @@
+{
+  "ts": 1777798578862,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-21-amicable",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.1,
+  "finalScore": 0.525,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed exactly one didactic question (A vs B for the divisor function). Other meaningful decision points — the amicability check structure, handling of perfect numbers, memoization trade-offs — were stated as facts rather than surfaced as questions."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single choice presented hits a genuinely substantive point: the √n vs n/2 trade-off, including the divisor-pair insight and perfect-square edge case. It's the most consequential algorithmic decision in the problem, even though other forks (e.g., excluding perfect numbers) were missed."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "The lone question was well-framed without spoilers, and the follow-up about sieve-style memoization was a reasonable difficulty escalation. But with only one question there's no real progression — the scaffolding amounts to a single rung."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the back-and-forth feels natural; the Pair affirms the user's reasoning specifically rather than generically. One minor stumble — the Pair says 'Which loop bound is faster' then immediately pivots to 'Let me just present the choice directly' — slightly clunky but not disruptive."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final answer 31626 matches the baseline and the √n implementation is meaningfully better than the baseline's naive O(n²) approach. Code is clean and correct, with the perfect-number exclusion handled via `b != n`."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Two turns and 53s vs baseline's one turn and 17s — about 3x longer, but with a real pedagogical payoff (the √n insight engaged the user) and a faster final algorithm. Proportional trade for the extra length."
+    }
+  }
+}

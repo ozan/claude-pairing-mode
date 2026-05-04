@@ -1,0 +1,37 @@
+{
+  "ts": 1777798909819,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-run-length-encoding",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.6,
+  "finalScore": 0.65,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two distinct didactic choices at the two natural decision points (encode implementation, decode parsing). For a small problem with limited forks, this is near-saturation, though not every meaningful subtopic (e.g., singleton handling, empty string) was turned into a question."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The decode question hits the actual crux — multi-digit counts and why pair-stepping breaks — which is the classic gotcha for RLE. The encode question (loop vs groupby) is more about idiom/style than algorithmic substance, so quality is strong but not maximal."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Logical progression from encode → decode with rising subtlety (idiom choice → correctness trap). Neither question spoils the answer, though the decode prompt nudges hard by explicitly mentioning 'counts can exceed 9', which somewhat telegraphs the right choice."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm, affirming, and concise; the Pair confirms reasoning and moves forward without filler. A minor wobble — the botched Edit needing a Read+Write recovery — slightly disrupts flow but is handled without fuss."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly implements encode/decode with round-trip tests including the multi-digit case. Comparable to baseline; baseline tested more edge cases (empty string, single char) but experiment's regex-based decoder is arguably more robust."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "80s vs baseline's 29s and 3 turns vs 1, with a self-inflicted Edit error requiring recovery. The extra time bought two genuine teachable moments (idiom choice, multi-digit gotcha), which is roughly proportional payoff."
+    }
+  }
+}

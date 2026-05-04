@@ -1,0 +1,37 @@
+{
+  "ts": 1777838147089,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-coin-change",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 4,
+  "finalScore": 0.75,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair surfaces multiple teachable forks: greedy vs DP framing, the loop-structure/guard variant, and the iterative-vs-recursive backtracking choice. That's a substantive question at most decision points, though the opening greedy-vs-DP fork is presented as a fait accompli rather than asked."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The iterative-vs-recursive backtracking question is excellent — it targets Python's recursion limit and list-concatenation cost, real gotchas. The loop-restructuring question connects to unbounded knapsack, a meaningful generalization. The greedy-vs-DP framing is core but presented as exposition rather than a posed choice."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression is logical: solve → test → restructure loop → extend to reconstruction → pick backtracking style. No spoilers; hints are calibrated (e.g., 'think about what determines recursion depth'). Slight unevenness — the first 'question' about the guard is partly answered in the same breath via the hint."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Conversational and warm, with concrete payoffs after each user response. Two minor breaks: the Pair twice notes 'the tool isn't available/cooperating' which leaks plumbing, but otherwise the back-and-forth is natural and the user's reasoning gets validated and extended."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 4,
+      "rationale": "Final code is correct and goes beyond baseline: passes 6 tests including a large case, plus a working reconstruction variant with iterative backtracking. Slight quibble: uses `float('inf')` instead of the sentinel `amount+1` baseline used, but both are valid."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Experiment ran 155s vs baseline 76s (~2x), but the extra time bought real pedagogical content: the loop-restructure insight, the recursion-depth gotcha, and a reconstruction extension the baseline never reached. Proportional payoff for the extra length."
+    }
+  }
+}

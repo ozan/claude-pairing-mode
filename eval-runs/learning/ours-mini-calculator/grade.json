@@ -1,0 +1,37 @@
+{
+  "ts": 1777840468192,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-mini-calculator",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair never asks the user a single question. Despite the 'Learning' output style, the assistant proceeds straight from problem statement to a complete implementation with no didactic fork or check-in."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "There are no choices framed for the user. Natural fork points (precedence via grammar vs. shunting-yard, handling of unary minus, integer-vs-float division semantics) are presented as fait accompli rather than as decisions."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "No scaffolded sequence exists; the explanation is a one-shot post-hoc walkthrough. The 'What you learned' summary is delivered after the fact, not built up via guided steps."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and well-organized, but the flow is a monologue. The user gets no opportunity for back-and-forth — just a long write/explain block followed by a recap."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code passes all 8 self-tests and correctly handles precedence, parens, and unary minus — equivalent to baseline. Slightly fewer test cases than baseline's 16 and lacks explicit error-case tests, but functionally comparable."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Runtime (132s vs 135s) and turn count (1) match baseline almost exactly. Some wasted Write attempts to wrong paths and a Python 3.9 type-hint failure required a retry, but overall friction is on par with baseline with no extra pedagogical cost."
+    }
+  }
+}

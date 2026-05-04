@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "leetcode-trap-rain-water",
+    "source": "leetcode",
+    "difficulty": "hard",
+    "prompt": "Let's solve Leetcode #42, 'Trapping Rain Water'. Given a list of non-negative integers representing bar heights, compute how much rainwater would be trapped between the bars."
+  },
+  {
+    "slug": "exercism-acronym",
+    "source": "exercism",
+    "difficulty": "medium",
+    "prompt": "Exercism 'Acronym': given a phrase, return its acronym in uppercase. Treat hyphens as word separators; ignore other punctuation. e.g. 'Portable Network Graphics' → 'PNG'."
+  },
+  {
+    "slug": "ours-mini-calculator",
+    "source": "ours",
+    "difficulty": "hard",
+    "prompt": "Let's write a Python expression evaluator that handles +, -, *, /, parentheses, and operator precedence. Take a string like '3 + 4 * (2 - 1)' and return the numeric result. No `eval`."
+  },
+  {
+    "slug": "euler-6-sum-square-diff",
+    "source": "project-euler",
+    "difficulty": "easy",
+    "prompt": "Project Euler #6: find the difference between the square of the sum and the sum of the squares of the first 100 natural numbers."
+  }
+]

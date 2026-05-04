@@ -1,0 +1,37 @@
+{
+  "ts": 1777838183898,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-game-of-life",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.9,
+  "finalScore": 0.725,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 5,
+      "rationale": "The Pair posed four distinct two-option choices at every meaningful decision point: in-place vs new-grid allocation, ANSI vs os.system, display style, and loop ordering. Nearly every code change was preceded by a didactic question."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The first choice (mutation vs new grid) hits the conceptual crux of Life — simultaneous update — and the loop-ordering question surfaces a real off-by-one trap. The display-style and clear-screen choices are more cosmetic/secondary, not consequential algorithmic forks."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression flows logically from core algorithm → screen clearing → rendering → main loop, with no spoilers (the Pair held back the reasoning until after the user answered). Difficulty gradient drops after the first question — the remaining choices are easier — but no abrupt jumps."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the Pair affirms the user's reasoning specifically (\"you nailed the reasoning\", \"label alignment is a real UX concern\"). The flow is mostly natural, though the Pair overrides the user's display choice (B vs the user's implicit A preference wasn't actually requested — the user never answered turn 3's display question before moving on) and silently picks B, which is a minor flow hiccup."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly implements Life with toroidal wrapping, runs the glider for 20 generations, and meets all stated requirements. Comparable to baseline; baseline included both blinker and glider plus an in-code rules table, but the experiment's solution is cleaner and equally correct."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took 4 turns / 310s vs baseline's 1 turn / 49s — roughly 6× longer. The extra length delivers proportional pedagogical payoff via four decision points the user actively reasoned through, justifying the cost for a didactic context."
+    }
+  }
+}

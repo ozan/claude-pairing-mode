@@ -1,0 +1,8 @@
+{
+  "name": "euler",
+  "version": "1.0.0",
+  "scripts": {
+    "solve": "bun run runner.ts",
+    "solve:001": "bun run runner.ts 1"
+  }
+}

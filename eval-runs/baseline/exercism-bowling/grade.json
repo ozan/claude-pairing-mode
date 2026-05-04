@@ -1,0 +1,37 @@
+{
+  "ts": 1777804608912,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-bowling",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It dove straight into writing the full solution, tests, and a post-hoc walkthrough without engaging the user at any decision point. The supposed two-option mechanism described in CLAUDE.md never appeared."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed for the user. The Pair never surfaced the genuinely interesting bowling forks (e.g., simulate-frames vs. index-walk scoring, how to model the 10th frame, validation strategy), so there is nothing of substance to score."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no progression to evaluate — the solution is dumped in a single turn followed by a summary. The user never participates in building understanding."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is neutral and the explanation at the end is reasonably clear, but flow is one-sided monologue: write → run → fix test bug → lecture. The 'user' turn 2 is just an acknowledgement, indicating no real back-and-forth occurred."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

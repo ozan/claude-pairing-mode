@@ -1,0 +1,37 @@
+{
+  "ts": 1777864483557,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-pangram",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.6,
+  "finalScore": 0.65,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed a substantive choice question up front (A vs B with a probing follow-up about `.lower()` calls and membership cost) and engaged the user's follow-up about `<=` vs `.issubset()`. For an easy problem with limited decision points, this is a high frequency of teachable engagement."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The framed choice hits the actual crux: repeated `.lower()` calls and O(n) string membership vs O(1) set membership. The follow-up prompt ('how many times is `.lower()` called, and what's the cost of each membership check?') directs attention to exactly the right complexity reasoning."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression was clean: present two idiomatic options, ask user to reason about cost, then layer the `<=` vs `.issubset()` nuance once user surfaced it. No spoilers — the Pair withheld the answer until the user reasoned. Slight redundancy from the failed MCP tool call, but didn't hurt the gradient."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Conversational and warm; the Pair validated the user's correct analysis ('Nailed the analysis') and answered the user's spontaneous question crisply with a concrete TypeError example. The visible 'No tool available' meta-comment is a minor flow blemish but didn't derail the exchange."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final solution `set(string.ascii_lowercase) <= set(text.lower())` is correct and verified against four test cases including edge cases. Functionally equivalent to baseline's `issubset` solution."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took 2 turns / 59s vs baseline's 1 turn / 13s, but the extra length delivered proportional teaching: complexity analysis the user worked through themselves, plus the `<=` vs `.issubset()` distinction. Reasonable cost for the pedagogical payoff on a trivial problem."
+    }
+  }
+}

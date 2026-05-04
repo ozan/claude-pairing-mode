@@ -1,37 +1,37 @@
 {
-  "ts": 1777777452704,
+  "ts": 1777864525741,
   "graderModel": "claude-opus-4-7",
   "experimentSlug": "ours-fizzbuzz",
   "isBaseline": false,
-  "baselineCollection": "003-baseline",
-  "weightedScore": 3.7,
-  "finalScore": 0.675,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.4,
+  "finalScore": 0.6,
   "pedagogical": {
     "question_frequency": {
       "score": 3,
-      "rationale": "The Pair posed two didactic questions: the initial A/B choice on conditional ordering, and a follow-up trade-off question about the string-concat formulation. For a problem this small, that's a reasonable cadence, though not high frequency."
+      "rationale": "The Pair surfaced one substantive choice (string-building vs if/elif chain) with an explicit 'Which approach do you prefer?' prompt. Given FizzBuzz is a tiny problem, one well-placed question is reasonable, but no follow-up didactic questions were posed after the choice."
     },
     "question_quality": {
-      "score": 5,
-      "rationale": "The first question targets the canonical FizzBuzz gotcha (dead-code elif when checking 15 last), which is exactly the crux of the problem. The follow-up surfaces a real scalability/readability trade-off worth knowing."
+      "score": 4,
+      "rationale": "The single fork hits the actual crux of FizzBuzz design — extensibility/combinatorial explosion vs simple mutual exclusivity — which is the most interesting trade-off in this problem. It misses the classic gotcha about ordering the % 15 check first, but the chosen axis is genuinely consequential."
     },
     "scaffolding": {
-      "score": 4,
-      "rationale": "Logical progression from correctness (ordering of conditions) to extensibility (alternative formulation). No spoilers — Option A's bug is left for the user to identify. The jump to the string-concat extension is mild but appropriate."
+      "score": 3,
+      "rationale": "Only one decision point, so scaffolding is minimal. The options were presented cleanly without spoilers and at appropriate difficulty, but there's no progression or layered teaching beyond the single fork plus a brief aside on Python truthiness."
     },
     "flow_and_tone": {
-      "score": 5,
-      "rationale": "Tone is warm and affirming without being sycophantic ('Exactly right — it's a classic interview trap'). The Pair acknowledged the user's reasoning, applied the change, and offered a meaningful follow-up that the user could decline cleanly."
+      "score": 4,
+      "rationale": "Conversation is natural and warm; the Pair affirmed the user's reasoning specifically (combinatorial explosion numbers) and added a useful supplementary note on `result or i` vs `if result else i`. No friction, though the exchange is short enough that depth is limited."
     }
   },
   "productivity": {
     "effectiveness": {
       "score": 3,
-      "rationale": "Final code is the standard `% 15` FizzBuzz, equivalent to baseline. The Pair didn't run the file to verify output as baseline did, but the code is correct and was written to disk."
+      "rationale": "Final code is correct and runs successfully (verified via python3). Equivalent functionality to the baseline; arguably the string-building approach is slightly more elegant/extensible, but both solve the problem correctly."
     },
     "friction": {
       "score": 4,
-      "rationale": "Two turns vs. baseline's three, completed in ~60s vs. 48s. The added pedagogical payoff (surfacing the classic bug, plus the scaling trade-off) is proportional to — arguably better than — the negligible extra time."
+      "rationale": "Experiment finished in 2 turns / 39s vs baseline's 3 turns / 56s, and delivered a working file rather than just an inline run. Tighter than baseline with comparable or better teaching payoff (real trade-off discussed plus the truthiness aside)."
     }
   }
 }

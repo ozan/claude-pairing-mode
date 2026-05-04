@@ -1,0 +1,37 @@
+{
+  "ts": 1777864479969,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-hamming",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.4,
+  "finalScore": 0.6,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed one substantive didactic question (A vs B for length-check approach) at the single meaningful decision point in this trivial problem. No further questions followed once the user committed, but the problem doesn't really afford more."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "The single choice targets exactly the crux: zip's silent truncation creates an asymmetric bug where Option A only catches one direction of length mismatch. This is a classic Python gotcha and a genuinely consequential correctness issue, not a cosmetic preference."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "The two options were presented without spoiling the answer, letting the user reason about the tradeoff. The follow-up explanation (`a='AC'`, `b='ACG'` walkthrough) was well-paced. Minor ding: the Pair's internal thinking essentially solved the puzzle before asking, but that wasn't shown to the user."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the back-and-forth is natural; the user articulated the tradeoff and the Pair confirmed and generalized the lesson cleanly. Slight friction from the duplicated option presentation (once via the unavailable tool, once as plain markdown), but it didn't derail the flow."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is identical to the baseline solution and correctly handles all cases (length mismatch, empty strands, mismatches). Equivalent correctness, no extra polish."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Roughly 2x the wall time (67s vs 33s) and 2 turns vs 1, but the extra length delivered a real teaching payoff — the asymmetric zip-truncation bug is genuinely worth the user's attention. Proportional cost for the lesson."
+    }
+  }
+}

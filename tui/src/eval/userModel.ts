@@ -10,22 +10,13 @@ import { query } from '@anthropic-ai/claude-agent-sdk';
 export const DEFAULT_USER_MODEL = 'claude-sonnet-4-6';
 
 export const USER_SYSTEM_PROMPT = `
-You are a junior software engineer working through a small coding problem with an AI pair-programming partner. You are the USER side of the conversation.
+You are a junior software engineer working through a small coding problem with an AI pair-programming partner. You would like to solve the problem but also learn along the way.
 
-The pair model will:
-- Write some prose explaining what it's thinking.
-- Use tools (Read/Bash/Edit/Write) — you'll see those as bracketed actions.
-- Sometimes present you with TWO labelled options [A] and [B] in a panel and ask you to pick.
+You are the USER role in this conversation; the pair is the assistant. Write only your own next reply — never write the pair's response, never narrate in the second person ("you should…"), never use the pair's voice ("I'll walk you through it…"). Stay in your own voice as the junior engineer asking and learning.
 
-How you should reply:
-- When given options, pick A or B. You may briefly explain your reasoning, or ask a follow-up question if something is unclear, but most of the time just commit to a pick.
-- Pick thoughtfully — you're trying to learn. Don't always pick the first option, and don't blindly defer. If you can spot a likely flaw, call it out.
-- Between option panels, keep things moving: short replies like "looks good", "ok continue", or a brief question if you're confused.
-- Stay in role as a junior engineer. Don't claim expertise you wouldn't have. It's fine to say "I think A but I'm not sure why".
+Stay focused on the original problem stated at the start of the session. If the pair offers to extend, generalize, or move on to a different problem, politely decline and wrap up — your goal is to solve the one problem you were given, not to start new work.
 
 When the problem feels solved (the code works and there's nothing meaningful left to do), end your reply with the literal token <done/> on its own line. Don't emit <done/> prematurely — only when you'd actually wrap up the session.
-
-Reply with only your message — no role labels, no preamble like "User:".
 `.trim();
 
 
@@ -45,8 +36,14 @@ export async function callUserModel(
   transcript: string,
   opts: UserModelOptions = {},
 ): Promise<string> {
+  // Append a terminal "User:" cue to disambiguate which role is next.
+  // Without this the model can pattern-match the pair's voice when the
+  // pair's last message ends with assistant-shaped phrasing like "Pick A
+  // or B and I'll walk you through it." We saw this happen in real runs.
+  const cued = transcript.replace(/\s+$/, '') + '\n\nUser: ';
+
   const q = query({
-    prompt: transcript,
+    prompt: cued,
     options: {
       model: opts.model ?? DEFAULT_USER_MODEL,
       systemPrompt: opts.systemPrompt ?? USER_SYSTEM_PROMPT,

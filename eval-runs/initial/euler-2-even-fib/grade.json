@@ -1,0 +1,37 @@
+{
+  "ts": 1777838087860,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-2-even-fib",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.9,
+  "finalScore": 0.475,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair posed exactly one didactic question (Option A vs B) at the only meaningful decision point. There were no follow-ups about correctness subtleties (e.g., starting values, the `<=` vs `<` boundary, or why Option B's seed `total=2` is needed)."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single question targets a genuinely interesting trade-off: naive generate-and-filter vs. the closed-form even-Fibonacci recurrence E(k)=4·E(k−1)+E(k−2). That's a real 'aha' that goes beyond the surface problem."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "The Pair essentially gives away the key insight ('every 3rd Fibonacci is even', plus the recurrence) in the same breath as asking the question, so there's no real ladder — the user just picks the option whose explanation is already on screen. Reasonable single-step framing, but no progression."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and concise, the two options are cleanly presented as diffs, and the exchange feels natural. Slight ding because after the user chose, the Pair just declared the answer rather than confirming the run or probing the boundary condition."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code computes 4,613,732 correctly using the even-Fibonacci recurrence — equivalent in correctness to the baseline, just via a different algorithm. Comparable outcome."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "78s vs. baseline's 24s (~3x), but still a single turn and the extra time bought a substantive teaching moment about the every-3rd-even pattern and its recurrence. Proportional payoff for the modest extra length."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777804584550,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-17-letter-counts",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It immediately produced a full worked solution in Turn 1 with no engagement of the user at any decision point."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all — the Pair never surfaced the interesting forks (e.g., 'and' rule for British English, hyphens/spaces handling, recursive vs. closed-form decomposition)."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there is no progressive questioning. The full answer (21,124) and derivation are dumped in one go, which is the maximum spoiler."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and the math is well-presented, but the 'conversation' is essentially a monologue followed by the user/Pair self-congratulating. There's no genuine back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

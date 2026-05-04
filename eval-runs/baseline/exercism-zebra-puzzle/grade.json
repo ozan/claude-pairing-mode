@@ -1,0 +1,37 @@
+{
+  "ts": 1777804628207,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-zebra-puzzle",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It went straight to writing the full solution and then explained what it had done. No teachable moments were surfaced as choices for the user."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all. The Zebra Puzzle has rich forks (brute-force vs constraint propagation, position-indexed vs assignment-indexed encoding, ordering of pruning loops) and none were offered."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding because there is no question sequence. The Pair delivered a finished 140+ line solution in one shot, which is the opposite of progressive disclosure."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is friendly and the post-hoc explanation is clear and accurate, but there is no back-and-forth — the 'user' turn is itself a monologue agreeing with the solution. Conversational dynamic is essentially one-way."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

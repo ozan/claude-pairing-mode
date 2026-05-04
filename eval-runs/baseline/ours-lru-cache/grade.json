@@ -1,0 +1,37 @@
+{
+  "ts": 1777804685807,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-lru-cache",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asked zero didactic questions. It immediately wrote the full implementation, tested it, and explained the design — no choice points were surfaced to the user despite the system being designed around two-option didactic forks (e.g., HashMap+DLL vs OrderedDict, sentinel vs null-check, eviction policy timing)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices were framed at all. Notable forks like OrderedDict vs explicit DLL or update-then-evict ordering were mentioned only retrospectively in the explanation rather than offered as a decision."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no question sequence to scaffold. The Pair delivered a complete solution in one shot, so there is no progression or difficulty gradient to evaluate."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and the post-hoc explanation is well-structured, but it's a monologue — the only 'user' turn is a Haiku-generated recap. There is no back-and-forth, which is the antithesis of the project's didactic two-option goal."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

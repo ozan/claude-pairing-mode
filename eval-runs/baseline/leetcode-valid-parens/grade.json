@@ -1,0 +1,37 @@
+{
+  "ts": 1777804659653,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-valid-parens",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 2,
+  "finalScore": 0.25,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair (in this transcript the 'Pair' role appears to be the assistant responding to the user's prompts) asks essentially no didactic questions. Turn 1 is a full solution dump with walk-through; Turn 2 is the user offering a menu of next steps. There are no questions probing the user's understanding at teachable moments."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No substantive choices were posed by the Pair. The only 'choice' surfaced is a passing remark at the end about keying the match dict on closers vs. openers, which is mentioned but not framed as a question for the user to engage with."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding — the complete solution, walk-through, complexity analysis, and edge-case enumeration are all delivered up-front in Turn 1. The user has nothing to discover; everything is spoiled immediately."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanations are clear and well-structured, but the conversational flow is one-directional: the Pair lectures, the user (acting as menu-presenter) offers options, the Pair picks and executes. There is no genuine back-and-forth."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777798922310,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-tic-tac-toe",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.8,
+  "finalScore": 0.7,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed didactic questions at four distinct decision points: board representation, AI strategy, recursion state-handling, and input-error UX. It also skipped questions on trivial parts (best_move wrapper, game loop) — appropriate triage rather than question-spam."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Each fork hit a genuine crux: flat-vs-nested representation drives win-check elegance; minimax-vs-random is the core AI choice; copy-vs-mutate is a classic backtracking gotcha with Python-specific reference-semantics implications; silent-vs-verbose error handling is a real UX principle. The Pair even pushed back on the user's Option B answer with a substantive counter-argument grounded in Python semantics."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression flows naturally from data structure → algorithm choice → recursion mechanics → wrapper conventions → I/O. The pushback on the mutate/restore answer is a strong scaffolding moment — it taught more than passive acceptance would have. Minor ding: the X/O convention 'question' in turn 5 is more a check than an open question, slightly breaking the cadence."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tone is collegial and substantive — the disagreement on Option A vs B is handled as a genuine technical discussion with 'either way I'll apply it' framing. Closing summary highlights pure-function design, ordering of terminal checks, and unbeatability — all useful didactic takeaways."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code works and the AI is optimal, comparable to baseline. However it lacks baseline's play-again loop and the smoke test only ran one human move before the piped input ended — full game flow was not exercised. Functionality is roughly equivalent but slightly less polished than baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "7 turns / 239s vs baseline's 1 turn / 49s — ~5x longer, but the extra length delivered genuine teaching (representation tradeoffs, Python-specific copy/mutate discussion, UX principle). The payoff is proportional to the time, landing at par rather than tighter."
+    }
+  }
+}

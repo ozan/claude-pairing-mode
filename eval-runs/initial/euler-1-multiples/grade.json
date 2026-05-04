@@ -1,0 +1,37 @@
+{
+  "ts": 1777838075818,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-1-multiples",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.2,
+  "finalScore": 0.55,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair asked one substantive didactic question ('which approach would you reach for, and why?') at the start, but no follow-ups during implementation. Given the problem's small size, this is a reasonable density but not high frequency."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single question hits the actual crux: the loop-vs-closed-form trade-off, which is the central pedagogical content of Euler #1. It surfaces both readability and scaling considerations rather than something cosmetic."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "The two options are well-framed side-by-side and the Pair confirmed the user's reasoning before moving on. However, both options were presented with full code (including the formula derivation hints via `tri(333)`, `tri(199)`, `tri(66)`), which somewhat spoils the inclusion-exclusion insight rather than letting the user derive it."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Natural back-and-forth: Pair asks, user reasons aloud and self-checks, Pair confirms and extends with the 10¹² scaling hook. The MCP tool failure was handled gracefully by falling back to a direct question without disrupting flow."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code runs and produces 233168, matching the baseline's answer. The baseline gave only the math derivation without writing/executing code; the experiment actually wrote and verified a Python file, which is arguably more concrete."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took 2 turns / 86s vs baseline's 1 turn / 14s — roughly 6× longer wall time, but the extra time bought a genuine didactic exchange (option framing, user reasoning check, scaling discussion) proportional to the added length."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777838191615,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-lru-cache",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.4,
+  "finalScore": 0.35,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair poses one rhetorical question ('why not dict + deque?') and a closing extension prompt, but never actually waits for or invites user input at decision points. The propose_options tool was unavailable and the Pair just barreled ahead, so didactic engagement is minimal."
+    },
+    "question_quality": {
+      "score": 3,
+      "rationale": "The single substantive question — why deque fails — does hit a real crux (O(n) removal scan) that distinguishes naive from correct designs. But other meaningful forks (OrderedDict alternative, sentinel vs. null-guard, miss-return convention) are presented as exposition rather than as choices."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "There is no real scaffolded sequence: the Pair asks one question, immediately answers it itself ('The correct pairing is dict + doubly linked list'), then implements. The post-hoc 'things worth noting' section explains rather than building progressively, so the user never climbs a difficulty gradient."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanations are clear and actionable, with a sensible offer of extensions at the end. But conversational flow is one-sided — the Pair monologues through design, build, and verification without genuine back-and-forth, and the user's reply is just a recap."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code implements the standard dict + doubly-linked-list LRU with sentinels, __slots__, and passes the assertion suite. It's comparable to baseline functionally, though slightly less polished (returns -1 sentinel rather than None, no __len__/__contains__/__repr__/ValueError on capacity)."
+    },
+    "friction": {
+      "score": 2,
+      "rationale": "Took ~230s vs baseline's ~84s (≈2.7x) and produced a similar solution with only modestly more teaching content (one rhetorical question plus three design notes). The pedagogical payoff is not proportional to the extra time and prose."
+    }
+  }
+}

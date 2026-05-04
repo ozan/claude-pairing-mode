@@ -1,0 +1,37 @@
+{
+  "ts": 1777838153503,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-group-anagrams",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.5,
+  "finalScore": 0.625,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed one well-targeted didactic question ('Which is asymptotically faster — A or B?') after presenting the two options. No further questions followed once the user chose; teachable moments around hashability of keys and ordering were stated rather than asked."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single question hits the actual crux of this problem — the asymptotic difference between sort-key and count-key approaches — and forces the user to reason about complexity rather than just pick aesthetically. It misses follow-up cruxes like why the key must be hashable or character-set assumptions."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Reasonable progression: framing → two concrete options → complexity question → implementation → post-hoc notes. No spoilers (the answer wasn't given before asking), and the difficulty was appropriate. Slightly thin — only one rung on the ladder before moving to code."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and direct ('Exactly right on all counts'), guidance is actionable, and the back-and-forth reads naturally. Not a perfect 5 because the conversation is short and the Pair largely affirms rather than probes deeper after the user's answer."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct, passes its tests, and is equivalent to the baseline's chosen Solution A. Tests are lighter than baseline's 8-case suite (only the LeetCode example via frozenset), but functionally solves the problem."
+    },
+    "friction": {
+      "score": 4,
+      "rationale": "Experiment finished in 65s vs baseline's 76s with comparable turn count, while adding a real didactic exchange about complexity. Tighter than baseline with a clear teaching payoff."
+    }
+  }
+}

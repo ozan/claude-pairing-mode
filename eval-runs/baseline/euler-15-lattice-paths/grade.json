@@ -1,0 +1,37 @@
+{
+  "ts": 1777804572266,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-15-lattice-paths",
+  "isBaseline": true,
+  "baselineCollection": null,
+  "weightedScore": 1.9,
+  "finalScore": 0.225,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair asks zero didactic questions. It delivers a complete lecture-style answer with both closed-form and DP solutions in a single turn, never engaging the user at any decision point (e.g., why C(40,20), base cases, space optimization)."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No choices are framed at all. Teachable forks like 'why is this a binomial coefficient?', 'what are the base cases?', or 'can we reduce to O(n) space?' are stated rather than posed."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no scaffolding — the entire solution including the answer is dumped up front, which is the maximum spoiler. No progression of difficulty, no checkpoints."
+    },
+    "flow_and_tone": {
+      "score": 2,
+      "rationale": "Tone is clear and well-organized, but it's a monologue rather than a back-and-forth. The user's only contribution is catching a numerical typo (the Pair wrote 137,846,528,640 instead of 820), which the Pair never even acknowledges."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Baseline run — productivity criteria pinned to 3 by convention (the baseline IS the reference; judging it comparatively is meaningless)."
+    }
+  }
+}

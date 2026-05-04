@@ -1,0 +1,37 @@
+{
+  "ts": 1777840469614,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "leetcode-valid-parens",
+  "isBaseline": true,
+  "baselineCollection": "baseline",
+  "weightedScore": 3.3,
+  "finalScore": 0.575,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed two substantive didactic questions in Turn 3 ('which has the flaw' and 'why does the flawed one still pass'), plus a language-choice prompt and a follow-up offer at the end. That's a moderate cadence — the key teachable moment was hit, but other decision points (e.g., dict keying choice, short-circuit ordering) were narrated rather than queried."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The two-approach contrast (stack vs. counter) targets the exact crux of the problem: order vs. balance. Asking the user to identify the flaw and explain why the counter still passes many cases lands on a genuinely consequential conceptual fork rather than cosmetic syntax."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression flowed naturally: intuition/algorithm → language pick → two-option diagnosis → write+test → close. The hint to trace `([)]` was well-calibrated. Minor knock: the language-choice question was filler before the real didactic moment, and the user role-confusion in turns 2 and 5 disrupted pacing slightly."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the Pair gracefully handled the user (a Haiku model) flipping into tutor-mode twice, redirecting with humor. Feedback was specific and reinforcing ('textbook-quality analysis ... named the category of bug'). Some over-praise and a couple of meta-corrections slightly disrupted otherwise smooth flow."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final solution is correct, tested 10/10, and equivalent to the baseline. Nothing notably better or worse — same algorithm, same complexity."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took 5 turns / 184s vs. baseline's 2 turns / 62s — roughly 3x longer. The extra length bought a real pedagogical payoff (the counter-vs-stack distractor and the user's diagnostic exercise), which is proportional but not tight. The two role-confusion detours added avoidable overhead."
+    }
+  }
+}

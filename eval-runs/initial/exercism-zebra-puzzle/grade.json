@@ -1,0 +1,37 @@
+{
+  "ts": 1777838136819,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "exercism-zebra-puzzle",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2,
+  "finalScore": 0.25,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 1,
+      "rationale": "The Pair explicitly notes 'The propose_options tool isn't wired up here' and skips asking the user anything. It poses zero didactic questions — it announces the tradeoff and immediately picks the answer itself."
+    },
+    "question_quality": {
+      "score": 1,
+      "rationale": "No actual choice is offered to the user. The brute-force vs. early-pruning tradeoff is mentioned but resolved unilaterally, so there is no question to evaluate for crux-hitting quality."
+    },
+    "scaffolding": {
+      "score": 1,
+      "rationale": "There is no question sequence to scaffold. The Pair jumps straight from problem to full solution and post-hoc explanation, with no progressive difficulty or learner-led discovery."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanation of pruning is clear and actionable, but it is monologue rather than back-and-forth. The user's reply is essentially a recap, indicating no real dialogue occurred."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code produces correct answers (Norwegian/Japanese) using permutations + early pruning, comparable to the baseline. Slightly less polished (no caching into _SOLUTION, no separate drinks_water()/owns_zebra() functions matching Exercism's expected API), but functionally correct."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Runtime is essentially identical to baseline (117s vs 120s, both single-turn). No extra teaching payoff was extracted to justify the didactic framing, but no friction was added either."
+    }
+  }
+}

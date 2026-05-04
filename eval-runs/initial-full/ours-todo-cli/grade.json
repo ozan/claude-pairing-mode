@@ -1,0 +1,37 @@
+{
+  "ts": 1777798920871,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-todo-cli",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 2.9,
+  "finalScore": 0.475,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "Only one didactic two-option choice was posed (the JSON storage shape). Other meaningful decision points (CLI parsing approach, ID reuse policy, error handling, EAFP vs LBYL) were either decided unilaterally or just mentioned post-hoc rather than turned into a question."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single choice posed — bare array vs object wrapper with `next_id` — is genuinely consequential and exposes a real design tension (ID generation, extensibility) that the user articulated well. It's the most substantive fork in this small problem."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "One isolated question can't really be 'scaffolded,' but the framing was clean, no spoilers were given, and the EAFP/TOCTOU note afterwards was a reasonable mini-lesson layered on top. There's no progression because there's only one rung."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and crisp; the pair affirms the user's reasoning specifically rather than generically, and the closing EAFP aside lands naturally. The path-confusion bash retries are minor friction but don't disrupt the conversation."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code works end-to-end (add/list/done/rm with JSON persistence), comparable to baseline. The object-wrapper schema with `next_id` is arguably a cleaner ID model than baseline's implicit max+1, offsetting that baseline tested a slightly broader sequence."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "80s vs baseline's 59s and one extra turn, with a real teaching payoff (the storage-shape decision plus EAFP note). The wasted bash attempts on wrong paths added some noise but overall length is proportionate to the pedagogical gain."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ts": 1777798892161,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-fizzbuzz",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.3,
+  "finalScore": 0.575,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 3,
+      "rationale": "The Pair posed exactly one didactic question — the A/B choice between if/elif and string accumulation — at the only meaningful decision point in this trivial problem. For FizzBuzz that's appropriate, but it's a single moment of engagement."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The choice targets the actual crux of FizzBuzz: the hidden ordering constraint in the elif chain vs. the extensibility of string accumulation. That's the canonical pedagogical fork for this problem, even if it's the only one offered."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Single well-framed question with no spoilers — the Pair didn't telegraph which option was better before the user answered, then confirmed the reasoning afterward with a concrete extension example (7 → Jazz). Limited surface for richer scaffolding given the problem size."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Clean back-and-forth: question, user reasoning, validation that names the specific insight (\"you spotted the trap\"), then execution. Tone is warm and actionable; the only minor friction is the `python` exit-127 retry, which is incidental."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is the same string-accumulation solution as the baseline's chosen path, runs correctly, and verifies output. Equivalent to baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "70s vs. baseline's 53s — modestly longer, with the extra time spent on a genuine pedagogical exchange (user articulates reasoning, Pair confirms the gotcha). Proportional payoff for the small overhead."
+    }
+  }
+}

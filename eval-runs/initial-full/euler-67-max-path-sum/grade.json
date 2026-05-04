@@ -1,0 +1,37 @@
+{
+  "ts": 1777798590162,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-67-max-path-sum",
+  "isBaseline": false,
+  "baselineCollection": "baseline-full",
+  "weightedScore": 3.8,
+  "finalScore": 0.7,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 4,
+      "rationale": "The Pair posed two substantive didactic questions across a short interaction: choice of DP direction (bottom-up vs top-down) and the in-place iteration order. For a problem with limited decision points, this hits most of the meaningful forks."
+    },
+    "question_quality": {
+      "score": 5,
+      "rationale": "Both questions target genuine cruxes. The iteration-order question in particular surfaces the aliasing/dependency hazard that's the real subtlety in 1-D in-place DP — a classic gotcha worth teaching."
+    },
+    "scaffolding": {
+      "score": 4,
+      "rationale": "Progression goes from high-level algorithmic choice to a lower-level correctness subtlety, which is sensible. The second question is well-framed without spoilers, though option B's annotation 'left-to-right is already correct' is a mild tell about the answer."
+    },
+    "flow_and_tone": {
+      "score": 5,
+      "rationale": "Tone is warm and substantive; the Pair affirms the user's reasoning specifically ('you nailed the aliasing hazard') and adds a generalization to knapsack-style DP at the end. Back-and-forth feels natural and pedagogically rich."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code produces 696, matching the baseline. Implementation is arguably a touch better (O(n) space single-row buffer vs baseline's in-place full-triangle mutation), but functionally equivalent."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Experiment took 3 turns / 160s vs baseline's 1 turn / 32s, but the extra length delivered two real teaching beats (algorithm choice + aliasing subtlety). Proportional pedagogical payoff for the added length."
+    }
+  }
+}

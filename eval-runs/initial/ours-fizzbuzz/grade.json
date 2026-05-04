@@ -1,0 +1,37 @@
+{
+  "ts": 1777838197815,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "ours-fizzbuzz",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.9,
+  "finalScore": 0.475,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair asks essentially one didactic question (which option, A or B) in Turn 1, then a meta-redirect in Turn 2. There are no follow-up probing questions about the idiom (`out or i`) or trade-offs."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single choice posed hits the crux of FizzBuzz: the ordering/short-circuit bug in the elif chain vs. the cumulative string-building pattern. Framing the buggy version as Option A and prompting 'think about what happens when you hit 15' targets the canonical gotcha."
+    },
+    "scaffolding": {
+      "score": 3,
+      "rationale": "Reasonable single-step scaffolding: present two options, let the user diagnose, then implement. However, there's no progression — just one question — and the hint ('think about what happens when you hit 15') somewhat spoils the discovery. The `out or i` idiom is mentioned but never made into a teachable question."
+    },
+    "flow_and_tone": {
+      "score": 4,
+      "rationale": "Tone is warm and the back-and-forth is natural; the Pair gracefully handles the user role-reversing in Turn 2 with 'I'll ask back: which do *you* pick'. Recap at the end is concise and ties to what was learned."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code is correct and runs; output verified. Comparable to baseline, which used the more conventional if/elif/else with `% 15` first. Both solutions solve the problem."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "74s vs baseline 56s — modestly longer with proportional pedagogical payoff (user diagnosed the bug themselves rather than being told). Same 3 turns, similar prose volume."
+    }
+  }
+}

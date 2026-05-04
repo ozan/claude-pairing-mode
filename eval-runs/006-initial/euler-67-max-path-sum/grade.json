@@ -1,0 +1,37 @@
+{
+  "ts": 1777864467046,
+  "graderModel": "claude-opus-4-7",
+  "experimentSlug": "euler-67-max-path-sum",
+  "isBaseline": false,
+  "baselineCollection": "baseline",
+  "weightedScore": 2.7,
+  "finalScore": 0.425,
+  "pedagogical": {
+    "question_frequency": {
+      "score": 2,
+      "rationale": "The Pair framed exactly one decision (bottom-up vs top-down DP) at the start, then abandoned the interactive choice when the tool wasn't available and simply explained the answer. No further didactic questions were posed; the closing 'want to verify the path or scale up' is logistical, not pedagogical."
+    },
+    "question_quality": {
+      "score": 4,
+      "rationale": "The single choice surfaced does target the crux: traversal direction, including the subtle two-parent issue in top-down. That's a genuinely consequential design tension for this problem, even if no other forks were explored."
+    },
+    "scaffolding": {
+      "score": 2,
+      "rationale": "There's only one question, and the Pair immediately telegraphed the right answer ('Bottom-up is cleaner') with the rationale before letting the user reason about it. That collapses the intended scaffolding into a spoiler."
+    },
+    "flow_and_tone": {
+      "score": 3,
+      "rationale": "Tone is warm and the explanation is clear and actionable, but the flow is awkward: the Pair posed an A/B choice, then in the next breath answered it itself due to a tool issue, so the back-and-forth never materialized."
+    }
+  },
+  "productivity": {
+    "effectiveness": {
+      "score": 3,
+      "rationale": "Final code correctly implements bottom-up DP on a hard-coded 10-row triangle and runs to produce 65. Equivalent to baseline in correctness, though it uses a different (smaller, ad-hoc) triangle rather than the canonical PE values used in the baseline."
+    },
+    "friction": {
+      "score": 3,
+      "rationale": "Run length (56s vs 38s) and prose volume are modestly larger than baseline, with a small pedagogical payoff in the explicit direction trade-off. Roughly proportional, no major friction."
+    }
+  }
+}
