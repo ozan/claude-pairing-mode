@@ -1,0 +1,39 @@
+{
+  "slug": "ours-tic-tac-toe",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:33",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair surfaces a decision at nearly every meaningful step: board representation, AI strategy, input validation, display, and tie-breaking. Five distinct A/B forks across 8 turns is a high cadence."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Several forks hit substantive cruxes: minimax vs random (algorithmic trade-off), EAFP vs LBYL (Python idiom), and tie-breaking randomization (determinism vs variety). The board-representation and display choices are lighter but still legitimate. The EAFP pushback in particular hit a genuine misconception."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression flows logically from data structure \u2192 AI \u2192 input \u2192 display \u2192 loop \u2192 polish, with difficulty roughly increasing. The minimax fork came early but the Pair handled the user's hesitation gracefully. No spoilers; choices were presented neutrally with diffs."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tone is direct, warm without being saccharine, and the Pair pushes back substantively when the user has a misconception (EAFP, scope creep on minimax) rather than just agreeing. Back-and-forth feels natural and the user clearly engages."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code is correct, clean, and arguably better than baseline: minimax with randomized tie-breaking, EAFP input, position hints, and a working sanity-check run. Baseline had a dead-code bug that needed patching; experiment avoided that class of issue."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "8 turns vs baseline's 5, and ~173s vs ~165s \u2014 comparable wall time with substantially more teaching payoff (EAFP lesson, explicit trade-off framing on each fork). The extra turns are well-justified by the didactic structure."
+      }
+    }
+  },
+  "weighted": 4.4,
+  "normalized": 0.8500000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair surfaces a decision at nearly every meaningful step: board representation, AI strategy, input validation, display, and tie-breaking. Five distinct A/B forks across 8 turns is a high cadence.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Several forks hit substantive cruxes: minimax vs random (algorithmic trade-off), EAFP vs LBYL (Python idiom), and tie-breaking randomization (determinism vs variety). The board-representation and display choices are lighter but still legitimate. The EAFP pushback in particular hit a genuine misconception.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression flows logically from data structure \u2192 AI \u2192 input \u2192 display \u2192 loop \u2192 polish, with difficulty roughly increasing. The minimax fork came early but the Pair handled the user's hesitation gracefully. No spoilers; choices were presented neutrally with diffs.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Tone is direct, warm without being saccharine, and the Pair pushes back substantively when the user has a misconception (EAFP, scope creep on minimax) rather than just agreeing. Back-and-forth feels natural and the user clearly engages.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code is correct, clean, and arguably better than baseline: minimax with randomized tie-breaking, EAFP input, position hints, and a working sanity-check run. Baseline had a dead-code bug that needed patching; experiment avoided that class of issue.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"8 turns vs baseline's 5, and ~173s vs ~165s \u2014 comparable wall time with substantially more teaching payoff (EAFP lesson, explicit trade-off framing on each fork). The extra turns are well-justified by the didactic structure.\" }\n  }\n}"
+}

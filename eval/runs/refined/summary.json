@@ -1,0 +1,375 @@
+{
+  "tag": "refined",
+  "condition": "regular",
+  "n": 36,
+  "by_reason": {
+    "done": 36,
+    "max_turns": 0,
+    "error": 0,
+    "mcp_failed": 0
+  },
+  "total_propose_options_calls": 109,
+  "total_leaks": 0,
+  "results": [
+    {
+      "slug": "leetcode-two-sum",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 4,
+      "duration_s": 86.44787907600403,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-valid-parens",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 78.08490586280823,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-climbing-stairs",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 94.625253200531,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-longest-substring",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 54.97316789627075,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-coin-change",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 5,
+      "duration_s": 125.75522804260254,
+      "propose_options_calls": 4,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-group-anagrams",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 68.97780728340149,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-trap-rain-water",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 5,
+      "duration_s": 103.96771597862244,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-edit-distance",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 4,
+      "duration_s": 112.61944484710693,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-median-two-sorted",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 4,
+      "duration_s": 144.69523191452026,
+      "propose_options_calls": 4,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-leap-year",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 45.606857776641846,
+      "propose_options_calls": 1,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-hamming",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 33.933971881866455,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-pangram",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 51.71297311782837,
+      "propose_options_calls": 1,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-rna-transcription",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 4,
+      "duration_s": 69.48680877685547,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-acronym",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 129.96496295928955,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-roman-numerals",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 48.22440505027771,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-bowling",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 7,
+      "duration_s": 281.89480686187744,
+      "propose_options_calls": 6,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-zebra-puzzle",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 6,
+      "duration_s": 204.06451106071472,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-allergies",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 5,
+      "duration_s": 95.29933524131775,
+      "propose_options_calls": 4,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-1-multiples",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 65.44984126091003,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-2-even-fib",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 94.33511900901794,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-6-sum-square-diff",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 36.34604001045227,
+      "propose_options_calls": 1,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-10-sum-primes",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 63.99758315086365,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-14-collatz",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 50.061283111572266,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-17-letter-counts",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 6,
+      "duration_s": 133.27162289619446,
+      "propose_options_calls": 5,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-15-lattice-paths",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 89.41942095756531,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-21-amicable",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 74.24555087089539,
+      "propose_options_calls": 2,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-67-max-path-sum",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 126.13394594192505,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-fizzbuzz",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 34.28486132621765,
+      "propose_options_calls": 1,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-word-counter",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 4,
+      "duration_s": 74.65914392471313,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-run-length-encoding",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 4,
+      "duration_s": 87.53112006187439,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-caesar-cipher",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 4,
+      "duration_s": 104.29659986495972,
+      "propose_options_calls": 3,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-tic-tac-toe",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 7,
+      "duration_s": 164.00356316566467,
+      "propose_options_calls": 6,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-todo-cli",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 5,
+      "duration_s": 129.65833497047424,
+      "propose_options_calls": 4,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-mini-calculator",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 7,
+      "duration_s": 208.98815298080444,
+      "propose_options_calls": 6,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-game-of-life",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 7,
+      "duration_s": 201.93882513046265,
+      "propose_options_calls": 6,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-lru-cache",
+      "condition": "regular",
+      "end_reason": "done",
+      "turns": 7,
+      "duration_s": 191.49972701072693,
+      "propose_options_calls": 5,
+      "leaks_detected": 0,
+      "error": null
+    }
+  ]
+}

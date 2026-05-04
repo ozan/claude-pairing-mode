@@ -1,0 +1,39 @@
+{
+  "slug": "ours-word-counter",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Three distinct didactic choice points across the short task: tokenization approach, frequency-counting style, and return type. Reasonable density for a small problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The regex vs. strip choice surfaces a real gotcha (empty strings after stripping), and the Counter-vs-dict return type fork is a genuine API design tradeoff with the copy-cost insight. The Counter-vs-manual-dict question is more idiom-level but still worthwhile."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: tokenize \u2192 count \u2192 return-type polish. No spoilers; difficulty rises naturally. The final pushback on the user's choice adds nuance rather than skipping a step."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Concise, warm, and the tutor's pushback after the student's answer is well-calibrated \u2014 affirming the reasoning while complicating it. Natural back-and-forth, no friction."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly counts word frequencies and matches baseline functionality. Slight difference: regex `[a-z]+` handles mid-word punctuation differently than baseline's translate approach (e.g., contractions split), which the tutor flagged."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns and ~80s vs baseline's 1 turn / 16s, but the extra length delivered three substantive teaching moments (regex vs strip tradeoff, Counter idiom, dict-subclass tradeoff). Proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Three distinct didactic choice points across the short task: tokenization approach, frequency-counting style, and return type. Reasonable density for a small problem.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The regex vs. strip choice surfaces a real gotcha (empty strings after stripping), and the Counter-vs-dict return type fork is a genuine API design tradeoff with the copy-cost insight. The Counter-vs-manual-dict question is more idiom-level but still worthwhile.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: tokenize \u2192 count \u2192 return-type polish. No spoilers; difficulty rises naturally. The final pushback on the user's choice adds nuance rather than skipping a step.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Concise, warm, and the tutor's pushback after the student's answer is well-calibrated \u2014 affirming the reasoning while complicating it. Natural back-and-forth, no friction.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly counts word frequencies and matches baseline functionality. Slight difference: regex `[a-z]+` handles mid-word punctuation differently than baseline's translate approach (e.g., contractions split), which the tutor flagged.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 4 turns and ~80s vs baseline's 1 turn / 16s, but the extra length delivered three substantive teaching moments (regex vs strip tradeoff, Counter idiom, dict-subclass tradeoff). Proportional pedagogical payoff.\" }\n  }\n}"
+}

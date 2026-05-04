@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-hamming",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:50",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two explicit didactic forks (A/B options) and a follow-up 'do you know why' question, engaging the user at multiple decision points across a small problem."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The first fork (zip vs index loop) is reasonable but somewhat cosmetic; the second (explicit 1 vs bool-as-int) hits a genuinely teachable Python idiom. Neither targets the most consequential decision (the length-guard ordering), which was just stated rather than asked."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose approach \u2192 note zip-truncation gotcha \u2192 probe bool-as-int subtlety \u2192 sanity-check cases. No spoilers; difficulty gradient is smooth for this small problem."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational flow is natural with concise affirmations and useful follow-ups. Tone is warm and the back-and-forth feels like genuine pairing rather than lecture."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to baseline and correctly solves the problem including edge cases."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 3 turns / 79s vs baseline's 2 turns / 35s \u2014 roughly 2x longer, but with proportional pedagogical payoff (bool subclassing, zip truncation rationale framed as a choice)."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two explicit didactic forks (A/B options) and a follow-up 'do you know why' question, engaging the user at multiple decision points across a small problem.\" },\n    \"question_quality\":   { \"score\": 3, \"rationale\": \"The first fork (zip vs index loop) is reasonable but somewhat cosmetic; the second (explicit 1 vs bool-as-int) hits a genuinely teachable Python idiom. Neither targets the most consequential decision (the length-guard ordering), which was just stated rather than asked.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: choose approach \u2192 note zip-truncation gotcha \u2192 probe bool-as-int subtlety \u2192 sanity-check cases. No spoilers; difficulty gradient is smooth for this small problem.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Conversational flow is natural with concise affirmations and useful follow-ups. Tone is warm and the back-and-forth feels like genuine pairing rather than lecture.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is identical to baseline and correctly solves the problem including edge cases.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took 3 turns / 79s vs baseline's 2 turns / 35s \u2014 roughly 2x longer, but with proportional pedagogical payoff (bool subclassing, zip truncation rationale framed as a choice).\" }\n  }\n}"
+}

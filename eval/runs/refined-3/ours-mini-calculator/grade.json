@@ -1,0 +1,39 @@
+{
+  "slug": "ours-mini-calculator",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Nearly every turn presented a structured A/B choice with pedagogical intent: algorithm choice, tokenize-first vs inline, regex vs manual, grammar levels, state management, and error handling. Six distinct decision points engaged the user."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Choices targeted real design tensions (precedence levels, error robustness, state plumbing). The grammar-levels question hit the crux of recursive descent. A few choices (class vs nested functions, regex vs manual loop) were more stylistic than algorithmic."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm \u2192 tokenizer \u2192 grammar \u2192 parser structure \u2192 error handling. Difficulty ramped smoothly. The two-vs-three-levels question nicely exposed the precedence insight without spoiling. Some options telegraphed the 'right' answer (e.g., option A's leading comment 'but * and / go... where?')."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone was warm and confirmatory, with concrete code edits and live test feedback after each step. Slight rigidity from the forced A/B format, but the back-and-forth felt natural and the user's reasoning was acknowledged."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution correctly handles +, -, *, /, parens, precedence, floats, and malformed input. However, unlike the baseline, it does not handle unary +/-, which is a notable gap the baseline addressed and explored deeply."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "7 turns vs baseline's 3, roughly 30% longer wall time. The extra turns delivered genuine pedagogical payoff (decision-by-decision construction) but the baseline covered more ground (unary operators, exponentiation extension, regex ordering) in fewer turns."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Nearly every turn presented a structured A/B choice with pedagogical intent: algorithm choice, tokenize-first vs inline, regex vs manual, grammar levels, state management, and error handling. Six distinct decision points engaged the user.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Choices targeted real design tensions (precedence levels, error robustness, state plumbing). The grammar-levels question hit the crux of recursive descent. A few choices (class vs nested functions, regex vs manual loop) were more stylistic than algorithmic.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from algorithm \u2192 tokenizer \u2192 grammar \u2192 parser structure \u2192 error handling. Difficulty ramped smoothly. The two-vs-three-levels question nicely exposed the precedence insight without spoiling. Some options telegraphed the 'right' answer (e.g., option A's leading comment 'but * and / go... where?').\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone was warm and confirmatory, with concrete code edits and live test feedback after each step. Slight rigidity from the forced A/B format, but the back-and-forth felt natural and the user's reasoning was acknowledged.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution correctly handles +, -, *, /, parens, precedence, floats, and malformed input. However, unlike the baseline, it does not handle unary +/-, which is a notable gap the baseline addressed and explored deeply.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"7 turns vs baseline's 3, roughly 30% longer wall time. The extra turns delivered genuine pedagogical payoff (decision-by-decision construction) but the baseline covered more ground (unary operators, exponentiation extension, regex ordering) in fewer turns.\" }\n  }\n}"
+}

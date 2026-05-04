@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-climbing-stairs",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:46",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed four distinct didactic forks: the recurrence relation, iterative vs memoized, full array vs rolling variables, and the O(log n) extension. Nearly every meaningful decision point became a question."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Each fork hit a genuine crux: identifying the correct recurrence (with a plausible distractor), DP style trade-off, space optimization insight, and an optional advanced extension. The B option in turn 1 is a particularly good distractor that forces real reasoning."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression flows naturally: recurrence \u2192 implementation strategy \u2192 space optimization \u2192 asymptotic extension. No spoilers, and each question builds on the previous answer's reasoning (e.g., the user's comment about not needing the full table led directly into the next question)."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Affirmations are specific (\"you spotted the key flaw in B\"), questions are crisp, and the conversation moves smoothly. The tutor lets the user gracefully decline the matrix exponentiation extension."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, equivalent to baseline, with passing tests. Same algorithm, same complexity."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Twice the turns and ~2.4x the wall time of baseline, but the structured options framework delivered substantially more pedagogical engagement (4 substantive forks vs baseline's monologue). The extra length is proportional to the teaching gain."
+      }
+    }
+  },
+  "weighted": 4.4,
+  "normalized": 0.8500000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed four distinct didactic forks: the recurrence relation, iterative vs memoized, full array vs rolling variables, and the O(log n) extension. Nearly every meaningful decision point became a question.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"Each fork hit a genuine crux: identifying the correct recurrence (with a plausible distractor), DP style trade-off, space optimization insight, and an optional advanced extension. The B option in turn 1 is a particularly good distractor that forces real reasoning.\" },\n    \"scaffolding\":        { \"score\": 5, \"rationale\": \"Progression flows naturally: recurrence \u2192 implementation strategy \u2192 space optimization \u2192 asymptotic extension. No spoilers, and each question builds on the previous answer's reasoning (e.g., the user's comment about not needing the full table led directly into the next question).\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Affirmations are specific (\\\"you spotted the key flaw in B\\\"), questions are crisp, and the conversation moves smoothly. The tutor lets the user gracefully decline the matrix exponentiation extension.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct, equivalent to baseline, with passing tests. Same algorithm, same complexity.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Twice the turns and ~2.4x the wall time of baseline, but the structured options framework delivered substantially more pedagogical engagement (4 substantive forks vs baseline's monologue). The extra length is proportional to the teaching gain.\" }\n  }\n}"
+}

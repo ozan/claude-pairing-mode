@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-rna-transcription",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:39",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered two explicit option-choice prompts (initial A/B, then refinement A/B) plus a follow-up Socratic question about performance on long invalid strands. Multiple genuine teachable moments were surfaced as questions rather than lectures."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first choice (dict+loop vs str.translate) is a real idiom trade-off; the second (single-pass vs validate-first) targets a meaningful design tension and the follow-up question on performance for invalid strands hits the crux of fail-fast vs two-pass. Solid but not maximally deep (e.g., didn't probe error message quality trade-off explicitly)."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression from 'pick an approach' \u2192 implement \u2192 'refine structure' \u2192 'reason about perf' is logical with no spoilers; the Pair let the student reason and gently corrected the misconception about two-pass being faster. Mild abruptness in jumping straight to refinement after a working solution."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth: student asks about translate/walrus, Pair answers concisely then redirects to next decision; corrections are warm and specific ('Your instinct was right, the reasoning just needed a small adjustment'). Conversation feels like genuine pairing."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly solves the problem with validation, equivalent to baseline functionally. Slightly less polished than baseline (no docstring, error reports only first invalid char vs all), but meets all requirements."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Three turns vs baseline's two, with similar wall-clock time (~83s). Extra turn delivered real pedagogical payoff (option choice, performance reasoning) proportional to the modest length increase."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered two explicit option-choice prompts (initial A/B, then refinement A/B) plus a follow-up Socratic question about performance on long invalid strands. Multiple genuine teachable moments were surfaced as questions rather than lectures.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The first choice (dict+loop vs str.translate) is a real idiom trade-off; the second (single-pass vs validate-first) targets a meaningful design tension and the follow-up question on performance for invalid strands hits the crux of fail-fast vs two-pass. Solid but not maximally deep (e.g., didn't probe error message quality trade-off explicitly).\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Progression from 'pick an approach' \u2192 implement \u2192 'refine structure' \u2192 'reason about perf' is logical with no spoilers; the Pair let the student reason and gently corrected the misconception about two-pass being faster. Mild abruptness in jumping straight to refinement after a working solution.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Natural back-and-forth: student asks about translate/walrus, Pair answers concisely then redirects to next decision; corrections are warm and specific ('Your instinct was right, the reasoning just needed a small adjustment'). Conversation feels like genuine pairing.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly solves the problem with validation, equivalent to baseline functionally. Slightly less polished than baseline (no docstring, error reports only first invalid char vs all), but meets all requirements.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Three turns vs baseline's two, with similar wall-clock time (~83s). Extra turn delivered real pedagogical payoff (option choice, performance reasoning) proportional to the modest length increase.\" }\n  }\n}"
+}

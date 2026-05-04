@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-zebra-puzzle",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:08",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair offered a structured A/B choice at every meaningful decision point: algorithmic approach, structure of nesting, data layout, helper abstraction, constraint placement, and a closing complexity question. Six distinct didactic forks across six turns."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most forks hit real design tensions: brute-force vs pruning, attribute-layer vs house-by-house backtracking, early vs late constraint checking. The data-structure choice (A vs B) and helper-functions choice were less consequential, but the constraint-placement and pruning-strategy forks targeted the crux of why this approach is fast."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression flowed naturally from algorithm choice \u2192 structure \u2192 data layout \u2192 helpers \u2192 constraint placement \u2192 final complexity reflection. The constraint-layer table was a nice synthesis. Slight redundancy in re-presenting options after the tool call, but no spoilers and difficulty gradient was smooth."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "The user actively engaged with reasoning and the Pair built on their answers. Tone is warm and the back-and-forth is substantive. Slight friction from the duplicated options blocks (tool output then re-stated prose), which makes the rhythm a touch mechanical."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code returns the correct ('Norwegian', 'Japanese') answer with sensible early pruning. However, it exposes only `solution()` rather than the `drinks_water()` / `owns_zebra()` API the Exercism tests expect \u2014 baseline provided this, experiment did not."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Six turns vs baseline's two, and ~2x the wall time (187s vs 84s). The extra length delivered genuine pedagogical payoff (user co-designed the structure rather than receiving a finished file), roughly proportional to the cost."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair offered a structured A/B choice at every meaningful decision point: algorithmic approach, structure of nesting, data layout, helper abstraction, constraint placement, and a closing complexity question. Six distinct didactic forks across six turns.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Most forks hit real design tensions: brute-force vs pruning, attribute-layer vs house-by-house backtracking, early vs late constraint checking. The data-structure choice (A vs B) and helper-functions choice were less consequential, but the constraint-placement and pruning-strategy forks targeted the crux of why this approach is fast.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression flowed naturally from algorithm choice \u2192 structure \u2192 data layout \u2192 helpers \u2192 constraint placement \u2192 final complexity reflection. The constraint-layer table was a nice synthesis. Slight redundancy in re-presenting options after the tool call, but no spoilers and difficulty gradient was smooth.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"The user actively engaged with reasoning and the Pair built on their answers. Tone is warm and the back-and-forth is substantive. Slight friction from the duplicated options blocks (tool output then re-stated prose), which makes the rhythm a touch mechanical.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code returns the correct ('Norwegian', 'Japanese') answer with sensible early pruning. However, it exposes only `solution()` rather than the `drinks_water()` / `owns_zebra()` API the Exercism tests expect \u2014 baseline provided this, experiment did not.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Six turns vs baseline's two, and ~2x the wall time (187s vs 84s). The extra length delivered genuine pedagogical payoff (user co-designed the structure rather than receiving a finished file), roughly proportional to the cost.\" }\n  }\n}"
+}

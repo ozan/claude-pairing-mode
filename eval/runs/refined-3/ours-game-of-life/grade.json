@@ -1,0 +1,39 @@
+{
+  "slug": "ours-game-of-life",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:50",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair structured nearly every decision point as an explicit A/B choice for the user: in-place vs new grid, wrap-around vs dead boundary, scrolling vs ANSI, blinker vs glider, grid size. Five substantive choice points across six turns is high frequency."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The choices target the genuine cruxes of Game of Life: simultaneous-update correctness (the classic gotcha), boundary semantics, and pattern selection for testing. The first option in particular (mutation vs new grid) is exactly the canonical pedagogical pitfall."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from correctness (step) \u2192 boundary handling \u2192 display \u2192 test pattern \u2192 grid size, with no spoilers \u2014 the Pair lets the user reason through the mutation issue independently. Slightly weakened by giving away the answer structure via diff snippets that make the 'right' choice somewhat obvious."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and conversational with genuine acknowledgment of student reasoning ('Honestly, that's good engineering instinct'). The rigid OPTIONS/A-or-B format is repetitive and slightly mechanical, but the back-and-forth is responsive and substantive."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly implements Conway's Game of Life with both blinker and glider working. Comparable in correctness to the baseline, though somewhat less feature-rich (no animation mode, no boxed pretty-print, simpler structure)."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Six turns vs baseline's five, but completed in 122s vs baseline's 212s with substantially more student engagement at decision points. The teaching payoff (student articulating the simultaneity argument themselves) justifies the structured turn count."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair structured nearly every decision point as an explicit A/B choice for the user: in-place vs new grid, wrap-around vs dead boundary, scrolling vs ANSI, blinker vs glider, grid size. Five substantive choice points across six turns is high frequency.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The choices target the genuine cruxes of Game of Life: simultaneous-update correctness (the classic gotcha), boundary semantics, and pattern selection for testing. The first option in particular (mutation vs new grid) is exactly the canonical pedagogical pitfall.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from correctness (step) \u2192 boundary handling \u2192 display \u2192 test pattern \u2192 grid size, with no spoilers \u2014 the Pair lets the user reason through the mutation issue independently. Slightly weakened by giving away the answer structure via diff snippets that make the 'right' choice somewhat obvious.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and conversational with genuine acknowledgment of student reasoning ('Honestly, that's good engineering instinct'). The rigid OPTIONS/A-or-B format is repetitive and slightly mechanical, but the back-and-forth is responsive and substantive.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly implements Conway's Game of Life with both blinker and glider working. Comparable in correctness to the baseline, though somewhat less feature-rich (no animation mode, no boxed pretty-print, simpler structure).\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Six turns vs baseline's five, but completed in 122s vs baseline's 212s with substantially more student engagement at decision points. The teaching payoff (student articulating the simultaneity argument themselves) justifies the structured turn count.\" }\n  }\n}"
+}

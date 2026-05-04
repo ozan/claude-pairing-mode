@@ -1,0 +1,10 @@
+{
+  "slug": "ours-word-counter",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 86.4712541103363,
+  "propose_options_calls": 2,
+  "leaks_detected": 0,
+  "error": null
+}

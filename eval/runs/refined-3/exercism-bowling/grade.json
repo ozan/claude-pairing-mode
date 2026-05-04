@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-bowling",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:52",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed four distinct OPTIONS-style questions at meaningful decision points: scoring strategy, frame-10 handling, validation timing, and an edge-case probe. Nearly every architectural fork was surfaced for the user."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Each question targeted a real design tension: roll() vs score() computation, special-casing frame 10, eager vs lazy validation, and the subtle pins-reset edge case after a 10th-frame strike. These are exactly the cruxes of the bowling problem."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression moves from high-level architecture (where to compute) to structural choice (uniform vs special-case) to validation philosophy, ending with a targeted edge case after the implementation existed. No spoilers; user reasoning was solicited before reveals."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tone is warm and affirming without flattery, confirmations are concise, and the back-and-forth is fluid. The Pair validates user reasoning then advances naturally; the edge-case probe in turn 4 fits seamlessly."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code passes all manual sanity checks including the tricky 10th-frame edge cases and validation. Comparable to baseline functionally; baseline included a written test suite while experiment used inline checks, but both correctly solve the exercise."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Experiment took 5 turns / 280s vs baseline's 2 turns / 177s, but the extra length delivered substantive teaching across four design forks rather than just a trace-correction. Proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed four distinct OPTIONS-style questions at meaningful decision points: scoring strategy, frame-10 handling, validation timing, and an edge-case probe. Nearly every architectural fork was surfaced for the user.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Each question targeted a real design tension: roll() vs score() computation, special-casing frame 10, eager vs lazy validation, and the subtle pins-reset edge case after a 10th-frame strike. These are exactly the cruxes of the bowling problem.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Progression moves from high-level architecture (where to compute) to structural choice (uniform vs special-case) to validation philosophy, ending with a targeted edge case after the implementation existed. No spoilers; user reasoning was solicited before reveals.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Tone is warm and affirming without flattery, confirmations are concise, and the back-and-forth is fluid. The Pair validates user reasoning then advances naturally; the edge-case probe in turn 4 fits seamlessly.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code passes all manual sanity checks including the tricky 10th-frame edge cases and validation. Comparable to baseline functionally; baseline included a written test suite while experiment used inline checks, but both correctly solve the exercise.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Experiment took 5 turns / 280s vs baseline's 2 turns / 177s, but the extra length delivered substantive teaching across four design forks rather than just a trace-correction. Proportional pedagogical payoff.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-lru-cache",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:55",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed five distinct A/B options at each meaningful design fork (data structure choice, sentinels vs head/tail, update vs reinsert, miss return value, why doubly-linked), engaging the user at essentially every decision point."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most choices targeted real design tensions (sentinels vs null-checks, doubly vs singly linked rationale, update-in-place vs reinsert). The miss-return-value option was less consequential, and the final A/B about doubly-linked was somewhat leading since B is straightforwardly wrong as phrased."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression from data structure \u2192 boundary handling \u2192 branch behavior \u2192 API \u2192 complexity rationale is logical and builds well. The final question is more of a check than a stretch, but no spoilers and difficulty gradient is smooth."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirming (\"Spot on\", \"Exactly right\"), with concise diffs and tables. Slightly formulaic due to the rigid OPTIONS framework, but back-and-forth feels natural and the closing trace-correction was a nice touch."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, O(1), uses sentinels properly, and matches the baseline's core implementation. Lacks the baseline's tests, docstrings, __len__/__contains__/__repr__ extras, and capacity validation, but solves the stated problem equivalently."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "7 turns / ~180s vs baseline's 2 turns / ~100s \u2014 substantially longer, but the extra length delivered proportional pedagogical payoff via genuine decision-point engagement rather than baseline's monologue-style explanation."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed five distinct A/B options at each meaningful design fork (data structure choice, sentinels vs head/tail, update vs reinsert, miss return value, why doubly-linked), engaging the user at essentially every decision point.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Most choices targeted real design tensions (sentinels vs null-checks, doubly vs singly linked rationale, update-in-place vs reinsert). The miss-return-value option was less consequential, and the final A/B about doubly-linked was somewhat leading since B is straightforwardly wrong as phrased.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression from data structure \u2192 boundary handling \u2192 branch behavior \u2192 API \u2192 complexity rationale is logical and builds well. The final question is more of a check than a stretch, but no spoilers and difficulty gradient is smooth.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and affirming (\\\"Spot on\\\", \\\"Exactly right\\\"), with concise diffs and tables. Slightly formulaic due to the rigid OPTIONS framework, but back-and-forth feels natural and the closing trace-correction was a nice touch.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct, O(1), uses sentinels properly, and matches the baseline's core implementation. Lacks the baseline's tests, docstrings, __len__/__contains__/__repr__ extras, and capacity validation, but solves the stated problem equivalently.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"7 turns / ~180s vs baseline's 2 turns / ~100s \u2014 substantially longer, but the extra length delivered proportional pedagogical payoff via genuine decision-point engagement rather than baseline's monologue-style explanation.\" }\n  }\n}"
+}

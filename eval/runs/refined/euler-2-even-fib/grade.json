@@ -1,0 +1,39 @@
+{
+  "slug": "euler-2-even-fib",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:14",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Two substantive didactic prompts in a 3-turn conversation: the initial A/B fork on algorithm choice and the loop-condition check. Density is high relative to problem size."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first option targets a real algorithmic trade-off (simple filter vs. derived recurrence), and the loop-condition question hits a classic off-by-one gotcha. Strong choices, though the loop-condition question is somewhat leading after the trace already implied the answer."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose strategy \u2192 derive math \u2192 write code \u2192 verify boundary condition. The derivation is delivered without spoiling because the student explicitly asked for it. Smooth gradient overall."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth: student asks for derivation, tutor obliges thoroughly, student writes code with a trace, tutor zeroes in on one final subtlety. Tone is warm and collaborative throughout."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code correctly computes the sum using the elegant E(k)=4E(k-1)+E(k-2) recurrence \u2014 arguably better than baseline's straightforward filter. Code wasn't actually executed to print 4,613,732, but the logic is sound and traced."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "3 turns / 94s vs baseline's 1 turn / 20s, but the extra length delivers substantial pedagogical payoff: a full derivation of the closed recurrence and a deliberate boundary-condition check. Proportional gain."
+      }
+    }
+  },
+  "weighted": 4.1,
+  "normalized": 0.7749999999999999,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Two substantive didactic prompts in a 3-turn conversation: the initial A/B fork on algorithm choice and the loop-condition check. Density is high relative to problem size.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first option targets a real algorithmic trade-off (simple filter vs. derived recurrence), and the loop-condition question hits a classic off-by-one gotcha. Strong choices, though the loop-condition question is somewhat leading after the trace already implied the answer.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: choose strategy \u2192 derive math \u2192 write code \u2192 verify boundary condition. The derivation is delivered without spoiling because the student explicitly asked for it. Smooth gradient overall.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Natural back-and-forth: student asks for derivation, tutor obliges thoroughly, student writes code with a trace, tutor zeroes in on one final subtlety. Tone is warm and collaborative throughout.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code correctly computes the sum using the elegant E(k)=4E(k-1)+E(k-2) recurrence \u2014 arguably better than baseline's straightforward filter. Code wasn't actually executed to print 4,613,732, but the logic is sound and traced.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"3 turns / 94s vs baseline's 1 turn / 20s, but the extra length delivers substantial pedagogical payoff: a full derivation of the closed recurrence and a deliberate boundary-condition check. Proportional gain.\" }\n  }\n}"
+}

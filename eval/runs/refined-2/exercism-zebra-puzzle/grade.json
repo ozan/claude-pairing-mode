@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-zebra-puzzle",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:45",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed four substantive didactic forks (search strategy, loop ordering, helper signature, caching) plus follow-up sub-questions ('how many combinations does A check?', 'how many valid perms per clue?'). Nearly every meaningful design decision was offered up to the user."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The choices target the real cruxes: brute force vs pruning, MRV/loop-ordering heuristic, position-as-common-currency for cross-attribute constraints, and caching. These are exactly the design tensions worth teaching for constraint problems."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Logical progression from algorithmic strategy \u2192 loop ordering \u2192 helper API \u2192 caching \u2192 implementation. Each question built on the prior decision with a smooth difficulty gradient and no spoilers; follow-up prompts (e.g., 'consider clue 14') guided rather than revealed."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tone is concise, affirming ('Nailed it'), and each turn closes a decision before opening the next. Back-and-forth feels natural and the user's reasoning is explicitly engaged before moving on."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces correct answers (Norwegian/Japanese) and exposes the required Exercism API with caching, equivalent to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "5 turns / 177s vs baseline's 2 turns / 84s \u2014 roughly 2x longer, but the extra length yielded substantive teaching across four design decisions rather than a post-hoc walkthrough. Proportional payoff justifies the extra length."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed four substantive didactic forks (search strategy, loop ordering, helper signature, caching) plus follow-up sub-questions ('how many combinations does A check?', 'how many valid perms per clue?'). Nearly every meaningful design decision was offered up to the user.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The choices target the real cruxes: brute force vs pruning, MRV/loop-ordering heuristic, position-as-common-currency for cross-attribute constraints, and caching. These are exactly the design tensions worth teaching for constraint problems.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Logical progression from algorithmic strategy \u2192 loop ordering \u2192 helper API \u2192 caching \u2192 implementation. Each question built on the prior decision with a smooth difficulty gradient and no spoilers; follow-up prompts (e.g., 'consider clue 14') guided rather than revealed.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Tone is concise, affirming ('Nailed it'), and each turn closes a decision before opening the next. Back-and-forth feels natural and the user's reasoning is explicitly engaged before moving on.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code produces correct answers (Norwegian/Japanese) and exposes the required Exercism API with caching, equivalent to baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"5 turns / 177s vs baseline's 2 turns / 84s \u2014 roughly 2x longer, but the extra length yielded substantive teaching across four design decisions rather than a post-hoc walkthrough. Proportional payoff justifies the extra length.\" }\n  }\n}"
+}

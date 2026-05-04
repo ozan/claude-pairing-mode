@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-two-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:07",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three distinct didactic choices across three turns (approach selection, complexity analysis, alternative approaches), engaging the user at each meaningful decision point."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The complexity question targeting the per-op vs total-space confusion is a genuinely good gotcha. The approach choice and the sort+two-pointers comparison are also substantive, though the framing of B in the third question telegraphed the answer."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Progression from approach \u2192 complexity \u2192 alternative is logical, but option B in turn 3 essentially included the full justification (\"sorting destroys indices\"), spoiling the answer. The complexity question's option B was also a fairly obvious trap."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation flowed naturally with affirming, specific feedback (\"O(1) per operation vs O(1) total space \u2014 that conflation trips people up\"). Tone was warm and the back-and-forth felt collaborative."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to baseline \u2014 correct canonical hash-map solution with passing tests on all three cases."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "About 2x the baseline turns/time (3 turns, 63s vs 2 turns, 29s), but the extra length delivered proportional teaching value via the complexity gotcha and sort+two-pointers contrast."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three distinct didactic choices across three turns (approach selection, complexity analysis, alternative approaches), engaging the user at each meaningful decision point.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The complexity question targeting the per-op vs total-space confusion is a genuinely good gotcha. The approach choice and the sort+two-pointers comparison are also substantive, though the framing of B in the third question telegraphed the answer.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Progression from approach \u2192 complexity \u2192 alternative is logical, but option B in turn 3 essentially included the full justification (\\\"sorting destroys indices\\\"), spoiling the answer. The complexity question's option B was also a fairly obvious trap.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversation flowed naturally with affirming, specific feedback (\\\"O(1) per operation vs O(1) total space \u2014 that conflation trips people up\\\"). Tone was warm and the back-and-forth felt collaborative.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical to baseline \u2014 correct canonical hash-map solution with passing tests on all three cases.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"About 2x the baseline turns/time (3 turns, 63s vs 2 turns, 29s), but the extra length delivered proportional teaching value via the complexity gotcha and sort+two-pointers contrast.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-caesar-cipher",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed three distinct didactic A/B questions at each meaningful decision point (shift mechanism, decode strategy, testing approach), engaging the user at every fork."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Choices targeted real trade-offs: ord/chr vs index lookup (performance/clarity), DRY delegation vs duplication, and example-based vs property-based testing. The first option pair is somewhat lopsided, but the latter two hit substantive design tensions."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from per-character mechanism \u2192 decode wiring \u2192 verification, with smooth difficulty. Minor weakness: options sometimes have an obvious 'right' answer, but no spoilers and good incremental build."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth, with the Pair affirming reasoning and adding sharper details (e.g., O(26\u00b7n) vs O(n), Python's % sign behavior). The user's edge-case observation about range(27) was acknowledged thoughtfully."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly solves the problem with round-trip tests passing. Slightly less elegant than baseline (no _shift_char helper, duplicated upper/lower branches) but functionally equivalent."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "About 2x the turns and time of baseline (4 turns/112s vs 2 turns/52s), but the extra length delivered three genuine pedagogical exchanges with substantive teaching content, roughly proportional payoff."
+      }
+    }
+  },
+  "weighted": 4.0,
+  "normalized": 0.75,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed three distinct didactic A/B questions at each meaningful decision point (shift mechanism, decode strategy, testing approach), engaging the user at every fork.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"Choices targeted real trade-offs: ord/chr vs index lookup (performance/clarity), DRY delegation vs duplication, and example-based vs property-based testing. The first option pair is somewhat lopsided, but the latter two hit substantive design tensions.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from per-character mechanism \u2192 decode wiring \u2192 verification, with smooth difficulty. Minor weakness: options sometimes have an obvious 'right' answer, but no spoilers and good incremental build.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Natural back-and-forth, with the Pair affirming reasoning and adding sharper details (e.g., O(26\u00b7n) vs O(n), Python's % sign behavior). The user's edge-case observation about range(27) was acknowledged thoughtfully.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly solves the problem with round-trip tests passing. Slightly less elegant than baseline (no _shift_char helper, duplicated upper/lower branches) but functionally equivalent.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"About 2x the turns and time of baseline (4 turns/112s vs 2 turns/52s), but the extra length delivered three genuine pedagogical exchanges with substantive teaching content, roughly proportional payoff.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "euler-21-amicable",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:29",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Two explicit didactic option-prompts in a 3-turn session, each at a real decision point (algorithm choice, bounds-check). Reasonable density for a small problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "First choice targets the genuine algorithmic trade-off (sieve vs trial division); second surfaces the index-bounds gotcha and naturally led into a short-circuit evaluation lesson. Solid but not maximally deep (e.g., didn't probe perfect-number edge case explicitly)."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm selection \u2192 correctness/bounds \u2192 final assembly. No spoilers in the option framing, and the follow-up insight on short-circuit ordering built nicely on the user's answer."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirming, responses are actionable, and the Pair builds on the student's reasoning. Slightly formulaic with the OPTIONS template but flows naturally."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code produces 31626 correctly using a sieve, which is asymptotically better than baseline's trial division. Minor: the `d[n] < LIMIT` guard is unnecessary in practice since proper divisor sums of n<10000 stay below 10000 for the relevant cases, but it's harmless and pedagogically motivated."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "3 turns / 95s vs baseline's 1 turn / 21s \u2014 roughly 4x longer, but with proportional teaching payoff (sieve choice, short-circuit ordering, bounds reasoning). Acceptable trade for the didactic gain."
+      }
+    }
+  },
+  "weighted": 3.8000000000000003,
+  "normalized": 0.7000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Two explicit didactic option-prompts in a 3-turn session, each at a real decision point (algorithm choice, bounds-check). Reasonable density for a small problem.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"First choice targets the genuine algorithmic trade-off (sieve vs trial division); second surfaces the index-bounds gotcha and naturally led into a short-circuit evaluation lesson. Solid but not maximally deep (e.g., didn't probe perfect-number edge case explicitly).\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from algorithm selection \u2192 correctness/bounds \u2192 final assembly. No spoilers in the option framing, and the follow-up insight on short-circuit ordering built nicely on the user's answer.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and affirming, responses are actionable, and the Pair builds on the student's reasoning. Slightly formulaic with the OPTIONS template but flows naturally.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code produces 31626 correctly using a sieve, which is asymptotically better than baseline's trial division. Minor: the `d[n] < LIMIT` guard is unnecessary in practice since proper divisor sums of n<10000 stay below 10000 for the relevant cases, but it's harmless and pedagogically motivated.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"3 turns / 95s vs baseline's 1 turn / 21s \u2014 roughly 4x longer, but with proportional teaching payoff (sieve choice, short-circuit ordering, bounds reasoning). Acceptable trade for the didactic gain.\" }\n  }\n}"
+}

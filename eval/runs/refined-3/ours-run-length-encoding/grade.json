@@ -1,0 +1,39 @@
+{
+  "slug": "ours-run-length-encoding",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed a didactic A/B choice at every meaningful decision point: encode strategy, decode strategy, round-trip invariant, and test coverage. Four substantive forks across six turns is high frequency."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The invariant question (turn 3) is excellent \u2014 it surfaces the canonical-form subtlety which is the real conceptual crux of RLE. The decode choice also targets the multi-digit gotcha. These are the consequential points, not cosmetic ones."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression from encode \u2192 decode \u2192 invariant \u2192 tests is logical and difficulty rises naturally. Slight ding: the invariant question was framed as A/B with the 'wrong' answer phrased plausibly, then corrected \u2014 effective but borderline trap-like rather than gradient hint."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth, the Pair acknowledges student reasoning, pushes back constructively on the invariant misconception, and confirms understanding before moving on. Tone is collegial and efficient."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code is correct, passes tests including the multi-digit case, and is arguably better than baseline because it uses the more memory-efficient sum(1 for _ in g) and tests the canonical-form invariant explicitly."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "6 turns / 113s vs baseline's 2 turns / 62s \u2014 roughly 2x longer, but with substantial pedagogical payoff (canonical-form insight, multi-digit gotcha discussion, deliberate choice framing). The extra length is proportional to the teaching gain."
+      }
+    }
+  },
+  "weighted": 4.5,
+  "normalized": 0.875,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed a didactic A/B choice at every meaningful decision point: encode strategy, decode strategy, round-trip invariant, and test coverage. Four substantive forks across six turns is high frequency.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"The invariant question (turn 3) is excellent \u2014 it surfaces the canonical-form subtlety which is the real conceptual crux of RLE. The decode choice also targets the multi-digit gotcha. These are the consequential points, not cosmetic ones.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Progression from encode \u2192 decode \u2192 invariant \u2192 tests is logical and difficulty rises naturally. Slight ding: the invariant question was framed as A/B with the 'wrong' answer phrased plausibly, then corrected \u2014 effective but borderline trap-like rather than gradient hint.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Natural back-and-forth, the Pair acknowledges student reasoning, pushes back constructively on the invariant misconception, and confirms understanding before moving on. Tone is collegial and efficient.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code is correct, passes tests including the multi-digit case, and is arguably better than baseline because it uses the more memory-efficient sum(1 for _ in g) and tests the canonical-form invariant explicitly.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"6 turns / 113s vs baseline's 2 turns / 62s \u2014 roughly 2x longer, but with substantial pedagogical payoff (canonical-form insight, multi-digit gotcha discussion, deliberate choice framing). The extra length is proportional to the teaching gain.\" }\n  }\n}"
+}

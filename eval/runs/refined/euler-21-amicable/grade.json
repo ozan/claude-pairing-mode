@@ -1,0 +1,39 @@
+{
+  "slug": "euler-21-amicable",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:15",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Two well-placed binary choice questions at the two real decision points (divisor sum algorithm, precompute vs on-the-fly). For a problem this small, that's appropriate frequency."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Both choices target genuine trade-offs: O(\u221an) vs O(n) for divisor sum, and precomputation/memoization with bounds-check subtlety. The perfect-number gotcha was surfaced as explanation rather than as a question, a minor missed opportunity."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from subroutine to driver loop, with difficulty increasing appropriately. The tutor honestly flagged the bug in its own diff (missing i+=1), which is good. No spoilers."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth feels natural; tutor confirms reasoning and adds the perfect-number insight at the end. Slightly mechanical due to the OPTIONS template but overall fluid."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces 31626, matching the baseline correct answer. Equivalent solution quality."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "3 turns / 74s vs baseline's 1 turn / 21s, but the extra length delivered proportional teaching value (two genuine trade-off discussions plus the perfect-number insight)."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Two well-placed binary choice questions at the two real decision points (divisor sum algorithm, precompute vs on-the-fly). For a problem this small, that's appropriate frequency.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Both choices target genuine trade-offs: O(\u221an) vs O(n) for divisor sum, and precomputation/memoization with bounds-check subtlety. The perfect-number gotcha was surfaced as explanation rather than as a question, a minor missed opportunity.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from subroutine to driver loop, with difficulty increasing appropriately. The tutor honestly flagged the bug in its own diff (missing i+=1), which is good. No spoilers.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth feels natural; tutor confirms reasoning and adds the perfect-number insight at the end. Slightly mechanical due to the OPTIONS template but overall fluid.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code produces 31626, matching the baseline correct answer. Equivalent solution quality.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"3 turns / 74s vs baseline's 1 turn / 21s, but the extra length delivered proportional teaching value (two genuine trade-off discussions plus the perfect-number insight).\" }\n  }\n}"
+}

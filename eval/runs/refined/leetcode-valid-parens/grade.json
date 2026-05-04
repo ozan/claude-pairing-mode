@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-valid-parens",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:29",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offers three distinct option-based decision points across the conversation (algorithm choice, mapping direction, final return form), engaging the user at each turn rather than just dumping a solution."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The algorithm choice and mapping-direction fork are substantive (the latter is a genuinely interesting design question). However, the final 'return not stack' vs 'len(stack)==0' choice is cosmetic, and the Pair missed deeper cruxes like why the short-circuit order matters or tracing nesting-order failures like '({)}'."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Progression from algorithm \u2192 data representation \u2192 idiom is logical, but the third choice is trivially small while bigger pedagogical opportunities (edge cases, complexity, testing) were skipped. No spoilers, but uneven difficulty gradient."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation flows naturally with clean back-and-forth via the OPTIONS format. Tone is warm and the Pair acknowledges the user's reasoning (e.g., 'Good instincts on complexity'), though it's a bit mechanical due to the rigid options template."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly solves the problem and is equivalent in correctness to the baseline, with a slightly different (and arguably cleaner) 'push expected closer' variant."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 3 turns and 78s vs baseline's 50s, with proportional pedagogical payoff in the form of explicit design choices. The user never actually ran tests as in baseline, but the option-based interaction provided different value."
+      }
+    }
+  },
+  "weighted": 3.4000000000000004,
+  "normalized": 0.6000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offers three distinct option-based decision points across the conversation (algorithm choice, mapping direction, final return form), engaging the user at each turn rather than just dumping a solution.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The algorithm choice and mapping-direction fork are substantive (the latter is a genuinely interesting design question). However, the final 'return not stack' vs 'len(stack)==0' choice is cosmetic, and the Pair missed deeper cruxes like why the short-circuit order matters or tracing nesting-order failures like '({)}'.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Progression from algorithm \u2192 data representation \u2192 idiom is logical, but the third choice is trivially small while bigger pedagogical opportunities (edge cases, complexity, testing) were skipped. No spoilers, but uneven difficulty gradient.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversation flows naturally with clean back-and-forth via the OPTIONS format. Tone is warm and the Pair acknowledges the user's reasoning (e.g., 'Good instincts on complexity'), though it's a bit mechanical due to the rigid options template.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly solves the problem and is equivalent in correctness to the baseline, with a slightly different (and arguably cleaner) 'push expected closer' variant.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 3 turns and 78s vs baseline's 50s, with proportional pedagogical payoff in the form of explicit design choices. The user never actually ran tests as in baseline, but the option-based interaction provided different value.\" }\n  }\n}"
+}

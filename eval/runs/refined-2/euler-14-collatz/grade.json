@@ -1,0 +1,39 @@
+{
+  "slug": "euler-14-collatz",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:35:55",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered two explicit decision points (memoization vs brute force, then recursive vs iterative) before writing any code, engaging the user at both meaningful forks. Could have pushed one more question about edge cases or verification."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Both choices target the crux: the algorithmic complexity decision (memoization) and the implementation gotcha (recursion depth limit with chains exceeding 1M). These are exactly the consequential decisions for this problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Clean progression from algorithm choice to implementation choice to code. The recursion-limit subtlety was surfaced via the option framing rather than spoiled. Slight ding because the options nearly telegraph the right answer (B is clearly the safer path)."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth, affirming user reasoning ('Spot on'), and concise wrap-up with extra insight about cache growth and 3n+1 overshooting 1M. Conversational and crisp."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code returns 837799 with chain length 525, matching baseline exactly. Equivalent iterative-backfill solution."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "3 turns vs baseline's 2, but the extra turn delivered proportional pedagogical payoff by having the user reason through both forks themselves rather than being handed the solution."
+      }
+    }
+  },
+  "weighted": 4.0,
+  "normalized": 0.75,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered two explicit decision points (memoization vs brute force, then recursive vs iterative) before writing any code, engaging the user at both meaningful forks. Could have pushed one more question about edge cases or verification.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"Both choices target the crux: the algorithmic complexity decision (memoization) and the implementation gotcha (recursion depth limit with chains exceeding 1M). These are exactly the consequential decisions for this problem.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Clean progression from algorithm choice to implementation choice to code. The recursion-limit subtlety was surfaced via the option framing rather than spoiled. Slight ding because the options nearly telegraph the right answer (B is clearly the safer path).\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Natural back-and-forth, affirming user reasoning ('Spot on'), and concise wrap-up with extra insight about cache growth and 3n+1 overshooting 1M. Conversational and crisp.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code returns 837799 with chain length 525, matching baseline exactly. Equivalent iterative-backfill solution.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"3 turns vs baseline's 2, but the extra turn delivered proportional pedagogical payoff by having the user reason through both forks themselves rather than being handed the solution.\" }\n  }\n}"
+}

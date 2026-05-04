@@ -1,0 +1,39 @@
+{
+  "slug": "euler-15-lattice-paths",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:17",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three distinct decision points across three turns (2D vs rolling DP, math.comb vs factorial, binomial closed form vs no closed form), engaging the user at each meaningful fork."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first and third options were substantive \u2014 rolling-row trade-off touches the load-bearing iteration order, and the binomial-coefficient framing connects the DP to Pascal's identity. The math.comb vs factorial choice was more cosmetic."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression flowed naturally: implementation choice \u2192 API choice \u2192 conceptual insight. No spoilers, and the user's explanation of the rolling-row invariant was elicited rather than handed over. The middle decision was a slight difficulty dip."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation was crisp and warm with good back-and-forth confirmations. The Pair acknowledged its own arithmetic error candidly. A minor blemish is the visible ToolSearch noise in turn 1."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code is correct, runs, and matches between methods (137,846,528,820). It's arguably better than baseline by including the rolling-row O(n) variant. Baseline initially stated the wrong number (137,846,528,640) \u2014 and so did this transcript at first, but it was corrected after running."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns vs baseline's two, ~138s vs ~80s, with proportionate teaching gain via the options framework. The math.comb vs factorial fork added a turn for relatively low payoff, but overall length is reasonable."
+      }
+    }
+  },
+  "weighted": 3.8000000000000003,
+  "normalized": 0.7000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three distinct decision points across three turns (2D vs rolling DP, math.comb vs factorial, binomial closed form vs no closed form), engaging the user at each meaningful fork.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first and third options were substantive \u2014 rolling-row trade-off touches the load-bearing iteration order, and the binomial-coefficient framing connects the DP to Pascal's identity. The math.comb vs factorial choice was more cosmetic.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression flowed naturally: implementation choice \u2192 API choice \u2192 conceptual insight. No spoilers, and the user's explanation of the rolling-row invariant was elicited rather than handed over. The middle decision was a slight difficulty dip.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversation was crisp and warm with good back-and-forth confirmations. The Pair acknowledged its own arithmetic error candidly. A minor blemish is the visible ToolSearch noise in turn 1.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code is correct, runs, and matches between methods (137,846,528,820). It's arguably better than baseline by including the rolling-row O(n) variant. Baseline initially stated the wrong number (137,846,528,640) \u2014 and so did this transcript at first, but it was corrected after running.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Three turns vs baseline's two, ~138s vs ~80s, with proportionate teaching gain via the options framework. The math.comb vs factorial fork added a turn for relatively low payoff, but overall length is reasonable.\" }\n  }\n}"
+}

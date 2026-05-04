@@ -1,0 +1,39 @@
+{
+  "slug": "euler-67-max-path-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:27",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three explicit decision points across three turns (top-down vs bottom-up, loop direction, copy vs mutate), each framed as a deliberate teachable choice. That's a high density of didactic questions for the problem size."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The loop-direction question hits a genuine subtlety in in-place 1D DP, and the copy-vs-mutate question surfaces a real purity/reuse trade-off. The first choice (top-down vs bottom-up) is more cosmetic but still meaningful."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Progression from algorithm choice \u2192 loop direction \u2192 memory hygiene is logical. However, the loop-direction scaffold backfired: the student reasoned plausibly but got the wrong answer, and the Pair's correction was clear but came as a hard reversal rather than a guided rediscovery."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth feels natural. The correction in Turn 3 is direct and concrete with a worked trace, recovering well from the student's incorrect answer."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code computes 438 for the 10-row triangle and returns the max sum correctly. Unlike baseline, it does not reconstruct the winning path, but the original problem only asked for the max sum, so requirements are met."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took ~2x the wall time of baseline (126s vs 62s) for similar turn count, with the extra length spent on three legitimate didactic forks. The pedagogical payoff (especially the loop-direction discussion) roughly justifies the overhead."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three explicit decision points across three turns (top-down vs bottom-up, loop direction, copy vs mutate), each framed as a deliberate teachable choice. That's a high density of didactic questions for the problem size.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The loop-direction question hits a genuine subtlety in in-place 1D DP, and the copy-vs-mutate question surfaces a real purity/reuse trade-off. The first choice (top-down vs bottom-up) is more cosmetic but still meaningful.\" },\n    \"scaffolding\":        { \"score\": 3, \"rationale\": \"Progression from algorithm choice \u2192 loop direction \u2192 memory hygiene is logical. However, the loop-direction scaffold backfired: the student reasoned plausibly but got the wrong answer, and the Pair's correction was clear but came as a hard reversal rather than a guided rediscovery.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth feels natural. The correction in Turn 3 is direct and concrete with a worked trace, recovering well from the student's incorrect answer.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code computes 438 for the 10-row triangle and returns the max sum correctly. Unlike baseline, it does not reconstruct the winning path, but the original problem only asked for the max sum, so requirements are met.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took ~2x the wall time of baseline (126s vs 62s) for similar turn count, with the extra length spent on three legitimate didactic forks. The pedagogical payoff (especially the loop-direction discussion) roughly justifies the overhead.\" }\n  }\n}"
+}

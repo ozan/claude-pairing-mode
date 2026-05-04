@@ -1,0 +1,228 @@
+{
+  "run_dir": "runs/refined",
+  "is_baseline": false,
+  "baseline_compared_against": "runs/baseline",
+  "n": 36,
+  "mean_weighted": 3.7333333333333334,
+  "mean_normalized": 0.6833333333333333,
+  "graded_at": "2026-05-04T21:52:56",
+  "model": "claude-opus-4-7",
+  "results": [
+    {
+      "slug": "euler-1-multiples",
+      "weighted": 3.7,
+      "normalized": 0.675,
+      "is_baseline": false
+    },
+    {
+      "slug": "euler-10-sum-primes",
+      "weighted": 3.9000000000000004,
+      "normalized": 0.7250000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "euler-14-collatz",
+      "weighted": 3.6,
+      "normalized": 0.65,
+      "is_baseline": false
+    },
+    {
+      "slug": "euler-15-lattice-paths",
+      "weighted": 3.9000000000000004,
+      "normalized": 0.7250000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "euler-17-letter-counts",
+      "weighted": 4.4,
+      "normalized": 0.8500000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "euler-2-even-fib",
+      "weighted": 4.1,
+      "normalized": 0.7749999999999999,
+      "is_baseline": false
+    },
+    {
+      "slug": "euler-21-amicable",
+      "weighted": 3.6,
+      "normalized": 0.65,
+      "is_baseline": false
+    },
+    {
+      "slug": "euler-6-sum-square-diff",
+      "weighted": 2.7,
+      "normalized": 0.42500000000000004,
+      "is_baseline": false
+    },
+    {
+      "slug": "euler-67-max-path-sum",
+      "weighted": 3.5,
+      "normalized": 0.625,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-acronym",
+      "weighted": 3.1,
+      "normalized": 0.525,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-allergies",
+      "weighted": 3.9000000000000004,
+      "normalized": 0.7250000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-bowling",
+      "weighted": 4.1000000000000005,
+      "normalized": 0.7750000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-hamming",
+      "weighted": 3.6,
+      "normalized": 0.65,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-leap-year",
+      "weighted": 3.0,
+      "normalized": 0.5,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-pangram",
+      "weighted": 3.5,
+      "normalized": 0.625,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-rna-transcription",
+      "weighted": 3.6,
+      "normalized": 0.65,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-roman-numerals",
+      "weighted": 3.3000000000000003,
+      "normalized": 0.5750000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "exercism-zebra-puzzle",
+      "weighted": 3.6,
+      "normalized": 0.65,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-climbing-stairs",
+      "weighted": 3.1,
+      "normalized": 0.525,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-coin-change",
+      "weighted": 4.4,
+      "normalized": 0.8500000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-edit-distance",
+      "weighted": 3.6,
+      "normalized": 0.65,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-group-anagrams",
+      "weighted": 3.6,
+      "normalized": 0.65,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-longest-substring",
+      "weighted": 4.3,
+      "normalized": 0.825,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-median-two-sorted",
+      "weighted": 4.1000000000000005,
+      "normalized": 0.7750000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-trap-rain-water",
+      "weighted": 3.8000000000000003,
+      "normalized": 0.7000000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-two-sum",
+      "weighted": 3.8000000000000003,
+      "normalized": 0.7000000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "leetcode-valid-parens",
+      "weighted": 3.4000000000000004,
+      "normalized": 0.6000000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-caesar-cipher",
+      "weighted": 4.0,
+      "normalized": 0.75,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-fizzbuzz",
+      "weighted": 3.2,
+      "normalized": 0.55,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-game-of-life",
+      "weighted": 4.1000000000000005,
+      "normalized": 0.7750000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-lru-cache",
+      "weighted": 4.1000000000000005,
+      "normalized": 0.7750000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-mini-calculator",
+      "weighted": 3.9000000000000004,
+      "normalized": 0.7250000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-run-length-encoding",
+      "weighted": 4.3,
+      "normalized": 0.825,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-tic-tac-toe",
+      "weighted": 3.9000000000000004,
+      "normalized": 0.7250000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-todo-cli",
+      "weighted": 4.1000000000000005,
+      "normalized": 0.7750000000000001,
+      "is_baseline": false
+    },
+    {
+      "slug": "ours-word-counter",
+      "weighted": 3.6,
+      "normalized": 0.65,
+      "is_baseline": false
+    }
+  ]
+}

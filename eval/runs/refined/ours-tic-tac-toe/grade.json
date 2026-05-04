@@ -1,0 +1,39 @@
+{
+  "slug": "ours-tic-tac-toe",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:48",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair structured nearly every turn around an A/B choice \u2014 board representation, AI strategy, display style, win check, input validation, turn tracking. Six substantive choices in seven turns."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Several choices hit real tradeoffs (LBYL vs EAFP, minimax vs random, flat vs nested board). Others are more cosmetic (chained comparison vs all(), turn counter vs explicit var). The minimax vs random fork is genuinely consequential and the LBYL/EAFP fork surfaces a classic Python idiom debate."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from data structure \u2192 AI \u2192 display \u2192 win check \u2192 input \u2192 loop, building incrementally. No spoilers; difficulty stays even. The diffs in options sometimes give away the answer's full implementation, slightly reducing the discovery value."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Clean, warm, action-oriented exchanges with affirming acknowledgments (e.g., 'Good catch on the bare except'). The rigid OPTIONS format is consistent but somewhat formulaic rather than feeling like organic conversation."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Code works end-to-end with a smoke test confirming gameplay. Computer is random rather than minimax, which is a weaker game than the baseline's perfect-play minimax \u2014 but the user explicitly chose this scope. Meets the original spec."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Same wall-clock time as baseline (~164s) and 7 turns vs baseline's 5. The extra turns delivered design-decision pedagogy the baseline didn't, which is a fair tradeoff, though baseline produced a stronger AI in less back-and-forth."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair structured nearly every turn around an A/B choice \u2014 board representation, AI strategy, display style, win check, input validation, turn tracking. Six substantive choices in seven turns.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Several choices hit real tradeoffs (LBYL vs EAFP, minimax vs random, flat vs nested board). Others are more cosmetic (chained comparison vs all(), turn counter vs explicit var). The minimax vs random fork is genuinely consequential and the LBYL/EAFP fork surfaces a classic Python idiom debate.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from data structure \u2192 AI \u2192 display \u2192 win check \u2192 input \u2192 loop, building incrementally. No spoilers; difficulty stays even. The diffs in options sometimes give away the answer's full implementation, slightly reducing the discovery value.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Clean, warm, action-oriented exchanges with affirming acknowledgments (e.g., 'Good catch on the bare except'). The rigid OPTIONS format is consistent but somewhat formulaic rather than feeling like organic conversation.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Code works end-to-end with a smoke test confirming gameplay. Computer is random rather than minimax, which is a weaker game than the baseline's perfect-play minimax \u2014 but the user explicitly chose this scope. Meets the original spec.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Same wall-clock time as baseline (~164s) and 7 turns vs baseline's 5. The extra turns delivered design-decision pedagogy the baseline didn't, which is a fair tradeoff, though baseline produced a stronger AI in less back-and-forth.\" }\n  }\n}"
+}

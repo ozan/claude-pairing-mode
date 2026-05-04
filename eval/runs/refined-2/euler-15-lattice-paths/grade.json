@@ -1,0 +1,39 @@
+{
+  "slug": "euler-15-lattice-paths",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:35:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair surfaced four distinct decision points (2D vs rolling, table size, init style, combinatorial vs Pascal explanation), each with a question to the user. Nearly every meaningful fork was put to the student."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The 21\u00d721 vs 20\u00d720 trap and the closed-form-vs-DP equivalence are genuine cruxes. The init style is more cosmetic, and the rolling-array choice is somewhat secondary for this problem size, but overall the questions hit substantive material."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: data structure \u2192 table size \u2192 base cases \u2192 recurrence \u2192 why closed form matches. No spoilers, smooth gradient. The final A/B between Pascal and combinatorial framings is well-paced, though presenting both options gives away both answers."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth feels natural with confirmations and forward momentum. The rigid OPTIONS format is slightly mechanical but the inline follow-up questions soften it."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and matches math.comb(40,20)=137,846,528,820. Equivalent solution to baseline, though baseline also showed top-down memoization and a richer summary table."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns / 160s vs baseline's 2 turns / 80s \u2014 about 2x longer, but with proportional pedagogical payoff via the explicit option forks (especially the 21\u00d721 trap and the m\u00d7n generalization insight)."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair surfaced four distinct decision points (2D vs rolling, table size, init style, combinatorial vs Pascal explanation), each with a question to the user. Nearly every meaningful fork was put to the student.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The 21\u00d721 vs 20\u00d720 trap and the closed-form-vs-DP equivalence are genuine cruxes. The init style is more cosmetic, and the rolling-array choice is somewhat secondary for this problem size, but overall the questions hit substantive material.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: data structure \u2192 table size \u2192 base cases \u2192 recurrence \u2192 why closed form matches. No spoilers, smooth gradient. The final A/B between Pascal and combinatorial framings is well-paced, though presenting both options gives away both answers.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth feels natural with confirmations and forward momentum. The rigid OPTIONS format is slightly mechanical but the inline follow-up questions soften it.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and matches math.comb(40,20)=137,846,528,820. Equivalent solution to baseline, though baseline also showed top-down memoization and a richer summary table.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns / 160s vs baseline's 2 turns / 80s \u2014 about 2x longer, but with proportional pedagogical payoff via the explicit option forks (especially the 21\u00d721 trap and the m\u00d7n generalization insight).\" }\n  }\n}"
+}

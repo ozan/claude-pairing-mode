@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-allergies",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Four substantive A/B forks across the session: data structure choice, bit-check method, allergies() implementation, and handling of out-of-range scores. Nearly every meaningful decision point was offered to the user."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Choices target real design tensions: IntEnum vs dict (iteration/typing), bitwise vs modulo (idiom), DRY vs direct (round-trip smell), and high-bit handling (defensive programming). The modulo option is a bit contrived but the others are genuinely instructive."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Logical progression from data model \u2192 single-bit check \u2192 list builder \u2192 edge case. Each option was framed neutrally without spoiling the answer, and difficulty escalated smoothly."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirming with concise feedback (\"round-trip is a code smell\"). Flow is fluid though slightly formulaic with the rigid OPTIONS template each turn; user engagement is genuine."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code is correct, idiomatic, and arguably more elegant than the baseline (IntEnum-based, one-liner allergies). Slight concern: is_allergic_to does Allergen[allergen.upper()] which would KeyError on unknown allergens, but that's acknowledged."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "5 turns / 158s vs baseline's 3 turns / 61s \u2014 roughly 2.5x longer, but the extra length yields four genuine teaching moments and a cleaner solution. Proportional payoff for the added length."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Four substantive A/B forks across the session: data structure choice, bit-check method, allergies() implementation, and handling of out-of-range scores. Nearly every meaningful decision point was offered to the user.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Choices target real design tensions: IntEnum vs dict (iteration/typing), bitwise vs modulo (idiom), DRY vs direct (round-trip smell), and high-bit handling (defensive programming). The modulo option is a bit contrived but the others are genuinely instructive.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Logical progression from data model \u2192 single-bit check \u2192 list builder \u2192 edge case. Each option was framed neutrally without spoiling the answer, and difficulty escalated smoothly.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and affirming with concise feedback (\\\"round-trip is a code smell\\\"). Flow is fluid though slightly formulaic with the rigid OPTIONS template each turn; user engagement is genuine.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code is correct, idiomatic, and arguably more elegant than the baseline (IntEnum-based, one-liner allergies). Slight concern: is_allergic_to does Allergen[allergen.upper()] which would KeyError on unknown allergens, but that's acknowledged.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"5 turns / 158s vs baseline's 3 turns / 61s \u2014 roughly 2.5x longer, but the extra length yields four genuine teaching moments and a cleaner solution. Proportional payoff for the added length.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-leap-year",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:40",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "Only one didactic question is posed (A vs B ordering choice). No follow-up questions explored other teachable moments like edge cases, operator precedence, or testing strategy."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The A/B choice is substantive \u2014 it surfaces ordering, short-circuiting, and readability trade-offs, all of which the user engaged with. However it's a somewhat cosmetic choice since both work, and deeper algorithmic forks weren't explored."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Single question with no progression. The fork is well-framed and avoids spoilers, but there's no gradient \u2014 just one decision then completion."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Clean, warm exchange. The Pair affirmed the student's reasoning, added the year 1 edge case, and let the user lead. No friction, though brief."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to the baseline and correctly solves the problem."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Two turns, comparable to baseline, with a meaningful pedagogical addition (the A/B comparison forced the user to reason about ordering and short-circuiting). Modest extra length with proportional teaching gain."
+      }
+    }
+  },
+  "weighted": 3.0,
+  "normalized": 0.5,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"Only one didactic question is posed (A vs B ordering choice). No follow-up questions explored other teachable moments like edge cases, operator precedence, or testing strategy.\" },\n    \"question_quality\":   { \"score\": 3, \"rationale\": \"The A/B choice is substantive \u2014 it surfaces ordering, short-circuiting, and readability trade-offs, all of which the user engaged with. However it's a somewhat cosmetic choice since both work, and deeper algorithmic forks weren't explored.\" },\n    \"scaffolding\":        { \"score\": 3, \"rationale\": \"Single question with no progression. The fork is well-framed and avoids spoilers, but there's no gradient \u2014 just one decision then completion.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Clean, warm exchange. The Pair affirmed the student's reasoning, added the year 1 edge case, and let the user lead. No friction, though brief.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is identical to the baseline and correctly solves the problem.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Two turns, comparable to baseline, with a meaningful pedagogical addition (the A/B comparison forced the user to reason about ordering and short-circuiting). Modest extra length with proportional teaching gain.\" }\n  }\n}"
+}

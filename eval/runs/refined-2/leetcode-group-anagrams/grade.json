@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-group-anagrams",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Three distinct didactic questions across three turns: key choice (sort vs frequency), data structure (dict.setdefault vs defaultdict), and complexity analysis. Solid frequency for a short problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "First and third questions hit real cruxes (the central algorithmic choice and the complexity tradeoff). The setdefault vs defaultdict question is more cosmetic/idiom-level but still worth surfacing."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: key choice \u2192 accumulator pattern \u2192 complexity reflection. No spoilers; each option is presented neutrally. The middle step is a small dip in difficulty but flow is coherent."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tutor responses are concise, affirming, and actionable. The A/B option format keeps the back-and-forth crisp, and the tutor builds on the student's reasoning rather than ignoring it."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution is correct, handles edge cases, and is functionally identical to baseline. Includes test cases via __main__, slight plus over baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns vs baseline's two, ~20s longer, with proportional teaching payoff via the structured option questions. Reasonable overhead for the added pedagogical engagement."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Three distinct didactic questions across three turns: key choice (sort vs frequency), data structure (dict.setdefault vs defaultdict), and complexity analysis. Solid frequency for a short problem.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"First and third questions hit real cruxes (the central algorithmic choice and the complexity tradeoff). The setdefault vs defaultdict question is more cosmetic/idiom-level but still worth surfacing.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: key choice \u2192 accumulator pattern \u2192 complexity reflection. No spoilers; each option is presented neutrally. The middle step is a small dip in difficulty but flow is coherent.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tutor responses are concise, affirming, and actionable. The A/B option format keeps the back-and-forth crisp, and the tutor builds on the student's reasoning rather than ignoring it.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final solution is correct, handles edge cases, and is functionally identical to baseline. Includes test cases via __main__, slight plus over baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Three turns vs baseline's two, ~20s longer, with proportional teaching payoff via the structured option questions. Reasonable overhead for the added pedagogical engagement.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-acronym",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:20",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered explicit A/B choices at two key decision points (initial tokenization strategy and how to handle leading non-alpha chars), engaging the user at each fork. Could have surfaced one more (e.g., camelCase) but density is good for the problem size."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Both forks targeted the crux: the split-vs-findall choice exposed the intra-word vs inter-word punctuation distinction (Halley's), and the second choice surfaced the leading-punctuation gotcha. These are exactly the consequential design tensions in this problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Nice progression: user picks B, Pair counter-examples to motivate A, then the underscore failure motivates the refinement. No spoilers \u2014 the Pair let the user reason and only revealed the gotcha after commitment. Missed the camelCase case (HyperText) that the baseline caught."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Conversational, warm, and actionable. The Pair validated reasoning before redirecting (\"Your reasoning... is sound \u2014 but...\") and the user engaged thoughtfully each turn. Natural back-and-forth throughout."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code passes the chosen test cases but does not handle camelCase (HyperText \u2192 HTML), which the baseline explicitly handled. For standard Exercism Acronym tests this may be fine, but it's a regression vs. the baseline's coverage."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns vs baseline's 1, with ~70% more wall time, but the extra turns delivered genuine pedagogical payoff (two substantive forks with worked counter-examples). Proportional trade-off."
+      }
+    }
+  },
+  "weighted": 3.8000000000000003,
+  "normalized": 0.7000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered explicit A/B choices at two key decision points (initial tokenization strategy and how to handle leading non-alpha chars), engaging the user at each fork. Could have surfaced one more (e.g., camelCase) but density is good for the problem size.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Both forks targeted the crux: the split-vs-findall choice exposed the intra-word vs inter-word punctuation distinction (Halley's), and the second choice surfaced the leading-punctuation gotcha. These are exactly the consequential design tensions in this problem.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Nice progression: user picks B, Pair counter-examples to motivate A, then the underscore failure motivates the refinement. No spoilers \u2014 the Pair let the user reason and only revealed the gotcha after commitment. Missed the camelCase case (HyperText) that the baseline caught.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Conversational, warm, and actionable. The Pair validated reasoning before redirecting (\\\"Your reasoning... is sound \u2014 but...\\\") and the user engaged thoughtfully each turn. Natural back-and-forth throughout.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code passes the chosen test cases but does not handle camelCase (HyperText \u2192 HTML), which the baseline explicitly handled. For standard Exercism Acronym tests this may be fine, but it's a regression vs. the baseline's coverage.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 4 turns vs baseline's 1, with ~70% more wall time, but the extra turns delivered genuine pedagogical payoff (two substantive forks with worked counter-examples). Proportional trade-off.\" }\n  }\n}"
+}

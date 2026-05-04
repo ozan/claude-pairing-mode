@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-median-two-sorted",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:16",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed a didactic question at every meaningful decision point: algorithm choice (A/B), boundary handling, the +1 in half, and complexity. Four substantive forks across four turns is high frequency."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The choices target the genuine cruxes of the problem: partition vs value binary search, sentinel handling, the ceiling-half trick, and the log(min(m,n)) bound. These are exactly the subtle points that trip people up on this problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm choice \u2192 boundaries \u2192 median formula \u2192 complexity. The +1 question is well-framed since both options technically work. Slight ding because the code was written before the +1 question, slightly reducing its bite."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tone is concise and warm; each turn confirms the student's reasoning before advancing. The back-and-forth feels natural, with the Pair reinforcing correct intuitions ('Exactly right') and pivoting smoothly to the next teaching moment."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code passes the five test cases shown and matches the baseline solution in correctness and complexity. Equivalent to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns / 144s vs baseline's 2 turns / 54s \u2014 roughly 2.5x longer, but the extra length delivers four substantive teaching forks the baseline skipped (algo choice, sentinels, +1 rationale, complexity). Proportional payoff."
+      }
+    }
+  },
+  "weighted": 4.1000000000000005,
+  "normalized": 0.7750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed a didactic question at every meaningful decision point: algorithm choice (A/B), boundary handling, the +1 in half, and complexity. Four substantive forks across four turns is high frequency.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The choices target the genuine cruxes of the problem: partition vs value binary search, sentinel handling, the ceiling-half trick, and the log(min(m,n)) bound. These are exactly the subtle points that trip people up on this problem.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from algorithm choice \u2192 boundaries \u2192 median formula \u2192 complexity. The +1 question is well-framed since both options technically work. Slight ding because the code was written before the +1 question, slightly reducing its bite.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Tone is concise and warm; each turn confirms the student's reasoning before advancing. The back-and-forth feels natural, with the Pair reinforcing correct intuitions ('Exactly right') and pivoting smoothly to the next teaching moment.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code passes the five test cases shown and matches the baseline solution in correctness and complexity. Equivalent to baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns / 144s vs baseline's 2 turns / 54s \u2014 roughly 2.5x longer, but the extra length delivers four substantive teaching forks the baseline skipped (algo choice, sentinels, +1 rationale, complexity). Proportional payoff.\" }\n  }\n}"
+}

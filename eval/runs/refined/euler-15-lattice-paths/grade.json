@@ -1,0 +1,39 @@
+{
+  "slug": "euler-15-lattice-paths",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:01",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered didactic option-based choices at two meaningful junctures (DP vs closed-form, init style), which is good engagement for a 3-turn session. Could have probed more on the Pascal's triangle insight."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The first choice (DP vs closed-form) hits a real pedagogical fork. The second (init styles) is a minor stylistic question rather than a deep crux. The most consequential insight (Pascal's connection) was explained rather than elicited."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose approach \u2192 choose init \u2192 verify on small case \u2192 reveal Pascal connection. The 4\u00d74 table reveal as a teaching moment was well-timed, though the Pascal connection was given rather than discovered."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Natural conversational flow with affirmation of student work (\"Your 2\u00d72 trace is exactly right\") and clean transitions. The options format is slightly mechanical but the prose around it feels warm."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 5,
+        "rationale": "Final answer 137,846,528,820 is correct and verified by both DP and math.comb. Both methods presented and connected via Pascal's identity, equivalent to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "3 turns vs baseline's 2, ~90s vs ~80s. The extra turn delivered modest pedagogical payoff (option choices, live verification) proportional to the slight overhead."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered didactic option-based choices at two meaningful junctures (DP vs closed-form, init style), which is good engagement for a 3-turn session. Could have probed more on the Pascal's triangle insight.\" },\n    \"question_quality\":   { \"score\": 3, \"rationale\": \"The first choice (DP vs closed-form) hits a real pedagogical fork. The second (init styles) is a minor stylistic question rather than a deep crux. The most consequential insight (Pascal's connection) was explained rather than elicited.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: choose approach \u2192 choose init \u2192 verify on small case \u2192 reveal Pascal connection. The 4\u00d74 table reveal as a teaching moment was well-timed, though the Pascal connection was given rather than discovered.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Natural conversational flow with affirmation of student work (\\\"Your 2\u00d72 trace is exactly right\\\") and clean transitions. The options format is slightly mechanical but the prose around it feels warm.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 5, \"rationale\": \"Final answer 137,846,528,820 is correct and verified by both DP and math.comb. Both methods presented and connected via Pascal's identity, equivalent to baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"3 turns vs baseline's 2, ~90s vs ~80s. The extra turn delivered modest pedagogical payoff (option choices, live verification) proportional to the slight overhead.\" }\n  }\n}"
+}

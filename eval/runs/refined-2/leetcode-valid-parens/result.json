@@ -1,0 +1,10 @@
+{
+  "slug": "leetcode-valid-parens",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 85.14176893234253,
+  "propose_options_calls": 2,
+  "leaks_detected": 0,
+  "error": null
+}

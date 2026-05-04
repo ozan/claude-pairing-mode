@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-roman-numerals",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 48.22440505027771,
+  "propose_options_calls": 2,
+  "leaks_detected": 0,
+  "error": null
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-edit-distance",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:54",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three distinct multiple-choice forks (top-down vs bottom-up, 2-op vs 3-op recurrence, two-row vs single-row optimization) plus fill-in-the-blank scaffolding. That's a question at nearly every meaningful decision point across 5 turns."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The 2-op vs 3-op fork hits the classic gotcha (substitution \u2260 delete+insert) directly. The single-row vs two-row choice surfaces a real readability/space tradeoff. The top-down vs bottom-up question is more cosmetic but reasonable."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from approach \u2192 recurrence \u2192 implementation \u2192 space optimization, with a fill-in-the-blank skeleton bridging concept to code. The 2-op option is a genuine distractor without being a spoiler. Slight ding because the diagonal-overwrite subtlety in option B was shown but not explored."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation is crisp, affirmations are calibrated (\"Exactly right\"), and each turn moves forward concretely. Tone is collegial without being saccharine; flow is natural though somewhat formulaic with the OPTIONS template."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, passes tests, and matches the baseline's space-optimized version. Equivalent quality to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "5 turns / 115s vs baseline's 4 turns / 107s \u2014 comparable length with proportional teaching payoff via the multiple-choice forks. No significant inefficiency."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three distinct multiple-choice forks (top-down vs bottom-up, 2-op vs 3-op recurrence, two-row vs single-row optimization) plus fill-in-the-blank scaffolding. That's a question at nearly every meaningful decision point across 5 turns.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The 2-op vs 3-op fork hits the classic gotcha (substitution \u2260 delete+insert) directly. The single-row vs two-row choice surfaces a real readability/space tradeoff. The top-down vs bottom-up question is more cosmetic but reasonable.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from approach \u2192 recurrence \u2192 implementation \u2192 space optimization, with a fill-in-the-blank skeleton bridging concept to code. The 2-op option is a genuine distractor without being a spoiler. Slight ding because the diagonal-overwrite subtlety in option B was shown but not explored.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Conversation is crisp, affirmations are calibrated (\\\"Exactly right\\\"), and each turn moves forward concretely. Tone is collegial without being saccharine; flow is natural though somewhat formulaic with the OPTIONS template.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct, passes tests, and matches the baseline's space-optimized version. Equivalent quality to baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"5 turns / 115s vs baseline's 4 turns / 107s \u2014 comparable length with proportional teaching payoff via the multiple-choice forks. No significant inefficiency.\" }\n  }\n}"
+}

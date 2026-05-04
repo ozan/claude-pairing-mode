@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-bowling",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:25",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Nearly every turn presents an A/B options choice at a meaningful decision point: iteration strategy, loop structure, branch consolidation, validation placement, 10th-frame validation approach, helper extraction. Very high frequency of didactic prompts."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most options target real design tensions (index pointer vs Frame objects, separating 9 frames from 10th, validate inline vs pre-pass). The strike/spare branching choice and pin-helper extraction are more cosmetic, but the validator design questions hit genuine cruxes."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Good progression from high-level structure to scoring branches to validation to refactoring. The pair pushed back productively on the frame==9 choice rather than rubber-stamping. One mild issue: the user found the 10th-frame second+third>10 gap themselves, which the pair could have surfaced as a question rather than letting it slip into review."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Natural back-and-forth with substantive justifications from the user and warm but non-flattering responses. The closing exchange about validate() being already wired in shows responsive listening. Tone is consistent and pedagogical throughout."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Score function works for valid inputs and validation catches most invalid games. However, the validator misses some cases the baseline catches (e.g., [10,7,4] gets misclassified rather than reporting too-few-rolls properly), and there's no test suite run like the baseline's 39-test confirmation. Roughly comparable correctness."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "12 turns vs baseline's 2, ~2x runtime (354s vs 177s). The extra length delivered real pedagogical payoff via design-choice exploration, roughly proportional to the time spent. Acceptable trade-off but not tighter."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Nearly every turn presents an A/B options choice at a meaningful decision point: iteration strategy, loop structure, branch consolidation, validation placement, 10th-frame validation approach, helper extraction. Very high frequency of didactic prompts.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Most options target real design tensions (index pointer vs Frame objects, separating 9 frames from 10th, validate inline vs pre-pass). The strike/spare branching choice and pin-helper extraction are more cosmetic, but the validator design questions hit genuine cruxes.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Good progression from high-level structure to scoring branches to validation to refactoring. The pair pushed back productively on the frame==9 choice rather than rubber-stamping. One mild issue: the user found the 10th-frame second+third>10 gap themselves, which the pair could have surfaced as a question rather than letting it slip into review.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Natural back-and-forth with substantive justifications from the user and warm but non-flattering responses. The closing exchange about validate() being already wired in shows responsive listening. Tone is consistent and pedagogical throughout.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Score function works for valid inputs and validation catches most invalid games. However, the validator misses some cases the baseline catches (e.g., [10,7,4] gets misclassified rather than reporting too-few-rolls properly), and there's no test suite run like the baseline's 39-test confirmation. Roughly comparable correctness.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"12 turns vs baseline's 2, ~2x runtime (354s vs 177s). The extra length delivered real pedagogical payoff via design-choice exploration, roughly proportional to the time spent. Acceptable trade-off but not tighter.\" }\n  }\n}"
+}

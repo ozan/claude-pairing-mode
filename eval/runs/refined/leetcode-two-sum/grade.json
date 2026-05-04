@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-two-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:18",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three distinct didactic forks across the conversation: algorithm choice, check-vs-store ordering, and test coverage selection. Each turn surfaced a meaningful question rather than just narrating."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The questions hit the actual cruxes: O(n) vs O(n\u00b2) trade-off, the subtle self-matching bug from store-before-check, and the principle that tests must catch known bug classes. These are exactly the lessons worth extracting from Two Sum."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm \u2192 correctness invariant \u2192 testing discipline, with each step building on the last. Slight spoiler in option B's framing (it essentially explains the bug in the option text), reducing how much the user has to reason."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth, warm affirmations tied to specific reasoning, and concise summary table at the end. Tone is collaborative and the conversation feels purposeful."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to the baseline's canonical solution and passes the added tests including the [3,3] edge case."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns and ~3x the time of the baseline's 2 turns, but the extra length delivered proportional pedagogical payoff (ordering invariant, test design principle) rather than wasted motion."
+      }
+    }
+  },
+  "weighted": 3.8000000000000003,
+  "normalized": 0.7000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three distinct didactic forks across the conversation: algorithm choice, check-vs-store ordering, and test coverage selection. Each turn surfaced a meaningful question rather than just narrating.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"The questions hit the actual cruxes: O(n) vs O(n\u00b2) trade-off, the subtle self-matching bug from store-before-check, and the principle that tests must catch known bug classes. These are exactly the lessons worth extracting from Two Sum.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from algorithm \u2192 correctness invariant \u2192 testing discipline, with each step building on the last. Slight spoiler in option B's framing (it essentially explains the bug in the option text), reducing how much the user has to reason.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Natural back-and-forth, warm affirmations tied to specific reasoning, and concise summary table at the end. Tone is collaborative and the conversation feels purposeful.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is identical to the baseline's canonical solution and passes the added tests including the [3,3] edge case.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took 4 turns and ~3x the time of the baseline's 2 turns, but the extra length delivered proportional pedagogical payoff (ordering invariant, test design principle) rather than wasted motion.\" }\n  }\n}"
+}

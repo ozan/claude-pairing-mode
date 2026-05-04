@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-acronym",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 123.53678107261658,
+  "propose_options_calls": 2,
+  "leaks_detected": 0,
+  "error": null
+}

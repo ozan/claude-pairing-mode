@@ -1,0 +1,10 @@
+{
+  "slug": "ours-game-of-life",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 115.95034575462341,
+  "propose_options_calls": 3,
+  "leaks_detected": 0,
+  "error": null
+}

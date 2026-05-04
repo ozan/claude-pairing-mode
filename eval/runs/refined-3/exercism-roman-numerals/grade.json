@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-roman-numerals",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:05",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Three distinct didactic forks were presented across three turns (algorithmic approach, accumulation style, loop vs divmod), each at a meaningful decision point. Good cadence for a small problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The forks hit real teachable moments: the core algorithmic insight (flat table with subtractive pairs), an idiomatic Python concern (join vs +=), and a readability/performance trade-off (while vs divmod). The first choice is the most consequential; the others are smaller but still substantive."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm choice \u2192 implementation idiom \u2192 micro-optimization. No spoilers, smooth gradient. Could have probed input validation or boundary handling for an extra step."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and confirmatory ('Spot on', 'Exactly right'), options are crisp, and the back-and-forth feels natural. Slightly formulaic due to the rigid A/B option format but consistently actionable."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly solves the problem and passes all test cases. Lacks the input validation (1\u2264n\u22643999 ValueError) the baseline included, making it slightly less robust but still equivalent on the stated requirement."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "63s vs 39s for baseline, with three turns instead of one. The extra time bought genuine pedagogical interaction (three meaningful choices), so the overhead is proportional to the teaching payoff."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Three distinct didactic forks were presented across three turns (algorithmic approach, accumulation style, loop vs divmod), each at a meaningful decision point. Good cadence for a small problem.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The forks hit real teachable moments: the core algorithmic insight (flat table with subtractive pairs), an idiomatic Python concern (join vs +=), and a readability/performance trade-off (while vs divmod). The first choice is the most consequential; the others are smaller but still substantive.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from algorithm choice \u2192 implementation idiom \u2192 micro-optimization. No spoilers, smooth gradient. Could have probed input validation or boundary handling for an extra step.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and confirmatory ('Spot on', 'Exactly right'), options are crisp, and the back-and-forth feels natural. Slightly formulaic due to the rigid A/B option format but consistently actionable.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly solves the problem and passes all test cases. Lacks the input validation (1\u2264n\u22643999 ValueError) the baseline included, making it slightly less robust but still equivalent on the stated requirement.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"63s vs 39s for baseline, with three turns instead of one. The extra time bought genuine pedagogical interaction (three meaningful choices), so the overhead is proportional to the teaching payoff.\" }\n  }\n}"
+}

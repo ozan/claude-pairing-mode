@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-two-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:30",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair posed two genuine choice-points: approach selection (A/B) and the ordering subtlety (check-then-insert vs insert-then-check). For a 3-turn problem this is reasonable but not high frequency."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The ordering question hits the actual crux of Two Sum \u2014 the self-match gotcha \u2014 which is the most pedagogically valuable subtlety in this problem. The first question (hash vs nested loop) is more cosmetic since the optimal answer is obvious."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: pick approach \u2192 write code \u2192 interrogate the subtle ordering \u2192 verify with targeted test cases including the self-match trap. No spoilers given before the user reasoned through it."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirming, follow-ups are actionable, and the test verification ties back to the user's stated reasoning. Flow is natural for the problem size."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to the baseline \u2014 same canonical 7-line hash-map solution, verified against multiple cases including the [2,2] trap."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "One extra turn and roughly 2x the time of baseline (60s vs 29s), but the additional turn delivered a real pedagogical payoff (the ordering question) proportional to the cost."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair posed two genuine choice-points: approach selection (A/B) and the ordering subtlety (check-then-insert vs insert-then-check). For a 3-turn problem this is reasonable but not high frequency.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The ordering question hits the actual crux of Two Sum \u2014 the self-match gotcha \u2014 which is the most pedagogically valuable subtlety in this problem. The first question (hash vs nested loop) is more cosmetic since the optimal answer is obvious.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: pick approach \u2192 write code \u2192 interrogate the subtle ordering \u2192 verify with targeted test cases including the self-match trap. No spoilers given before the user reasoned through it.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and affirming, follow-ups are actionable, and the test verification ties back to the user's stated reasoning. Flow is natural for the problem size.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to the baseline \u2014 same canonical 7-line hash-map solution, verified against multiple cases including the [2,2] trap.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"One extra turn and roughly 2x the time of baseline (60s vs 29s), but the additional turn delivered a real pedagogical payoff (the ordering question) proportional to the cost.\" }\n  }\n}"
+}

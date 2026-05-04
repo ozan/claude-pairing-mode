@@ -1,0 +1,39 @@
+{
+  "slug": "euler-17-letter-counts",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:07",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three explicit option-based questions across the session (approach, structure, verification), engaging the user at each meaningful decision point. Could have probed more on the 'and' rule before revealing it."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The structure question (single function vs layered helpers) and the checkpoint question are substantive design choices. The first question (build vs count) is a reasonable trade-off but somewhat steers toward A; the British 'and' gotcha was mentioned but not posed as a question."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from approach \u2192 architecture \u2192 verification, with smooth difficulty. However, the Pair wrote the entire implementation in one shot rather than scaffolding the helpers bottom-up as the user proposed, skipping a teaching opportunity."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth is natural. The user's question about bottom-up vs top-down sketching was answered briefly but then the Pair just wrote all the code, slightly cutting the dialogue short."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces 21124 correctly with an added sanity-check assertion, equivalent in correctness to the baseline (which was a manual derivation). Code-based solution is arguably more robust and verifiable."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns / 112s vs baseline's 1 turn / 40s, but the extra length delivered real pedagogical payoff: design choices surfaced, the British 'and' gotcha highlighted, and a checkpoint assertion added. Proportional trade."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three explicit option-based questions across the session (approach, structure, verification), engaging the user at each meaningful decision point. Could have probed more on the 'and' rule before revealing it.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The structure question (single function vs layered helpers) and the checkpoint question are substantive design choices. The first question (build vs count) is a reasonable trade-off but somewhat steers toward A; the British 'and' gotcha was mentioned but not posed as a question.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from approach \u2192 architecture \u2192 verification, with smooth difficulty. However, the Pair wrote the entire implementation in one shot rather than scaffolding the helpers bottom-up as the user proposed, skipping a teaching opportunity.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth is natural. The user's question about bottom-up vs top-down sketching was answered briefly but then the Pair just wrote all the code, slightly cutting the dialogue short.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code produces 21124 correctly with an added sanity-check assertion, equivalent in correctness to the baseline (which was a manual derivation). Code-based solution is arguably more robust and verifiable.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns / 112s vs baseline's 1 turn / 40s, but the extra length delivered real pedagogical payoff: design choices surfaced, the British 'and' gotcha highlighted, and a checkpoint assertion added. Proportional trade.\" }\n  }\n}"
+}

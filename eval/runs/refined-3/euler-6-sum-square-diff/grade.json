@@ -1,0 +1,39 @@
+{
+  "slug": "euler-6-sum-square-diff",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:39",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offers three explicit option-based forks (formula vs loop, two-sum vs accumulator, hardcode vs parameter). That's consistent engagement, but they're all surface-level structure choices rather than probing deeper understanding."
+      },
+      "question_quality": {
+        "score": 2,
+        "rationale": "The choices are largely cosmetic: closed-form vs loop is the one substantive trade-off, but the other two (sum() vs accumulator, hardcode vs function) are stylistic. The crux of the problem \u2014 the math identities, divisibility, integer-division gotchas \u2014 is never surfaced as a teachable fork."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "There's no real difficulty gradient or progression \u2014 three parallel A/B style choices with no deepening of concepts. The user even chose the loop path, sidestepping the mathematically interesting closed-form route entirely with no follow-up teaching."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the back-and-forth is smooth, but the conversation feels mechanical due to the rigid OPTIONS template. The Pair acknowledges the user's reasoning briefly but doesn't build genuine pedagogical dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "The final code correctly produces 25164150, equivalent in correctness to the baseline. The baseline additionally taught the closed-form derivation and integer-division nuance, which this run lacks, but the deliverable solves the problem."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Comparable turn count to baseline (3 turns each) and similar runtime. The experiment trades baseline's rich math derivation for option-presentation overhead, roughly net-neutral on efficiency."
+      }
+    }
+  },
+  "weighted": 2.8000000000000003,
+  "normalized": 0.45000000000000007,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offers three explicit option-based forks (formula vs loop, two-sum vs accumulator, hardcode vs parameter). That's consistent engagement, but they're all surface-level structure choices rather than probing deeper understanding.\" },\n    \"question_quality\":   { \"score\": 2, \"rationale\": \"The choices are largely cosmetic: closed-form vs loop is the one substantive trade-off, but the other two (sum() vs accumulator, hardcode vs function) are stylistic. The crux of the problem \u2014 the math identities, divisibility, integer-division gotchas \u2014 is never surfaced as a teachable fork.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"There's no real difficulty gradient or progression \u2014 three parallel A/B style choices with no deepening of concepts. The user even chose the loop path, sidestepping the mathematically interesting closed-form route entirely with no follow-up teaching.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the back-and-forth is smooth, but the conversation feels mechanical due to the rigid OPTIONS template. The Pair acknowledges the user's reasoning briefly but doesn't build genuine pedagogical dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"The final code correctly produces 25164150, equivalent in correctness to the baseline. The baseline additionally taught the closed-form derivation and integer-division nuance, which this run lacks, but the deliverable solves the problem.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Comparable turn count to baseline (3 turns each) and similar runtime. The experiment trades baseline's rich math derivation for option-presentation overhead, roughly net-neutral on efficiency.\" }\n  }\n}"
+}

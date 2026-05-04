@@ -1,0 +1,10 @@
+{
+  "slug": "leetcode-coin-change",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 118.00283169746399,
+  "propose_options_calls": 4,
+  "leaks_detected": 0,
+  "error": null
+}

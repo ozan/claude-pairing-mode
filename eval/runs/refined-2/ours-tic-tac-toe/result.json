@@ -1,0 +1,10 @@
+{
+  "slug": "ours-tic-tac-toe",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 8,
+  "duration_s": 172.7212679386139,
+  "propose_options_calls": 5,
+  "leaks_detected": 0,
+  "error": null
+}

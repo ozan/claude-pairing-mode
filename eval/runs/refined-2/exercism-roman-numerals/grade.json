@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-roman-numerals",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two substantive choice points (algorithm selection, then while vs. divmod) plus a follow-up about performance considerations. For a problem this small, that's a solid frequency, though more probing on edge cases or table ordering could have pushed it higher."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork (greedy table vs. digit arrays) hits a real design tension. The second (while vs. divmod) is more about idiom/intent than algorithmic substance, but the Pair did productively reframe it around intent vs. mechanism. Missed the opportunity to probe why subtractive pair ordering matters or boundary validation."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: pick approach \u2192 implement \u2192 refine inner loop \u2192 verify with tests. No spoilers, smooth gradient. Slight weakness: the divmod 'pushback' came after the user already committed, which is good teaching but didn't require user action."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth, the Pair acknowledged the user's reasoning while offering substantive counterpoints (the divmod-as-intent reframe). User engaged genuinely with each prompt and the closing reflection felt earned."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Code passes all 13 test cases and correctly handles 1\u20133999. Slightly weaker than baseline, which added input validation (ValueError for out-of-range) and used the more idiomatic divmod approach. Functionally equivalent for in-range inputs."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Roughly 2x baseline duration (74s vs 39s) and 3 turns vs 1, but the extra length delivered genuine pedagogical content via two real choice points and the intent-vs-mechanism discussion. Proportional payoff for the added length."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two substantive choice points (algorithm selection, then while vs. divmod) plus a follow-up about performance considerations. For a problem this small, that's a solid frequency, though more probing on edge cases or table ordering could have pushed it higher.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first fork (greedy table vs. digit arrays) hits a real design tension. The second (while vs. divmod) is more about idiom/intent than algorithmic substance, but the Pair did productively reframe it around intent vs. mechanism. Missed the opportunity to probe why subtractive pair ordering matters or boundary validation.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: pick approach \u2192 implement \u2192 refine inner loop \u2192 verify with tests. No spoilers, smooth gradient. Slight weakness: the divmod 'pushback' came after the user already committed, which is good teaching but didn't require user action.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Natural back-and-forth, the Pair acknowledged the user's reasoning while offering substantive counterpoints (the divmod-as-intent reframe). User engaged genuinely with each prompt and the closing reflection felt earned.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Code passes all 13 test cases and correctly handles 1\u20133999. Slightly weaker than baseline, which added input validation (ValueError for out-of-range) and used the more idiomatic divmod approach. Functionally equivalent for in-range inputs.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Roughly 2x baseline duration (74s vs 39s) and 3 turns vs 1, but the extra length delivered genuine pedagogical content via two real choice points and the intent-vs-mechanism discussion. Proportional payoff for the added length.\" }\n  }\n}"
+}

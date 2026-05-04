@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-hamming",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:40",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two distinct didactic multiple-choice questions in just two turns: an implementation style choice and a zip semantics question. That's a high density relative to the problem size."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The zip-truncation gotcha is genuinely the most consequential subtlety in this problem, and surfacing it as an A/B is on point. The first A/B (zip+sum vs enumerate) is more stylistic than crux-targeting, but still teachable."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from implementation choice to a deeper correctness subtlety, with no spoilers. The second question's framing (one option clearly wrong) makes it slightly easy, but the gradient is reasonable."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and concise, options are actionable, and the user's responses are acknowledged before moving on. Slightly mechanical due to the A/B format but flow is smooth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical in correctness to the baseline: guard clause + zip + sum. Solves the problem fully."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Same number of turns and similar runtime as baseline (~34s vs ~35s) with added pedagogical structure via A/B options. Comparable cost with modest teaching gain."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two distinct didactic multiple-choice questions in just two turns: an implementation style choice and a zip semantics question. That's a high density relative to the problem size.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The zip-truncation gotcha is genuinely the most consequential subtlety in this problem, and surfacing it as an A/B is on point. The first A/B (zip+sum vs enumerate) is more stylistic than crux-targeting, but still teachable.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from implementation choice to a deeper correctness subtlety, with no spoilers. The second question's framing (one option clearly wrong) makes it slightly easy, but the gradient is reasonable.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and concise, options are actionable, and the user's responses are acknowledged before moving on. Slightly mechanical due to the A/B format but flow is smooth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical in correctness to the baseline: guard clause + zip + sum. Solves the problem fully.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Same number of turns and similar runtime as baseline (~34s vs ~35s) with added pedagogical structure via A/B options. Comparable cost with modest teaching gain.\" }\n  }\n}"
+}

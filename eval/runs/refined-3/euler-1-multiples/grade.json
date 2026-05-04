@@ -1,0 +1,39 @@
+{
+  "slug": "euler-1-multiples",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:13",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offers an A/B choice up front and asks one substantive follow-up about how `or` handles multiples of both 3 and 5. Two engagement points across two turns is moderate."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B choice surfaces the real algorithmic trade-off (loop vs closed-form, scaling to large n), and the follow-up about double-counting connects directly to inclusion-exclusion \u2014 both hit the conceptual crux."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Nice progression: choose approach \u2192 verify correctness \u2192 probe edge case that motivates the alternative approach. No spoilers; the double-counting question naturally bridges back to option B's rationale."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and validating of the user's choice, with actionable mental sanity checks. Flow is natural across two turns without filler."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code prints 233168, matching the correct answer and equivalent to baseline's verification snippet."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns vs baseline's one, but the extra turn delivered genuine teaching value (edge-case probe, scaling discussion) proportional to the modest length increase."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offers an A/B choice up front and asks one substantive follow-up about how `or` handles multiples of both 3 and 5. Two engagement points across two turns is moderate.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The A/B choice surfaces the real algorithmic trade-off (loop vs closed-form, scaling to large n), and the follow-up about double-counting connects directly to inclusion-exclusion \u2014 both hit the conceptual crux.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Nice progression: choose approach \u2192 verify correctness \u2192 probe edge case that motivates the alternative approach. No spoilers; the double-counting question naturally bridges back to option B's rationale.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and validating of the user's choice, with actionable mental sanity checks. Flow is natural across two turns without filler.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code prints 233168, matching the correct answer and equivalent to baseline's verification snippet.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns vs baseline's one, but the extra turn delivered genuine teaching value (edge-case probe, scaling discussion) proportional to the modest length increase.\" }\n  }\n}"
+}

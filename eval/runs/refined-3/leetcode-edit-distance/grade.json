@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-edit-distance",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:18",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offers structured option choices at every meaningful decision point (approach, recurrence form, space optimization, complexity analysis) and adds a trace exercise asking the user to derive the operations. Four substantive didactic prompts across five turns is a high cadence."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The choices target real algorithmic forks: bottom-up vs top-down, unified min vs branch-on-match, full table vs rolling rows, and a complexity-analysis question. The trace exercise hits a classic gotcha (manual reconstruction) although the unified vs branch choice is somewhat cosmetic."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression is logical: subproblem definition \u2192 recurrence \u2192 data structure \u2192 implementation \u2192 trace \u2192 complexity. No spoilers, and difficulty climbs smoothly. The trace question was nicely timed when the user struggled, though the Pair revealed the answer rather than guiding the user further."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the OPTIONS format produces clean back-and-forth. Responses are actionable and tied to the user's prior answers. Slightly mechanical due to the repeated A/B template, but conversation flows naturally."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and verified against multiple test cases including edge cases. Equivalent to baseline's 2-D version, though baseline went further to also implement and explain the space-optimized version, while experiment only discussed it conceptually."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Five turns vs baseline's four, ~158s vs ~107s, with comparable pedagogical depth. The OPTIONS format adds slight overhead but produces real engagement. Roughly proportional to the teaching gained."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offers structured option choices at every meaningful decision point (approach, recurrence form, space optimization, complexity analysis) and adds a trace exercise asking the user to derive the operations. Four substantive didactic prompts across five turns is a high cadence.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The choices target real algorithmic forks: bottom-up vs top-down, unified min vs branch-on-match, full table vs rolling rows, and a complexity-analysis question. The trace exercise hits a classic gotcha (manual reconstruction) although the unified vs branch choice is somewhat cosmetic.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression is logical: subproblem definition \u2192 recurrence \u2192 data structure \u2192 implementation \u2192 trace \u2192 complexity. No spoilers, and difficulty climbs smoothly. The trace question was nicely timed when the user struggled, though the Pair revealed the answer rather than guiding the user further.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the OPTIONS format produces clean back-and-forth. Responses are actionable and tied to the user's prior answers. Slightly mechanical due to the repeated A/B template, but conversation flows naturally.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and verified against multiple test cases including edge cases. Equivalent to baseline's 2-D version, though baseline went further to also implement and explain the space-optimized version, while experiment only discussed it conceptually.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Five turns vs baseline's four, ~158s vs ~107s, with comparable pedagogical depth. The OPTIONS format adds slight overhead but produces real engagement. Roughly proportional to the teaching gained.\" }\n  }\n}"
+}

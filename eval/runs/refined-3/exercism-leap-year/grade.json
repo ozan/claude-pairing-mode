@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-leap-year",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:53",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair posed one substantive didactic question at the outset (A vs B ordering) and a meta-question about whether order matters. Only one teachable moment was actively engaged, but it was well-placed at the key decision point."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B fork directly targets the short-circuit/ordering trade-off, which is the most interesting pedagogical aspect of an otherwise trivial problem. It surfaces a real pattern (cheap-elimination-first) rather than a cosmetic choice."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Clean progression: pose options, let student reason, then generalize the pattern to expensive operations (I/O, DB). No spoilers \u2014 the Pair waited for the student's analysis before confirming. The follow-up about single-expression vs branching extended the lesson naturally."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Conversation is fluid and warm. The Pair affirms correct reasoning, extends it with a generalizable principle, and the student volunteers a contrast (the if/elif version) which the Pair implicitly validates. Natural didactic exchange."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to baseline \u2014 correct, idiomatic one-liner. Solves the problem fully."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took ~43s vs baseline's 26s and similar turn count, but the extra time bought a genuine teaching moment about short-circuit ordering that the baseline lacked. Proportional payoff."
+      }
+    }
+  },
+  "weighted": 3.4000000000000004,
+  "normalized": 0.6000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair posed one substantive didactic question at the outset (A vs B ordering) and a meta-question about whether order matters. Only one teachable moment was actively engaged, but it was well-placed at the key decision point.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The A/B fork directly targets the short-circuit/ordering trade-off, which is the most interesting pedagogical aspect of an otherwise trivial problem. It surfaces a real pattern (cheap-elimination-first) rather than a cosmetic choice.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Clean progression: pose options, let student reason, then generalize the pattern to expensive operations (I/O, DB). No spoilers \u2014 the Pair waited for the student's analysis before confirming. The follow-up about single-expression vs branching extended the lesson naturally.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Conversation is fluid and warm. The Pair affirms correct reasoning, extends it with a generalizable principle, and the student volunteers a contrast (the if/elif version) which the Pair implicitly validates. Natural didactic exchange.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical to baseline \u2014 correct, idiomatic one-liner. Solves the problem fully.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took ~43s vs baseline's 26s and similar turn count, but the extra time bought a genuine teaching moment about short-circuit ordering that the baseline lacked. Proportional payoff.\" }\n  }\n}"
+}

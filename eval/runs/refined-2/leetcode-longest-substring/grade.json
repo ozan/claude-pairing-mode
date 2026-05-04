@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-longest-substring",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Four distinct didactic forks across the conversation: brute force vs sliding window, set vs last-seen map, the max() guard, and space complexity. Each turn engages the user with a meaningful choice."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The choices target the actual cruxes: algorithmic approach, the O(1) jump optimization, the stale-index gotcha (the central bug in this problem), and the alphabet-bounded space subtlety."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression is excellent: approach \u2192 data structure \u2192 correctness guard \u2192 complexity analysis. The 'abba' hint nudges without spoiling, letting the student discover the bug themselves."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth with concise affirmations ('clean catch'), structured options, and timely code execution to confirm correctness. No friction or non sequiturs."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution is correct, tested against five cases including edge cases, and equivalent to baseline."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Took 4 turns vs baseline's 2 and ~2x the time, but the extra length delivered proportional pedagogical payoff (student discovered the abba bug themselves rather than having it explained)."
+      }
+    }
+  },
+  "weighted": 4.4,
+  "normalized": 0.8500000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Four distinct didactic forks across the conversation: brute force vs sliding window, set vs last-seen map, the max() guard, and space complexity. Each turn engages the user with a meaningful choice.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The choices target the actual cruxes: algorithmic approach, the O(1) jump optimization, the stale-index gotcha (the central bug in this problem), and the alphabet-bounded space subtlety.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Progression is excellent: approach \u2192 data structure \u2192 correctness guard \u2192 complexity analysis. The 'abba' hint nudges without spoiling, letting the student discover the bug themselves.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Natural back-and-forth with concise affirmations ('clean catch'), structured options, and timely code execution to confirm correctness. No friction or non sequiturs.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution is correct, tested against five cases including edge cases, and equivalent to baseline.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Took 4 turns vs baseline's 2 and ~2x the time, but the extra length delivered proportional pedagogical payoff (student discovered the abba bug themselves rather than having it explained).\" }\n  }\n}"
+}

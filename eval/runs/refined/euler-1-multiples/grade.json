@@ -1,0 +1,39 @@
+{
+  "slug": "euler-1-multiples",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:03",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offers two structured choice points: the initial A/B between loop vs closed-form, and the scaling question about 10^18. That's reasonable engagement but not high frequency; the actual derivation of Gauss + inclusion-exclusion is explained rather than questioned."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The two forks hit meaningful tensions: clarity vs efficiency, and the O(n) vs O(1) scaling threshold. The scaling question elegantly motivates why the closed-form matters. Could have probed the inclusion-exclusion insight (why 15?) as a question rather than exposition."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Nice progression: solve simply, verify, then motivate the better approach via a scaling question, then derive. No spoilers on the A/B choices, and the difficulty gradient from loop \u2192 scaling intuition \u2192 Gauss+IE is smooth."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational flow is natural; the Pair acknowledges the user's preference, verifies first, then pivots cleanly. Tone is warm and the tables/diffs are actionable. Slightly tutor-led in the final derivation."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code contains both solutions, both produce 233168, and the formula version generalizes. Slightly more complete than baseline which only showed brute-force inline verification of the formula."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Three turns / 65s vs baseline's 1 turn / 14s, but the extra length yielded real pedagogical payoff: user explored both approaches, ran code, and reasoned about scaling. Proportional teaching gain for the extra length."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offers two structured choice points: the initial A/B between loop vs closed-form, and the scaling question about 10^18. That's reasonable engagement but not high frequency; the actual derivation of Gauss + inclusion-exclusion is explained rather than questioned.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The two forks hit meaningful tensions: clarity vs efficiency, and the O(n) vs O(1) scaling threshold. The scaling question elegantly motivates why the closed-form matters. Could have probed the inclusion-exclusion insight (why 15?) as a question rather than exposition.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Nice progression: solve simply, verify, then motivate the better approach via a scaling question, then derive. No spoilers on the A/B choices, and the difficulty gradient from loop \u2192 scaling intuition \u2192 Gauss+IE is smooth.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Conversational flow is natural; the Pair acknowledges the user's preference, verifies first, then pivots cleanly. Tone is warm and the tables/diffs are actionable. Slightly tutor-led in the final derivation.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code contains both solutions, both produce 233168, and the formula version generalizes. Slightly more complete than baseline which only showed brute-force inline verification of the formula.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Three turns / 65s vs baseline's 1 turn / 14s, but the extra length yielded real pedagogical payoff: user explored both approaches, ran code, and reasoned about scaling. Proportional teaching gain for the extra length.\" }\n  }\n}"
+}

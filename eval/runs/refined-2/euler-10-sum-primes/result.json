@@ -1,0 +1,10 @@
+{
+  "slug": "euler-10-sum-primes",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 105.72824192047119,
+  "propose_options_calls": 3,
+  "leaks_detected": 0,
+  "error": null
+}

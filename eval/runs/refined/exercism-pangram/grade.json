@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-pangram",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:41",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offered one explicit choice (A vs B) at the start, which is the main didactic question. No further questioning happens after, but the single fork is well-placed."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B fork directly targets the core algorithmic trade-off (linear string scans vs hash lookups, short-circuit vs one-pass), which is the actual crux of this problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Clean progression: choice presented without spoiling the analysis, then the Pair corrected the user's reasoning with a precise complexity breakdown. No spoilers, smooth gradient."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and direct, the correction of the user's performance reasoning is actionable and respectful. Flow is natural though brief."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution `set(text.lower()) >= set('abc...xyz')` is correct and equivalent to baseline's `issubset` approach."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (51s vs 68s, 2 turns each) while still delivering the key complexity insight via an explicit fork. Tighter with comparable teaching value."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offered one explicit choice (A vs B) at the start, which is the main didactic question. No further questioning happens after, but the single fork is well-placed.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The A/B fork directly targets the core algorithmic trade-off (linear string scans vs hash lookups, short-circuit vs one-pass), which is the actual crux of this problem.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Clean progression: choice presented without spoiling the analysis, then the Pair corrected the user's reasoning with a precise complexity breakdown. No spoilers, smooth gradient.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and direct, the correction of the user's performance reasoning is actionable and respectful. Flow is natural though brief.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution `set(text.lower()) >= set('abc...xyz')` is correct and equivalent to baseline's `issubset` approach.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Shorter than baseline (51s vs 68s, 2 turns each) while still delivering the key complexity insight via an explicit fork. Tighter with comparable teaching value.\" }\n  }\n}"
+}

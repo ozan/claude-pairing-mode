@@ -1,0 +1,39 @@
+{
+  "slug": "euler-14-collatz",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:26",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair surfaces three explicit option-based decision points (algorithm choice, data structure, recursion vs iteration) across the conversation, engaging the user at every meaningful fork."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Each fork hits a real crux: memoization vs brute force, dict vs list (with the intermediate-exceeds-1M gotcha), and the recursion-depth issue for cold chains. These are the genuine decisions for this problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm \u2192 data structure \u2192 control flow, with hints (e.g., 'what happens then?') rather than spoilers. The recursion limit prompt is slightly leading but still leaves the choice to the user."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Natural back-and-forth; the Pair validates the user's bug-spotting moment about `return length` and ties it to a broader principle. Slightly templated by the OPTIONS format but conversational overall."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces 837799 correctly with the iterative memoized approach, equivalent to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns vs baseline's 2, roughly 2x longer, but the extra length delivers proportional teaching value via explicit forks (data structure trade-off, recursion issue) and the user-discovered return simplification."
+      }
+    }
+  },
+  "weighted": 4.0,
+  "normalized": 0.75,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair surfaces three explicit option-based decision points (algorithm choice, data structure, recursion vs iteration) across the conversation, engaging the user at every meaningful fork.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Each fork hits a real crux: memoization vs brute force, dict vs list (with the intermediate-exceeds-1M gotcha), and the recursion-depth issue for cold chains. These are the genuine decisions for this problem.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from algorithm \u2192 data structure \u2192 control flow, with hints (e.g., 'what happens then?') rather than spoilers. The recursion limit prompt is slightly leading but still leaves the choice to the user.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Natural back-and-forth; the Pair validates the user's bug-spotting moment about `return length` and ties it to a broader principle. Slightly templated by the OPTIONS format but conversational overall.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code produces 837799 correctly with the iterative memoized approach, equivalent to baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns vs baseline's 2, roughly 2x longer, but the extra length delivers proportional teaching value via explicit forks (data structure trade-off, recursion issue) and the user-discovered return simplification.\" }\n  }\n}"
+}

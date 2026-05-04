@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-median-two-sorted",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:05",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three substantive multiple-choice forks: which approach (value vs partition search), how to handle boundaries (sentinels vs guards), and the final complexity check. That's a solid pedagogical cadence for a problem of this size."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork (value vs partition search) hits the core algorithmic trade-off, and the complexity question targets a classic gotcha (log(m+n) vs log(min(m,n))). The sentinel question is more cosmetic, but still surfaces a real implementation choice."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "The progression \u2014 algorithm choice \u2192 conceptual walkthrough \u2192 boundary handling \u2192 coding \u2192 complexity \u2014 is logical and free of spoilers. The walkthrough of why-smaller-array, j derivation, and the cross-comparisons was well-paced before asking the user to code."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "The conversation flows naturally with crisp explanations and warm acknowledgements (e.g., 'Good instincts'). The unreachable-return nit was a useful actionable comment. Slightly mechanical due to the repeated OPTIONS scaffold."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to the baseline solution, with O(log(min(m,n))) complexity. The student left the unreachable return as `pass`-equivalent rather than raising, but functionally identical to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "3 turns vs baseline's 2, and ~2x the wall time, but the extra length delivered real pedagogical payoff: explicit forks on approach, boundary handling, and complexity reasoning. Proportional trade-off."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three substantive multiple-choice forks: which approach (value vs partition search), how to handle boundaries (sentinels vs guards), and the final complexity check. That's a solid pedagogical cadence for a problem of this size.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The first fork (value vs partition search) hits the core algorithmic trade-off, and the complexity question targets a classic gotcha (log(m+n) vs log(min(m,n))). The sentinel question is more cosmetic, but still surfaces a real implementation choice.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"The progression \u2014 algorithm choice \u2192 conceptual walkthrough \u2192 boundary handling \u2192 coding \u2192 complexity \u2014 is logical and free of spoilers. The walkthrough of why-smaller-array, j derivation, and the cross-comparisons was well-paced before asking the user to code.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"The conversation flows naturally with crisp explanations and warm acknowledgements (e.g., 'Good instincts'). The unreachable-return nit was a useful actionable comment. Slightly mechanical due to the repeated OPTIONS scaffold.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to the baseline solution, with O(log(min(m,n))) complexity. The student left the unreachable return as `pass`-equivalent rather than raising, but functionally identical to baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"3 turns vs baseline's 2, and ~2x the wall time, but the extra length delivered real pedagogical payoff: explicit forks on approach, boundary handling, and complexity reasoning. Proportional trade-off.\" }\n  }\n}"
+}

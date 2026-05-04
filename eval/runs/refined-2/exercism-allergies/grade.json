@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-allergies",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:20",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three explicit option-based forks (representation, mask logic, output ordering) across the session, engaging the user at each meaningful decision point. Frequency is high relative to a small problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The dict-vs-IntEnum and clamp-vs-don't-clamp choices are substantive design tensions; the sort-vs-insertion-order question is real but minor. The Pair missed asking about the bool() return-type contract that the baseline highlighted, which is the classic gotcha here."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from data representation \u2192 core bit operation \u2192 output shape, with no spoilers and a smooth difficulty gradient. Could have layered in the truthy-int return type subtlety for stronger payoff."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational flow is natural; the Pair affirms reasoning, integrates the user's variable naming preference, and verifies with concrete tests. Tone is warm and collaborative without being sycophantic."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly solves the problem and is verified against representative cases including the high-bit case. Equivalent to baseline, though it lacks an explicit bool() cast on is_allergic_to's return value, which baseline addressed."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "One extra turn versus baseline (4 vs 3) and ~25s longer, but the option-fork structure provides proportional pedagogical value through active student decision-making rather than passive explanation."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three explicit option-based forks (representation, mask logic, output ordering) across the session, engaging the user at each meaningful decision point. Frequency is high relative to a small problem.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The dict-vs-IntEnum and clamp-vs-don't-clamp choices are substantive design tensions; the sort-vs-insertion-order question is real but minor. The Pair missed asking about the bool() return-type contract that the baseline highlighted, which is the classic gotcha here.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from data representation \u2192 core bit operation \u2192 output shape, with no spoilers and a smooth difficulty gradient. Could have layered in the truthy-int return type subtlety for stronger payoff.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversational flow is natural; the Pair affirms reasoning, integrates the user's variable naming preference, and verifies with concrete tests. Tone is warm and collaborative without being sycophantic.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly solves the problem and is verified against representative cases including the high-bit case. Equivalent to baseline, though it lacks an explicit bool() cast on is_allergic_to's return value, which baseline addressed.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"One extra turn versus baseline (4 vs 3) and ~25s longer, but the option-fork structure provides proportional pedagogical value through active student decision-making rather than passive explanation.\" }\n  }\n}"
+}

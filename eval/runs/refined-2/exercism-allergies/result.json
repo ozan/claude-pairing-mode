@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-allergies",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 87.0450611114502,
+  "propose_options_calls": 3,
+  "leaks_detected": 0,
+  "error": null
+}

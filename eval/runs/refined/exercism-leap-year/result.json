@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-leap-year",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 45.606857776641846,
+  "propose_options_calls": 1,
+  "leaks_detected": 0,
+  "error": null
+}

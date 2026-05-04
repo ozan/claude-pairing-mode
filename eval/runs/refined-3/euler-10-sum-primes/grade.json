@@ -1,0 +1,39 @@
+{
+  "slug": "euler-10-sum-primes",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:15",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair presented two explicit forked decisions (start at 2p vs p\u00b2, then full vs odd-only sieve) at meaningful points, engaging the user with didactic choices on most major design decisions."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork (2p vs p\u00b2) hits a genuine algorithmic insight central to the sieve. The second (odd-only optimization) raises a real engineering trade-off and the Pair commendably pushed back on premature optimization, surfacing the clarity-vs-performance tension."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from core algorithm correctness to optimization trade-offs. The pushback in turn 3 was well-timed pedagogy. Minor weakness: the bytearray subtlety was raised but not resolved cleanly."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Natural back-and-forth, with the Pair appropriately challenging the student's optimization instinct rather than just accepting it. Tone is collegial and the conversation flows well."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly produces 142,913,828,922. Uses a list of bools rather than bytearray with slice assignment (the baseline's faster approach), so slightly less optimized than baseline but functionally equivalent and arguably clearer."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns vs baseline's 3, comparable wall time (72s vs 84s). The extra turn delivered real pedagogical value via the optimization-vs-clarity discussion, justifying the slight overhead."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair presented two explicit forked decisions (start at 2p vs p\u00b2, then full vs odd-only sieve) at meaningful points, engaging the user with didactic choices on most major design decisions.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first fork (2p vs p\u00b2) hits a genuine algorithmic insight central to the sieve. The second (odd-only optimization) raises a real engineering trade-off and the Pair commendably pushed back on premature optimization, surfacing the clarity-vs-performance tension.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from core algorithm correctness to optimization trade-offs. The pushback in turn 3 was well-timed pedagogy. Minor weakness: the bytearray subtlety was raised but not resolved cleanly.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Natural back-and-forth, with the Pair appropriately challenging the student's optimization instinct rather than just accepting it. Tone is collegial and the conversation flows well.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly produces 142,913,828,922. Uses a list of bools rather than bytearray with slice assignment (the baseline's faster approach), so slightly less optimized than baseline but functionally equivalent and arguably clearer.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns vs baseline's 3, comparable wall time (72s vs 84s). The extra turn delivered real pedagogical value via the optimization-vs-clarity discussion, justifying the slight overhead.\" }\n  }\n}"
+}

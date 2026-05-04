@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-longest-substring",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:23",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offers three distinct multiple-choice forks (set vs index map, max guard vs direct jump, dict vs array) at consequential decision points. That's a high frequency for a problem of this size, though each is a binary/A-B selection rather than open-ended Socratic probing."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The three choices target the most consequential aspects: the algorithmic approach trade-off, the exact correctness gotcha (the max guard, which is the classic 'abba' bug), and a real engineering trade-off (generality vs micro-optimization)."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm choice \u2192 correctness subtlety \u2192 optimization. However, the option descriptions partially spoil reasoning (e.g., the A approach explicitly mentions 'left pointer may advance many steps') and the max-guard option presents the answer fairly transparently."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation is concise and warm with affirmations ('Spot on', 'Exactly right'). Flow is natural option-then-rationale, though it's somewhat formulaic with the repeated A/B structure rather than organic dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution is correct, idiomatic, and tested against multiple cases including the 'abba' edge case. Equivalent to the baseline solution."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns / 75s vs baseline's 2 turns / 40s, roughly 2x longer. The extra length delivers proportional pedagogical payoff via the structured A/B decision points and explicit trade-off discussion."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offers three distinct multiple-choice forks (set vs index map, max guard vs direct jump, dict vs array) at consequential decision points. That's a high frequency for a problem of this size, though each is a binary/A-B selection rather than open-ended Socratic probing.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The three choices target the most consequential aspects: the algorithmic approach trade-off, the exact correctness gotcha (the max guard, which is the classic 'abba' bug), and a real engineering trade-off (generality vs micro-optimization).\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from algorithm choice \u2192 correctness subtlety \u2192 optimization. However, the option descriptions partially spoil reasoning (e.g., the A approach explicitly mentions 'left pointer may advance many steps') and the max-guard option presents the answer fairly transparently.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversation is concise and warm with affirmations ('Spot on', 'Exactly right'). Flow is natural option-then-rationale, though it's somewhat formulaic with the repeated A/B structure rather than organic dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution is correct, idiomatic, and tested against multiple cases including the 'abba' edge case. Equivalent to the baseline solution.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 4 turns / 75s vs baseline's 2 turns / 40s, roughly 2x longer. The extra length delivers proportional pedagogical payoff via the structured A/B decision points and explicit trade-off discussion.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "euler-2-even-fib",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:27",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offered two explicit decision points (initial approach choice, then optimization choice), engaging the user at meaningful forks. However, deeper teachable moments \u2014 like why every 3rd Fibonacci is even, or deriving the E(n)=4\u00b7E(n-1)+E(n-2) recurrence \u2014 were stated rather than questioned."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork (naive vs. even-only recurrence) hits a genuine algorithmic trade-off central to this problem. The second fork (keep simple vs. optimize prematurely) is also substantive, framing a real engineering tension."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Reasonable progression from correctness to optimization consideration, but Option B's recurrence is presented with the answer baked in (`E(n) = 4\u00b7E(n-1) + E(n-2)`) rather than scaffolded \u2014 a spoiler that bypasses derivation. The user never had to work for the insight."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Clean, concise, options are well-formatted and actionable. Tone is professional and the back-and-forth feels natural, though slightly mechanical due to the rigid OPTIONS structure."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces 4,613,732, identical to baseline. Solution is correct and equivalent."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 2 turns vs baseline's 1, with ~2.7x runtime, but provided a genuine choice architecture and surfaced the even-recurrence optimization as a discussable alternative \u2014 modest pedagogical payoff for the extra length."
+      }
+    }
+  },
+  "weighted": 3.2,
+  "normalized": 0.55,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offered two explicit decision points (initial approach choice, then optimization choice), engaging the user at meaningful forks. However, deeper teachable moments \u2014 like why every 3rd Fibonacci is even, or deriving the E(n)=4\u00b7E(n-1)+E(n-2) recurrence \u2014 were stated rather than questioned.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first fork (naive vs. even-only recurrence) hits a genuine algorithmic trade-off central to this problem. The second fork (keep simple vs. optimize prematurely) is also substantive, framing a real engineering tension.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Reasonable progression from correctness to optimization consideration, but Option B's recurrence is presented with the answer baked in (`E(n) = 4\u00b7E(n-1) + E(n-2)`) rather than scaffolded \u2014 a spoiler that bypasses derivation. The user never had to work for the insight.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Clean, concise, options are well-formatted and actionable. Tone is professional and the back-and-forth feels natural, though slightly mechanical due to the rigid OPTIONS structure.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code produces 4,613,732, identical to baseline. Solution is correct and equivalent.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 2 turns vs baseline's 1, with ~2.7x runtime, but provided a genuine choice architecture and surfaced the even-recurrence optimization as a discussable alternative \u2014 modest pedagogical payoff for the extra length.\" }\n  }\n}"
+}

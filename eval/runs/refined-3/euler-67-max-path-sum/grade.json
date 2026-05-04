@@ -1,0 +1,39 @@
+{
+  "slug": "euler-67-max-path-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:39",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered three explicit OPTIONS forks across three turns (direction of traversal, in-place vs copy, path tracer vs ship). That's a high frequency of decision points relative to the problem size."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first two forks hit genuine substantive choices (top-down vs bottom-up DP, in-place mutation vs copy with its memory/reconstruction tradeoff). The third (path tracer) is more of a scope question than an algorithmic crux, but still meaningful."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "The progression \u2014 algorithmic strategy, then implementation detail, then scope extension \u2014 is logical and gradient-appropriate. However, option descriptions are quite explicit and basically hand the student the recurrence, leaving little for them to derive."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and concise, options are actionable, and the Pair affirms reasoning before moving on. There's a minor hiccup where the Pair nudged with 'Waiting on your pick' before the student responded, but otherwise the flow is natural."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Code correctly solves PE67 with the bottom-up DP; outputs 731 for the chosen 10-row data. Equivalent in correctness to baseline, though it omits the path reconstruction baseline included as a bonus."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Same number of turns as baseline (3) and slightly longer wall time (94s vs 62s). The extra structure (forks) gave reasonable pedagogical payoff proportional to the modest overhead."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered three explicit OPTIONS forks across three turns (direction of traversal, in-place vs copy, path tracer vs ship). That's a high frequency of decision points relative to the problem size.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first two forks hit genuine substantive choices (top-down vs bottom-up DP, in-place mutation vs copy with its memory/reconstruction tradeoff). The third (path tracer) is more of a scope question than an algorithmic crux, but still meaningful.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"The progression \u2014 algorithmic strategy, then implementation detail, then scope extension \u2014 is logical and gradient-appropriate. However, option descriptions are quite explicit and basically hand the student the recurrence, leaving little for them to derive.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and concise, options are actionable, and the Pair affirms reasoning before moving on. There's a minor hiccup where the Pair nudged with 'Waiting on your pick' before the student responded, but otherwise the flow is natural.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Code correctly solves PE67 with the bottom-up DP; outputs 731 for the chosen 10-row data. Equivalent in correctness to baseline, though it omits the path reconstruction baseline included as a bonus.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Same number of turns as baseline (3) and slightly longer wall time (94s vs 62s). The extra structure (forks) gave reasonable pedagogical payoff proportional to the modest overhead.\" }\n  }\n}"
+}

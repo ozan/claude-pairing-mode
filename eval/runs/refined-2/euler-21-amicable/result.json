@@ -1,0 +1,10 @@
+{
+  "slug": "euler-21-amicable",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 93.80633902549744,
+  "propose_options_calls": 3,
+  "leaks_detected": 0,
+  "error": null
+}

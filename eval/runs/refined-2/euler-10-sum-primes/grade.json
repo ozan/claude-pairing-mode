@@ -1,0 +1,39 @@
+{
+  "slug": "euler-10-sum-primes",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:35:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed a clear didactic choice in each of the first three turns (algorithm, storage, sqrt method), engaging the user at each meaningful decision point. It missed a chance to question about the start-at-p\u00b2 invariant or slice-assignment idiom."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The algorithm choice (sieve vs trial) and bytearray-vs-list questions hit substantive trade-offs. The isqrt vs float**0.5 fork is a real gotcha worth knowing. None were cosmetic, though the float-sqrt issue is minor for n=2M."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm \u2192 data structure \u2192 numerical detail \u2192 execution, with smooth difficulty gradient. Slight spoiler in option B descriptions (e.g., revealing the memory ratio), but no major leaps."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation flows naturally with consistent OPTIONS format and warm acknowledgments. The structured menu approach is slightly mechanical but keeps the back-and-forth crisp and actionable."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly produces 142,913,828,922, equivalent to baseline. Uses a Python-level inner loop rather than baseline's slice-assignment memset trick, so somewhat slower, but functionally correct."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns vs baseline's 3, with comparable wall time (~106s vs 84s). The extra turn delivered genuine pedagogical payoff (storage trade-off, isqrt) proportional to the modest length increase."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed a clear didactic choice in each of the first three turns (algorithm, storage, sqrt method), engaging the user at each meaningful decision point. It missed a chance to question about the start-at-p\u00b2 invariant or slice-assignment idiom.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The algorithm choice (sieve vs trial) and bytearray-vs-list questions hit substantive trade-offs. The isqrt vs float**0.5 fork is a real gotcha worth knowing. None were cosmetic, though the float-sqrt issue is minor for n=2M.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from algorithm \u2192 data structure \u2192 numerical detail \u2192 execution, with smooth difficulty gradient. Slight spoiler in option B descriptions (e.g., revealing the memory ratio), but no major leaps.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Conversation flows naturally with consistent OPTIONS format and warm acknowledgments. The structured menu approach is slightly mechanical but keeps the back-and-forth crisp and actionable.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly produces 142,913,828,922, equivalent to baseline. Uses a Python-level inner loop rather than baseline's slice-assignment memset trick, so somewhat slower, but functionally correct.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took 4 turns vs baseline's 3, with comparable wall time (~106s vs 84s). The extra turn delivered genuine pedagogical payoff (storage trade-off, isqrt) proportional to the modest length increase.\" }\n  }\n}"
+}

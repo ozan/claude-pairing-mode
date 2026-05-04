@@ -1,5 +1,5 @@
 {
-  "run_dir": "runs/regular",
+  "run_dir": "runs/initial",
   "is_baseline": false,
   "baseline_compared_against": "runs/baseline",
   "n": 36,

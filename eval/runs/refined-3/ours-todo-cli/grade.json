@@ -1,0 +1,39 @@
+{
+  "slug": "ours-todo-cli",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:01:09",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two explicit design-choice questions (ID scheme, argparse vs manual) and a follow-up about idempotency. Most major decision points engaged the user, though there were no questions during the actual code walkthrough."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The ID scheme question hits the actual crux \u2014 the positional-ID footgun where rm shifts indices is exactly the substantive trade-off worth surfacing. The argparse choice is also a real fork. The Pair even pushed back when the user picked the worse option, surfacing the correctness consequence."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: data model \u2192 arg parsing \u2192 implementation \u2192 review. The ID footgun was revealed via a concrete example rather than spoiled. Slight weakness: the second decision (argparse) is less consequential and the code dump at the end has no embedded checkpoints."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational flow is clean, with explicit OPTIONS blocks and warm but efficient tone. The Pair appropriately challenged the user's first answer rather than rubber-stamping it. Slightly mechanical OPTIONS formatting but actionable throughout."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code works correctly across all four subcommands with persistent IDs, matching baseline functionality. Baseline additionally demonstrated extension via an edit command, but core requirements are equivalently satisfied."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns vs baseline's 2, ~87s vs ~79s \u2014 only marginally longer, with a meaningful pedagogical payoff (the ID-shifting gotcha was genuinely instructive and changed the user's design). Proportional trade-off."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two explicit design-choice questions (ID scheme, argparse vs manual) and a follow-up about idempotency. Most major decision points engaged the user, though there were no questions during the actual code walkthrough.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The ID scheme question hits the actual crux \u2014 the positional-ID footgun where rm shifts indices is exactly the substantive trade-off worth surfacing. The argparse choice is also a real fork. The Pair even pushed back when the user picked the worse option, surfacing the correctness consequence.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: data model \u2192 arg parsing \u2192 implementation \u2192 review. The ID footgun was revealed via a concrete example rather than spoiled. Slight weakness: the second decision (argparse) is less consequential and the code dump at the end has no embedded checkpoints.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversational flow is clean, with explicit OPTIONS blocks and warm but efficient tone. The Pair appropriately challenged the user's first answer rather than rubber-stamping it. Slightly mechanical OPTIONS formatting but actionable throughout.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code works correctly across all four subcommands with persistent IDs, matching baseline functionality. Baseline additionally demonstrated extension via an edit command, but core requirements are equivalently satisfied.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns vs baseline's 2, ~87s vs ~79s \u2014 only marginally longer, with a meaningful pedagogical payoff (the ID-shifting gotcha was genuinely instructive and changed the user's design). Proportional trade-off.\" }\n  }\n}"
+}

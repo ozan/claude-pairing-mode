@@ -1,0 +1,10 @@
+{
+  "slug": "ours-run-length-encoding",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 6,
+  "duration_s": 113.32519507408142,
+  "propose_options_calls": 4,
+  "leaks_detected": 0,
+  "error": null
+}

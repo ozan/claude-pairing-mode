@@ -1,0 +1,39 @@
+{
+  "slug": "ours-lru-cache",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:21",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed four substantive didactic questions across the session (DLL vs SLL, sentinel vs real head/tail, put branching strategy, why store key on node), engaging the user at every meaningful decision point."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Each option targeted a real crux: O(1) unlink requirement for DLL, edge-case elimination for sentinels, code-path unification in put, and the load-bearing role of node.key for O(1) eviction. These are exactly the gotchas that matter for LRU implementation."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "The questions progressed naturally from high-level data structure choice \u2192 list boundary handling \u2192 put algorithm \u2192 subtle field justification. Each built on the prior decision without spoilers, and the difficulty gradient was smooth."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "The Pair affirmed each correct answer crisply, distilled a generalizable lesson (e.g. 'redundancy in space to preserve time'), and progressed to the next decision. The back-and-forth felt natural and the closing summary table tied everything together."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code works and passes the tests run. It is slightly less feature-rich than the baseline (no __len__, __contains__, __repr__, capacity validation, doctests) but solves the original problem correctly with proper O(1) guarantees."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 5 turns / ~125s vs baseline's 2 turns / ~100s, but the extra length delivered four genuine teaching moments with clean option framings \u2014 proportional pedagogical payoff for the modest extra time."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed four substantive didactic questions across the session (DLL vs SLL, sentinel vs real head/tail, put branching strategy, why store key on node), engaging the user at every meaningful decision point.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Each option targeted a real crux: O(1) unlink requirement for DLL, edge-case elimination for sentinels, code-path unification in put, and the load-bearing role of node.key for O(1) eviction. These are exactly the gotchas that matter for LRU implementation.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"The questions progressed naturally from high-level data structure choice \u2192 list boundary handling \u2192 put algorithm \u2192 subtle field justification. Each built on the prior decision without spoilers, and the difficulty gradient was smooth.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"The Pair affirmed each correct answer crisply, distilled a generalizable lesson (e.g. 'redundancy in space to preserve time'), and progressed to the next decision. The back-and-forth felt natural and the closing summary table tied everything together.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code works and passes the tests run. It is slightly less feature-rich than the baseline (no __len__, __contains__, __repr__, capacity validation, doctests) but solves the original problem correctly with proper O(1) guarantees.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 5 turns / ~125s vs baseline's 2 turns / ~100s, but the extra length delivered four genuine teaching moments with clean option framings \u2014 proportional pedagogical payoff for the modest extra time.\" }\n  }\n}"
+}

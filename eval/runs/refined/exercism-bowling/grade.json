@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-bowling",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:30",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed a binary A/B choice at every meaningful decision point: traversal strategy, 10th-frame handling, validation placement, validation strategy, helper extraction, and helper return shape. Six distinct didactic forks across the session."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most choices target genuine design tensions (flat-index vs. pre-parsed frames, inline vs. separated validation, shared helper vs. duplication, generator yield vs. index-only return). The 10th-frame A/B (sum remaining vs. explicit check) is substantive too. None feel cosmetic, though the helper-extraction question is somewhat softball."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from core loop \u2192 10th frame \u2192 validation \u2192 refactor for shared logic. Difficulty ramps reasonably. Minor issue: the options sometimes telegraph the 'right' answer (e.g., A in option B already mentions duplicated logic), giving the student an easy lean."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational rhythm is good, with the Pair confirming reasoning before moving on and tracing the perfect game to verify. Tone is concise and warm. Slightly mechanical due to the repeated A/B template, but actionable throughout."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code correctly handles all standard cases plus validation; tests cover perfect game, gutter, all-spares, strikes, 10th-frame variants, and several invalid inputs. Slightly leaner than baseline (no BowlingGame class) but matches the stated requirement well."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 7 turns vs. baseline's 2, ~280s vs. ~177s. The extra length is justified by genuine pedagogical exchange at each fork, with proportional teaching value\u2014no wasted turns or env-setup pain like baseline had."
+      }
+    }
+  },
+  "weighted": 4.1000000000000005,
+  "normalized": 0.7750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed a binary A/B choice at every meaningful decision point: traversal strategy, 10th-frame handling, validation placement, validation strategy, helper extraction, and helper return shape. Six distinct didactic forks across the session.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Most choices target genuine design tensions (flat-index vs. pre-parsed frames, inline vs. separated validation, shared helper vs. duplication, generator yield vs. index-only return). The 10th-frame A/B (sum remaining vs. explicit check) is substantive too. None feel cosmetic, though the helper-extraction question is somewhat softball.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from core loop \u2192 10th frame \u2192 validation \u2192 refactor for shared logic. Difficulty ramps reasonably. Minor issue: the options sometimes telegraph the 'right' answer (e.g., A in option B already mentions duplicated logic), giving the student an easy lean.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversational rhythm is good, with the Pair confirming reasoning before moving on and tracing the perfect game to verify. Tone is concise and warm. Slightly mechanical due to the repeated A/B template, but actionable throughout.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code correctly handles all standard cases plus validation; tests cover perfect game, gutter, all-spares, strikes, 10th-frame variants, and several invalid inputs. Slightly leaner than baseline (no BowlingGame class) but matches the stated requirement well.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 7 turns vs. baseline's 2, ~280s vs. ~177s. The extra length is justified by genuine pedagogical exchange at each fork, with proportional teaching value\u2014no wasted turns or env-setup pain like baseline had.\" }\n  }\n}"
+}

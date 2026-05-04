@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-pangram",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:54",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered options at two distinct decision points (A/B for implementation, A/B for hoisting the constant) and asked open follow-ups in each turn. Good frequency for such a small problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork (all() vs set superset) targets a real algorithmic trade-off; the second (inline vs module-level constant) surfaces a genuine design tension about naming computed constants. Neither is cosmetic, though the problem is too small for deeper cruxes."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression is logical: pick approach \u2192 test \u2192 refine. The Pair pushed back thoughtfully on the user's A choice with a category-error reframing, escalating insight without spoiling. No abrupt jumps."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth, warm but substantive. The 'not quite \u2014 I'd push back' moment is exactly the kind of productive disagreement that makes pair programming valuable."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code (set superset with module-level _ALPHABET) correctly solves the kata, equivalent to baseline's issubset solution."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns / 93s vs baseline's 2 turns / 68s. The extra length delivered real teaching value (computed constants vs literals, intent-based reasoning) proportional to the overhead."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered options at two distinct decision points (A/B for implementation, A/B for hoisting the constant) and asked open follow-ups in each turn. Good frequency for such a small problem.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The first fork (all() vs set superset) targets a real algorithmic trade-off; the second (inline vs module-level constant) surfaces a genuine design tension about naming computed constants. Neither is cosmetic, though the problem is too small for deeper cruxes.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Progression is logical: pick approach \u2192 test \u2192 refine. The Pair pushed back thoughtfully on the user's A choice with a category-error reframing, escalating insight without spoiling. No abrupt jumps.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Natural back-and-forth, warm but substantive. The 'not quite \u2014 I'd push back' moment is exactly the kind of productive disagreement that makes pair programming valuable.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code (set superset with module-level _ALPHABET) correctly solves the kata, equivalent to baseline's issubset solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"4 turns / 93s vs baseline's 2 turns / 68s. The extra length delivered real teaching value (computed constants vs literals, intent-based reasoning) proportional to the overhead.\" }\n  }\n}"
+}

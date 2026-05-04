@@ -1,0 +1,39 @@
+{
+  "slug": "ours-caesar-cipher",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:17",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Three explicit decision points presented as A/B options: shift implementation, decode strategy, and helper extraction. Each is a deliberate teachable fork."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The decode A/B and the helper extraction surface real design tensions (DRY, modulo behavior with negatives, abstraction cost). The first option (ord/chr vs maketrans) is substantive too, though slightly less crux-y than negative-shift handling."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: core arithmetic \u2192 decode reuse \u2192 structural refactor \u2192 tests. Difficulty gradient is smooth and no answers are spoiled, though the third question (keep as-is vs extract) is somewhat low-stakes."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tutor responses are concise, affirming, and add a useful nugget after each choice (e.g., Python's % semantics, ROT13 self-inverse). Natural back-and-forth without excessive prose."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly handles case, non-letters, wrap-around, and negatives via encode(-shift). Equivalent to baseline functionally; baseline additionally extracted _shift_char but that's stylistic."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns / 110s vs baseline's 2 turns / 52s \u2014 roughly 2x longer, but the extra time delivers genuine pedagogical payoff via three real decision points the user actively engaged with."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Three explicit decision points presented as A/B options: shift implementation, decode strategy, and helper extraction. Each is a deliberate teachable fork.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The decode A/B and the helper extraction surface real design tensions (DRY, modulo behavior with negatives, abstraction cost). The first option (ord/chr vs maketrans) is substantive too, though slightly less crux-y than negative-shift handling.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: core arithmetic \u2192 decode reuse \u2192 structural refactor \u2192 tests. Difficulty gradient is smooth and no answers are spoiled, though the third question (keep as-is vs extract) is somewhat low-stakes.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tutor responses are concise, affirming, and add a useful nugget after each choice (e.g., Python's % semantics, ROT13 self-inverse). Natural back-and-forth without excessive prose.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly handles case, non-letters, wrap-around, and negatives via encode(-shift). Equivalent to baseline functionally; baseline additionally extracted _shift_char but that's stylistic.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns / 110s vs baseline's 2 turns / 52s \u2014 roughly 2x longer, but the extra time delivers genuine pedagogical payoff via three real decision points the user actively engaged with.\" }\n  }\n}"
+}

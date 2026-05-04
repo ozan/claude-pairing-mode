@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-climbing-stairs",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:06",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offered two explicit OPTIONS forks (naive vs DP, then closed-form vs iterative) with a question each. That's a reasonable cadence for a 2-turn problem but stops short of probing base cases or tracing."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork hits the central trade-off (exponential recursion vs O(n) DP). The second fork is a genuinely interesting tangent (Binet's closed form with float precision concerns), though arguably less crucial than probing base cases or the recurrence itself."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Logical progression from naive\u2192DP\u2192closed-form, but the Pair skipped the foundational derivation of the recurrence and never asked the user to derive or trace it. The closed-form jump is also a steep mathematical leap presented without much buildup."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the OPTIONS format gives clear actionable choices. Back-and-forth feels natural and the user's reasoning is acknowledged with brief affirmation, though the conversation is brief."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final iterative solution is correct and tested against six cases. Equivalent to baseline though using a slightly different (cleaner) variable initialization."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns like baseline, with similar prose volume. The OPTIONS format and actual test execution add modest pedagogical value proportionate to the time spent."
+      }
+    }
+  },
+  "weighted": 3.2,
+  "normalized": 0.55,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offered two explicit OPTIONS forks (naive vs DP, then closed-form vs iterative) with a question each. That's a reasonable cadence for a 2-turn problem but stops short of probing base cases or tracing.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first fork hits the central trade-off (exponential recursion vs O(n) DP). The second fork is a genuinely interesting tangent (Binet's closed form with float precision concerns), though arguably less crucial than probing base cases or the recurrence itself.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Logical progression from naive\u2192DP\u2192closed-form, but the Pair skipped the foundational derivation of the recurrence and never asked the user to derive or trace it. The closed-form jump is also a steep mathematical leap presented without much buildup.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the OPTIONS format gives clear actionable choices. Back-and-forth feels natural and the user's reasoning is acknowledged with brief affirmation, though the conversation is brief.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final iterative solution is correct and tested against six cases. Equivalent to baseline though using a slightly different (cleaner) variable initialization.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two turns like baseline, with similar prose volume. The OPTIONS format and actual test execution add modest pedagogical value proportionate to the time spent.\" }\n  }\n}"
+}

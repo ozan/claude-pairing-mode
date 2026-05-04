@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-zebra-puzzle",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:54",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered structured A/B options at three distinct decision points (overall approach, planning method, helper style) before writing code, plus a final conceptual probe. Most meaningful design forks were turned into pedagogical questions."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The choices were substantive: prune-early vs filter-after, mapping constraints to depth vs skeleton-first, and inline vs helper functions \u2014 each maps to a real design tension. The first two especially target the crux (early pruning leverage), though the helper-function fork is more stylistic."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "The progression flows logically from algorithm choice \u2192 constraint mapping \u2192 code style \u2192 implementation, with no spoilers. The constraint depth table is a strong scaffolding artifact, though the jump to writing the entire 59-line solution at once is somewhat abrupt."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is concise and warm; the back-and-forth feels natural with the user's reasoning visibly building on each prior step. The closing exchange about clue 5's power is a genuine pedagogical highlight."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code returns the correct answers (Norwegian / Japanese) in 0.2ms, equivalent to baseline. Both solutions implement the same nested-permutations-with-pruning strategy successfully."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 6 turns / 204s vs baseline's 2 turns / 84s \u2014 roughly 2.4x longer. The extra time bought genuine pedagogical value (constraint depth mapping, directional-ordering insight) that the baseline lacked, making it a proportional trade."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered structured A/B options at three distinct decision points (overall approach, planning method, helper style) before writing code, plus a final conceptual probe. Most meaningful design forks were turned into pedagogical questions.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The choices were substantive: prune-early vs filter-after, mapping constraints to depth vs skeleton-first, and inline vs helper functions \u2014 each maps to a real design tension. The first two especially target the crux (early pruning leverage), though the helper-function fork is more stylistic.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"The progression flows logically from algorithm choice \u2192 constraint mapping \u2192 code style \u2192 implementation, with no spoilers. The constraint depth table is a strong scaffolding artifact, though the jump to writing the entire 59-line solution at once is somewhat abrupt.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is concise and warm; the back-and-forth feels natural with the user's reasoning visibly building on each prior step. The closing exchange about clue 5's power is a genuine pedagogical highlight.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code returns the correct answers (Norwegian / Japanese) in 0.2ms, equivalent to baseline. Both solutions implement the same nested-permutations-with-pruning strategy successfully.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took 6 turns / 204s vs baseline's 2 turns / 84s \u2014 roughly 2.4x longer. The extra time bought genuine pedagogical value (constraint depth mapping, directional-ordering insight) that the baseline lacked, making it a proportional trade.\" }\n  }\n}"
+}

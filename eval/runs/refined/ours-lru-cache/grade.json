@@ -1,0 +1,39 @@
+{
+  "slug": "ours-lru-cache",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed didactic A/B questions at nearly every meaningful decision point: data structure choice, pointer ordering in _insert_front, update strategy in put, get-promotion semantics, and stale-pointer cleanup. Five substantive forks across seven turns is high frequency."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Choices target genuine cruxes: pointer-assignment ordering (the classic gotcha), update-vs-rebuild branching trade-off, the LRU semantics of get, and GC/defensive-programming considerations. None are cosmetic."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression flows naturally from structure choice \u2192 helper pointer order \u2192 put logic \u2192 get semantics \u2192 cleanup. The A/B framing avoids spoilers and difficulty escalates reasonably, though presenting both options side-by-side does narrow the search space somewhat."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Conversational rhythm is excellent: Pair pushes back thoughtfully on the A vs B trade-off rather than rubber-stamping, acknowledges student reasoning, and adds context (thread safety, OrderedDict connection) at the end. Natural and warm."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly implements O(1) get/put with sentinels, dict, and proper eviction. Smoke test passes. Lacks the baseline's __len__, __contains__, __repr__, and ValueError for capacity<1, but solves the stated problem fully."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 7 turns vs baseline's 2, roughly 2x duration, but the extra length delivers genuine pedagogical payoff via multiple decision-point questions. Proportional given the didactic mandate."
+      }
+    }
+  },
+  "weighted": 4.1000000000000005,
+  "normalized": 0.7750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed didactic A/B questions at nearly every meaningful decision point: data structure choice, pointer ordering in _insert_front, update strategy in put, get-promotion semantics, and stale-pointer cleanup. Five substantive forks across seven turns is high frequency.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Choices target genuine cruxes: pointer-assignment ordering (the classic gotcha), update-vs-rebuild branching trade-off, the LRU semantics of get, and GC/defensive-programming considerations. None are cosmetic.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression flows naturally from structure choice \u2192 helper pointer order \u2192 put logic \u2192 get semantics \u2192 cleanup. The A/B framing avoids spoilers and difficulty escalates reasonably, though presenting both options side-by-side does narrow the search space somewhat.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Conversational rhythm is excellent: Pair pushes back thoughtfully on the A vs B trade-off rather than rubber-stamping, acknowledges student reasoning, and adds context (thread safety, OrderedDict connection) at the end. Natural and warm.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly implements O(1) get/put with sentinels, dict, and proper eviction. Smoke test passes. Lacks the baseline's __len__, __contains__, __repr__, and ValueError for capacity<1, but solves the stated problem fully.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 7 turns vs baseline's 2, roughly 2x duration, but the extra length delivers genuine pedagogical payoff via multiple decision-point questions. Proportional given the didactic mandate.\" }\n  }\n}"
+}

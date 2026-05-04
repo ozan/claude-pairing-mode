@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-acronym",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:40",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed structured A/B choices at two key decision points (algorithmic approach, robustness extension), engaging the user meaningfully across the short conversation."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The first choice (regex vs replace+split) surfaces a real trade-off, and the second (leading-punctuation guard) targets a genuine edge case. However, neither hits the canonical Exercism gotcha (camelCase like 'HyperText' \u2192 'HTML'), which is the real crux."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Progression from approach choice \u2192 edge-case verification \u2192 robustness extension is logical. However the malformed second OPTIONS block ('Ignore that \u2014 the tool misfired') is a noticeable disruption, and the camelCase case is never raised."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is collaborative and the user's reasoning is acknowledged well. The misfired tool output mid-conversation hurts flow, though the Pair recovers gracefully."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 2,
+        "rationale": "The final solution does NOT handle camelCase (e.g. 'HyperText Markup Language' \u2192 'HML' instead of 'HTML'), which is a standard Exercism Acronym test case. The baseline correctly handled this; the experiment explicitly chose not to."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns vs baseline's one, but with more user engagement. Length is reasonable for the pedagogical format, though the misfired OPTIONS block adds noise."
+      }
+    }
+  },
+  "weighted": 3.1,
+  "normalized": 0.525,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed structured A/B choices at two key decision points (algorithmic approach, robustness extension), engaging the user meaningfully across the short conversation.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The first choice (regex vs replace+split) surfaces a real trade-off, and the second (leading-punctuation guard) targets a genuine edge case. However, neither hits the canonical Exercism gotcha (camelCase like 'HyperText' \u2192 'HTML'), which is the real crux.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Progression from approach choice \u2192 edge-case verification \u2192 robustness extension is logical. However the malformed second OPTIONS block ('Ignore that \u2014 the tool misfired') is a noticeable disruption, and the camelCase case is never raised.\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is collaborative and the user's reasoning is acknowledged well. The misfired tool output mid-conversation hurts flow, though the Pair recovers gracefully.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 2, \"rationale\": \"The final solution does NOT handle camelCase (e.g. 'HyperText Markup Language' \u2192 'HML' instead of 'HTML'), which is a standard Exercism Acronym test case. The baseline correctly handled this; the experiment explicitly chose not to.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Three turns vs baseline's one, but with more user engagement. Length is reasonable for the pedagogical format, though the misfired OPTIONS block adds noise.\" }\n  }\n}"
+}

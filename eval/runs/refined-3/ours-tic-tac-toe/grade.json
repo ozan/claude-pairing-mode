@@ -1,0 +1,39 @@
+{
+  "slug": "ours-tic-tac-toe",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:01:17",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair surfaces a deliberate decision point at every meaningful step: board representation, AI strategy, display style, win-detection structure, AI move-finding pattern, and turn order. Six distinct didactic forks across eight turns is a high cadence."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most choices target real design tensions (flat vs nested for win-check, minimax vs heuristic with fork tradeoff, count-vs-try/undo). The display and turn-order forks are more cosmetic, but the AI-strategy and move-detection forks hit the genuine cruxes."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Decisions progress logically from data structure \u2192 detection \u2192 AI \u2192 loop, with appropriate difficulty gradient. The fork-weakness flag after choosing heuristics is a nice teachable nudge without spoiling. Slight redundancy (cosmetic display fork) keeps it from being perfectly tight."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is concise and respectful, validating choices and adding a tradeoff note (e.g., double LINES scan) without being preachy. The bash test failing was glossed over rather than debugged, which is a minor flow blemish."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is a working, playable tic-tac-toe with heuristic AI, input validation, and replay loop. It's beatable via forks (acknowledged via TODO), whereas baseline shipped a minimax AI \u2014 so functionally comparable but strategically weaker."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Eight turns vs baseline's five, ~180s vs ~165s. The extra length delivered proportional pedagogical payoff via explicit option forks, justifying the modest overhead."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair surfaces a deliberate decision point at every meaningful step: board representation, AI strategy, display style, win-detection structure, AI move-finding pattern, and turn order. Six distinct didactic forks across eight turns is a high cadence.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Most choices target real design tensions (flat vs nested for win-check, minimax vs heuristic with fork tradeoff, count-vs-try/undo). The display and turn-order forks are more cosmetic, but the AI-strategy and move-detection forks hit the genuine cruxes.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Decisions progress logically from data structure \u2192 detection \u2192 AI \u2192 loop, with appropriate difficulty gradient. The fork-weakness flag after choosing heuristics is a nice teachable nudge without spoiling. Slight redundancy (cosmetic display fork) keeps it from being perfectly tight.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is concise and respectful, validating choices and adding a tradeoff note (e.g., double LINES scan) without being preachy. The bash test failing was glossed over rather than debugged, which is a minor flow blemish.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is a working, playable tic-tac-toe with heuristic AI, input validation, and replay loop. It's beatable via forks (acknowledged via TODO), whereas baseline shipped a minimax AI \u2014 so functionally comparable but strategically weaker.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Eight turns vs baseline's five, ~180s vs ~165s. The extra length delivered proportional pedagogical payoff via explicit option forks, justifying the modest overhead.\" }\n  }\n}"
+}

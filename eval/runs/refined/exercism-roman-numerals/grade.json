@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-roman-numerals",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:52",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "Two didactic moments: an initial A/B design choice and a follow-up while-vs-if question. Reasonable for a small problem but not high frequency."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Both questions hit real teachable points: the rules-vs-answers tradeoff between greedy and per-digit tables, and the subtle while-vs-if distinction that's a classic gotcha for this algorithm."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from design choice \u2192 implementation \u2192 trace \u2192 subtlety. The while/if question is well-framed without spoiling. Slight issue: the A option's text essentially explains the answer."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tutor validates the user's reasoning, traces 1994 concretely, and engages naturally. Tone is warm and back-and-forth feels coherent."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Solution works for all tested cases and matches baseline behavior. Lacks input validation that the baseline added, but the prompt didn't require it."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns vs baseline's one, with proportional pedagogical payoff (design discussion + while/if insight). Reasonable overhead for the teaching gained."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"Two didactic moments: an initial A/B design choice and a follow-up while-vs-if question. Reasonable for a small problem but not high frequency.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Both questions hit real teachable points: the rules-vs-answers tradeoff between greedy and per-digit tables, and the subtle while-vs-if distinction that's a classic gotcha for this algorithm.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from design choice \u2192 implementation \u2192 trace \u2192 subtlety. The while/if question is well-framed without spoiling. Slight issue: the A option's text essentially explains the answer.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tutor validates the user's reasoning, traces 1994 concretely, and engages naturally. Tone is warm and back-and-forth feels coherent.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Solution works for all tested cases and matches baseline behavior. Lacks input validation that the baseline added, but the prompt didn't require it.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two turns vs baseline's one, with proportional pedagogical payoff (design discussion + while/if insight). Reasonable overhead for the teaching gained.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-run-length-encoding",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:30",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Three explicit OPTIONS forks (encode strategy, decode strategy, test suite), each at a meaningful decision point. The pair consistently engaged the user at decision moments rather than just writing code."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The encode (manual vs groupby) and decode (regex vs slice) choices target real trade-offs: idiom/laziness and robustness/format-validation. The test-suite choice is somewhat lighter (more vs fewer cases) but still pedagogically useful."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from encode \u2192 decode \u2192 tests, with follow-up explanations (groupby laziness, \\d+ greediness) tied to user questions. Difficulty gradient is smooth; no spoilers given before user committed to choices."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth: user asks clarifying questions, tutor answers crisply and ties back to principles. Tone is warm without being saccharine, and each turn produces actionable progress."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, passes all five test cases including edge cases, and is equivalent to the baseline implementation. No notable advantage or disadvantage versus baseline."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Took 4 turns vs baseline's 2, ~80s vs ~60s, but the extra length delivered three substantive choice points and good explanations of groupby laziness and regex greediness \u2014 proportional teaching payoff for modest extra length."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Three explicit OPTIONS forks (encode strategy, decode strategy, test suite), each at a meaningful decision point. The pair consistently engaged the user at decision moments rather than just writing code.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The encode (manual vs groupby) and decode (regex vs slice) choices target real trade-offs: idiom/laziness and robustness/format-validation. The test-suite choice is somewhat lighter (more vs fewer cases) but still pedagogically useful.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from encode \u2192 decode \u2192 tests, with follow-up explanations (groupby laziness, \\\\d+ greediness) tied to user questions. Difficulty gradient is smooth; no spoilers given before user committed to choices.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Natural back-and-forth: user asks clarifying questions, tutor answers crisply and ties back to principles. Tone is warm without being saccharine, and each turn produces actionable progress.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct, passes all five test cases including edge cases, and is equivalent to the baseline implementation. No notable advantage or disadvantage versus baseline.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Took 4 turns vs baseline's 2, ~80s vs ~60s, but the extra length delivered three substantive choice points and good explanations of groupby laziness and regex greediness \u2014 proportional teaching payoff for modest extra length.\" }\n  }\n}"
+}

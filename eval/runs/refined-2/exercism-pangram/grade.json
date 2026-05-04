@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-pangram",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:33",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offered two binary choices (A/B) at two decision points, prompting the user to reason. That's reasonable engagement but limited \u2014 only two forks, both fairly cosmetic."
+      },
+      "question_quality": {
+        "score": 2,
+        "rationale": "The first fork (set vs all()) touches a real performance trade-off, but the second fork (literal string vs string.ascii_lowercase) is purely stylistic. Neither probes deeper subtleties like case-insensitivity edge cases, non-ASCII letters, or why issubset/>= works on iterables."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Progression goes from algorithmic choice to stylistic choice, which is a reasonable but shallow gradient. The Pair did add a useful correction about text.lower() being called per-iteration, but the second question feels like filler rather than building depth."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and crisp; the Pair gave actionable corrections (e.g., the lower() allocation point, the 'non-letter removal isn't necessary' clarification). Flow is natural and efficient."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution `set(text.lower()) >= set('abc...xyz')` correctly solves the problem, equivalent in correctness to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns, ~58s, comparable to baseline's two turns/~69s. The experiment's teaching payoff is shallower than baseline's deep-dive into CPython internals and Big-O, but length is similar so friction is roughly proportional."
+      }
+    }
+  },
+  "weighted": 3.0,
+  "normalized": 0.5,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offered two binary choices (A/B) at two decision points, prompting the user to reason. That's reasonable engagement but limited \u2014 only two forks, both fairly cosmetic.\" },\n    \"question_quality\": { \"score\": 2, \"rationale\": \"The first fork (set vs all()) touches a real performance trade-off, but the second fork (literal string vs string.ascii_lowercase) is purely stylistic. Neither probes deeper subtleties like case-insensitivity edge cases, non-ASCII letters, or why issubset/>= works on iterables.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Progression goes from algorithmic choice to stylistic choice, which is a reasonable but shallow gradient. The Pair did add a useful correction about text.lower() being called per-iteration, but the second question feels like filler rather than building depth.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and crisp; the Pair gave actionable corrections (e.g., the lower() allocation point, the 'non-letter removal isn't necessary' clarification). Flow is natural and efficient.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution `set(text.lower()) >= set('abc...xyz')` correctly solves the problem, equivalent in correctness to baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two turns, ~58s, comparable to baseline's two turns/~69s. The experiment's teaching payoff is shallower than baseline's deep-dive into CPython internals and Big-O, but length is similar so friction is roughly proportional.\" }\n  }\n}"
+}

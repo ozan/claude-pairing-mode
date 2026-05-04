@@ -1,0 +1,39 @@
+{
+  "slug": "euler-1-multiples",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:35:55",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offers two A/B choice points (initial approach selection, and final complexity question) plus one open-ended prompt to continue. Reasonable engagement but limited to forks rather than probing understanding throughout."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The first fork (brute vs closed-form) is genuinely substantive. The final A/B on complexity is decent but somewhat leading and a bit cosmetic. The crux \u2014 why subtract multiples of 15, or deriving the triangular formula \u2014 is explained rather than asked."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Reasonable progression: ground truth \u2192 closed form \u2192 complexity reflection. However, the explanation of inclusion-exclusion and the `(n-1)//m` line is given directly rather than elicited, slightly spoiling potential teaching moments."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirming ('Solid reasoning'), turns flow naturally, and guidance is actionable. Each Pair turn responds well to the student's stated intent."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code includes both implementations with an assertion cross-check, producing 233168. Slightly more thorough than baseline which only verbally verified."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 3 turns vs baseline's 1, with modest pedagogical payoff (option fork, hands-on implementation, cross-validation). Length is proportional to the added teaching structure."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offers two A/B choice points (initial approach selection, and final complexity question) plus one open-ended prompt to continue. Reasonable engagement but limited to forks rather than probing understanding throughout.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The first fork (brute vs closed-form) is genuinely substantive. The final A/B on complexity is decent but somewhat leading and a bit cosmetic. The crux \u2014 why subtract multiples of 15, or deriving the triangular formula \u2014 is explained rather than asked.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Reasonable progression: ground truth \u2192 closed form \u2192 complexity reflection. However, the explanation of inclusion-exclusion and the `(n-1)//m` line is given directly rather than elicited, slightly spoiling potential teaching moments.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and affirming ('Solid reasoning'), turns flow naturally, and guidance is actionable. Each Pair turn responds well to the student's stated intent.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code includes both implementations with an assertion cross-check, producing 233168. Slightly more thorough than baseline which only verbally verified.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 3 turns vs baseline's 1, with modest pedagogical payoff (option fork, hands-on implementation, cross-validation). Length is proportional to the added teaching structure.\" }\n  }\n}"
+}

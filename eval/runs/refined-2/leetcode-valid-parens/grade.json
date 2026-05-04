@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-valid-parens",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:08",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two explicit design-choice questions early (push opener vs closer; guard vs sentinel) and a follow-up complexity question. Three substantive didactic prompts across four turns is a solid frequency."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first option (push opener vs push expected closer) is a genuine design trade-off, and the complexity/space-reduction question elicited the nice counter-vs-stack insight. The guard-vs-sentinel choice is more cosmetic but still teachable."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: data structure choice \u2192 safety/edge-case handling \u2192 implementation \u2192 complexity analysis \u2192 optimization limits. No spoilers, smooth gradient. The sentinel option is slightly odd but doesn't break flow."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth feels natural; the Pair validates reasoning then escalates to the next decision. The `[A]/[B]` format is a bit rigid but works well for this problem."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final solution is correct, clean, and arguably slightly more elegant than baseline (pushes expected closers, eliminating the matching dict at close time). Tests are run and pass."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns vs baseline's 3, with proportional pedagogical payoff (genuine design choice exploration and complexity discussion). Length is comparable to baseline."
+      }
+    }
+  },
+  "weighted": 3.8000000000000003,
+  "normalized": 0.7000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two explicit design-choice questions early (push opener vs closer; guard vs sentinel) and a follow-up complexity question. Three substantive didactic prompts across four turns is a solid frequency.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first option (push opener vs push expected closer) is a genuine design trade-off, and the complexity/space-reduction question elicited the nice counter-vs-stack insight. The guard-vs-sentinel choice is more cosmetic but still teachable.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: data structure choice \u2192 safety/edge-case handling \u2192 implementation \u2192 complexity analysis \u2192 optimization limits. No spoilers, smooth gradient. The sentinel option is slightly odd but doesn't break flow.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth feels natural; the Pair validates reasoning then escalates to the next decision. The `[A]/[B]` format is a bit rigid but works well for this problem.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final solution is correct, clean, and arguably slightly more elegant than baseline (pushes expected closers, eliminating the matching dict at close time). Tests are run and pass.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 4 turns vs baseline's 3, with proportional pedagogical payoff (genuine design choice exploration and complexity discussion). Length is comparable to baseline.\" }\n  }\n}"
+}

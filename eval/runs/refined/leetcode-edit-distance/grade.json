@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-edit-distance",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:19",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed a binary OPTIONS choice at every meaningful turn (approach, recurrence, space optimization), creating consistent engagement at decision points. Could have asked one more probing question about the trace itself rather than just presenting it."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The recurrence A/B (always +1 vs branch on match) hits the central correctness gotcha of the problem, and the space optimization fork is a genuine trade-off. The top-down vs bottom-up choice is more stylistic than substantive."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: approach \u2192 recurrence \u2192 space optimization \u2192 verification \u2192 trace. No spoilers in the options (both A and B are presented as plausible). The user explains their reasoning and the Pair confirms, which is good gradient."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is concise and professional, options are well-formatted, and the Pair responds to the user's choices respectfully (e.g., 'Fair call \u2014 clarity first'). Slightly mechanical due to the rigid OPTIONS template, but conversation flows naturally."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, passes all tests including edge cases. Equivalent to baseline's 2-D version, though baseline also delivered the space-optimized version while experiment user opted out."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Comparable length to baseline (4 turns, ~113s vs 107s). The OPTIONS structure adds slight overhead but the actual testing with concrete cases is a nice productivity addition the baseline lacked."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed a binary OPTIONS choice at every meaningful turn (approach, recurrence, space optimization), creating consistent engagement at decision points. Could have asked one more probing question about the trace itself rather than just presenting it.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The recurrence A/B (always +1 vs branch on match) hits the central correctness gotcha of the problem, and the space optimization fork is a genuine trade-off. The top-down vs bottom-up choice is more stylistic than substantive.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: approach \u2192 recurrence \u2192 space optimization \u2192 verification \u2192 trace. No spoilers in the options (both A and B are presented as plausible). The user explains their reasoning and the Pair confirms, which is good gradient.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is concise and professional, options are well-formatted, and the Pair responds to the user's choices respectfully (e.g., 'Fair call \u2014 clarity first'). Slightly mechanical due to the rigid OPTIONS template, but conversation flows naturally.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct, passes all tests including edge cases. Equivalent to baseline's 2-D version, though baseline also delivered the space-optimized version while experiment user opted out.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Comparable length to baseline (4 turns, ~113s vs 107s). The OPTIONS structure adds slight overhead but the actual testing with concrete cases is a nice productivity addition the baseline lacked.\" }\n  }\n}"
+}

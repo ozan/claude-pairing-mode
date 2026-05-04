@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-median-two-sorted",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:41",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed didactic forks at every meaningful decision point: mental model (partition vs k-th), search target (shorter array), boundary handling (sentinels vs branches), and the +1 formula subtlety. Five turns, four well-placed questions."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The choices target the actual cruxes of this problem: why search the shorter array (bounds become theorems), sentinels vs branches (correctness under edges), and the load-bearing +1 (formula/extraction coupling). The final question is especially sharp and exposed a real misconception."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression flows naturally from model selection \u2192 search domain \u2192 validation \u2192 boundary reads \u2192 final correctness subtlety. No spoilers \u2014 the Pair posed each fork before revealing the answer, and the +1 question deliberately tested deeper understanding."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tone is concise and warm; the Pair confirmed correct answers crisply and corrected the student's wrong answer on the +1 question with a constructive 'right instinct one step too early' framing. Back-and-forth is fluid."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 5,
+        "rationale": "Final solution is correct, O(log(min(n,m))), handles empty arrays and all tested edges. Equivalent to baseline, with empirical verification via test runs."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "5 turns / 166s vs baseline's 2 turns / 54s \u2014 about 3x longer, but the extra length delivered substantial pedagogical payoff (four well-placed forks, the +1 misconception correction with empirical verification). Proportional gain justifies most of the overhead."
+      }
+    }
+  },
+  "weighted": 4.8,
+  "normalized": 0.95,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed didactic forks at every meaningful decision point: mental model (partition vs k-th), search target (shorter array), boundary handling (sentinels vs branches), and the +1 formula subtlety. Five turns, four well-placed questions.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"The choices target the actual cruxes of this problem: why search the shorter array (bounds become theorems), sentinels vs branches (correctness under edges), and the load-bearing +1 (formula/extraction coupling). The final question is especially sharp and exposed a real misconception.\" },\n    \"scaffolding\":        { \"score\": 5, \"rationale\": \"Progression flows naturally from model selection \u2192 search domain \u2192 validation \u2192 boundary reads \u2192 final correctness subtlety. No spoilers \u2014 the Pair posed each fork before revealing the answer, and the +1 question deliberately tested deeper understanding.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Tone is concise and warm; the Pair confirmed correct answers crisply and corrected the student's wrong answer on the +1 question with a constructive 'right instinct one step too early' framing. Back-and-forth is fluid.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 5, \"rationale\": \"Final solution is correct, O(log(min(n,m))), handles empty arrays and all tested edges. Equivalent to baseline, with empirical verification via test runs.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"5 turns / 166s vs baseline's 2 turns / 54s \u2014 about 3x longer, but the extra length delivered substantial pedagogical payoff (four well-placed forks, the +1 misconception correction with empirical verification). Proportional gain justifies most of the overhead.\" }\n  }\n}"
+}

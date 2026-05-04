@@ -1,0 +1,39 @@
+{
+  "slug": "euler-14-collatz",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:02",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered two well-framed multiple-choice forks (memoize vs brute-force, then recursive vs iterative) at the two natural decision points. Could have probed more (e.g., why chain length \u2260 recursion depth), but frequency is solid for a 3-turn session."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Both choices target real trade-offs: memoization vs recomputation, and recursion depth risk vs cleanliness. The second fork in particular surfaces the classic Collatz gotcha about unbounded intermediate values, though the Pair didn't explicitly pull that insight out as a question."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithmic strategy \u2192 implementation style \u2192 execution. No spoilers; each option is presented neutrally. Slight miss: the recursion-depth subtlety (chains exceeding 1M) is mentioned only after the user picks B, rather than being elicited."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and concise, options are crisp, and the Pair affirms reasoning without flattery. Conversation flows naturally with the user's stated rationale being acknowledged and built upon."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code returns 837799 correctly, equivalent to baseline. The `return cache[chain[0]] if chain else cache[n]` is slightly awkward but functionally correct."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns vs baseline's two, similar wall time (~50s). The extra turn buys genuine pedagogical engagement (user-driven choice between recursion approaches) proportional to the modest length increase."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered two well-framed multiple-choice forks (memoize vs brute-force, then recursive vs iterative) at the two natural decision points. Could have probed more (e.g., why chain length \u2260 recursion depth), but frequency is solid for a 3-turn session.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"Both choices target real trade-offs: memoization vs recomputation, and recursion depth risk vs cleanliness. The second fork in particular surfaces the classic Collatz gotcha about unbounded intermediate values, though the Pair didn't explicitly pull that insight out as a question.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from algorithmic strategy \u2192 implementation style \u2192 execution. No spoilers; each option is presented neutrally. Slight miss: the recursion-depth subtlety (chains exceeding 1M) is mentioned only after the user picks B, rather than being elicited.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and concise, options are crisp, and the Pair affirms reasoning without flattery. Conversation flows naturally with the user's stated rationale being acknowledged and built upon.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code returns 837799 correctly, equivalent to baseline. The `return cache[chain[0]] if chain else cache[n]` is slightly awkward but functionally correct.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Three turns vs baseline's two, similar wall time (~50s). The extra turn buys genuine pedagogical engagement (user-driven choice between recursion approaches) proportional to the modest length increase.\" }\n  }\n}"
+}

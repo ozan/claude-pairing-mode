@@ -1,0 +1,39 @@
+{
+  "slug": "ours-fizzbuzz",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:43",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair opens with an explicit A/B fork and follows up with a targeted question about why `print(result or i)` works. Two well-placed didactic prompts in a short two-turn session is good density."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B choice surfaces a genuine design tension (combinatorial scaling of the % 15 trick vs. additive concatenation), and the follow-up targets the truthiness/short-circuit semantics \u2014 both are real teachable cruxes for this problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: pick approach \u2192 implement/run \u2192 probe the subtle line. The scaling remark after the choice reinforces the trade-off without spoiling. Minor ding because the `or` question comes only after the user already chose A, with no earlier priming."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Crisp, natural back-and-forth. The Pair acknowledges the user's reasoning, adds a sharp insight about scaling, then asks a focused question the user answers correctly. No filler."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code runs and produces correct FizzBuzz output, equivalent to baseline. Solves the original problem fully."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Same number of turns as baseline (2) with comparable runtime, and the option-fork format extracted a real teaching moment about scaling and truthiness without bloat."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair opens with an explicit A/B fork and follows up with a targeted question about why `print(result or i)` works. Two well-placed didactic prompts in a short two-turn session is good density.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The A/B choice surfaces a genuine design tension (combinatorial scaling of the % 15 trick vs. additive concatenation), and the follow-up targets the truthiness/short-circuit semantics \u2014 both are real teachable cruxes for this problem.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: pick approach \u2192 implement/run \u2192 probe the subtle line. The scaling remark after the choice reinforces the trade-off without spoiling. Minor ding because the `or` question comes only after the user already chose A, with no earlier priming.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Crisp, natural back-and-forth. The Pair acknowledges the user's reasoning, adds a sharp insight about scaling, then asks a focused question the user answers correctly. No filler.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code runs and produces correct FizzBuzz output, equivalent to baseline. Solves the original problem fully.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Same number of turns as baseline (2) with comparable runtime, and the option-fork format extracted a real teaching moment about scaling and truthiness without bloat.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "euler-21-amicable",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:06",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Three distinct decision points were posed to the user across the session (sqrt loop vs naive, amicable condition, walrus vs explicit loop), covering most meaningful forks."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The d(n) != n vs naive condition is the genuine crux (perfect-number trap), and sqrt vs n-1 is a real algorithmic trade-off. The walrus question is more stylistic but still substantive."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from the building block (d(n)) to the main predicate to a refinement. No spoilers, and difficulty escalates smoothly. The walrus-vs-loop step is a bit minor but doesn't break flow."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is concise and warm, with brief affirmations (\"Spot on\") and clean recaps. Some minor noise from a no-op edit, but the back-and-forth feels natural."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code outputs 31626 correctly, equivalent to the baseline solution."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns / 94s vs baseline's 1 turn / 21s, but the extra length yields proportional pedagogical payoff (three real decision points with explanations of perfect-number exclusion and the walrus idiom)."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Three distinct decision points were posed to the user across the session (sqrt loop vs naive, amicable condition, walrus vs explicit loop), covering most meaningful forks.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The d(n) != n vs naive condition is the genuine crux (perfect-number trap), and sqrt vs n-1 is a real algorithmic trade-off. The walrus question is more stylistic but still substantive.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from the building block (d(n)) to the main predicate to a refinement. No spoilers, and difficulty escalates smoothly. The walrus-vs-loop step is a bit minor but doesn't break flow.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is concise and warm, with brief affirmations (\\\"Spot on\\\") and clean recaps. Some minor noise from a no-op edit, but the back-and-forth feels natural.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code outputs 31626 correctly, equivalent to the baseline solution.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns / 94s vs baseline's 1 turn / 21s, but the extra length yields proportional pedagogical payoff (three real decision points with explanations of perfect-number exclusion and the walrus idiom).\" }\n  }\n}"
+}

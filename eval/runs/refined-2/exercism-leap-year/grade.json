@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-leap-year",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:32",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair posed one substantive choice (A vs B on expression structure) at the outset. That's a single didactic question, but it was placed at the most meaningful decision point of this tiny problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B fork directly targets the crux: operator precedence vs. explicit parentheses, which is the only real design tension in this one-liner. Forcing the user to articulate why one form is preferable elicits a clear readability/precedence reasoning."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Reasonable progression: pose the choice, confirm reasoning, then reveal the precedence detail as reinforcement rather than spoiler. No abrupt jumps; the precedence fact comes after the user committed to a position."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth feels natural. The Pair affirms with a useful aphorism ('code is read more often than written') and adds the precedence note non-condescendingly."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to baseline and correct: `year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)`."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns and ~40s vs baseline's 26s \u2014 slightly longer, but the extra length bought a genuine pedagogical exchange about precedence and readability rather than a monologue."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair posed one substantive choice (A vs B on expression structure) at the outset. That's a single didactic question, but it was placed at the most meaningful decision point of this tiny problem.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The A/B fork directly targets the crux: operator precedence vs. explicit parentheses, which is the only real design tension in this one-liner. Forcing the user to articulate why one form is preferable elicits a clear readability/precedence reasoning.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Reasonable progression: pose the choice, confirm reasoning, then reveal the precedence detail as reinforcement rather than spoiler. No abrupt jumps; the precedence fact comes after the user committed to a position.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth feels natural. The Pair affirms with a useful aphorism ('code is read more often than written') and adds the precedence note non-condescendingly.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical to baseline and correct: `year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)`.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two turns and ~40s vs baseline's 26s \u2014 slightly longer, but the extra length bought a genuine pedagogical exchange about precedence and readability rather than a monologue.\" }\n  }\n}"
+}

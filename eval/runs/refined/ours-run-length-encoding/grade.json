@@ -1,0 +1,39 @@
+{
+  "slug": "ours-run-length-encoding",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:44",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed three distinct decision points (grouping approach, decode approach, test strategy), each with explicit options and follow-up questions. Nearly every meaningful decision point invited the user's input."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Each question hit a real crux: stdlib idioms vs manual loop, the multi-digit silent-failure trap in decode, and the correlated-failure blind spot of round-trip-only tests. These are exactly the consequential forks."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression from encode \u2192 decode \u2192 testing is logical and difficulty escalates appropriately. The decode question hints at the trap ('silently fail') which slightly spoils the answer, but otherwise the gradient is clean."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Brief affirmations ('Nailed it', 'Exactly right') paired with substantive next steps. The user engaged thoughtfully and the back-and-forth felt natural and well-paced."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, handles multi-digit counts, and passes both format and round-trip tests. Functionally equivalent to baseline (which had slightly more elaborate test output, but experiment has stronger test design)."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "4 turns / 87s vs baseline's 2 turns / 62s \u2014 modestly longer, but with clear pedagogical payoff (three substantive lessons surfaced via user-driven choices vs baseline's post-hoc explanation). Length is proportional to teaching gain."
+      }
+    }
+  },
+  "weighted": 4.3,
+  "normalized": 0.825,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed three distinct decision points (grouping approach, decode approach, test strategy), each with explicit options and follow-up questions. Nearly every meaningful decision point invited the user's input.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Each question hit a real crux: stdlib idioms vs manual loop, the multi-digit silent-failure trap in decode, and the correlated-failure blind spot of round-trip-only tests. These are exactly the consequential forks.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression from encode \u2192 decode \u2192 testing is logical and difficulty escalates appropriately. The decode question hints at the trap ('silently fail') which slightly spoils the answer, but otherwise the gradient is clean.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Brief affirmations ('Nailed it', 'Exactly right') paired with substantive next steps. The user engaged thoughtfully and the back-and-forth felt natural and well-paced.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct, handles multi-digit counts, and passes both format and round-trip tests. Functionally equivalent to baseline (which had slightly more elaborate test output, but experiment has stronger test design).\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"4 turns / 87s vs baseline's 2 turns / 62s \u2014 modestly longer, but with clear pedagogical payoff (three substantive lessons surfaced via user-driven choices vs baseline's post-hoc explanation). Length is proportional to teaching gain.\" }\n  }\n}"
+}

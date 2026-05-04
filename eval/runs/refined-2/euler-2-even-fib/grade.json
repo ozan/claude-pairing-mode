@@ -1,0 +1,39 @@
+{
+  "slug": "euler-2-even-fib",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:06",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed didactic questions at every turn: approach choice, accumulation style, tuple-unpacking gotcha, and parity pattern. Four meaningful prompts in a short problem is high frequency."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The tuple-unpacking question and the parity-pattern question hit real teachable moments. The A/B between accumulating vs collecting is more cosmetic, but the algorithmic A/B (filter vs every-3rd recurrence) is substantive."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose approach \u2192 choose implementation \u2192 verify \u2192 reflect on language detail \u2192 reflect on math structure. The parity insight comes after the working solution, avoiding spoilers for the initial algorithm choice."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirming, responses are actionable, and the back-and-forth feels natural. Slight repetitiveness in the option-format prompts keeps it from feeling fully conversational."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces 4,613,732, equivalent to baseline. Clean and correct."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "About 4x the turns of baseline (4 vs 1) and ~3.5x the time, but the extra length delivered genuine teaching on tuple unpacking and the parity period, which is a proportional payoff."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed didactic questions at every turn: approach choice, accumulation style, tuple-unpacking gotcha, and parity pattern. Four meaningful prompts in a short problem is high frequency.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The tuple-unpacking question and the parity-pattern question hit real teachable moments. The A/B between accumulating vs collecting is more cosmetic, but the algorithmic A/B (filter vs every-3rd recurrence) is substantive.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: choose approach \u2192 choose implementation \u2192 verify \u2192 reflect on language detail \u2192 reflect on math structure. The parity insight comes after the working solution, avoiding spoilers for the initial algorithm choice.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and affirming, responses are actionable, and the back-and-forth feels natural. Slight repetitiveness in the option-format prompts keeps it from feeling fully conversational.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code produces 4,613,732, equivalent to baseline. Clean and correct.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"About 4x the turns of baseline (4 vs 1) and ~3.5x the time, but the extra length delivered genuine teaching on tuple unpacking and the parity period, which is a proportional payoff.\" }\n  }\n}"
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-bowling",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 12,
+  "duration_s": 353.8268690109253,
+  "propose_options_calls": 6,
+  "leaks_detected": 0,
+  "error": null
+}

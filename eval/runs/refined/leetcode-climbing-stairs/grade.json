@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-climbing-stairs",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:54",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offered two explicit option-based forks (initial implementation choice, then the k=3 generalization) plus a closing observation. That's a moderate frequency \u2014 more engagement than baseline's monologue, but only two real decision points."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The first choice (naive vs iterative DP) hits the central trade-off of overlapping subproblems. The second (generalization to k=3) is a nice extension but the user declined it. The Fibonacci connection was revealed rather than asked."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Reasonable progression: recurrence \u2192 implementation choice \u2192 verification \u2192 generalization. However, the jump to k=3 with two fairly complex code variants was abrupt, and the user pushed back on the scope expansion."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the Pair gracefully accepted the user's request to stay focused. Verification was concrete with passing tests, and the closing Fibonacci observation landed well."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to baseline (just uses a=b=1 seeding instead of explicit base case), passes all test cases including n=10."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 3 turns/94s vs baseline's 2 turns/32s. The extra length came from the option menus and the declined generalization detour, with modest pedagogical payoff (the Fibonacci recognition was arguably stronger in baseline)."
+      }
+    }
+  },
+  "weighted": 3.1,
+  "normalized": 0.525,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offered two explicit option-based forks (initial implementation choice, then the k=3 generalization) plus a closing observation. That's a moderate frequency \u2014 more engagement than baseline's monologue, but only two real decision points.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The first choice (naive vs iterative DP) hits the central trade-off of overlapping subproblems. The second (generalization to k=3) is a nice extension but the user declined it. The Fibonacci connection was revealed rather than asked.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Reasonable progression: recurrence \u2192 implementation choice \u2192 verification \u2192 generalization. However, the jump to k=3 with two fairly complex code variants was abrupt, and the user pushed back on the scope expansion.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the Pair gracefully accepted the user's request to stay focused. Verification was concrete with passing tests, and the closing Fibonacci observation landed well.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to baseline (just uses a=b=1 seeding instead of explicit base case), passes all test cases including n=10.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 3 turns/94s vs baseline's 2 turns/32s. The extra length came from the option menus and the declined generalization detour, with modest pedagogical payoff (the Fibonacci recognition was arguably stronger in baseline).\" }\n  }\n}"
+}

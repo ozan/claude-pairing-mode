@@ -1,0 +1,39 @@
+{
+  "slug": "euler-17-letter-counts",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:14",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Every turn presents a binary design choice via OPTIONS, totaling 5 didactic forks before code is written. Each meaningful decision point engaged the user."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The 'and' rule for British English and the trailing-hyphen guard are genuinely substantive gotchas. The ones/teens split and helper-vs-flat are real design choices, though somewhat cosmetic. No deep algorithmic trade-off, but appropriate for the problem."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Clean progression from approach selection \u2192 helper decomposition \u2192 lookup table shape \u2192 sub-100 logic \u2192 'and' rule \u2192 assembly. Difficulty rises smoothly and no answers are spoiled in the option framings."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth is fluid, with the tutor briefly affirming user reasoning before moving on. Slightly mechanical due to the rigid OPTIONS format every turn, but conversational flow is good."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code produces 21124 with clean spot-checks and a well-structured implementation. Slightly better engineered than the baseline's pure manual arithmetic, since it's executable and verifiable."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "6 turns vs baseline's 1, but baseline did manual arithmetic with no code. The experiment built actual working code with substantial pedagogical payoff (British 'and' rule, hyphen guard, decomposition), justifying the extra length."
+      }
+    }
+  },
+  "weighted": 4.4,
+  "normalized": 0.8500000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Every turn presents a binary design choice via OPTIONS, totaling 5 didactic forks before code is written. Each meaningful decision point engaged the user.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The 'and' rule for British English and the trailing-hyphen guard are genuinely substantive gotchas. The ones/teens split and helper-vs-flat are real design choices, though somewhat cosmetic. No deep algorithmic trade-off, but appropriate for the problem.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Clean progression from approach selection \u2192 helper decomposition \u2192 lookup table shape \u2192 sub-100 logic \u2192 'and' rule \u2192 assembly. Difficulty rises smoothly and no answers are spoiled in the option framings.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth is fluid, with the tutor briefly affirming user reasoning before moving on. Slightly mechanical due to the rigid OPTIONS format every turn, but conversational flow is good.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code produces 21124 with clean spot-checks and a well-structured implementation. Slightly better engineered than the baseline's pure manual arithmetic, since it's executable and verifiable.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"6 turns vs baseline's 1, but baseline did manual arithmetic with no code. The experiment built actual working code with substantial pedagogical payoff (British 'and' rule, hyphen guard, decomposition), justifying the extra length.\" }\n  }\n}"
+}

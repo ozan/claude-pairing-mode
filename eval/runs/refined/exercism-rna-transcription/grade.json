@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-rna-transcription",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:51",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Three distinct decision points were surfaced as A/B options (mapping approach, validation strategy, test framework), engaging the user at each meaningful fork."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The validation choice (EAFP vs pre-validate) hits a real Pythonic design tension. The mapping choice surfaces a useful idiom trade-off. The test framework choice is more cosmetic but still reasonable."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: implementation \u2192 validation \u2192 tests, with each step building on the prior choice. No spoilers; difficulty is even though kept fairly easy throughout."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Smooth back-and-forth with brief affirmations ('Nailed it \u2014 EAFP is exactly the right framing'). The tutor reinforced reasoning without being saccharine, and choices flowed naturally into implementation."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution works and passes its tests, comparable to baseline. Slightly less robust error message (single first invalid char vs all) but functionally equivalent for the spec."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns vs baseline's 2, but each extra turn delivered a real teachable choice and the run was actually faster in wall time (69s vs 83s). Proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Three distinct decision points were surfaced as A/B options (mapping approach, validation strategy, test framework), engaging the user at each meaningful fork.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The validation choice (EAFP vs pre-validate) hits a real Pythonic design tension. The mapping choice surfaces a useful idiom trade-off. The test framework choice is more cosmetic but still reasonable.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: implementation \u2192 validation \u2192 tests, with each step building on the prior choice. No spoilers; difficulty is even though kept fairly easy throughout.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Smooth back-and-forth with brief affirmations ('Nailed it \u2014 EAFP is exactly the right framing'). The tutor reinforced reasoning without being saccharine, and choices flowed naturally into implementation.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution works and passes its tests, comparable to baseline. Slightly less robust error message (single first invalid char vs all) but functionally equivalent for the spec.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns vs baseline's 2, but each extra turn delivered a real teachable choice and the run was actually faster in wall time (69s vs 83s). Proportional pedagogical payoff.\" }\n  }\n}"
+}

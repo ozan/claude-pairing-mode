@@ -1,0 +1,39 @@
+{
+  "slug": "euler-6-sum-square-diff",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:16",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair offered an A/B choice at the start and one follow-up offer to derive the formula, but the user declined. Only one real didactic question moment, and the deeper teaching never happened."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The A/B fork (closed-form vs brute-force) is a substantive trade-off touching math knowledge vs readability/performance, which is the core pedagogical hinge of this problem. But no further consequential choices were surfaced."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Scaffolding barely got started \u2014 one fork, then the user declined further teaching and the Pair accepted. No progression occurred, so the scaffolding plan (if any) wasn't realized."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and respectful, the Pair validates the user's reasoning and offers extension without pushing. Conversation flows naturally, though it ends abruptly with little teaching delivered."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly produces 25,164,150 using the brute-force approach, equivalent in correctness to the baseline. Baseline showed both approaches; experiment only produced one, but it works."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns, ~36s, comparable or tighter than baseline's three turns. No wasted effort, though pedagogical payoff was also minimal compared to baseline's rich derivation."
+      }
+    }
+  },
+  "weighted": 2.7,
+  "normalized": 0.42500000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair offered an A/B choice at the start and one follow-up offer to derive the formula, but the user declined. Only one real didactic question moment, and the deeper teaching never happened.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The A/B fork (closed-form vs brute-force) is a substantive trade-off touching math knowledge vs readability/performance, which is the core pedagogical hinge of this problem. But no further consequential choices were surfaced.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"Scaffolding barely got started \u2014 one fork, then the user declined further teaching and the Pair accepted. No progression occurred, so the scaffolding plan (if any) wasn't realized.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and respectful, the Pair validates the user's reasoning and offers extension without pushing. Conversation flows naturally, though it ends abruptly with little teaching delivered.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly produces 25,164,150 using the brute-force approach, equivalent in correctness to the baseline. Baseline showed both approaches; experiment only produced one, but it works.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two turns, ~36s, comparable or tighter than baseline's three turns. No wasted effort, though pedagogical payoff was also minimal compared to baseline's rich derivation.\" }\n  }\n}"
+}

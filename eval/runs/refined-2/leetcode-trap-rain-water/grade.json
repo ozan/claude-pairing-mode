@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-trap-rain-water",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:07",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed substantive questions at nearly every decision point: the core formula (A/B options), approach choice (arrays vs two pointers), why subtraction is non-negative, and the order of operations subtlety. Five distinct teachable moments across six turns."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Questions hit the actual cruxes: the min-of-maxes formula, the space/clarity tradeoff, the invariant justifying two-pointer safety, and the subtle update-then-add ordering that prevents negative water. The order-of-operations question in particular caught a deep gotcha."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression is excellent: formula \u2192 approach choice \u2192 simpler implementation \u2192 invariant explanation with worked [3,0,5] example \u2192 two-pointer code \u2192 ordering subtlety \u2192 verification. The Pair even deferred two-pointer until the student felt ready, and used hints rather than spoilers."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Conversational and warm without being saccharine. The Pair respected the student's preference to understand before coding, and notably corrected the student's incorrect reasoning about update order rather than letting a wrong mental model stick \u2014 exactly the kind of intervention that makes pedagogical pairing valuable."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 5,
+        "rationale": "Final code includes both DP and two-pointer implementations, both verified against multiple test cases including edge cases (empty, single, equal heights). Slightly more thorough than the baseline, which only presented code without execution verification of two-pointer."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Six turns (~167s) vs baseline's single turn (~30s), but the extra length delivers proportional pedagogical payoff: student-derived formula, justified approach choice, worked invariant, and a corrected misconception about update ordering. Not tighter, but the teaching gain justifies the length."
+      }
+    }
+  },
+  "weighted": 4.8,
+  "normalized": 0.95,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed substantive questions at nearly every decision point: the core formula (A/B options), approach choice (arrays vs two pointers), why subtraction is non-negative, and the order of operations subtlety. Five distinct teachable moments across six turns.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Questions hit the actual cruxes: the min-of-maxes formula, the space/clarity tradeoff, the invariant justifying two-pointer safety, and the subtle update-then-add ordering that prevents negative water. The order-of-operations question in particular caught a deep gotcha.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Progression is excellent: formula \u2192 approach choice \u2192 simpler implementation \u2192 invariant explanation with worked [3,0,5] example \u2192 two-pointer code \u2192 ordering subtlety \u2192 verification. The Pair even deferred two-pointer until the student felt ready, and used hints rather than spoilers.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Conversational and warm without being saccharine. The Pair respected the student's preference to understand before coding, and notably corrected the student's incorrect reasoning about update order rather than letting a wrong mental model stick \u2014 exactly the kind of intervention that makes pedagogical pairing valuable.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 5, \"rationale\": \"Final code includes both DP and two-pointer implementations, both verified against multiple test cases including edge cases (empty, single, equal heights). Slightly more thorough than the baseline, which only presented code without execution verification of two-pointer.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Six turns (~167s) vs baseline's single turn (~30s), but the extra length delivers proportional pedagogical payoff: student-derived formula, justified approach choice, worked invariant, and a corrected misconception about update ordering. Not tighter, but the teaching gain justifies the length.\" }\n  }\n}"
+}

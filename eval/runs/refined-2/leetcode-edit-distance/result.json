@@ -1,0 +1,10 @@
+{
+  "slug": "leetcode-edit-distance",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 5,
+  "duration_s": 115.43029975891113,
+  "propose_options_calls": 3,
+  "leaks_detected": 0,
+  "error": null
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-mini-calculator",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:30",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed a binary choice at every meaningful decision point: algorithm choice, tokenize-vs-not, tokenizer style, state management, loop-vs-recurse, and error handling. Six distinct didactic forks across seven turns."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most choices target real design tensions: shunting-yard vs recursive descent, recurse vs iterate (which directly implicates left-associativity), and the consume-all check (a classic gotcha). The class-vs-closure and manual-vs-regex tokenizer questions are more stylistic than crux."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression is logical: approach \u2192 tokenizer \u2192 parser state \u2192 loop structure \u2192 error handling. Difficulty climbs smoothly. The associativity insight is teed up by option B but never explicitly probed as a question \u2014 the Pair reveals it after the fact rather than letting the user discover it."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation flows naturally with concise affirmations and clean handoffs. Tone is warm and efficient. Slightly mechanical due to the repeated A/B option format, but each fork is well-motivated."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly evaluates the required operators with precedence and parentheses, plus error handling for unmatched parens and unexpected tokens. Lacks unary minus which the baseline supports, but the original problem didn't require it."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 7 turns vs baseline's 3, but each extra turn corresponds to a genuine pedagogical fork the user resolved. Length is proportional to the teaching payoff, comparable wall time (155s vs 164s)."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed a binary choice at every meaningful decision point: algorithm choice, tokenize-vs-not, tokenizer style, state management, loop-vs-recurse, and error handling. Six distinct didactic forks across seven turns.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Most choices target real design tensions: shunting-yard vs recursive descent, recurse vs iterate (which directly implicates left-associativity), and the consume-all check (a classic gotcha). The class-vs-closure and manual-vs-regex tokenizer questions are more stylistic than crux.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression is logical: approach \u2192 tokenizer \u2192 parser state \u2192 loop structure \u2192 error handling. Difficulty climbs smoothly. The associativity insight is teed up by option B but never explicitly probed as a question \u2014 the Pair reveals it after the fact rather than letting the user discover it.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversation flows naturally with concise affirmations and clean handoffs. Tone is warm and efficient. Slightly mechanical due to the repeated A/B option format, but each fork is well-motivated.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly evaluates the required operators with precedence and parentheses, plus error handling for unmatched parens and unexpected tokens. Lacks unary minus which the baseline supports, but the original problem didn't require it.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 7 turns vs baseline's 3, but each extra turn corresponds to a genuine pedagogical fork the user resolved. Length is proportional to the teaching payoff, comparable wall time (155s vs 164s).\" }\n  }\n}"
+}

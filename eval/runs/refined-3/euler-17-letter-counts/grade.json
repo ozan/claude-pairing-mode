@@ -1,0 +1,39 @@
+{
+  "slug": "euler-17-letter-counts",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:28",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair offered a structured A/B choice at virtually every meaningful decision point: high-level approach, function decomposition, list indexing scheme, zero handling, 'and' rule, and counting expression. Six substantive forks across seven turns is a high frequency."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most choices target real teachable issues: padded vs offset indexing, conditional 'and' for British English, zero-handling via padding. The final A/B on counting was weaker (one option was deliberately broken syntax), which feels contrived rather than crux-targeting."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from approach \u2192 decomposition \u2192 data structures \u2192 sub-helper \u2192 composition \u2192 final aggregation. No spoilers, smooth gradient. Slight weakness: the last fork was a bit of a softball with one syntactically invalid option."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirming ('Spot on', 'the padding earns its keep'), and the back-and-forth flows naturally. Slightly formulaic due to the rigid A/B option pattern at every turn, but never disruptive."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 5,
+        "rationale": "Final code produces 21124, verified against the problem's own 342 example with sensible spot checks. Cleanly factored solution arguably better-engineered than the baseline's pure arithmetic walkthrough (which didn't produce code at all)."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Experiment took 7 turns / 167s vs baseline's 1 turn / 40s, but baseline only did arithmetic by hand while experiment built a working, testable program with genuine teaching at each fork. The extra length is proportional to the pedagogical and engineering payoff."
+      }
+    }
+  },
+  "weighted": 4.3,
+  "normalized": 0.825,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair offered a structured A/B choice at virtually every meaningful decision point: high-level approach, function decomposition, list indexing scheme, zero handling, 'and' rule, and counting expression. Six substantive forks across seven turns is a high frequency.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"Most choices target real teachable issues: padded vs offset indexing, conditional 'and' for British English, zero-handling via padding. The final A/B on counting was weaker (one option was deliberately broken syntax), which feels contrived rather than crux-targeting.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from approach \u2192 decomposition \u2192 data structures \u2192 sub-helper \u2192 composition \u2192 final aggregation. No spoilers, smooth gradient. Slight weakness: the last fork was a bit of a softball with one syntactically invalid option.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and affirming ('Spot on', 'the padding earns its keep'), and the back-and-forth flows naturally. Slightly formulaic due to the rigid A/B option pattern at every turn, but never disruptive.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 5, \"rationale\": \"Final code produces 21124, verified against the problem's own 342 example with sensible spot checks. Cleanly factored solution arguably better-engineered than the baseline's pure arithmetic walkthrough (which didn't produce code at all).\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Experiment took 7 turns / 167s vs baseline's 1 turn / 40s, but baseline only did arithmetic by hand while experiment built a working, testable program with genuine teaching at each fork. The extra length is proportional to the pedagogical and engineering payoff.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-coin-change",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:14",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Every turn presents a binary choice question at a teachable moment: approach selection, initialization, guard logic, and complexity analysis. Four meaningful didactic questions across four turns."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Each fork hits a real crux: greedy vs DP (correctness), sentinel choice (distinguishing unreachable from zero-cost), guard necessity (mathematical insight that sentinel arithmetic suffices), and complexity. The guard question is especially sharp."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Logical progression from algorithm choice \u2192 data structure init \u2192 recurrence detail \u2192 complexity analysis. Difficulty builds smoothly, and the tutor's hint on the guard question ('think about what happens mathematically') guides without spoiling."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tight, warm exchanges. Tutor affirms reasoning briefly then advances. Options format is consistent and actionable, and the student engages substantively with each question."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to baseline; passes the same kinds of test cases including the greedy-failure case. No notable improvement or regression."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Took 4 turns / 118s vs baseline's 2 turns / 53s, but the extra length delivers proportional teaching value via four substantive forks rather than a single info-dump. Reasonable trade."
+      }
+    }
+  },
+  "weighted": 4.4,
+  "normalized": 0.8500000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Every turn presents a binary choice question at a teachable moment: approach selection, initialization, guard logic, and complexity analysis. Four meaningful didactic questions across four turns.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Each fork hits a real crux: greedy vs DP (correctness), sentinel choice (distinguishing unreachable from zero-cost), guard necessity (mathematical insight that sentinel arithmetic suffices), and complexity. The guard question is especially sharp.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Logical progression from algorithm choice \u2192 data structure init \u2192 recurrence detail \u2192 complexity analysis. Difficulty builds smoothly, and the tutor's hint on the guard question ('think about what happens mathematically') guides without spoiling.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Tight, warm exchanges. Tutor affirms reasoning briefly then advances. Options format is consistent and actionable, and the student engages substantively with each question.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to baseline; passes the same kinds of test cases including the greedy-failure case. No notable improvement or regression.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Took 4 turns / 118s vs baseline's 2 turns / 53s, but the extra length delivers proportional teaching value via four substantive forks rather than a single info-dump. Reasonable trade.\" }\n  }\n}"
+}

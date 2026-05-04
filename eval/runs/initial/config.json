@@ -1,6 +1,6 @@
 {
   "condition": "regular",
-  "tag": "regular",
+  "tag": "initial",
   "tutor_model": "claude-sonnet-4-6",
   "student_model": "claude-haiku-4-5-20251001",
   "max_turns": 50,

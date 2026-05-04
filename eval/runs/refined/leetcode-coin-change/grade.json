@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-coin-change",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:03",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair offered a structured A/B choice at every meaningful decision point: approach (greedy vs DP), sentinel value, +1 placement, and the final boundary check. Four distinct didactic forks across a short problem."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Each fork targets a genuine crux: greedy's failure mode, sentinel semantics, the subtle but classic +1-inside-vs-outside-min bug, and the off-by-one in the final reachability check \u2014 exactly the gotchas of this problem."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "The progression moves from high-level approach \u2192 initialization \u2192 recurrence \u2192 return check, with smooth difficulty escalation. No spoilers \u2014 the <= vs < choice was framed cleanly enough that the student self-corrected."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tone is warm and concise, with affirming feedback ('Spot on') and immediate follow-throughs writing the file. The student visibly reasons aloud and even reverses their initial answer, indicating real engagement."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to the baseline solution, handling all standard cases including the tricky dp[amount] == amount edge."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Roughly 5 turns vs baseline's 2, but each extra turn delivered a clearly targeted teachable moment (sentinel, +1 placement, boundary check) with proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 4.4,
+  "normalized": 0.8500000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair offered a structured A/B choice at every meaningful decision point: approach (greedy vs DP), sentinel value, +1 placement, and the final boundary check. Four distinct didactic forks across a short problem.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"Each fork targets a genuine crux: greedy's failure mode, sentinel semantics, the subtle but classic +1-inside-vs-outside-min bug, and the off-by-one in the final reachability check \u2014 exactly the gotchas of this problem.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"The progression moves from high-level approach \u2192 initialization \u2192 recurrence \u2192 return check, with smooth difficulty escalation. No spoilers \u2014 the <= vs < choice was framed cleanly enough that the student self-corrected.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Tone is warm and concise, with affirming feedback ('Spot on') and immediate follow-throughs writing the file. The student visibly reasons aloud and even reverses their initial answer, indicating real engagement.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to the baseline solution, handling all standard cases including the tricky dp[amount] == amount edge.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Roughly 5 turns vs baseline's 2, but each extra turn delivered a clearly targeted teachable moment (sentinel, +1 placement, boundary check) with proportional pedagogical payoff.\" }\n  }\n}"
+}

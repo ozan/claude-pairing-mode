@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-trap-rain-water",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:32",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair posed two structured choices (approach selection A/B, then the max(0,...) redundancy A/B) plus prompted for a trace. That's a reasonable amount for a short problem, but other teachable moments (e.g., why the invariant holds, why bounds self-enforce) were stated rather than asked."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The max(0, ...) question is genuinely substantive \u2014 it targets the invariant that left_max/right_max include height[i], which is the conceptual crux of correctness. The initial A/B between prefix arrays and two pointers is also a meaningful trade-off, though the Pair never circled back to the two-pointer optimization."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose approach \u2192 code skeleton steps \u2192 verify correctness \u2192 examine redundancy \u2192 trace example. No spoilers, smooth gradient. Slight weakness: never escalated to the O(1) two-pointer approach despite flagging it as the natural next step."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, responses are actionable and concise. Nice touch about code-review pushback on keeping max(0, ...) even after agreeing B is correct. Flow is natural; the duplicate 'Which approach do you want to build?' nudge after already laying out options is a minor blip."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and verified on the canonical example, equivalent to baseline's Approach 1. Baseline additionally provided the optimal two-pointer solution; experiment stopped at O(n) space by student's choice."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns vs baseline's 1 turn, but the extra length yielded genuine pedagogical payoff (student wrote the code themselves, reasoned about the invariant, traced the example). Proportional to the teaching gain."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair posed two structured choices (approach selection A/B, then the max(0,...) redundancy A/B) plus prompted for a trace. That's a reasonable amount for a short problem, but other teachable moments (e.g., why the invariant holds, why bounds self-enforce) were stated rather than asked.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The max(0, ...) question is genuinely substantive \u2014 it targets the invariant that left_max/right_max include height[i], which is the conceptual crux of correctness. The initial A/B between prefix arrays and two pointers is also a meaningful trade-off, though the Pair never circled back to the two-pointer optimization.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: choose approach \u2192 code skeleton steps \u2192 verify correctness \u2192 examine redundancy \u2192 trace example. No spoilers, smooth gradient. Slight weakness: never escalated to the O(1) two-pointer approach despite flagging it as the natural next step.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm, responses are actionable and concise. Nice touch about code-review pushback on keeping max(0, ...) even after agreeing B is correct. Flow is natural; the duplicate 'Which approach do you want to build?' nudge after already laying out options is a minor blip.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and verified on the canonical example, equivalent to baseline's Approach 1. Baseline additionally provided the optimal two-pointer solution; experiment stopped at O(n) space by student's choice.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"4 turns vs baseline's 1 turn, but the extra length yielded genuine pedagogical payoff (student wrote the code themselves, reasoned about the invariant, traced the example). Proportional to the teaching gain.\" }\n  }\n}"
+}

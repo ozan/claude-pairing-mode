@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-allergies",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:28",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Three substantive forks presented (data representation, comprehension vs loop, reuse vs direct lookup) plus a follow-up on bool() wrapper. Nearly every meaningful decision point was surfaced as a question."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The data-representation and is_allergic_to implementation choices target real design tensions. The bool() wrapper question hits the classic gotcha. The list-comp vs explicit loop choice is more cosmetic and slightly weaker."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from data structure to collection to predicate to type contract. No spoilers \u2014 the user reasoned through bool() themselves before option B was offered. Slightly redundant once user already chose B and tutor still posed it as an A/B."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational and warm; tutor validates reasoning and gently pushes back on the dict choice with a real argument. The final A/B after the user already endorsed bool() felt slightly procedural rather than fluid."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly solves the problem with both functions. Equivalent to baseline, though baseline included a ValueError guard for unknown allergens which experiment only mentioned verbally."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "5 turns vs baseline's 3, ~95s vs 61s. The extra length delivered proportional pedagogical payoff via genuine user choices at each fork rather than a single info-dump."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Three substantive forks presented (data representation, comprehension vs loop, reuse vs direct lookup) plus a follow-up on bool() wrapper. Nearly every meaningful decision point was surfaced as a question.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The data-representation and is_allergic_to implementation choices target real design tensions. The bool() wrapper question hits the classic gotcha. The list-comp vs explicit loop choice is more cosmetic and slightly weaker.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from data structure to collection to predicate to type contract. No spoilers \u2014 the user reasoned through bool() themselves before option B was offered. Slightly redundant once user already chose B and tutor still posed it as an A/B.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversational and warm; tutor validates reasoning and gently pushes back on the dict choice with a real argument. The final A/B after the user already endorsed bool() felt slightly procedural rather than fluid.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly solves the problem with both functions. Equivalent to baseline, though baseline included a ValueError guard for unknown allergens which experiment only mentioned verbally.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"5 turns vs baseline's 3, ~95s vs 61s. The extra length delivered proportional pedagogical payoff via genuine user choices at each fork rather than a single info-dump.\" }\n  }\n}"
+}

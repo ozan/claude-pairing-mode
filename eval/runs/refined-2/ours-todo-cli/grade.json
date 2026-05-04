@@ -1,0 +1,39 @@
+{
+  "slug": "ours-todo-cli",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:37:33",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed four distinct A/B design choices across the session (ID scheme, parsing approach, list filtering, done semantics), engaging the user at every meaningful decision point."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The choices target real design tensions: stable vs. position IDs hits the core data-modeling question, and toggle vs. one-way done connects nicely back to the ID guarantee. The argparse vs. sys.argv choice is somewhat low-stakes, and list filtering is minor, but overall the forks are substantive."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from data model \u2192 parsing \u2192 UX behaviors, with each decision building on prior ones (e.g., toggle reinforces stable IDs). The diffs in options give away implementation details but framing remains pedagogically sound."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the Pair affirms reasoning while adding insight (e.g., 'IDs would shift and undermine stable-ID guarantee'). Flow is clean A/B with brief follow-ups, though it's somewhat formulaic rather than a fluid conversation."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly implements all four subcommands with stable IDs, argparse, and toggle semantics. Comparable to baseline functionally; baseline added an extension exercise but experiment added toggle behavior\u2014roughly equivalent quality."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "5 turns / 136s vs baseline 2 turns / 79s\u2014roughly 1.7x longer, but the extra length delivered four genuine design discussions with proportional teaching value via the options pattern."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed four distinct A/B design choices across the session (ID scheme, parsing approach, list filtering, done semantics), engaging the user at every meaningful decision point.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The choices target real design tensions: stable vs. position IDs hits the core data-modeling question, and toggle vs. one-way done connects nicely back to the ID guarantee. The argparse vs. sys.argv choice is somewhat low-stakes, and list filtering is minor, but overall the forks are substantive.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from data model \u2192 parsing \u2192 UX behaviors, with each decision building on prior ones (e.g., toggle reinforces stable IDs). The diffs in options give away implementation details but framing remains pedagogically sound.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the Pair affirms reasoning while adding insight (e.g., 'IDs would shift and undermine stable-ID guarantee'). Flow is clean A/B with brief follow-ups, though it's somewhat formulaic rather than a fluid conversation.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly implements all four subcommands with stable IDs, argparse, and toggle semantics. Comparable to baseline functionally; baseline added an extension exercise but experiment added toggle behavior\u2014roughly equivalent quality.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"5 turns / 136s vs baseline 2 turns / 79s\u2014roughly 1.7x longer, but the extra length delivered four genuine design discussions with proportional teaching value via the options pattern.\" }\n  }\n}"
+}

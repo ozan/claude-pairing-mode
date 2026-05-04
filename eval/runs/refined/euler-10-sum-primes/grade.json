@@ -1,0 +1,39 @@
+{
+  "slug": "euler-10-sum-primes",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:51:04",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two explicit didactic forks (start at 2p vs p\u00b2, and generator-sum vs numpy dot product) at meaningful decision points across a short 3-turn session. Not high frequency but well-placed for the problem size."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork (2p vs p\u00b2) hits the algorithmic crux of the sieve. The second fork (pure Python vs numpy) is more of a stylistic/dependency tradeoff than a deep correctness/algorithm choice, slightly weaker but still substantive."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: algorithmic core first, then implementation detail, then a free teaching note about bytearray memory. No spoilers \u2014 options were presented neutrally with diffs. The bytearray insight came as a post-hoc reveal rather than a question, missing one teachable moment."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Crisp, warm, and actionable. The Pair affirmed correct reasoning, presented clean diff-based options, and added value-adding commentary (memory layout, numpy tradeoff) that flowed naturally from the user's choices."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces 142,913,828,922 in ~100ms \u2014 correct and clean. Baseline used slice-assignment for ~33ms; experiment kept the inner Python loop at ~100ms. Both correct; experiment slightly slower but functionally equivalent."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Same 3-turn count as baseline and shorter wall time (64s vs 84s). The options-based format added pedagogical value at no friction cost."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two explicit didactic forks (start at 2p vs p\u00b2, and generator-sum vs numpy dot product) at meaningful decision points across a short 3-turn session. Not high frequency but well-placed for the problem size.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first fork (2p vs p\u00b2) hits the algorithmic crux of the sieve. The second fork (pure Python vs numpy) is more of a stylistic/dependency tradeoff than a deep correctness/algorithm choice, slightly weaker but still substantive.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: algorithmic core first, then implementation detail, then a free teaching note about bytearray memory. No spoilers \u2014 options were presented neutrally with diffs. The bytearray insight came as a post-hoc reveal rather than a question, missing one teachable moment.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Crisp, warm, and actionable. The Pair affirmed correct reasoning, presented clean diff-based options, and added value-adding commentary (memory layout, numpy tradeoff) that flowed naturally from the user's choices.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code produces 142,913,828,922 in ~100ms \u2014 correct and clean. Baseline used slice-assignment for ~33ms; experiment kept the inner Python loop at ~100ms. Both correct; experiment slightly slower but functionally equivalent.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Same 3-turn count as baseline and shorter wall time (64s vs 84s). The options-based format added pedagogical value at no friction cost.\" }\n  }\n}"
+}

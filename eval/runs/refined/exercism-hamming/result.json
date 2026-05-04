@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-hamming",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 33.933971881866455,
+  "propose_options_calls": 2,
+  "leaks_detected": 0,
+  "error": null
+}

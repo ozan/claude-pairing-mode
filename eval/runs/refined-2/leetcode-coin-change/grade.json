@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-coin-change",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:52",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three substantive multiple-choice questions across the session (greedy vs DP, base case, loop order), engaging the user at each meaningful decision point. Density is high relative to the problem size."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The loop-order question hits the genuine crux: ascending vs descending is the unbounded-vs-0/1 knapsack distinction, a classic gotcha. The base-case question (dp[0]=0 vs 1) also targets a real conceptual confusion between counting and minimization."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression is excellent: strategy choice \u2192 DP structure/base case \u2192 optimization/loop-order subtlety. Difficulty ramps naturally, and when the user got the loop-order reasoning subtly wrong, the Pair provided a concrete counterexample rather than just revealing the answer."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Conversational flow is natural; the Pair acknowledges correct reasoning, corrects the subtle error with a worked trace, and ends with a memorable rule of thumb. No friction or unactionable responses."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and clean (O(amount\u00d7n) time, O(amount) space), equivalent to the baseline. Baseline included an explicit test harness; experiment relied on the user's mental trace, but solution quality is comparable."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Took 4 turns/140s vs baseline's 2 turns/53s, but the extra length delivered real pedagogical payoff\u2014particularly the loop-order/knapsack distinction which the baseline never surfaced. Proportional teaching gain justifies the added length."
+      }
+    }
+  },
+  "weighted": 4.1,
+  "normalized": 0.7749999999999999,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three substantive multiple-choice questions across the session (greedy vs DP, base case, loop order), engaging the user at each meaningful decision point. Density is high relative to the problem size.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The loop-order question hits the genuine crux: ascending vs descending is the unbounded-vs-0/1 knapsack distinction, a classic gotcha. The base-case question (dp[0]=0 vs 1) also targets a real conceptual confusion between counting and minimization.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Progression is excellent: strategy choice \u2192 DP structure/base case \u2192 optimization/loop-order subtlety. Difficulty ramps naturally, and when the user got the loop-order reasoning subtly wrong, the Pair provided a concrete counterexample rather than just revealing the answer.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Conversational flow is natural; the Pair acknowledges correct reasoning, corrects the subtle error with a worked trace, and ends with a memorable rule of thumb. No friction or unactionable responses.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and clean (O(amount\u00d7n) time, O(amount) space), equivalent to the baseline. Baseline included an explicit test harness; experiment relied on the user's mental trace, but solution quality is comparable.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Took 4 turns/140s vs baseline's 2 turns/53s, but the extra length delivered real pedagogical payoff\u2014particularly the loop-order/knapsack distinction which the baseline never surfaced. Proportional teaching gain justifies the added length.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "euler-67-max-path-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:17",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three substantive multiple-choice forks across three turns (top-down vs bottom-up, in-place vs copy, plain vs memoized recursion), engaging the user at each major decision point."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The forks target real trade-offs: DP direction, space/mutation trade-off, and complexity of recursive variants. The complexity question at the end is particularly substantive, though the in-place vs copy choice is somewhat shallow given no path-reconstruction requirement."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm choice \u2192 implementation detail \u2192 complexity reflection. Each option block was clear without spoiling answers, and the difficulty gradient is smooth."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Clean back-and-forth with crisp confirmations (\"Exactly right on all counts\"). Tone is professional and the conversation feels purposeful, though slightly mechanical due to the rigid OPTIONS format."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly outputs 696 with clean in-place DP. It's simpler than the baseline (no path reconstruction), which the baseline included as a bonus \u2014 so functionally equivalent on the stated problem."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took ~105s vs baseline's ~62s, but with proportional pedagogical payoff: three deliberate decision forks vs the baseline's monologue. Reasonable trade."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three substantive multiple-choice forks across three turns (top-down vs bottom-up, in-place vs copy, plain vs memoized recursion), engaging the user at each major decision point.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The forks target real trade-offs: DP direction, space/mutation trade-off, and complexity of recursive variants. The complexity question at the end is particularly substantive, though the in-place vs copy choice is somewhat shallow given no path-reconstruction requirement.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from algorithm choice \u2192 implementation detail \u2192 complexity reflection. Each option block was clear without spoiling answers, and the difficulty gradient is smooth.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Clean back-and-forth with crisp confirmations (\\\"Exactly right on all counts\\\"). Tone is professional and the conversation feels purposeful, though slightly mechanical due to the rigid OPTIONS format.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly outputs 696 with clean in-place DP. It's simpler than the baseline (no path reconstruction), which the baseline included as a bonus \u2014 so functionally equivalent on the stated problem.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took ~105s vs baseline's ~62s, but with proportional pedagogical payoff: three deliberate decision forks vs the baseline's monologue. Reasonable trade.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-mini-calculator",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:43",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed didactic options at nearly every meaningful decision point: algorithm choice, tokenizer approach, state management, build order, end-of-input handling, and return type. Six explicit OPTIONS forks across seven turns is high frequency."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most forks hit substantive design tensions (shunting-yard vs recursive descent, nested closures vs class, sentinel vs bounds-check, bottom-up vs top-down). The final int-vs-float choice was minor, and a chance to probe right-associativity or unary stacking was missed."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression flowed logically from algorithm \u2192 grammar \u2192 tokenizer \u2192 state \u2192 build order \u2192 implementation \u2192 polish, with no spoilers. The closure-name-resolution explanation arrived at the right teachable moment when the student noticed the forward reference."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone was warm and conversational, with the Pair noting tradeoffs after the student picked against its implicit preference (e.g., the sentinel reminder). The bash smoke-test command was a bit messy but didn't disrupt flow."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly handles +, -, *, /, parens, unary minus, and precedence \u2014 all required cases pass. It's lighter than the baseline (no SyntaxError handling, no /0 guard, no CLI), but matches the stated problem."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "7 turns vs baseline's 3, roughly 25% longer in wall time. The extra turns delivered genuine pedagogical payoff via the multiple decision forks, justifying the added length proportionally."
+      }
+    }
+  },
+  "weighted": 3.9000000000000004,
+  "normalized": 0.7250000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed didactic options at nearly every meaningful decision point: algorithm choice, tokenizer approach, state management, build order, end-of-input handling, and return type. Six explicit OPTIONS forks across seven turns is high frequency.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Most forks hit substantive design tensions (shunting-yard vs recursive descent, nested closures vs class, sentinel vs bounds-check, bottom-up vs top-down). The final int-vs-float choice was minor, and a chance to probe right-associativity or unary stacking was missed.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression flowed logically from algorithm \u2192 grammar \u2192 tokenizer \u2192 state \u2192 build order \u2192 implementation \u2192 polish, with no spoilers. The closure-name-resolution explanation arrived at the right teachable moment when the student noticed the forward reference.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone was warm and conversational, with the Pair noting tradeoffs after the student picked against its implicit preference (e.g., the sentinel reminder). The bash smoke-test command was a bit messy but didn't disrupt flow.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly handles +, -, *, /, parens, unary minus, and precedence \u2014 all required cases pass. It's lighter than the baseline (no SyntaxError handling, no /0 guard, no CLI), but matches the stated problem.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"7 turns vs baseline's 3, roughly 25% longer in wall time. The extra turns delivered genuine pedagogical payoff via the multiple decision forks, justifying the added length proportionally.\" }\n  }\n}"
+}

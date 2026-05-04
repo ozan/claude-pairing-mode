@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-acronym",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:59:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed an explicit choice at every meaningful fork (initial approach selection, then again after the apostrophe failure). Each turn ends with an explicit 'A or B?' invitation, engaging the user at the actual decision points."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The forks targeted the genuine crux: split-then-take-first vs. find-letter-runs (which exposes the leading-punctuation gotcha), and how to handle apostrophes in contractions. Both choices reflect real algorithmic/design tensions rather than cosmetics."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression was logical: simple separator approach \u2192 discover edge case (leading punctuation) \u2192 discover contraction edge case \u2192 refined pattern. The Pair let the user notice the redundant `.replace` themselves and built complexity incrementally without spoilers, though it notably missed the camelCase case the baseline caught."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Conversational flow is excellent: the Pair validated the user's catch about the redundant replace, used clear comparison tables, and acknowledged the user's reasoning for choosing B while gently noting a minor caveat. Natural back-and-forth throughout."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution passes the cases tested and correctly handles hyphens, leading punctuation, and apostrophes. However, unlike the baseline, it does not handle the camelCase case ('HyperText Markup Language' \u2192 'HTML'), which is a standard Exercism acronym test case \u2014 so it's somewhat less complete than the baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns vs baseline's 1, with proportional teaching payoff (two genuine forks explored with the user). Length is justified by the didactic structure, though the experiment also covers less ground (missing camelCase) than the baseline."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed an explicit choice at every meaningful fork (initial approach selection, then again after the apostrophe failure). Each turn ends with an explicit 'A or B?' invitation, engaging the user at the actual decision points.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The forks targeted the genuine crux: split-then-take-first vs. find-letter-runs (which exposes the leading-punctuation gotcha), and how to handle apostrophes in contractions. Both choices reflect real algorithmic/design tensions rather than cosmetics.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression was logical: simple separator approach \u2192 discover edge case (leading punctuation) \u2192 discover contraction edge case \u2192 refined pattern. The Pair let the user notice the redundant `.replace` themselves and built complexity incrementally without spoilers, though it notably missed the camelCase case the baseline caught.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Conversational flow is excellent: the Pair validated the user's catch about the redundant replace, used clear comparison tables, and acknowledged the user's reasoning for choosing B while gently noting a minor caveat. Natural back-and-forth throughout.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution passes the cases tested and correctly handles hyphens, leading punctuation, and apostrophes. However, unlike the baseline, it does not handle the camelCase case ('HyperText Markup Language' \u2192 'HTML'), which is a standard Exercism acronym test case \u2014 so it's somewhat less complete than the baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 4 turns vs baseline's 1, with proportional teaching payoff (two genuine forks explored with the user). Length is justified by the didactic structure, though the experiment also covers less ground (missing camelCase) than the baseline.\" }\n  }\n}"
+}

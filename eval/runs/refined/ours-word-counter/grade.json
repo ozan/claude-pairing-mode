@@ -1,0 +1,39 @@
+{
+  "slug": "ours-word-counter",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Three substantive A/B forks across the conversation (extraction approach, return type, empty-input handling), each at a real decision point. Could have probed more on the user's reasoning but the cadence is solid."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork (regex vs translate) hits a genuine crux with real trade-offs around hyphens/contractions. The Counter-vs-dict choice surfaces an honest API contract tension. The empty-input question is more cosmetic but reasonable."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from extraction \u2192 return type \u2192 edge cases, with no spoilers and gentle difficulty. The tutor also corrected the student's slightly off reasoning about don't/hyphenation, which adds depth without being heavy-handed."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Natural back-and-forth, with the tutor pushing back constructively (e.g., noting Counter is a dict subclass) rather than just rubber-stamping. Closes with a useful Unicode caveat. Tone is collegial and actionable."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is functionally identical to the baseline solution and correctly handles the requirements and empty inputs. No meaningful difference in code quality."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "About 4x the wall time and 4 turns vs. baseline's 1, but the extra length delivered proportional teaching value: real trade-off discussion, verification run, and Unicode caveat. Reasonable cost for the pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Three substantive A/B forks across the conversation (extraction approach, return type, empty-input handling), each at a real decision point. Could have probed more on the user's reasoning but the cadence is solid.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The first fork (regex vs translate) hits a genuine crux with real trade-offs around hyphens/contractions. The Counter-vs-dict choice surfaces an honest API contract tension. The empty-input question is more cosmetic but reasonable.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from extraction \u2192 return type \u2192 edge cases, with no spoilers and gentle difficulty. The tutor also corrected the student's slightly off reasoning about don't/hyphenation, which adds depth without being heavy-handed.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Natural back-and-forth, with the tutor pushing back constructively (e.g., noting Counter is a dict subclass) rather than just rubber-stamping. Closes with a useful Unicode caveat. Tone is collegial and actionable.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is functionally identical to the baseline solution and correctly handles the requirements and empty inputs. No meaningful difference in code quality.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"About 4x the wall time and 4 turns vs. baseline's 1, but the extra length delivered proportional teaching value: real trade-off discussion, verification run, and Unicode caveat. Reasonable cost for the pedagogical payoff.\" }\n  }\n}"
+}

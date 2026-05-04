@@ -1,0 +1,39 @@
+{
+  "slug": "euler-6-sum-square-diff",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:10",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair offered a single A/B choice at the start and one follow-up invitation to try n=1,000,000. No deeper questioning at teachable moments like why // vs /, or asking the user to derive the pairing trick."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The A/B fork is a legitimate trade-off (clarity vs. closed-form elegance) and hits a real didactic axis. However, it's a fairly standard fork and the Pair didn't push into deeper cruxes like divisibility or float vs int."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Only one real decision point, then the user opted out. The Pair did briefly tease the pairing intuition but didn't build a progression \u2014 when the user declined further exploration, scaffolding effectively stopped."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and natural, respects the user's pacing, and the Pair gracefully accepted the user's decision to stop. Conversation flows well even if short."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly outputs 25164150, matching the baseline's answer. Solution is the simpler loop version rather than the closed-form, but solves the stated problem correctly."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Two turns, ~33 seconds \u2014 tighter than the baseline's 3 turns/48s. Less teaching depth than baseline (which derived the formula and divisibility), but the experiment was efficient and respected the user's stopping point."
+      }
+    }
+  },
+  "weighted": 2.9000000000000004,
+  "normalized": 0.4750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair offered a single A/B choice at the start and one follow-up invitation to try n=1,000,000. No deeper questioning at teachable moments like why // vs /, or asking the user to derive the pairing trick.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The A/B fork is a legitimate trade-off (clarity vs. closed-form elegance) and hits a real didactic axis. However, it's a fairly standard fork and the Pair didn't push into deeper cruxes like divisibility or float vs int.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"Only one real decision point, then the user opted out. The Pair did briefly tease the pairing intuition but didn't build a progression \u2014 when the user declined further exploration, scaffolding effectively stopped.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and natural, respects the user's pacing, and the Pair gracefully accepted the user's decision to stop. Conversation flows well even if short.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly outputs 25164150, matching the baseline's answer. Solution is the simpler loop version rather than the closed-form, but solves the stated problem correctly.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Two turns, ~33 seconds \u2014 tighter than the baseline's 3 turns/48s. Less teaching depth than baseline (which derived the formula and divisibility), but the experiment was efficient and respected the user's stopping point.\" }\n  }\n}"
+}

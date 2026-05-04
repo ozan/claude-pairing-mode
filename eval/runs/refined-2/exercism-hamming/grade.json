@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-hamming",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T07:36:28",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "Only one explicit forking question (A vs B for counting approach) and a follow-up offer to explore. Most teachable moments (zip truncation, bool-as-int) are stated rather than asked."
+      },
+      "question_quality": {
+        "score": 2,
+        "rationale": "The single A/B choice is largely cosmetic \u2014 both options are correct and differ only in style. It doesn't surface the real crux (why guard must precede zip, or empty-string semantics)."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Minimal scaffolding: one stylistic choice, then solution written. The zip-truncation insight is delivered as a statement after the choice, not built up through questions."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is concise and warm, conversation flows naturally, and follow-ups are actionable (offer to run tests). Good back-and-forth without friction."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical in substance to the baseline and passes the standard Exercism test suite that was executed inline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns vs baseline's two, ~65s vs ~35s, with modest extra value (running tests, surfacing zip-truncation gotcha proactively). Roughly proportional."
+      }
+    }
+  },
+  "weighted": 2.6,
+  "normalized": 0.4,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"Only one explicit forking question (A vs B for counting approach) and a follow-up offer to explore. Most teachable moments (zip truncation, bool-as-int) are stated rather than asked.\" },\n    \"question_quality\": { \"score\": 2, \"rationale\": \"The single A/B choice is largely cosmetic \u2014 both options are correct and differ only in style. It doesn't surface the real crux (why guard must precede zip, or empty-string semantics).\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"Minimal scaffolding: one stylistic choice, then solution written. The zip-truncation insight is delivered as a statement after the choice, not built up through questions.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is concise and warm, conversation flows naturally, and follow-ups are actionable (offer to run tests). Good back-and-forth without friction.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical in substance to the baseline and passes the standard Exercism test suite that was executed inline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Three turns vs baseline's two, ~65s vs ~35s, with modest extra value (running tests, surfacing zip-truncation gotcha proactively). Roughly proportional.\" }\n  }\n}"
+}

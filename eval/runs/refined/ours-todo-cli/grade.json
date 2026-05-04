@@ -1,0 +1,39 @@
+{
+  "slug": "ours-todo-cli",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair surfaced four distinct A/B decision points (JSON shape, argparse vs manual, set_defaults vs dict dispatch, atomic write) before and during implementation, engaging the user at every meaningful decision."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Choices targeted real design tensions: data layout trade-offs, dispatch idioms, and durability via atomic rename \u2014 all genuinely instructive. The argparse vs manual choice is somewhat softball for a CLI, but the atomic-write fork is a strong gotcha."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Decisions progress logically from data shape \u2192 parsing \u2192 dispatch \u2192 durability, with no spoilers and reasonable difficulty gradient. Slightly mechanical A/B framing throughout, and the monotonic-ID note at the end could have been a question rather than a remark."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and confirmations are concise (\"Exactly right\"). The rigid OPTIONS template makes the flow feel slightly templated rather than fully conversational, but each turn is actionable and builds smoothly."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code correctly implements add/list/done/rm with persistence, plus atomic writes \u2014 slightly more robust than baseline. However, baseline included an `edit` extension demo and strikethrough display; experiment lacks those niceties but solves the stated problem cleanly."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 5 turns / ~130s vs baseline's 2 turns / ~79s. The extra turns delivered real pedagogical payoff (four design discussions vs baseline's post-hoc explanation), making the longer length proportional."
+      }
+    }
+  },
+  "weighted": 4.1000000000000005,
+  "normalized": 0.7750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair surfaced four distinct A/B decision points (JSON shape, argparse vs manual, set_defaults vs dict dispatch, atomic write) before and during implementation, engaging the user at every meaningful decision.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Choices targeted real design tensions: data layout trade-offs, dispatch idioms, and durability via atomic rename \u2014 all genuinely instructive. The argparse vs manual choice is somewhat softball for a CLI, but the atomic-write fork is a strong gotcha.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Decisions progress logically from data shape \u2192 parsing \u2192 dispatch \u2192 durability, with no spoilers and reasonable difficulty gradient. Slightly mechanical A/B framing throughout, and the monotonic-ID note at the end could have been a question rather than a remark.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and confirmations are concise (\\\"Exactly right\\\"). The rigid OPTIONS template makes the flow feel slightly templated rather than fully conversational, but each turn is actionable and builds smoothly.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code correctly implements add/list/done/rm with persistence, plus atomic writes \u2014 slightly more robust than baseline. However, baseline included an `edit` extension demo and strikethrough display; experiment lacks those niceties but solves the stated problem cleanly.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 5 turns / ~130s vs baseline's 2 turns / ~79s. The extra turns delivered real pedagogical payoff (four design discussions vs baseline's post-hoc explanation), making the longer length proportional.\" }\n  }\n}"
+}

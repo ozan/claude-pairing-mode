@@ -1,0 +1,39 @@
+{
+  "slug": "ours-caesar-cipher",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:29",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Three substantive multiple-choice decision points (decode reuse, normalize vs raw mod, -shift vs 26-shift) before any code is written, hitting nearly every meaningful fork."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "Each option targets a real crux: code reuse via negation, the off-by-base normalization gotcha, and Python's modulo-with-negative behavior. These are exactly the classic Caesar cipher pitfalls."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from architecture (decode reuse) to core arithmetic (normalize) to boundary (negative mod). The 26-shift question is somewhat redundant given the prior choice, but no spoilers and gradient is smooth."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Clean back-and-forth with each user answer affirmed concisely before the next question. Tone is tight and businesslike rather than warm, but the flow feels natural and purposeful."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and passes the same edge cases as baseline. Slightly less polished (no helper extraction, no docstrings) than baseline, but functionally equivalent."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "About 2x baseline duration (104s vs 52s, 4 turns vs 2) with proportional pedagogical payoff via three well-placed forced choices. Reasonable trade for the teaching gained."
+      }
+    }
+  },
+  "weighted": 4.0,
+  "normalized": 0.75,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Three substantive multiple-choice decision points (decode reuse, normalize vs raw mod, -shift vs 26-shift) before any code is written, hitting nearly every meaningful fork.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"Each option targets a real crux: code reuse via negation, the off-by-base normalization gotcha, and Python's modulo-with-negative behavior. These are exactly the classic Caesar cipher pitfalls.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression from architecture (decode reuse) to core arithmetic (normalize) to boundary (negative mod). The 26-shift question is somewhat redundant given the prior choice, but no spoilers and gradient is smooth.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Clean back-and-forth with each user answer affirmed concisely before the next question. Tone is tight and businesslike rather than warm, but the flow feels natural and purposeful.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and passes the same edge cases as baseline. Slightly less polished (no helper extraction, no docstrings) than baseline, but functionally equivalent.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"About 2x baseline duration (104s vs 52s, 4 turns vs 2) with proportional pedagogical payoff via three well-placed forced choices. Reasonable trade for the teaching gained.\" }\n  }\n}"
+}

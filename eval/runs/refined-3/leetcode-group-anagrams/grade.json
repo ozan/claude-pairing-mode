@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-group-anagrams",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:00:17",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two explicit didactic choice-points (sort vs count key, return-as-is vs sort output) and asked for reasoning each time. That's a solid frequency for a 2-turn problem, though not maximal."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The first question hits a genuine algorithmic tradeoff (O(k log k) vs O(k), alphabet assumptions). The second question about output determinism is more cosmetic and less consequential to the core problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose the algorithm, implement, verify, then consider output contract. No spoilers in the options framing. The second question is a bit of a tangent rather than deepening understanding of anagrams."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the Pair validates the student's reasoning while adding the Unicode/alphabet nuance. Flow is natural with clear back-and-forth, though the proposed-options format is somewhat rigid."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, equivalent to baseline, and verified with test runs. Doesn't include the bonus O(n\u00b7k) variant the baseline mentioned, but covers the core problem cleanly."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Similar turn count and time to baseline (56s vs 49s). The pedagogical choice-points add modest value proportional to the slight overhead."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two explicit didactic choice-points (sort vs count key, return-as-is vs sort output) and asked for reasoning each time. That's a solid frequency for a 2-turn problem, though not maximal.\" },\n    \"question_quality\":   { \"score\": 3, \"rationale\": \"The first question hits a genuine algorithmic tradeoff (O(k log k) vs O(k), alphabet assumptions). The second question about output determinism is more cosmetic and less consequential to the core problem.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: choose the algorithm, implement, verify, then consider output contract. No spoilers in the options framing. The second question is a bit of a tangent rather than deepening understanding of anagrams.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and the Pair validates the student's reasoning while adding the Unicode/alphabet nuance. Flow is natural with clear back-and-forth, though the proposed-options format is somewhat rigid.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct, equivalent to baseline, and verified with test runs. Doesn't include the bonus O(n\u00b7k) variant the baseline mentioned, but covers the core problem cleanly.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Similar turn count and time to baseline (56s vs 49s). The pedagogical choice-points add modest value proportional to the slight overhead.\" }\n  }\n}"
+}

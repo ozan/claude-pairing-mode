@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-group-anagrams",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:06",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed didactic questions at two clear decision points (algorithm choice, test comparison strategy) and surfaced the duplicates gotcha. Not every turn had a question, but the frequency is solid for a 3-turn problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Both A/B forks hit substantive points: the sort-vs-count tradeoff exposes complexity reasoning, and the frozenset-vs-sort comparison surfaces a real subtle bug (duplicate collapsing). The second fork is especially well-targeted."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithm choice \u2192 implementation \u2192 testing strategy, with the duplicate gotcha revealed only after the user committed to B. No spoilers, smooth gradient."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational flow is natural; Pair affirms correct reasoning, adds nuance (constants, duplicates), and moves forward efficiently. Tone is warm and direct without being sycophantic."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution is correct and equivalent to baseline (same sorting approach, with a tested example). Comparable quality."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Slightly longer than baseline (3 turns / 69s vs 2 turns / 49s) but used the extra turn to teach the frozenset-duplicate gotcha and run an actual test \u2014 a proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed didactic questions at two clear decision points (algorithm choice, test comparison strategy) and surfaced the duplicates gotcha. Not every turn had a question, but the frequency is solid for a 3-turn problem.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Both A/B forks hit substantive points: the sort-vs-count tradeoff exposes complexity reasoning, and the frozenset-vs-sort comparison surfaces a real subtle bug (duplicate collapsing). The second fork is especially well-targeted.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from algorithm choice \u2192 implementation \u2192 testing strategy, with the duplicate gotcha revealed only after the user committed to B. No spoilers, smooth gradient.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversational flow is natural; Pair affirms correct reasoning, adds nuance (constants, duplicates), and moves forward efficiently. Tone is warm and direct without being sycophantic.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution is correct and equivalent to baseline (same sorting approach, with a tested example). Comparable quality.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Slightly longer than baseline (3 turns / 69s vs 2 turns / 49s) but used the extra turn to teach the frozenset-duplicate gotcha and run an actual test \u2014 a proportional pedagogical payoff.\" }\n  }\n}"
+}

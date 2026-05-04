@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-longest-substring",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:52:05",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "Two well-placed didactic questions at the key decision points: choice of data structure (set vs dict) and the subtle max() guard. Given the problem's small surface area, this is appropriate frequency."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The second question targets the exact crux of this problem \u2014 the abba gotcha and stale dict entries. This is the single most consequential subtlety, and it was framed as a forced choice between two near-identical implementations."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Logical progression: first pick the approach (high-level), then the critical implementation detail. No spoilers \u2014 the tutor let the student reason out why max() is needed before confirming. Difficulty gradient is smooth."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth, concise affirmations, and the student's reasoning was validated with the canonical example. No friction or non-sequiturs."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final solution is correct, passes all test cases including abba edge case, with clean O(n) implementation. Slightly more elegant than baseline (uses max() guard rather than conditional check), though functionally equivalent."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "3 turns vs baseline's 2, but the extra turn delivered the abba insight via Socratic discovery rather than exposition. Modest length increase with proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 4.3,
+  "normalized": 0.825,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"Two well-placed didactic questions at the key decision points: choice of data structure (set vs dict) and the subtle max() guard. Given the problem's small surface area, this is appropriate frequency.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The second question targets the exact crux of this problem \u2014 the abba gotcha and stale dict entries. This is the single most consequential subtlety, and it was framed as a forced choice between two near-identical implementations.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Logical progression: first pick the approach (high-level), then the critical implementation detail. No spoilers \u2014 the tutor let the student reason out why max() is needed before confirming. Difficulty gradient is smooth.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Natural back-and-forth, concise affirmations, and the student's reasoning was validated with the canonical example. No friction or non-sequiturs.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final solution is correct, passes all test cases including abba edge case, with clean O(n) implementation. Slightly more elegant than baseline (uses max() guard rather than conditional check), though functionally equivalent.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"3 turns vs baseline's 2, but the extra turn delivered the abba insight via Socratic discovery rather than exposition. Modest length increase with proportional pedagogical payoff.\" }\n  }\n}"
+}

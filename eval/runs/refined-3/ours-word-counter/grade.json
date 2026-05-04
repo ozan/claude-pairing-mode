@@ -1,0 +1,39 @@
+{
+  "slug": "ours-word-counter",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-05T08:01:09",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two explicit forked choices (punctuation strategy, counting strategy) and a follow-up about edge cases. Most decision points were surfaced for the user rather than coded silently."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first fork (strip-per-word vs regex) hits a genuine crux about embedded punctuation and contractions, which is the real subtlety of this problem. The Counter vs manual dict choice is more stylistic but still meaningful for a junior."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: punctuation handling first, then counting, then testing. The Pair didn't spoil the answer when the user picked A \u2014 instead it surfaced the contraction subtlety and let the user reconsider, which is well-paced."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and validates the user's reasoning even when redirecting (e.g., 'your readability argument isn't wrong'). The diff-style options are clear and actionable, and the back-and-forth feels natural."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code works and meets the spec. Slightly weaker than baseline since the regex `[^a-z\\s]` only handles ASCII letters (no Unicode) and collapses contractions, whereas baseline used string.punctuation which is more conventional. Both are defensible."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns / 86s vs baseline's 1 turn / 16s \u2014 substantially longer, but the extra turns delivered real pedagogical value (the embedded-punctuation tradeoff discussion was genuinely instructive). Proportionate payoff for the length."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two explicit forked choices (punctuation strategy, counting strategy) and a follow-up about edge cases. Most decision points were surfaced for the user rather than coded silently.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The first fork (strip-per-word vs regex) hits a genuine crux about embedded punctuation and contractions, which is the real subtlety of this problem. The Counter vs manual dict choice is more stylistic but still meaningful for a junior.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: punctuation handling first, then counting, then testing. The Pair didn't spoil the answer when the user picked A \u2014 instead it surfaced the contraction subtlety and let the user reconsider, which is well-paced.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and validates the user's reasoning even when redirecting (e.g., 'your readability argument isn't wrong'). The diff-style options are clear and actionable, and the back-and-forth feels natural.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code works and meets the spec. Slightly weaker than baseline since the regex `[^a-z\\\\s]` only handles ASCII letters (no Unicode) and collapses contractions, whereas baseline used string.punctuation which is more conventional. Both are defensible.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns / 86s vs baseline's 1 turn / 16s \u2014 substantially longer, but the extra turns delivered real pedagogical value (the embedded-punctuation tradeoff discussion was genuinely instructive). Proportionate payoff for the length.\" }\n  }\n}"
+}
