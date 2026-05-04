@@ -1,0 +1,10 @@
+{
+  "slug": "euler-2-even-fib",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 58.294028759002686,
+  "propose_options_calls": 1,
+  "leaks_detected": 0,
+  "error": null
+}

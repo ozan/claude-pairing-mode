@@ -1,0 +1,39 @@
+{
+  "slug": "ours-run-length-encoding",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:37",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks no didactic questions. It dumps a complete solution and explanations, then only responds to questions the Student initiates."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions are framed by the Tutor; no choices or forks are surfaced for the user to engage with."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no pedagogical scaffolding \u2014 the full solution is given upfront, and follow-up explanations are reactive to the Student's curiosity rather than progressive."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations (e.g., the len(list) vs sum tradeoff) are clear and actionable, but flow is one-directional lecture rather than dialogic teaching."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks no didactic questions. It dumps a complete solution and explanations, then only responds to questions the Student initiates.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions are framed by the Tutor; no choices or forks are surfaced for the user to engage with.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no pedagogical scaffolding \u2014 the full solution is given upfront, and follow-up explanations are reactive to the Student's curiosity rather than progressive.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations (e.g., the len(list) vs sum tradeoff) are clear and actionable, but flow is one-directional lecture rather than dialogic teaching.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly encodes/decodes including multi-digit counts and empty strings; all six round-trip tests pass. Comparable to a baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Some wasted turns from Write-without-Read errors, but overall the solution is delivered in two turns with reasonable efficiency for the problem scope.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-bowling",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:43",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair never asks the user any didactic questions. It writes the entire solution and tests upfront, then walks through the design. The only Q&A came from the user asking to verify their trace."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks were surfaced to the user. Design decisions (two APIs, 10th-frame summing, two-pass validation) were made unilaterally without inviting reflection."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "There's no progressive scaffolding \u2014 just a code dump followed by a tabular explainer. The user-driven trace at the end did get a clean, well-targeted correction about the 10th frame, but that's incidental to any planned pedagogy."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and the final correction about 10th-frame roll consumption is genuinely useful and well-explained. But the dynamic is lecture-then-Q&A rather than collaborative back-and-forth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair never asks the user any didactic questions. It writes the entire solution and tests upfront, then walks through the design. The only Q&A came from the user asking to verify their trace.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No choices or forks were surfaced to the user. Design decisions (two APIs, 10th-frame summing, two-pass validation) were made unilaterally without inviting reflection.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"There's no progressive scaffolding \u2014 just a code dump followed by a tabular explainer. The user-driven trace at the end did get a clean, well-targeted correction about the 10th frame, but that's incidental to any planned pedagogy.\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is clear and the final correction about 10th-frame roll consumption is genuinely useful and well-explained. But the dynamic is lecture-then-Q&A rather than collaborative back-and-forth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code passes 39 self-written tests including validation edge cases. Solution handles strikes, spares, 10th-frame bonuses, and input validation thoroughly \u2014 arguably more complete than a minimal baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Reasonable for the problem class. Some wasted turns on pytest install issues and a self-introduced test bug that needed fixing, but converged in 2 turns with a working solution.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-group-anagrams",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:54",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed substantive questions at three distinct decision points: key choice (sort vs count), time complexity, and test normalization strategy. That's a high frequency relative to a 4-turn session."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The key-choice and test-normalization forks both target real crux issues (algorithmic trade-off and a subtle correctness gotcha with frozenset deduping). The complexity question is solid but more standard."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression flows naturally: pick the key \u2192 write it \u2192 analyze complexity \u2192 test it correctly. The frozenset duplicate-masking insight was a nice scaffolded reveal after the user's choice rather than as a spoiler."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth feels natural, with the Pair affirming correct reasoning and gently correcting the user's mistaken belief that both test options worked. Slightly mechanical due to the OPTIONS format but overall fluid."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution is correct and equivalent to baseline, with added test harness. Uses tuple key rather than the slightly preferable ''.join, but functionally fine."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "75s vs 49s baseline and 4 turns vs 2, but the extra length delivered proportional pedagogical payoff (complexity analysis, test design, frozenset gotcha). Reasonable trade."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed substantive questions at three distinct decision points: key choice (sort vs count), time complexity, and test normalization strategy. That's a high frequency relative to a 4-turn session.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The key-choice and test-normalization forks both target real crux issues (algorithmic trade-off and a subtle correctness gotcha with frozenset deduping). The complexity question is solid but more standard.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Progression flows naturally: pick the key \u2192 write it \u2192 analyze complexity \u2192 test it correctly. The frozenset duplicate-masking insight was a nice scaffolded reveal after the user's choice rather than as a spoiler.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth feels natural, with the Pair affirming correct reasoning and gently correcting the user's mistaken belief that both test options worked. Slightly mechanical due to the OPTIONS format but overall fluid.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution is correct and equivalent to baseline, with added test harness. Uses tuple key rather than the slightly preferable ''.join, but functionally fine.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"75s vs 49s baseline and 4 turns vs 2, but the extra length delivered proportional pedagogical payoff (complexity analysis, test design, frozenset gotcha). Reasonable trade.\" }\n  }\n}"
+}

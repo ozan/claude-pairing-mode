@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-roman-numerals",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:37",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair only poses one explicit choice (A vs B) at the start. After the user picks, there are no further didactic questions \u2014 just explanation and confirmation."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The single choice offered is substantive: per-digit lookup vs greedy table represents a real algorithmic trade-off, and both options are concretely shown. However, no follow-up forks (e.g., while vs if, validation, divmod alternative) are surfaced as questions."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "The A/B presentation is clean with no spoilers, but the session ends after one decision point. There's no progression \u2014 the Pair drops into implementation and post-hoc explanation rather than building understanding through staged questions."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth reads naturally; the Pair affirms reasoning and adds the while-vs-if insight at the end. Flow is fluid though brief."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution correctly handles all tested cases including 3999 and chained subtractives. Slightly less polished than baseline (no input validation, uses string concatenation in loop instead of divmod/join) but functionally equivalent for the stated range."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns and ~53s vs baseline's one turn and ~39s \u2014 modestly longer, with proportional pedagogical payoff from the explicit A/B choice and the while-loop explanation."
+      }
+    }
+  },
+  "weighted": 2.9000000000000004,
+  "normalized": 0.4750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair only poses one explicit choice (A vs B) at the start. After the user picks, there are no further didactic questions \u2014 just explanation and confirmation.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The single choice offered is substantive: per-digit lookup vs greedy table represents a real algorithmic trade-off, and both options are concretely shown. However, no follow-up forks (e.g., while vs if, validation, divmod alternative) are surfaced as questions.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"The A/B presentation is clean with no spoilers, but the session ends after one decision point. There's no progression \u2014 the Pair drops into implementation and post-hoc explanation rather than building understanding through staged questions.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth reads naturally; the Pair affirms reasoning and adds the while-vs-if insight at the end. Flow is fluid though brief.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution correctly handles all tested cases including 3999 and chained subtractives. Slightly less polished than baseline (no input validation, uses string concatenation in loop instead of divmod/join) but functionally equivalent for the stated range.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two turns and ~53s vs baseline's one turn and ~39s \u2014 modestly longer, with proportional pedagogical payoff from the explicit A/B choice and the while-loop explanation.\" }\n  }\n}"
+}

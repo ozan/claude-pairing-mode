@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-roman-numerals",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:12",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It delivers a complete solution with explanation upfront, with no engagement of the user at any decision point."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices are framed for the user. The 'Why this design' table presents decisions as conclusions rather than as forks for the learner to reason through."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no progression of questions; the full solution and rationale are revealed immediately, which is a maximal spoiler."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and the explanation is well-organized with tables and a worked example, but it's a one-way lecture with no back-and-forth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and matches baseline functionality. Baseline additionally included input validation and used divmod, but both solutions correctly solve the stated problem."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (16s vs 39s, one turn) and delivers a clean solution. No proportional teaching gain, but less friction overall."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It delivers a complete solution with explanation upfront, with no engagement of the user at any decision point.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices are framed for the user. The 'Why this design' table presents decisions as conclusions rather than as forks for the learner to reason through.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no progression of questions; the full solution and rationale are revealed immediately, which is a maximal spoiler.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and the explanation is well-organized with tables and a worked example, but it's a one-way lecture with no back-and-forth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and matches baseline functionality. Baseline additionally included input validation and used divmod, but both solutions correctly solve the stated problem.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Shorter than baseline (16s vs 39s, one turn) and delivers a clean solution. No proportional teaching gain, but less friction overall.\" }\n  }\n}"
+}

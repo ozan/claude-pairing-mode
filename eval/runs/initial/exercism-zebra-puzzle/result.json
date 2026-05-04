@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-zebra-puzzle",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 158.87019610404968,
+  "propose_options_calls": 3,
+  "leaks_detected": 0,
+  "error": null
+}

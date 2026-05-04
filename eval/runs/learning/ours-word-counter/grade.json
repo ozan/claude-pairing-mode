@@ -1,0 +1,39 @@
+{
+  "slug": "ours-word-counter",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:20:07",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks essentially no didactic questions. It delivers a complete solution upfront and offers optional variants in turn 2, but never prompts the student to reason through choices."
+      },
+      "question_quality": {
+        "score": 2,
+        "rationale": "Turn 2 surfaces meaningful forks (contractions, hyphenation, sorting), which are genuine design tensions, but they are presented as a menu rather than as questions that engage the student's reasoning."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no progression of questions; the solution is given immediately with explanations. The student drives the only real inquiry (about strip behavior)."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the Tutor responds accurately to the student's strip question with helpful examples. But the dynamic is lecture+confirmation rather than collaborative pair-programming."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly counts word frequencies and strips punctuation, comparable to baseline. The regex approach handles contractions slightly differently than baseline's string.punctuation approach, but both meet the spec."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns vs baseline's one, with modest extra content covering contractions/hyphens trade-offs. Slightly longer but with some incremental value."
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks essentially no didactic questions. It delivers a complete solution upfront and offers optional variants in turn 2, but never prompts the student to reason through choices.\" },\n    \"question_quality\": { \"score\": 2, \"rationale\": \"Turn 2 surfaces meaningful forks (contractions, hyphenation, sorting), which are genuine design tensions, but they are presented as a menu rather than as questions that engage the student's reasoning.\" },\n    \"scaffolding\": { \"score\": 1, \"rationale\": \"There is no progression of questions; the solution is given immediately with explanations. The student drives the only real inquiry (about strip behavior).\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is warm and the Tutor responds accurately to the student's strip question with helpful examples. But the dynamic is lecture+confirmation rather than collaborative pair-programming.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly counts word frequencies and strips punctuation, comparable to baseline. The regex approach handles contractions slightly differently than baseline's string.punctuation approach, but both meet the spec.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two turns vs baseline's one, with modest extra content covering contractions/hyphens trade-offs. Slightly longer but with some incremental value.\" }\n  }\n}"
+}

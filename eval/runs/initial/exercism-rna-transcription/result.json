@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-rna-transcription",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 3,
+  "duration_s": 60.322046995162964,
+  "propose_options_calls": 1,
+  "leaks_detected": 0,
+  "error": null
+}

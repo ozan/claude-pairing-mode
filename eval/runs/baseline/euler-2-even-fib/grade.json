@@ -1,0 +1,39 @@
+{
+  "slug": "euler-2-even-fib",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:27",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asked zero questions of the user. It immediately ran the solution and explained it, with no engagement points."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices were framed for the user. The parity insight was presented as a finished observation rather than as a question."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolding exists since there are no questions. The Pair revealed the entire solution and answer in one shot."
+      },
+      "flow_and_tone": {
+        "score": 2,
+        "rationale": "Tone is clear and friendly, but it's a one-way lecture; the user merely confirms understanding with no genuine back-and-forth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 1.9000000000000001,
+  "normalized": 0.22500000000000003,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asked zero questions of the user. It immediately ran the solution and explained it, with no engagement points.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No choices were framed for the user. The parity insight was presented as a finished observation rather than as a question.\" },\n    \"scaffolding\": { \"score\": 1, \"rationale\": \"No scaffolding exists since there are no questions. The Pair revealed the entire solution and answer in one shot.\" },\n    \"flow_and_tone\": { \"score\": 2, \"rationale\": \"Tone is clear and friendly, but it's a one-way lecture; the user merely confirms understanding with no genuine back-and-forth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Solution is correct (4,613,732) and idiomatic, matching the expected baseline quality for this Project Euler problem.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Single turn, very efficient. No baseline provided, but absolute friction is low for this problem class.\" }\n  }\n}"
+}

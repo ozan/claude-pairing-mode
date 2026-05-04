@@ -1,0 +1,39 @@
+{
+  "slug": "ours-tic-tac-toe",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:58",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The experiment hung on the first turn with no output, so no didactic questions were asked at all."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions or choices were surfaced \u2014 the session errored before any content was produced."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolding exists; the run never produced any pedagogical content."
+      },
+      "flow_and_tone": {
+        "score": 1,
+        "rationale": "There was no conversation \u2014 the tutor turn errored out after a 600s hang, leaving the user with nothing."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 1,
+        "rationale": "No code was produced. The baseline delivered a complete working tic-tac-toe with minimax; the experiment delivered nothing."
+      },
+      "friction": {
+        "score": 1,
+        "rationale": "The session hung for 10 minutes and errored with zero output, vastly worse than the baseline's ~165s working delivery."
+      }
+    }
+  },
+  "weighted": 1.0,
+  "normalized": 0.0,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The experiment hung on the first turn with no output, so no didactic questions were asked at all.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions or choices were surfaced \u2014 the session errored before any content was produced.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"No scaffolding exists; the run never produced any pedagogical content.\" },\n    \"flow_and_tone\":      { \"score\": 1, \"rationale\": \"There was no conversation \u2014 the tutor turn errored out after a 600s hang, leaving the user with nothing.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 1, \"rationale\": \"No code was produced. The baseline delivered a complete working tic-tac-toe with minimax; the experiment delivered nothing.\" },\n    \"friction\":           { \"score\": 1, \"rationale\": \"The session hung for 10 minutes and errored with zero output, vastly worse than the baseline's ~165s working delivery.\" }\n  }\n}"
+}

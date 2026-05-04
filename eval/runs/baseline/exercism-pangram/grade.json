@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-pangram",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:49",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor never asks the User any didactic questions. It delivers the solution then answers the User's questions. There are no teachable-moment prompts initiated by the Tutor."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices are framed by the Tutor \u2014 it simply presents one solution plus an alternative, with no fork posed to the User. The substantive questions in the conversation come from the (simulated) student, not the Tutor."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolded sequence; the full solution is given immediately in turn 1, including alternatives and complexity analysis. No gradient, no progressive reveal."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are technically accurate and actionable, with good back-and-forth on follow-ups. But it's lecture-style rather than dialogic pair-programming."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor never asks the User any didactic questions. It delivers the solution then answers the User's questions. There are no teachable-moment prompts initiated by the Tutor.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices are framed by the Tutor \u2014 it simply presents one solution plus an alternative, with no fork posed to the User. The substantive questions in the conversation come from the (simulated) student, not the Tutor.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolded sequence; the full solution is given immediately in turn 1, including alternatives and complexity analysis. No gradient, no progressive reveal.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations are technically accurate and actionable, with good back-and-forth on follow-ups. But it's lecture-style rather than dialogic pair-programming.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final solution `set(alphabet).issubset(text.lower())` correctly solves the pangram problem, equivalent to a typical baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns, ~68s \u2014 efficient. Extra prose on C internals and Big-O is informative but tangential; reasonable cost for the depth provided.\" }\n  }\n}"
+}

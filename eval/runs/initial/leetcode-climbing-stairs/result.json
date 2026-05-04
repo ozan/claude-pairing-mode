@@ -1,0 +1,10 @@
+{
+  "slug": "leetcode-climbing-stairs",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 40.757503032684326,
+  "propose_options_calls": 1,
+  "leaks_detected": 0,
+  "error": null
+}

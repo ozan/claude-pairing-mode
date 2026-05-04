@@ -1,0 +1,39 @@
+{
+  "slug": "ours-lru-cache",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:20",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed a didactic A/B question at every meaningful decision point: OrderedDict vs DLL, sentinels vs none, single vs split helpers, return contract, and put branch order. Five substantive forks across a small problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most choices targeted real design tensions (sentinel value of guards, helper composition, the put-ordering bug in Option B). The return-value question is more cosmetic, but the put-branching question hit the actual classic LRU gotcha."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression flows naturally: structure \u2192 sentinels \u2192 helpers \u2192 get \u2192 put \u2192 tests. Each step builds on the last with no spoilers; the put question lets the student discover the eviction-ordering bug themselves."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tight back-and-forth with affirming but non-sycophantic responses ('Nailed it \u2014 you found the exact bug'). Each turn is actionable, the student engages substantively, and the closing summary table reinforces learning."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly implements O(1) get/put with proper LRU eviction and passes a 5-case test suite. Comparable to baseline functionally; baseline has more comprehensive tests and dunder methods, but experiment matches the core requirement."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "7 turns vs baseline's 2, ~1.5x duration, but the extra length delivered proportional pedagogical value through 5 well-placed decision forks. Reasonable trade for the teaching gained."
+      }
+    }
+  },
+  "weighted": 4.1000000000000005,
+  "normalized": 0.7750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed a didactic A/B question at every meaningful decision point: OrderedDict vs DLL, sentinels vs none, single vs split helpers, return contract, and put branch order. Five substantive forks across a small problem.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Most choices targeted real design tensions (sentinel value of guards, helper composition, the put-ordering bug in Option B). The return-value question is more cosmetic, but the put-branching question hit the actual classic LRU gotcha.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Progression flows naturally: structure \u2192 sentinels \u2192 helpers \u2192 get \u2192 put \u2192 tests. Each step builds on the last with no spoilers; the put question lets the student discover the eviction-ordering bug themselves.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Tight back-and-forth with affirming but non-sycophantic responses ('Nailed it \u2014 you found the exact bug'). Each turn is actionable, the student engages substantively, and the closing summary table reinforces learning.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly implements O(1) get/put with proper LRU eviction and passes a 5-case test suite. Comparable to baseline functionally; baseline has more comprehensive tests and dunder methods, but experiment matches the core requirement.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"7 turns vs baseline's 2, ~1.5x duration, but the extra length delivered proportional pedagogical value through 5 well-placed decision forks. Reasonable trade for the teaching gained.\" }\n  }\n}"
+}

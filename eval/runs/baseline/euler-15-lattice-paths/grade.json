@@ -1,0 +1,39 @@
+{
+  "slug": "euler-15-lattice-paths",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:20",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero didactic questions. It delivers a complete lecture in turn 1 and answers the student's questions in turn 2 without ever turning a question back to engage the student."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are surfaced to the student. The Tutor presents the closed form, the recurrence, and Pascal's triangle connection all at once without prompting the student to derive any of it."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the first turn is a full solution dump including the answer, the closed form, three code variants, and a comparison table. No difficulty gradient because nothing is asked of the student."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the student's follow-up questions are answered clearly and accurately (especially the anti-diagonal correction). But the conversation is essentially lecture-then-clarification, not a back-and-forth pair-programming dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero didactic questions. It delivers a complete lecture in turn 1 and answers the student's questions in turn 2 without ever turning a question back to engage the student.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks are surfaced to the student. The Tutor presents the closed form, the recurrence, and Pascal's triangle connection all at once without prompting the student to derive any of it.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the first turn is a full solution dump including the answer, the closed form, three code variants, and a comparison table. No difficulty gradient because nothing is asked of the student.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the student's follow-up questions are answered clearly and accurately (especially the anti-diagonal correction). But the conversation is essentially lecture-then-clarification, not a back-and-forth pair-programming dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code correctly computes 137,846,528,640 via both closed form and DP, with a sensible explicit initialization and an assert. Clean and correct.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Resolved in 2 turns with no baseline reference; efficient in absolute terms for this problem class, though the upfront info dump leaves little to discover.\" }\n  }\n}"
+}

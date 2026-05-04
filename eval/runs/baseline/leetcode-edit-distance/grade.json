@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-edit-distance",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:07",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor never asks the user any didactic questions. It delivers full explanations and complete solutions in turn 1, then answers the user's questions in subsequent turns. All questioning comes from the student, not the tutor."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since no questions are posed by the Tutor, there are no choice-framings to evaluate. The Tutor simply presents the answer up front."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "The very first turn dumps the full intuition, 2-D solution, space-optimized solution, walkthrough, and complexity table \u2014 a massive spoiler. There is no gradient; the user is left to reverse-engineer understanding from a complete answer."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the Tutor responds clearly and accurately to the student's follow-ups, with good explanations of the three-operations rationale and space optimization. But the dynamic is one-way lecture rather than collaborative dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor never asks the user any didactic questions. It delivers full explanations and complete solutions in turn 1, then answers the user's questions in subsequent turns. All questioning comes from the student, not the tutor.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since no questions are posed by the Tutor, there are no choice-framings to evaluate. The Tutor simply presents the answer up front.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"The very first turn dumps the full intuition, 2-D solution, space-optimized solution, walkthrough, and complexity table \u2014 a massive spoiler. There is no gradient; the user is left to reverse-engineer understanding from a complete answer.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the Tutor responds clearly and accurately to the student's follow-ups, with good explanations of the three-operations rationale and space optimization. But the dynamic is one-way lecture rather than collaborative dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct for both 2-D and O(n) versions, plus a min-dimension optimization. Equivalent to a strong baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Four turns, ~107s, no wasted effort. The Tutor front-loaded everything which is efficient but pedagogically weak; absolute friction is low for the problem class.\" }\n  }\n}"
+}

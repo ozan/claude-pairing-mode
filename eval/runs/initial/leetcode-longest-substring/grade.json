@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-longest-substring",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offers an explicit A/B fork at the start and asks 'which approach do you want to go with?' twice. Beyond that, it doesn't proactively pose more didactic questions, but it does respond to the user's confusion with a clarifying explanation rather than telling."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B choice hits the actual crux: set+shrink vs dict+jump, which is the central efficiency/design tension of this problem. The framing makes the trade-off explicit (innocent characters evicted in 'abcdefa')."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Good progression: present options with diffs, explain A on request, trace concretely, then naturally point toward B as the optimization. No spoilers; the explanation of the set's positionless nature was well-timed when the user got confused."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is direct and warm ('you just spooked yourself'). The Pair handled the user's confusion at right=6 deftly, validating the correct trace and reframing the conceptual confusion (character vs position) cleanly."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct for Option A and passes the traced test cases. It's the less optimal of the two presented approaches (O(n) amortized but with redundant work), whereas baseline landed on the optimal dict-based solution. Functionally correct but didactically the user stopped before learning B."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "3 turns / ~69s vs baseline's 2 turns / ~40s. The extra length is justified by genuine pedagogical work (option fork, confusion resolution), though the user ended on the suboptimal solution rather than progressing to B."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offers an explicit A/B fork at the start and asks 'which approach do you want to go with?' twice. Beyond that, it doesn't proactively pose more didactic questions, but it does respond to the user's confusion with a clarifying explanation rather than telling.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The A/B choice hits the actual crux: set+shrink vs dict+jump, which is the central efficiency/design tension of this problem. The framing makes the trade-off explicit (innocent characters evicted in 'abcdefa').\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Good progression: present options with diffs, explain A on request, trace concretely, then naturally point toward B as the optimization. No spoilers; the explanation of the set's positionless nature was well-timed when the user got confused.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is direct and warm ('you just spooked yourself'). The Pair handled the user's confusion at right=6 deftly, validating the correct trace and reframing the conceptual confusion (character vs position) cleanly.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct for Option A and passes the traced test cases. It's the less optimal of the two presented approaches (O(n) amortized but with redundant work), whereas baseline landed on the optimal dict-based solution. Functionally correct but didactically the user stopped before learning B.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"3 turns / ~69s vs baseline's 2 turns / ~40s. The extra length is justified by genuine pedagogical work (option fork, confusion resolution), though the user ended on the suboptimal solution rather than progressing to B.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-pangram",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:30",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair offered one binary choice (A vs B) and answered the user's follow-up question, but did not pose additional didactic questions at other teachable moments (e.g., short-circuiting, edge cases, complexity)."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The A vs B fork is substantive \u2014 it surfaces a real efficiency difference (repeated .lower() calls) and the set vs iteration trade-off. However, it's a single fork and doesn't probe deeper trade-offs like frozenset, string.ascii_lowercase, or short-circuiting."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Reasonable progression: offer a choice, confirm understanding of >=, then point out a subtlety. No spoilers, but limited depth \u2014 the Pair revealed the inefficiency of A directly rather than letting the user discover it."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational flow is natural and warm; the Pair confirms the user's understanding and adds a relevant nuance. Tone is collegial without being sycophantic."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly solves the problem with a clean one-liner equivalent in correctness to the baseline. Slightly different style (>=) but functionally identical."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter and tighter than baseline (44s vs 68s, 2 turns each, less prose), with a modest pedagogical payoff via the .lower() efficiency observation. Efficient given the problem's simplicity."
+      }
+    }
+  },
+  "weighted": 3.0,
+  "normalized": 0.5,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair offered one binary choice (A vs B) and answered the user's follow-up question, but did not pose additional didactic questions at other teachable moments (e.g., short-circuiting, edge cases, complexity).\" },\n    \"question_quality\":   { \"score\": 3, \"rationale\": \"The A vs B fork is substantive \u2014 it surfaces a real efficiency difference (repeated .lower() calls) and the set vs iteration trade-off. However, it's a single fork and doesn't probe deeper trade-offs like frozenset, string.ascii_lowercase, or short-circuiting.\" },\n    \"scaffolding\":        { \"score\": 3, \"rationale\": \"Reasonable progression: offer a choice, confirm understanding of >=, then point out a subtlety. No spoilers, but limited depth \u2014 the Pair revealed the inefficiency of A directly rather than letting the user discover it.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Conversational flow is natural and warm; the Pair confirms the user's understanding and adds a relevant nuance. Tone is collegial without being sycophantic.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly solves the problem with a clean one-liner equivalent in correctness to the baseline. Slightly different style (>=) but functionally identical.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Shorter and tighter than baseline (44s vs 68s, 2 turns each, less prose), with a modest pedagogical payoff via the .lower() efficiency observation. Efficient given the problem's simplicity.\" }\n  }\n}"
+}

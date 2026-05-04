@@ -1,0 +1,10 @@
+{
+  "slug": "euler-14-collatz",
+  "condition": "baseline",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 53.33176398277283,
+  "propose_options_calls": 0,
+  "leaks_detected": 0,
+  "error": null
+}

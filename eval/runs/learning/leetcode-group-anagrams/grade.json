@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-group-anagrams",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:29",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair asks essentially one didactic question (the fill-in-the-blank for `ord(ch) - ord('a')`) and offers a choice between starting with Solution 1 vs 2. Most teachable moments (hashability, canonical form, defaultdict) are explained didactically rather than questioned."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The fill-in-the-blank prompts the user on the alphabet-indexing idiom, which is genuinely a useful gotcha. However, larger crux points (why tuple vs string key, edge cases, complexity tradeoffs) are stated rather than elicited."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression is smooth: present concept \u2192 answer student questions \u2192 implement simpler solution \u2192 verify trace \u2192 extend to optimized variant with a partial template. No spoilers and difficulty rises gradually."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the back-and-forth feels natural; the Pair confirms the student's mental trace and provides actionable next steps. Slightly one-directional (Pair lectures, student asks), but conversational flow is good."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code for both solutions is correct and equivalent to the baseline. Uses `tuple(sorted(word))` rather than `''.join(...)`, matching baseline's initial version."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns vs baseline's two, with comparable prose volume. The extra turn provides a hands-on implementation step and Solution 2 practice, which is a modest pedagogical gain proportional to the added length."
+      }
+    }
+  },
+  "weighted": 2.9000000000000004,
+  "normalized": 0.4750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair asks essentially one didactic question (the fill-in-the-blank for `ord(ch) - ord('a')`) and offers a choice between starting with Solution 1 vs 2. Most teachable moments (hashability, canonical form, defaultdict) are explained didactically rather than questioned.\" },\n    \"question_quality\":   { \"score\": 3, \"rationale\": \"The fill-in-the-blank prompts the user on the alphabet-indexing idiom, which is genuinely a useful gotcha. However, larger crux points (why tuple vs string key, edge cases, complexity tradeoffs) are stated rather than elicited.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Progression is smooth: present concept \u2192 answer student questions \u2192 implement simpler solution \u2192 verify trace \u2192 extend to optimized variant with a partial template. No spoilers and difficulty rises gradually.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and the back-and-forth feels natural; the Pair confirms the student's mental trace and provides actionable next steps. Slightly one-directional (Pair lectures, student asks), but conversational flow is good.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code for both solutions is correct and equivalent to the baseline. Uses `tuple(sorted(word))` rather than `''.join(...)`, matching baseline's initial version.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Three turns vs baseline's two, with comparable prose volume. The extra turn provides a hands-on implementation step and Solution 2 practice, which is a modest pedagogical gain proportional to the added length.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-zebra-puzzle",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:16",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks no didactic questions. It writes the full solution, verifies it, then explains. The user volunteered understanding at the end without being prompted."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions were posed at all, so no choices or forks were surfaced for the user to engage with."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolded progression \u2014 the Pair dumped the full solution and a complete walkthrough in a single turn, eliminating any teachable buildup."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and the explanation is well-organized, but it's monologue-style with no back-and-forth. The user essentially confirmed understanding alone."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces correct answers (Norwegian/Japanese) in 0.6 ms, comparable to baseline."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Resolved in 1 turn vs baseline's 2, with similar prose volume and a clean upfront clue-mapping table. Slightly tighter than baseline."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks no didactic questions. It writes the full solution, verifies it, then explains. The user volunteered understanding at the end without being prompted.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions were posed at all, so no choices or forks were surfaced for the user to engage with.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolded progression \u2014 the Pair dumped the full solution and a complete walkthrough in a single turn, eliminating any teachable buildup.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and the explanation is well-organized, but it's monologue-style with no back-and-forth. The user essentially confirmed understanding alone.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code produces correct answers (Norwegian/Japanese) in 0.6 ms, comparable to baseline.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Resolved in 1 turn vs baseline's 2, with similar prose volume and a clean upfront clue-mapping table. Slightly tighter than baseline.\" }\n  }\n}"
+}

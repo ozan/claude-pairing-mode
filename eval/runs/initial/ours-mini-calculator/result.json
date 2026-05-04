@@ -1,0 +1,10 @@
+{
+  "slug": "ours-mini-calculator",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 6,
+  "duration_s": 195.40822386741638,
+  "propose_options_calls": 5,
+  "leaks_detected": 0,
+  "error": null
+}

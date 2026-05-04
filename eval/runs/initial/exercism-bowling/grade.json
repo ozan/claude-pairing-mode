@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-bowling",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:19",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed structured A/B option choices at every meaningful decision point: traversal strategy, 10th-frame handling, validation placement, 10th-frame count check, and whether to test invalid inputs. Five distinct didactic forks across five turns is dense engagement."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most forks hit real design tensions (flat-list vs. Frame objects, separating frame 10, validation placement, exact-count check). The single-flag vs. branched if/elif fork is more cosmetic, but the others target genuinely consequential choices including the subtle 10th-frame undercount gotcha."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Progression flowed naturally: traversal \u2192 loop structure \u2192 validation existence \u2192 validation precision \u2192 testing. The Pair caught the user's good question about exact 10th-frame counts and built on it well, though the second validation option (A vs B) was a small difficulty dip after a more substantive earlier choice."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Conversational rhythm was excellent: user reasoned about each choice, Pair confirmed and extended with concrete tracing (e.g., the back-to-back strike index walkthrough). Responses were actionable and the user even ran their own validation tests, indicating genuine engagement."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly scores all canonical games (gutter, perfect, spares, mixed) and rejects the tested invalid inputs. It's slightly less complete than baseline (no BowlingGame class, no negative-roll guard before slicing in some edge cases, fewer tests), but solves the stated problem."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Five turns vs. baseline's two, but the EXPERIMENT delivered substantial pedagogical payoff via five well-framed option choices and tracing. Length is proportional to teaching gain, and total time (163s) is actually shorter than baseline (177s)."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed structured A/B option choices at every meaningful decision point: traversal strategy, 10th-frame handling, validation placement, 10th-frame count check, and whether to test invalid inputs. Five distinct didactic forks across five turns is dense engagement.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"Most forks hit real design tensions (flat-list vs. Frame objects, separating frame 10, validation placement, exact-count check). The single-flag vs. branched if/elif fork is more cosmetic, but the others target genuinely consequential choices including the subtle 10th-frame undercount gotcha.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Progression flowed naturally: traversal \u2192 loop structure \u2192 validation existence \u2192 validation precision \u2192 testing. The Pair caught the user's good question about exact 10th-frame counts and built on it well, though the second validation option (A vs B) was a small difficulty dip after a more substantive earlier choice.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Conversational rhythm was excellent: user reasoned about each choice, Pair confirmed and extended with concrete tracing (e.g., the back-to-back strike index walkthrough). Responses were actionable and the user even ran their own validation tests, indicating genuine engagement.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly scores all canonical games (gutter, perfect, spares, mixed) and rejects the tested invalid inputs. It's slightly less complete than baseline (no BowlingGame class, no negative-roll guard before slicing in some edge cases, fewer tests), but solves the stated problem.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Five turns vs. baseline's two, but the EXPERIMENT delivered substantial pedagogical payoff via five well-framed option choices and tracing. Length is proportional to teaching gain, and total time (163s) is actually shorter than baseline (177s).\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-mini-calculator",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:27",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed a didactic A/B choice at every meaningful decision point: shunting-yard vs recursive descent, class vs closure, float vs int, recursive vs iterative term, unary minus location. Five substantive forks across six turns is high frequency."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The choices target the actual cruxes: associativity (recursive vs iterative term hits the classic left-associativity gotcha), where to place unary minus (scoping/composability), and overall parser architecture. The 8/2/2 question in particular forces the student to confront the key correctness issue."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression goes architecture \u2192 state management \u2192 base case \u2192 operator levels \u2192 unary extension, mirroring bottom-up implementation. Each option presents real trade-offs without spoiling the answer, and difficulty rises smoothly."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tone is concise and warm; the Pair confirms student reasoning ('Spot-on'), runs tests promptly, and lets the student drive. Back-and-forth feels like genuine collaboration rather than lecture."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly handles the required operations, parens, precedence, and adds unary minus. It lacks the baseline's tokenizer, error handling, and explicit grammar comments, but matches the stated problem requirements."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Six turns vs baseline's three, but each extra turn delivered a clear pedagogical fork (associativity, unary placement) with proportional teaching payoff. Length is justified by the didactic gains."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed a didactic A/B choice at every meaningful decision point: shunting-yard vs recursive descent, class vs closure, float vs int, recursive vs iterative term, unary minus location. Five substantive forks across six turns is high frequency.\" },\n    \"question_quality\": { \"score\": 5, \"rationale\": \"The choices target the actual cruxes: associativity (recursive vs iterative term hits the classic left-associativity gotcha), where to place unary minus (scoping/composability), and overall parser architecture. The 8/2/2 question in particular forces the student to confront the key correctness issue.\" },\n    \"scaffolding\": { \"score\": 5, \"rationale\": \"Progression goes architecture \u2192 state management \u2192 base case \u2192 operator levels \u2192 unary extension, mirroring bottom-up implementation. Each option presents real trade-offs without spoiling the answer, and difficulty rises smoothly.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Tone is concise and warm; the Pair confirms student reasoning ('Spot-on'), runs tests promptly, and lets the student drive. Back-and-forth feels like genuine collaboration rather than lecture.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly handles the required operations, parens, precedence, and adds unary minus. It lacks the baseline's tokenizer, error handling, and explicit grammar comments, but matches the stated problem requirements.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Six turns vs baseline's three, but each extra turn delivered a clear pedagogical fork (associativity, unary placement) with proportional teaching payoff. Length is justified by the didactic gains.\" }\n  }\n}"
+}

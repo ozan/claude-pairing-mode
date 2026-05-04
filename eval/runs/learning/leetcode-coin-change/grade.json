@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-coin-change",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:22",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair (tutor) asks zero didactic questions throughout. It delivers a complete solution upfront and answers the user's questions, but never poses teachable questions back to the user."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are framed for the user. The tutor presents a finished solution and explains tradeoffs only when the user prompts, rather than surfacing decision points."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolded sequence \u2014 the full solution including code, complexity, and key takeaways is dumped in turn 1, which is essentially a spoiler-first approach."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the response to the user's sentinel-comparison question is clear and well-targeted, but the conversation is a lecture-then-Q&A rather than a true pair dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to the baseline, passing the same kinds of test cases. The minor stylistic switch to `!= amount + 1` is fine."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Length and turn count match the baseline almost exactly (2 turns, ~56s vs 53s). No meaningful extra friction or extra teaching gain compared to baseline."
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair (tutor) asks zero didactic questions throughout. It delivers a complete solution upfront and answers the user's questions, but never poses teachable questions back to the user.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No choices or forks are framed for the user. The tutor presents a finished solution and explains tradeoffs only when the user prompts, rather than surfacing decision points.\" },\n    \"scaffolding\": { \"score\": 1, \"rationale\": \"There is no scaffolded sequence \u2014 the full solution including code, complexity, and key takeaways is dumped in turn 1, which is essentially a spoiler-first approach.\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is warm and the response to the user's sentinel-comparison question is clear and well-targeted, but the conversation is a lecture-then-Q&A rather than a true pair dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to the baseline, passing the same kinds of test cases. The minor stylistic switch to `!= amount + 1` is fine.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Length and turn count match the baseline almost exactly (2 turns, ~56s vs 53s). No meaningful extra friction or extra teaching gain compared to baseline.\" }\n  }\n}"
+}

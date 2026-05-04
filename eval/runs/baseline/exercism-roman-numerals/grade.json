@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-roman-numerals",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:54",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asked zero didactic questions. It went straight from reading the stub to writing the solution and explaining it after the fact."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices were surfaced to the user. The subtractive-pairs-in-table insight, divmod vs while loop, and validation were all decided unilaterally."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolding occurred \u2014 solution was delivered fully formed with explanation appended. The user merely traced an example to self-check."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and the post-hoc explanation with the table is well-structured, but it's a monologue rather than a dialogue. The user had no opportunity to engage until acknowledging completion."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asked zero didactic questions. It went straight from reading the stub to writing the solution and explaining it after the fact.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices were surfaced to the user. The subtractive-pairs-in-table insight, divmod vs while loop, and validation were all decided unilaterally.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"No scaffolding occurred \u2014 solution was delivered fully formed with explanation appended. The user merely traced an example to self-check.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and the post-hoc explanation with the table is well-structured, but it's a monologue rather than a dialogue. The user had no opportunity to engage until acknowledging completion.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code correctly solves the problem, passes 18 test cases including boundaries, and adds input validation beyond the minimum. Slightly better than a baseline minimum solution due to divmod and validation.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Single turn, efficient delivery. Minor friction from the read-only filesystem mishap, but otherwise tight.\" }\n  }\n}"
+}

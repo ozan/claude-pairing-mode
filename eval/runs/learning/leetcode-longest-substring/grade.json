@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-longest-substring",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:26",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It delivers the full solution with explanation upfront, leaving no room for the student to discover anything."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions are posed. The 'why last_seen[char] >= left' is presented as exposition rather than a Socratic prompt."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolding exists \u2014 the solution, walkthrough, edge case, and complexity are all dumped in a single message with full spoilers."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and well-organized, but the conversation is one-sided: the Pair lectures, the student self-verifies and exits. No real back-and-forth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to baseline \u2014 same sliding window with last_seen guard, O(n) time."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Resolved in a single turn (~22s) versus baseline's two turns. Tighter than baseline, though with no pedagogical gain to justify it."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It delivers the full solution with explanation upfront, leaving no room for the student to discover anything.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions are posed. The 'why last_seen[char] >= left' is presented as exposition rather than a Socratic prompt.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"No scaffolding exists \u2014 the solution, walkthrough, edge case, and complexity are all dumped in a single message with full spoilers.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and well-organized, but the conversation is one-sided: the Pair lectures, the student self-verifies and exits. No real back-and-forth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to baseline \u2014 same sliding window with last_seen guard, O(n) time.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Resolved in a single turn (~22s) versus baseline's two turns. Tighter than baseline, though with no pedagogical gain to justify it.\" }\n  }\n}"
+}

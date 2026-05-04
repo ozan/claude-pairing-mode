@@ -1,0 +1,39 @@
+{
+  "slug": "euler-14-collatz",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:32",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It delivers a complete solution and explanation in one shot. The user is the one asking questions at the end, not the Pair."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are surfaced to the user. The Pair makes all decisions (memoization, recursion limit) without prompting reflection."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the entire solution is dumped in turn one with explanation, leaving nothing for the learner to derive."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and friendly with a nice table and code commentary, but it's a one-way lecture rather than a back-and-forth. The session ends before the user's follow-up questions are even addressed."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code returns 837799 correctly, equivalent to baseline. Uses a mutable default arg cache (a known anti-pattern) and bumps recursion limit rather than going iterative as baseline eventually did."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Much shorter than baseline (1 turn, 16s vs 2 turns, 53s) and arrives at the correct answer immediately, though with less teaching payoff."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It delivers a complete solution and explanation in one shot. The user is the one asking questions at the end, not the Pair.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks are surfaced to the user. The Pair makes all decisions (memoization, recursion limit) without prompting reflection.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the entire solution is dumped in turn one with explanation, leaving nothing for the learner to derive.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and friendly with a nice table and code commentary, but it's a one-way lecture rather than a back-and-forth. The session ends before the user's follow-up questions are even addressed.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code returns 837799 correctly, equivalent to baseline. Uses a mutable default arg cache (a known anti-pattern) and bumps recursion limit rather than going iterative as baseline eventually did.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Much shorter than baseline (1 turn, 16s vs 2 turns, 53s) and arrives at the correct answer immediately, though with less teaching payoff.\" }\n  }\n}"
+}

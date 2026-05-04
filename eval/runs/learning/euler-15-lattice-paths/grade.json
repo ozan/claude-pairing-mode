@@ -1,0 +1,39 @@
+{
+  "slug": "euler-15-lattice-paths",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:33",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks essentially no didactic questions. It presents content and confirms the user's understanding, but never poses teachable-moment questions like 'what would happen if you swept right-to-left?' before revealing the answer."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No substantive forks are presented to the user. The rolling-row trick and sweep-order invariant are explained directly rather than elicited via a question."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Content is well-organized and progresses from closed-form \u2192 DP \u2192 space optimization, but since there are no questions, scaffolding-as-pedagogy barely exists. The space-optimization is essentially handed over with explanation rather than discovered."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, responsive, and the back-and-forth flows naturally; the Pair acknowledges the user's typo and reinforces the invariant clearly. But the dynamic is more lecture-confirm than collaborative inquiry."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 5,
+        "rationale": "Final code is correct and verified by execution; the experiment also caught and corrected a numerical typo (137,846,528,820 vs. the baseline's 137,846,528,640), making it actually more accurate than the baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns vs. baseline's two, with modest extra content (rolling-row variant, invariant proof, execution verification). Length is proportional to the added value."
+      }
+    }
+  },
+  "weighted": 2.6,
+  "normalized": 0.4,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks essentially no didactic questions. It presents content and confirms the user's understanding, but never poses teachable-moment questions like 'what would happen if you swept right-to-left?' before revealing the answer.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No substantive forks are presented to the user. The rolling-row trick and sweep-order invariant are explained directly rather than elicited via a question.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"Content is well-organized and progresses from closed-form \u2192 DP \u2192 space optimization, but since there are no questions, scaffolding-as-pedagogy barely exists. The space-optimization is essentially handed over with explanation rather than discovered.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm, responsive, and the back-and-forth flows naturally; the Pair acknowledges the user's typo and reinforces the invariant clearly. But the dynamic is more lecture-confirm than collaborative inquiry.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 5, \"rationale\": \"Final code is correct and verified by execution; the experiment also caught and corrected a numerical typo (137,846,528,820 vs. the baseline's 137,846,528,640), making it actually more accurate than the baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Three turns vs. baseline's two, with modest extra content (rolling-row variant, invariant proof, execution verification). Length is proportional to the added value.\" }\n  }\n}"
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "ours-caesar-cipher",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 89.9455931186676,
+  "propose_options_calls": 2,
+  "leaks_detected": 0,
+  "error": null
+}

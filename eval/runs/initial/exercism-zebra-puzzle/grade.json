@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-zebra-puzzle",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed three explicit OPTIONS forks (flat vs nested, position\u2192value vs value\u2192position, cache vs recompute) at meaningful design moments. Not every decision point was surfaced (e.g., constraint ordering wasn't a question), but the cadence is solid."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Two of the three forks hit real cruxes: nested-with-pruning vs flat brute force is the central algorithmic trade-off, and the value\u2192position representation choice genuinely shapes constraint readability. The caching question is more cosmetic but still legitimate."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: algorithm structure \u2192 data representation \u2192 caching, each building on the last with no spoilers. The diff hints in each option reveal the answer's flavor but appropriately so for a junior dev to make an informed choice."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational flow is clean and the OPTIONS format gives the user clear agency. Tone is professional and warm; tutor confirms reasoning before moving on. Slightly mechanical due to the rigid options template but works well."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces correct answers (Norwegian/Japanese), comparable to baseline. Slightly less polished than baseline (which had a richer table output and more clue annotations) but functionally equivalent."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns and ~159s vs baseline's 2 turns/84s \u2014 roughly 2x longer, but the extra time bought genuine pedagogical interaction at three real design forks rather than a post-hoc explanation. Proportional payoff."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed three explicit OPTIONS forks (flat vs nested, position\u2192value vs value\u2192position, cache vs recompute) at meaningful design moments. Not every decision point was surfaced (e.g., constraint ordering wasn't a question), but the cadence is solid.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Two of the three forks hit real cruxes: nested-with-pruning vs flat brute force is the central algorithmic trade-off, and the value\u2192position representation choice genuinely shapes constraint readability. The caching question is more cosmetic but still legitimate.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: algorithm structure \u2192 data representation \u2192 caching, each building on the last with no spoilers. The diff hints in each option reveal the answer's flavor but appropriately so for a junior dev to make an informed choice.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversational flow is clean and the OPTIONS format gives the user clear agency. Tone is professional and warm; tutor confirms reasoning before moving on. Slightly mechanical due to the rigid options template but works well.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code produces correct answers (Norwegian/Japanese), comparable to baseline. Slightly less polished than baseline (which had a richer table output and more clue annotations) but functionally equivalent.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 4 turns and ~159s vs baseline's 2 turns/84s \u2014 roughly 2x longer, but the extra time bought genuine pedagogical interaction at three real design forks rather than a post-hoc explanation. Proportional payoff.\" }\n  }\n}"
+}

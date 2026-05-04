@@ -1,0 +1,39 @@
+{
+  "slug": "euler-6-sum-square-diff",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:45",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair never asks the user any didactic questions. The user actually drives the inquiry by asking which approach to take. Teachable moments (why the formulas work, integer division, divisibility) are not surfaced as questions."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "There are essentially no Pair-posed choices or forks. The Pair just presents formulas and a recommendation; no crux is framed as a question to the learner."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Content is presented in a logical order (formulas \u2192 steps \u2192 loop+formula comparison), but it's exposition, not scaffolded inquiry. The learner is given full answers immediately with no graduated discovery."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the back-and-forth reads naturally, but it's largely the user echoing understanding rather than genuine pedagogical dialogue. Guidance is actionable but lecture-style."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly computes 25,164,150 using both loop and formula with an assert, matching the baseline's correctness. Comparable solution quality."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Resolved in 2 turns / ~26s vs baseline's 3 turns / ~48s. Tighter than baseline, though it skipped the deeper derivations baseline covered."
+      }
+    }
+  },
+  "weighted": 2.3000000000000003,
+  "normalized": 0.32500000000000007,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair never asks the user any didactic questions. The user actually drives the inquiry by asking which approach to take. Teachable moments (why the formulas work, integer division, divisibility) are not surfaced as questions.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"There are essentially no Pair-posed choices or forks. The Pair just presents formulas and a recommendation; no crux is framed as a question to the learner.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"Content is presented in a logical order (formulas \u2192 steps \u2192 loop+formula comparison), but it's exposition, not scaffolded inquiry. The learner is given full answers immediately with no graduated discovery.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the back-and-forth reads naturally, but it's largely the user echoing understanding rather than genuine pedagogical dialogue. Guidance is actionable but lecture-style.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly computes 25,164,150 using both loop and formula with an assert, matching the baseline's correctness. Comparable solution quality.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Resolved in 2 turns / ~26s vs baseline's 3 turns / ~48s. Tighter than baseline, though it skipped the deeper derivations baseline covered.\" }\n  }\n}"
+}

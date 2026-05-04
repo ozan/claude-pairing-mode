@@ -1,0 +1,10 @@
+{
+  "slug": "ours-todo-cli",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 55.268495321273804,
+  "propose_options_calls": 1,
+  "leaks_detected": 0,
+  "error": null
+}

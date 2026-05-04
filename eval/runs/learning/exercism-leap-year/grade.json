@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-leap-year",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:03",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It immediately presents the full solution and explanation, with no engagement of the user at any decision point."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions or framed choices are offered. The Pair never surfaces the central fork (e.g., why parentheses/precedence matter, alternative formulations) as a teachable decision."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding because there are no questions. The solution is revealed in full immediately, which is the worst-case spoiler scenario for a learning condition."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the explanation is clear and well-organized with tables and traces, but it's a one-way lecture rather than a back-and-forth dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and idiomatic, equivalent to the baseline solution albeit with a different formulation (400-first vs 4-first)."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Resolved in a single turn (~13s) versus baseline's two turns (~26s), with no wasted effort. Tighter than baseline though without proportional teaching gain."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It immediately presents the full solution and explanation, with no engagement of the user at any decision point.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions or framed choices are offered. The Pair never surfaces the central fork (e.g., why parentheses/precedence matter, alternative formulations) as a teachable decision.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding because there are no questions. The solution is revealed in full immediately, which is the worst-case spoiler scenario for a learning condition.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the explanation is clear and well-organized with tables and traces, but it's a one-way lecture rather than a back-and-forth dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and idiomatic, equivalent to the baseline solution albeit with a different formulation (400-first vs 4-first).\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Resolved in a single turn (~13s) versus baseline's two turns (~26s), with no wasted effort. Tighter than baseline though without proportional teaching gain.\" }\n  }\n}"
+}

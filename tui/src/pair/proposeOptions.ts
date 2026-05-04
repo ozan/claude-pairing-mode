@@ -2,13 +2,34 @@
 // custom event type, and the handler that core's Session calls when the
 // model invokes the tool. This file is the entire glue for plugging the
 // experiment into core.
+//
+// The tool's name, description, and input schema live in the shared JSON
+// file at the repo root (../../../propose_options_tool_schema.json) so the
+// Python eval and this TS TUI register the exact same contract with the
+// model. The schema is FLAT (six top-level fields, no nesting): see that
+// file for field definitions, and 006-initial transcripts for the prior
+// nested-schema breakage that motivated the flat shape.
 
 import { createSdkMcpServer, tool } from '@anthropic-ai/claude-agent-sdk';
 import { z } from 'zod';
 import { type CustomToolHandler, type ToolUseBlock } from '../core/types';
+import schemaJson from '../../../propose_options_tool_schema.json' with { type: 'json' };
 
-export const PROPOSE_TOOL_NAME = 'propose_options';
-export const MCP_SERVER_NAME = 'pairing';
+
+interface ToolSchema {
+  mcp_server_name: string;
+  tool_name: string;
+  description: string;
+  input_schema: {
+    type: 'object';
+    properties: Record<string, { type: 'string'; description: string; enum?: string[] }>;
+    required: string[];
+  };
+}
+const SCHEMA = schemaJson as ToolSchema;
+
+export const PROPOSE_TOOL_NAME = SCHEMA.tool_name;
+export const MCP_SERVER_NAME = SCHEMA.mcp_server_name;
 export const FULL_PROPOSE_TOOL_NAME =
   `mcp__${MCP_SERVER_NAME}__${PROPOSE_TOOL_NAME}`;
 
@@ -27,44 +48,22 @@ export type OptionsEvent = {
 };
 
 
-// FLAT SCHEMA. The original schema had nested `options: Array<{title,
-// body}>` + `private_notes: {best_index, rationale}` shape. Sonnet/Opus
-// frequently serialized those nested fields as JSON-encoded strings,
-// which the SDK pre-rejected with "No such tool available" — leaking
-// the error into Sonnet's conversation history and breaking ~83% of
-// runs in 006-initial. Verified via diag-minimal-mcp.ts that flat-arg
-// MCP tools dispatch cleanly. The handler reconstructs the OptionsEvent
-// from the six flat fields.
+// Build a Zod raw shape from the shared JSON schema. Supports the limited
+// subset our tool uses: string + string-enum, both with descriptions.
+const zodShape = Object.fromEntries(
+  Object.entries(SCHEMA.input_schema.properties).map(([key, prop]) => {
+    const base = prop.enum
+      ? z.enum(prop.enum as [string, ...string[]])
+      : z.string();
+    return [key, base.describe(prop.description)];
+  }),
+);
+
+
 const proposeOptionsTool = tool(
   PROPOSE_TOOL_NAME,
-  'Propose exactly two options for the user to choose between at a didactic decision point. ' +
-    'Option A is what you would do if the user just asked, and option B is a plausible-looking ' +
-    'alternative presented for educational purposes (or vice versa — vary which letter is your ' +
-    'preference). Pass each field as a plain string or integer; do not JSON-encode them.',
-  {
-    option_a_title: z.string().describe('Short label for option A, 2-5 words. No punctuation.'),
-    option_a_body: z
-      .string()
-      .describe(
-        'Markdown justification for option A. Ideally 1-3 sentences. For code options, use a fenced ' +
-          '```diff block with a `+++ filename` header and a `@@ -OLD,_ +NEW,_ @@` hunk header.',
-      ),
-    option_b_title: z.string().describe('Short label for option B, 2-5 words. No punctuation.'),
-    option_b_body: z
-      .string()
-      .describe(
-        'Markdown justification for option B. Same formatting rules as option_a_body.',
-      ),
-    best_letter: z
-      .enum(['A', 'B'])
-      .describe('"A" if option A is your honest best recommendation, "B" if option B is.'),
-    rationale: z
-      .string()
-      .describe(
-        'Your reasoning for and against the preferred option. Hidden from the user; used by ' +
-          'the eval/transcript layer to score whether the user picked correctly.',
-      ),
-  },
+  SCHEMA.description,
+  zodShape,
   async () => ({
     content: [
       { type: 'text' as const, text: 'Options recorded; awaiting user selection.' },

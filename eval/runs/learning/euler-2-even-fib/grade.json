@@ -1,0 +1,39 @@
+{
+  "slug": "euler-2-even-fib",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:41",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asked no didactic questions of the user. It delivered the answer and explanation directly, then answered a user-initiated question in turn 2."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions were posed to the user, so no choices or forks were surfaced for the user to engage with."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding because there are no questions. The Pair just exposited the solution and a follow-up explanation."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are clear and accurate (parity pattern, tuple unpacking, bytecode). However it's pure exposition rather than a back-and-forth pedagogical dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final answer 4,613,732 matches baseline and is correct; code is equivalent quality to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Slightly longer than baseline (2 turns vs 1), but the extra turn was driven by a useful user question about tuple unpacking semantics with a solid bytecode-level answer."
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asked no didactic questions of the user. It delivered the answer and explanation directly, then answered a user-initiated question in turn 2.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions were posed to the user, so no choices or forks were surfaced for the user to engage with.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding because there are no questions. The Pair just exposited the solution and a follow-up explanation.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations are clear and accurate (parity pattern, tuple unpacking, bytecode). However it's pure exposition rather than a back-and-forth pedagogical dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final answer 4,613,732 matches baseline and is correct; code is equivalent quality to baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Slightly longer than baseline (2 turns vs 1), but the extra turn was driven by a useful user question about tuple unpacking semantics with a solid bytecode-level answer.\" }\n  }\n}"
+}

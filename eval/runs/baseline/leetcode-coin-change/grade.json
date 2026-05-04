@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-coin-change",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:03",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero didactic questions throughout. It delivers the full solution upfront and then validates the student's self-initiated trace, never prompting the student to discover anything."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices are framed for the student. The greedy-vs-DP fork and sentinel choice are both presented as fait accompli rather than as decision points to engage with."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the complete solution including code, tests, and complexity analysis is dumped in turn 1. This is the definition of spoiling."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the Tutor's correction about the sentinel value (amount+1 vs amount) is a genuinely useful precision point. But the dynamic is lecture-then-acknowledge rather than collaborative."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero didactic questions throughout. It delivers the full solution upfront and then validates the student's self-initiated trace, never prompting the student to discover anything.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices are framed for the student. The greedy-vs-DP fork and sentinel choice are both presented as fait accompli rather than as decision points to engage with.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the complete solution including code, tests, and complexity analysis is dumped in turn 1. This is the definition of spoiling.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the Tutor's correction about the sentinel value (amount+1 vs amount) is a genuinely useful precision point. But the dynamic is lecture-then-acknowledge rather than collaborative.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct, handles all standard edge cases, and is equivalent to a typical baseline solution for this problem.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Resolved in 2 turns with reasonable efficiency. Not particularly tight given everything was dumped upfront, but no wasted cycles.\" }\n  }\n}"
+}

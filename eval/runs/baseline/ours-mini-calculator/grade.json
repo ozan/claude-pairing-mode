@@ -1,0 +1,39 @@
+{
+  "slug": "ours-mini-calculator",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:37",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor never asks the user a question. All didactic engagement is initiated by the student asking questions about the code the Tutor produced. There are zero teachable moments where the Tutor invites the user to think through a choice."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since the Tutor poses no questions, there are no choices framed for the user. Substantive forks (left vs right associativity, regex ordering, unary chaining) are explained didactically only after the student raises them, not surfaced as decision points."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no Tutor-driven scaffolding \u2014 the full solution is dumped in turn 1 with all design decisions baked in. The student drove subsequent learning; the Tutor just answered."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear, warm, and explanations are well-illustrated with live traces. Conversational flow is one-directional (student asks, tutor lectures) rather than a true back-and-forth pair-programming dynamic."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor never asks the user a question. All didactic engagement is initiated by the student asking questions about the code the Tutor produced. There are zero teachable moments where the Tutor invites the user to think through a choice.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since the Tutor poses no questions, there are no choices framed for the user. Substantive forks (left vs right associativity, regex ordering, unary chaining) are explained didactically only after the student raises them, not surfaced as decision points.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no Tutor-driven scaffolding \u2014 the full solution is dumped in turn 1 with all design decisions baked in. The student drove subsequent learning; the Tutor just answered.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear, warm, and explanations are well-illustrated with live traces. Conversational flow is one-directional (student asks, tutor lectures) rather than a true back-and-forth pair-programming dynamic.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code passes 28/28 tests, supports unary +/-, floats, scientific notation, and gives proper errors. Solid, slightly more featureful than a minimum baseline would likely be.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Tutor solved the problem in a single turn with comprehensive tests; subsequent turns added value via concrete traces and a regex demo. Efficient given the problem class.\" }\n  }\n}"
+}

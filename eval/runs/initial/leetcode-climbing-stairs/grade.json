@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-climbing-stairs",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offers one explicit A/B choice and one extension question (1,2,3 steps). That's a reasonable amount of engagement for a simple problem, but not high frequency."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B fork hits the central trade-off (O(1) rolling vs O(n) explicit DP array), which is the actual design tension in this problem. The extension question on generalizing the recurrence is also pedagogically meaningful."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: state recurrence, surface storage choice, validate, then offer extension. No spoilers, smooth gradient. Slightly weakened by giving the recurrence upfront rather than asking the user to derive it."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and direct, options are actionable, and the Pair respects the user's choice of B while gently noting the refactor habit. The stray ToolSearch artifact is minor noise."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Solution works and passes tests, equivalent correctness to baseline. Uses O(n) space rather than baseline's O(1), but this was the user's explicit informed choice."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Two turns, comparable to baseline, with the added value of making the storage trade-off an explicit decision rather than dictating the optimal answer. Good ratio of teaching to length."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offers one explicit A/B choice and one extension question (1,2,3 steps). That's a reasonable amount of engagement for a simple problem, but not high frequency.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The A/B fork hits the central trade-off (O(1) rolling vs O(n) explicit DP array), which is the actual design tension in this problem. The extension question on generalizing the recurrence is also pedagogically meaningful.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: state recurrence, surface storage choice, validate, then offer extension. No spoilers, smooth gradient. Slightly weakened by giving the recurrence upfront rather than asking the user to derive it.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and direct, options are actionable, and the Pair respects the user's choice of B while gently noting the refactor habit. The stray ToolSearch artifact is minor noise.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Solution works and passes tests, equivalent correctness to baseline. Uses O(n) space rather than baseline's O(1), but this was the user's explicit informed choice.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Two turns, comparable to baseline, with the added value of making the storage trade-off an explicit decision rather than dictating the optimal answer. Good ratio of teaching to length.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "euler-6-sum-square-diff",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:31",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero didactic questions throughout. All questioning comes from the student side; the Tutor only delivers explanations."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are framed by the Tutor. There are no decision points presented to the user to engage with."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "The Tutor immediately reveals the full answer and both formulas in turn 1, eliminating any opportunity for guided discovery. Subsequent explanations (telescoping derivation, divisibility) are well-structured but driven by student curiosity, not Tutor-led scaffolding."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are clear and well-formatted. However, the dynamic is one-sided lecturing \u2014 the Tutor responds to student questions but never invites the student to attempt anything themselves."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero didactic questions throughout. All questioning comes from the student side; the Tutor only delivers explanations.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks are framed by the Tutor. There are no decision points presented to the user to engage with.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"The Tutor immediately reveals the full answer and both formulas in turn 1, eliminating any opportunity for guided discovery. Subsequent explanations (telescoping derivation, divisibility) are well-structured but driven by student curiosity, not Tutor-led scaffolding.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations are clear and well-formatted. However, the dynamic is one-sided lecturing \u2014 the Tutor responds to student questions but never invites the student to attempt anything themselves.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code correctly computes 25,164,150 using the closed-form formulas with proper integer division, and includes a brute-force verification. Solid and correct.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Three turns is reasonable for this problem; the math derivations add genuine educational value beyond a bare solution, even if no baseline is provided for comparison.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-caesar-cipher",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:14",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "Two didactic option-prompts were posed (correct shift formula, test style). Reasonable for the problem size but not high frequency; missed opportunities like negative-shift behavior or case detection."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first option (skip vs. normalize base) hits the actual crux of Caesar cipher implementation \u2014 a classic gotcha that forces the student to reason about modular arithmetic on ASCII values. The second (pytest vs assert) is more cosmetic."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: core algorithm choice \u2192 implementation \u2192 tests. No spoilers in option A vs B; the wrong option is plausibly wrong, requiring real reasoning. Difficulty gradient is appropriate."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is concise and warm, with affirmation of student reasoning and useful asides (Python's % behavior, pytest debugging benefits). Conversational flow is natural and forward-moving."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to baseline, with bonus tests. Slightly less polished than baseline (no helper extraction, no docstrings) but functionally complete."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns vs baseline's 2, ~90s vs 52s. The extra length yielded a real teaching moment on the modular arithmetic crux and added tests, which is proportional payoff."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"Two didactic option-prompts were posed (correct shift formula, test style). Reasonable for the problem size but not high frequency; missed opportunities like negative-shift behavior or case detection.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The first option (skip vs. normalize base) hits the actual crux of Caesar cipher implementation \u2014 a classic gotcha that forces the student to reason about modular arithmetic on ASCII values. The second (pytest vs assert) is more cosmetic.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: core algorithm choice \u2192 implementation \u2192 tests. No spoilers in option A vs B; the wrong option is plausibly wrong, requiring real reasoning. Difficulty gradient is appropriate.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is concise and warm, with affirmation of student reasoning and useful asides (Python's % behavior, pytest debugging benefits). Conversational flow is natural and forward-moving.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to baseline, with bonus tests. Slightly less polished than baseline (no helper extraction, no docstrings) but functionally complete.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"4 turns vs baseline's 2, ~90s vs 52s. The extra length yielded a real teaching moment on the modular arithmetic crux and added tests, which is proportional payoff.\" }\n  }\n}"
+}

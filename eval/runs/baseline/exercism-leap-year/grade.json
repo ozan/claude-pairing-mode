@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-leap-year",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:47",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asked zero didactic questions. It immediately produced the solution and a table of test cases without inviting the user to think about anything."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks were posed to the user. The classic gotcha (century vs 400-year exception) was just explained, not surfaced as a question."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the full answer was given on turn 1 with no progressive build-up. The user did the tracing work spontaneously, not because of guided prompts."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the Pair correctly affirmed and gently corrected the precedence misunderstanding, but it's a one-way explanation rather than a real didactic dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asked zero didactic questions. It immediately produced the solution and a table of test cases without inviting the user to think about anything.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks were posed to the user. The classic gotcha (century vs 400-year exception) was just explained, not surfaced as a question.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the full answer was given on turn 1 with no progressive build-up. The user did the tracing work spontaneously, not because of guided prompts.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the Pair correctly affirmed and gently corrected the precedence misunderstanding, but it's a one-way explanation rather than a real didactic dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code `year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)` is correct and idiomatic, equivalent to a baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two-turn, ~26 second resolution is tight and efficient for this trivial problem; no wasted effort beyond a failed write attempt.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-tic-tac-toe",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:43",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks essentially no didactic questions of the user. It delivers explanations and a testing checklist but never engages the user with Socratic prompts at any teachable moment."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since there are no questions posed to the user, there is no question quality to evaluate. The Tutor's explanations are substantive, but it never frames a choice for the student to reason through."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolded sequence of questions exists. The Tutor's exposition is well-organized, but pedagogically there is no progression of student-facing problems or hints."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the Tutor is responsive to the (simulated) student's questions, including a nice catch of the dead-code bug. But it's lecture-mode rather than dialogic pair programming."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks essentially no didactic questions of the user. It delivers explanations and a testing checklist but never engages the user with Socratic prompts at any teachable moment.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since there are no questions posed to the user, there is no question quality to evaluate. The Tutor's explanations are substantive, but it never frames a choice for the student to reason through.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"No scaffolded sequence of questions exists. The Tutor's exposition is well-organized, but pedagogically there is no progression of student-facing problems or hints.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the Tutor is responsive to the (simulated) student's questions, including a nice catch of the dead-code bug. But it's lecture-mode rather than dialogic pair programming.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code implements full minimax tic-tac-toe correctly, and the Tutor even identified and fixed a latent bug (the len==9 dead branch) that the baseline likely didn't catch. Solution is slightly better than a typical baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Five turns with substantial prose, but the explanations were directly responsive to the student's questions and uncovered a real bug. Length is reasonable for the depth of explanation delivered.\" }\n  }\n}"
+}

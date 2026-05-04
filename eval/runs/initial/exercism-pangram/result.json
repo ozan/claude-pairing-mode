@@ -1,0 +1,10 @@
+{
+  "slug": "exercism-pangram",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 44.53815317153931,
+  "propose_options_calls": 1,
+  "leaks_detected": 0,
+  "error": null
+}

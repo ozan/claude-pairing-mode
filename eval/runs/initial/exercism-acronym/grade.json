@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-acronym",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:27",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offers explicit A/B choices at three decision points (initial approach, fix for underscores) and invites follow-up questions, engaging the user at each meaningful fork."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The choices target real tensions: regex vs. string methods, and enumerating separators vs. stripping leading non-alpha. These are the genuine design decisions for this problem, though the camelCase case (HyperText\u2192HTML) was missed."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Nice progression: simple approach first, then surfacing the underscore edge case, then refining. The Pair self-corrects an earlier overstatement about `_` being handled, which models good debugging without spoiling. No major jumps."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational and warm; the Pair acknowledges the user's reasoning, corrects itself transparently, and makes the back-and-forth feel collaborative. Tone is consistent and actionable."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Solution passes the included tests but does not handle camelCase (e.g. 'HyperText Markup Language' \u2192 'HML' instead of 'HTML'), which the baseline caught and fixed. So it's slightly weaker than baseline on coverage."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Four turns vs. baseline's one, ~114s vs ~79s, with proportional pedagogical payoff via the A/B framing. Reasonable trade-off, though the missed camelCase case dampens the value."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offers explicit A/B choices at three decision points (initial approach, fix for underscores) and invites follow-up questions, engaging the user at each meaningful fork.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The choices target real tensions: regex vs. string methods, and enumerating separators vs. stripping leading non-alpha. These are the genuine design decisions for this problem, though the camelCase case (HyperText\u2192HTML) was missed.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Nice progression: simple approach first, then surfacing the underscore edge case, then refining. The Pair self-corrects an earlier overstatement about `_` being handled, which models good debugging without spoiling. No major jumps.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Conversational and warm; the Pair acknowledges the user's reasoning, corrects itself transparently, and makes the back-and-forth feel collaborative. Tone is consistent and actionable.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Solution passes the included tests but does not handle camelCase (e.g. 'HyperText Markup Language' \u2192 'HML' instead of 'HTML'), which the baseline caught and fixed. So it's slightly weaker than baseline on coverage.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Four turns vs. baseline's one, ~114s vs ~79s, with proportional pedagogical payoff via the A/B framing. Reasonable trade-off, though the missed camelCase case dampens the value.\" }\n  }\n}"
+}

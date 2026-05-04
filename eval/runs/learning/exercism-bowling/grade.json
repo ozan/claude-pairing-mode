@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-bowling",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:03",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair rarely asks didactic questions of the user. The user drives almost all the inquiry by asking questions; the Pair answers thoroughly but doesn't reciprocate with probing questions like 'what do you think happens when...' at teachable moments."
+      },
+      "question_quality": {
+        "score": 2,
+        "rationale": "The few question-like moments ('Ask away', 'What would you like to dig into?') are open invitations rather than focused prompts at crux points. The Pair never frames a specific algorithmic fork or invites the user to predict an outcome."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Although the Pair didn't lead the scaffolding, the explanations themselves progress logically: frame walking \u2192 fill-ball double-counting \u2192 10th-frame pin reset \u2192 validator asymmetry \u2192 scorer/validator contract. No spoilers, smooth difficulty gradient, but the user did the heavy lifting in sequencing."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation flows naturally and warmly. Explanations are clear, well-organized with tables, and confirm/correct the user's traces precisely (e.g., catching the spurious 'spare' in the user's trace). Slight friction with the truncation misunderstanding in turn 3."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code passes 25/25 tests and correctly handles strikes, spares, fill balls, and 10th-frame edge cases. Comparable in quality to baseline (baseline had 39 tests and a BowlingGame class; experiment is leaner but covers the spec)."
+      },
+      "friction": {
+        "score": 2,
+        "rationale": "Took 7 turns / 408s vs baseline's 2 turns / 177s \u2014 over 2x longer. The extra length yielded substantial pedagogical depth (validator/scorer contract, pin-reset reasoning, asymmetric bounds checks), but the teaching was user-driven rather than Pair-driven, and turn 3 wasted effort re-pasting the file due to a misread."
+      }
+    }
+  },
+  "weighted": 2.5,
+  "normalized": 0.375,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair rarely asks didactic questions of the user. The user drives almost all the inquiry by asking questions; the Pair answers thoroughly but doesn't reciprocate with probing questions like 'what do you think happens when...' at teachable moments.\" },\n    \"question_quality\":   { \"score\": 2, \"rationale\": \"The few question-like moments ('Ask away', 'What would you like to dig into?') are open invitations rather than focused prompts at crux points. The Pair never frames a specific algorithmic fork or invites the user to predict an outcome.\" },\n    \"scaffolding\":        { \"score\": 3, \"rationale\": \"Although the Pair didn't lead the scaffolding, the explanations themselves progress logically: frame walking \u2192 fill-ball double-counting \u2192 10th-frame pin reset \u2192 validator asymmetry \u2192 scorer/validator contract. No spoilers, smooth difficulty gradient, but the user did the heavy lifting in sequencing.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Conversation flows naturally and warmly. Explanations are clear, well-organized with tables, and confirm/correct the user's traces precisely (e.g., catching the spurious 'spare' in the user's trace). Slight friction with the truncation misunderstanding in turn 3.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code passes 25/25 tests and correctly handles strikes, spares, fill balls, and 10th-frame edge cases. Comparable in quality to baseline (baseline had 39 tests and a BowlingGame class; experiment is leaner but covers the spec).\" },\n    \"friction\":           { \"score\": 2, \"rationale\": \"Took 7 turns / 408s vs baseline's 2 turns / 177s \u2014 over 2x longer. The extra length yielded substantial pedagogical depth (validator/scorer contract, pin-reset reasoning, asymmetric bounds checks), but the teaching was user-driven rather than Pair-driven, and turn 3 wasted effort re-pasting the file due to a misread.\" }\n  }\n}"
+}

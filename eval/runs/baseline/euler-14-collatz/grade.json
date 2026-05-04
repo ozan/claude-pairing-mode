@@ -1,0 +1,39 @@
+{
+  "slug": "euler-14-collatz",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:20",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks essentially no didactic questions. The teaching happens through exposition, and the questions in the dialogue come from the student, not the Pair."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No substantive choices were posed to the user. The Tutor surfaced the recursion-limit gotcha but presented it as explanation rather than as a question or fork for the student to consider."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "There is a logical progression (recursive memoized solution \u2192 iterative refinement triggered by recursion-depth concern), but it's a monologue scaffold; the user wasn't led through it via questioning."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, explanations are clear and actionable, and the back-and-forth feels natural. It reads more like good tutoring-by-explanation than dialogic pedagogy."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks essentially no didactic questions. The teaching happens through exposition, and the questions in the dialogue come from the student, not the Pair.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No substantive choices were posed to the user. The Tutor surfaced the recursion-limit gotcha but presented it as explanation rather than as a question or fork for the student to consider.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"There is a logical progression (recursive memoized solution \u2192 iterative refinement triggered by recursion-depth concern), but it's a monologue scaffold; the user wasn't led through it via questioning.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm, explanations are clear and actionable, and the back-and-forth feels natural. It reads more like good tutoring-by-explanation than dialogic pedagogy.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final answer 837799 is correct, and the iterative version is genuinely better than a typical baseline by avoiding recursion-limit risk and being faster.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Two turns, ~53 seconds, with a meaningful upgrade from recursive to iterative memoization. Efficient given the educational payoff about chain length vs recursion depth.\" }\n  }\n}"
+}

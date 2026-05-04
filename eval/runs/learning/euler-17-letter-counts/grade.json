@@ -1,0 +1,39 @@
+{
+  "slug": "euler-17-letter-counts",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:42",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It delivers a complete worked solution upfront and then only adds a clarifying note about teens at the end. No teachable moments are turned into prompts for the user."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "There are no questions posed to the user, so no choices or forks are surfaced. The 'why teens are special' note is a statement, not a question."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolded sequence exists \u2014 the full answer (21124) and derivation are revealed in turn 1, which is maximally spoiler-heavy for a learning condition."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the explanation is clean and well-structured, but the conversation is essentially a monologue + confirmation rather than a back-and-forth pedagogical exchange."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final answer 21124 is correct and matches baseline; code is clean and runs to verify. Equivalent quality to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 2 turns vs baseline's 1, with modestly more content (code + execution verification). Slightly longer than baseline with marginal added value (executable verification, teens gotcha note)."
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It delivers a complete worked solution upfront and then only adds a clarifying note about teens at the end. No teachable moments are turned into prompts for the user.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"There are no questions posed to the user, so no choices or forks are surfaced. The 'why teens are special' note is a statement, not a question.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"No scaffolded sequence exists \u2014 the full answer (21124) and derivation are revealed in turn 1, which is maximally spoiler-heavy for a learning condition.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the explanation is clean and well-structured, but the conversation is essentially a monologue + confirmation rather than a back-and-forth pedagogical exchange.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final answer 21124 is correct and matches baseline; code is clean and runs to verify. Equivalent quality to baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took 2 turns vs baseline's 1, with modestly more content (code + execution verification). Slightly longer than baseline with marginal added value (executable verification, teens gotcha note).\" }\n  }\n}"
+}

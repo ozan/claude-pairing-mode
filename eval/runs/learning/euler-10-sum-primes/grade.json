@@ -1,0 +1,39 @@
+{
+  "slug": "euler-10-sum-primes",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:33",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor never asks the user a question. It delivers a complete solution with explanations, and the user drives any follow-up questioning. No teachable moments are surfaced as prompts to the student."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since no didactic questions are posed, there is no choice-framing to evaluate. The Tutor presents trade-offs in tables but never invites the user to reason through them."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "The full algorithm, optimizations, and complexity analysis are dumped in turn 1, leaving nothing to discover. There is no progression \u2014 the answer and rationale are revealed up front."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are clear and accurate, with helpful follow-ups on bytes(n) and bytearray vs list. But it's a lecture-and-confirm dynamic rather than an interactive dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and produces 142,913,828,922, equivalent to the baseline. Slightly different idiom (loop vs while) but functionally identical."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (2 turns vs 3, 49s vs 84s) and reaches the same correct answer with comparable explanation depth, including a useful bytearray-vs-list benchmark."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor never asks the user a question. It delivers a complete solution with explanations, and the user drives any follow-up questioning. No teachable moments are surfaced as prompts to the student.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since no didactic questions are posed, there is no choice-framing to evaluate. The Tutor presents trade-offs in tables but never invites the user to reason through them.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"The full algorithm, optimizations, and complexity analysis are dumped in turn 1, leaving nothing to discover. There is no progression \u2014 the answer and rationale are revealed up front.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations are clear and accurate, with helpful follow-ups on bytes(n) and bytearray vs list. But it's a lecture-and-confirm dynamic rather than an interactive dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and produces 142,913,828,922, equivalent to the baseline. Slightly different idiom (loop vs while) but functionally identical.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Shorter than baseline (2 turns vs 3, 49s vs 84s) and reaches the same correct answer with comparable explanation depth, including a useful bytearray-vs-list benchmark.\" }\n  }\n}"
+}

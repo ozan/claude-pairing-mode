@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-trap-rain-water",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:17",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It dumps a complete solution write-up with three approaches, walkthrough, and complexity table in one shot."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions or forks are surfaced to the user. The crux (why the shorter side determines water level) is stated as exposition rather than elicited."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Content is reasonably structured (brute force \u2192 DP \u2192 two pointers) but everything is revealed immediately with no progressive elicitation. Spoilers throughout since the optimal solution is given upfront."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and well-organized; the user responded positively and traced through the example themselves. But there's no real back-and-forth \u2014 it's a monologue followed by the user self-teaching."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It dumps a complete solution write-up with three approaches, walkthrough, and complexity table in one shot.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No questions or forks are surfaced to the user. The crux (why the shorter side determines water level) is stated as exposition rather than elicited.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"Content is reasonably structured (brute force \u2192 DP \u2192 two pointers) but everything is revealed immediately with no progressive elicitation. Spoilers throughout since the optimal solution is given upfront.\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is clear and well-organized; the user responded positively and traced through the example themselves. But there's no real back-and-forth \u2014 it's a monologue followed by the user self-teaching.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Both DP and two-pointer solutions are correct and well-explained. The walkthrough table is slightly truncated/abbreviated but the code is solid.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Single-turn delivery is efficient in length, but the user's trace question goes unanswered since the session ended. No baseline provided; reasonable for the problem class.\" }\n  }\n}"
+}

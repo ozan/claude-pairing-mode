@@ -1,0 +1,228 @@
+{
+  "run_dir": "runs/baseline",
+  "is_baseline": true,
+  "baseline_compared_against": null,
+  "n": 36,
+  "mean_weighted": 2.0638888888888887,
+  "mean_normalized": 0.2659722222222223,
+  "graded_at": "2026-05-04T21:01:47",
+  "model": "claude-opus-4-7",
+  "results": [
+    {
+      "slug": "euler-1-multiples",
+      "weighted": 1.9000000000000001,
+      "normalized": 0.22500000000000003,
+      "is_baseline": true
+    },
+    {
+      "slug": "euler-10-sum-primes",
+      "weighted": 2.2,
+      "normalized": 0.30000000000000004,
+      "is_baseline": true
+    },
+    {
+      "slug": "euler-14-collatz",
+      "weighted": 2.2,
+      "normalized": 0.30000000000000004,
+      "is_baseline": true
+    },
+    {
+      "slug": "euler-15-lattice-paths",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "euler-17-letter-counts",
+      "weighted": 1.9000000000000001,
+      "normalized": 0.22500000000000003,
+      "is_baseline": true
+    },
+    {
+      "slug": "euler-2-even-fib",
+      "weighted": 1.9000000000000001,
+      "normalized": 0.22500000000000003,
+      "is_baseline": true
+    },
+    {
+      "slug": "euler-21-amicable",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "euler-6-sum-square-diff",
+      "weighted": 2.1,
+      "normalized": 0.275,
+      "is_baseline": true
+    },
+    {
+      "slug": "euler-67-max-path-sum",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-acronym",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-allergies",
+      "weighted": 2.2,
+      "normalized": 0.30000000000000004,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-bowling",
+      "weighted": 2.1,
+      "normalized": 0.275,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-hamming",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-leap-year",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-pangram",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-rna-transcription",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-roman-numerals",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "exercism-zebra-puzzle",
+      "weighted": 2.1,
+      "normalized": 0.275,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-climbing-stairs",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-coin-change",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-edit-distance",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-group-anagrams",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-longest-substring",
+      "weighted": 2.6,
+      "normalized": 0.4,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-median-two-sorted",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-trap-rain-water",
+      "weighted": 2.1,
+      "normalized": 0.275,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-two-sum",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "leetcode-valid-parens",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-caesar-cipher",
+      "weighted": 2.1,
+      "normalized": 0.275,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-fizzbuzz",
+      "weighted": 2.1,
+      "normalized": 0.275,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-game-of-life",
+      "weighted": 2.3000000000000003,
+      "normalized": 0.32500000000000007,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-lru-cache",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-mini-calculator",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-run-length-encoding",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-tic-tac-toe",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-todo-cli",
+      "weighted": 2.5,
+      "normalized": 0.375,
+      "is_baseline": true
+    },
+    {
+      "slug": "ours-word-counter",
+      "weighted": 2.0,
+      "normalized": 0.25,
+      "is_baseline": true
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-word-counter",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:40",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair asks a meaningful upfront A/B choice and offers follow-up directions (smoke test, edge cases). Beyond the initial fork, though, it doesn't probe deeper or invite the user to reason through tracing."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The A/B fork (Counter vs manual accumulation) is a reasonable teaching choice but somewhat cosmetic \u2014 both use the same regex. The more consequential choice (regex vs translate+split, with the `don't`/`hello-world` trade-off) is mentioned as exposition rather than offered as a fork."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Reasonable progression: choose approach \u2192 write code \u2192 smoke test \u2192 offer edge cases. No spoilers, and the explanation of `.get(key, 0)` is well-timed. But the depth stays shallow because the user opts out early."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and validating without flattery (\"Totally fair\"), explanations are actionable, and it follows the user's lead naturally. Minor noise from the visible tool-search call at the start."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "The regex `[a-z]+` solution works and arguably handles `hello-world` better than baseline, but it silently drops digits and non-ASCII letters (e.g., `caf\u00e9` \u2192 `caf`), whereas the baseline's `string.punctuation` approach preserves more. Roughly comparable to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "3 turns vs baseline's 1, but the extra length yielded a real teaching moment around `dict.get` and a smoke test verification \u2014 proportional payoff for a simple problem."
+      }
+    }
+  },
+  "weighted": 3.1,
+  "normalized": 0.525,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair asks a meaningful upfront A/B choice and offers follow-up directions (smoke test, edge cases). Beyond the initial fork, though, it doesn't probe deeper or invite the user to reason through tracing.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The A/B fork (Counter vs manual accumulation) is a reasonable teaching choice but somewhat cosmetic \u2014 both use the same regex. The more consequential choice (regex vs translate+split, with the `don't`/`hello-world` trade-off) is mentioned as exposition rather than offered as a fork.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"Reasonable progression: choose approach \u2192 write code \u2192 smoke test \u2192 offer edge cases. No spoilers, and the explanation of `.get(key, 0)` is well-timed. But the depth stays shallow because the user opts out early.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and validating without flattery (\\\"Totally fair\\\"), explanations are actionable, and it follows the user's lead naturally. Minor noise from the visible tool-search call at the start.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"The regex `[a-z]+` solution works and arguably handles `hello-world` better than baseline, but it silently drops digits and non-ASCII letters (e.g., `caf\u00e9` \u2192 `caf`), whereas the baseline's `string.punctuation` approach preserves more. Roughly comparable to baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"3 turns vs baseline's 1, but the extra length yielded a real teaching moment around `dict.get` and a smoke test verification \u2014 proportional payoff for a simple problem.\" }\n  }\n}"
+}

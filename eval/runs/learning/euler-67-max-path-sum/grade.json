@@ -1,0 +1,39 @@
+{
+  "slug": "euler-67-max-path-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:52",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks no didactic questions of the user. It delivers a complete solution with explanations, then answers the user's questions, but never turns the dialogue around to probe the user's understanding."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "There are essentially no Pair-initiated questions or framed choices. The Pair makes all design decisions silently (DP direction, copy vs in-place, path reconstruction) without surfacing them as forks for the user."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolding exists since the full solution and explanation are dumped in turn 1. The user is left to react rather than being led through a progression of insights."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the Pair gives clear, actionable answers to the user's follow-ups (file reading, PE#67 context). But the flow is one-directional lecture-then-Q&A rather than collaborative."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code produces the correct answer 696 with verified path reconstruction, equivalent to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns vs baseline's three, comparable prose volume. Slightly tighter than baseline but with no pedagogical gain to justify the brevity."
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks no didactic questions of the user. It delivers a complete solution with explanations, then answers the user's questions, but never turns the dialogue around to probe the user's understanding.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"There are essentially no Pair-initiated questions or framed choices. The Pair makes all design decisions silently (DP direction, copy vs in-place, path reconstruction) without surfacing them as forks for the user.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"No scaffolding exists since the full solution and explanation are dumped in turn 1. The user is left to react rather than being led through a progression of insights.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the Pair gives clear, actionable answers to the user's follow-ups (file reading, PE#67 context). But the flow is one-directional lecture-then-Q&A rather than collaborative.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code produces the correct answer 696 with verified path reconstruction, equivalent to baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns vs baseline's three, comparable prose volume. Slightly tighter than baseline but with no pedagogical gain to justify the brevity.\" }\n  }\n}"
+}

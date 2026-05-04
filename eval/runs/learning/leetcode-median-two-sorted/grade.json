@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-median-two-sorted",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:33",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks essentially no didactic questions. It dumps a complete solution upfront and then responds to the student's questions rather than driving inquiry. No teachable-moment prompts surfaced."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since there are effectively no Tutor-posed questions or forks, there's nothing substantive to evaluate. The student drove the only conceptual probe (the +1 question)."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "The full solution including code, complexity, and trace is revealed in turn 1. There's no progressive build-up \u2014 every spoiler is given immediately, so no scaffolding exists."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are clear and accurate, with good follow-up on the +1 nuance and edge cases. But it's lecture-then-confirm rather than a true dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to baseline (only minor difference: returns -1 instead of raising on the unreachable branch, which the Tutor flagged)."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns, ~75s, comparable to baseline's 54s. Slightly longer but with marginal extra discussion of the +1 bias and edge cases; no significant friction."
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks essentially no didactic questions. It dumps a complete solution upfront and then responds to the student's questions rather than driving inquiry. No teachable-moment prompts surfaced.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since there are effectively no Tutor-posed questions or forks, there's nothing substantive to evaluate. The student drove the only conceptual probe (the +1 question).\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"The full solution including code, complexity, and trace is revealed in turn 1. There's no progressive build-up \u2014 every spoiler is given immediately, so no scaffolding exists.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations are clear and accurate, with good follow-up on the +1 nuance and edge cases. But it's lecture-then-confirm rather than a true dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to baseline (only minor difference: returns -1 instead of raising on the unreachable branch, which the Tutor flagged).\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns, ~75s, comparable to baseline's 54s. Slightly longer but with marginal extra discussion of the +1 bias and edge cases; no significant friction.\" }\n  }\n}"
+}

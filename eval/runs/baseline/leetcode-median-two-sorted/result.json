@@ -1,0 +1,10 @@
+{
+  "slug": "leetcode-median-two-sorted",
+  "condition": "baseline",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 54.020522117614746,
+  "propose_options_calls": 0,
+  "leaks_detected": 0,
+  "error": null
+}

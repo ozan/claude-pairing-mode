@@ -1,0 +1,39 @@
+{
+  "slug": "ours-todo-cli",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:20:01",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asked zero didactic questions. It wrote the code, smoke-tested it, and gave a tour without engaging the user with any teachable prompts."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices were surfaced for the user. The `max(..., default=0)` idiom and `match` dispatch were mentioned in passing but never framed as decisions or questions."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding to speak of \u2014 a single monologue explanation followed by the user closing the session."
+      },
+      "flow_and_tone": {
+        "score": 2,
+        "rationale": "Tone is warm and the explanation is clear, but there's no back-and-forth; the user simply rephrased the explanation and ended the session."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is comparable to baseline: all four subcommands work, persistence is correct, errors handled. No edit extension as in baseline, but the original requirements are fully met."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (1 turn, 43s vs 2 turns, 79s) and delivered a working solution cleanly, though with no pedagogical payoff to justify a higher score."
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asked zero didactic questions. It wrote the code, smoke-tested it, and gave a tour without engaging the user with any teachable prompts.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices were surfaced for the user. The `max(..., default=0)` idiom and `match` dispatch were mentioned in passing but never framed as decisions or questions.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding to speak of \u2014 a single monologue explanation followed by the user closing the session.\" },\n    \"flow_and_tone\":      { \"score\": 2, \"rationale\": \"Tone is warm and the explanation is clear, but there's no back-and-forth; the user simply rephrased the explanation and ended the session.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is comparable to baseline: all four subcommands work, persistence is correct, errors handled. No edit extension as in baseline, but the original requirements are fully met.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Shorter than baseline (1 turn, 43s vs 2 turns, 79s) and delivered a working solution cleanly, though with no pedagogical payoff to justify a higher score.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-allergies",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:39",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks essentially zero didactic questions. It delivers the full solution upfront and answers the student's questions, but never poses teachable forks back to the student."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No substantive questions are posed by the Tutor. The student drove the only interesting question (bool() vs truthiness), and the Tutor responded didactically rather than eliciting."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Turn 1 dumps the complete solution including bit-mask explanation and tests, which is a spoiler-first approach. Subsequent explanation of bool() vs truthiness was clear, but there's no graduated discovery."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and explanations are accurate, well-organized with tables and examples. Conversational flow is natural, though one-sided in that the Tutor lectures and the student reflects."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks essentially zero didactic questions. It delivers the full solution upfront and answers the student's questions, but never poses teachable forks back to the student.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No substantive questions are posed by the Tutor. The student drove the only interesting question (bool() vs truthiness), and the Tutor responded didactically rather than eliciting.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"Turn 1 dumps the complete solution including bit-mask explanation and tests, which is a spoiler-first approach. Subsequent explanation of bool() vs truthiness was clear, but there's no graduated discovery.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and explanations are accurate, well-organized with tables and examples. Conversational flow is natural, though one-sided in that the Tutor lectures and the student reflects.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and idiomatic, handling high bits, edge cases, and type contracts properly. Equivalent to a clean baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Three turns to deliver a small problem solution is reasonable; the bool() discussion provided real value. No baseline given, so judged in absolute terms as average.\" }\n  }\n}"
+}

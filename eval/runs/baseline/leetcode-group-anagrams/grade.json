@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-group-anagrams",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:09",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks no didactic questions of the user. All questioning flows from the student to the tutor; the tutor simply provides solutions and answers."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are framed for the user. The tutor presents the sorted-key insight as fait accompli and offers the count-tuple variant without inviting the user to reason about the trade-off."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the full solution, complexity, and bonus variant are dumped in turn 1. The student is left to ask their own follow-up questions rather than being led through discovery."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the answers to the student's three questions are accurate and useful (including the honest correction about preferring `''.join`). But the dynamic is one-way Q&A, not collaborative pair-programming."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks no didactic questions of the user. All questioning flows from the student to the tutor; the tutor simply provides solutions and answers.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks are framed for the user. The tutor presents the sorted-key insight as fait accompli and offers the count-tuple variant without inviting the user to reason about the trade-off.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the full solution, complexity, and bonus variant are dumped in turn 1. The student is left to ask their own follow-up questions rather than being led through discovery.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the answers to the student's three questions are accurate and useful (including the honest correction about preferring `''.join`). But the dynamic is one-way Q&A, not collaborative pair-programming.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final solution using `''.join(sorted(s))` with a defaultdict is correct and idiomatic, equivalent to a standard baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns, ~50 seconds, no wasted effort. Comparable to a typical baseline for this easy problem.\" }\n  }\n}"
+}

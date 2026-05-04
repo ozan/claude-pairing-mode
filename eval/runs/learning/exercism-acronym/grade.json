@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-acronym",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:53",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It immediately presents the full solution with explanations, and the user drives all the questioning. No teachable forks were surfaced as choices for the user."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since no questions are posed by the Pair, there are no choices framed at all. The crux of the problem (camelCase handling, which the baseline caught) isn't even surfaced."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the complete solution is dumped in turn 1 with a table that spoils every step. The user is reduced to confirming understanding rather than discovering anything."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the explanations of edge cases (empty string, all-hyphens) are clear and responsive to the user's questions. But the dynamic is one-directional lecture rather than collaborative back-and-forth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 2,
+        "rationale": "The solution misses the camelCase case ('HyperText Markup Language' \u2192 'HTML') which the baseline explicitly caught and fixed. No tests were even run to verify. This is a meaningful correctness gap."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Shorter than baseline (45s, 2 turns) and concise, but the brevity comes at the cost of correctness and any pedagogy. Comparable efficiency to baseline in raw terms."
+      }
+    }
+  },
+  "weighted": 1.8000000000000003,
+  "normalized": 0.20000000000000007,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It immediately presents the full solution with explanations, and the user drives all the questioning. No teachable forks were surfaced as choices for the user.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"Since no questions are posed by the Pair, there are no choices framed at all. The crux of the problem (camelCase handling, which the baseline caught) isn't even surfaced.\" },\n    \"scaffolding\": { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the complete solution is dumped in turn 1 with a table that spoils every step. The user is reduced to confirming understanding rather than discovering anything.\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is warm and the explanations of edge cases (empty string, all-hyphens) are clear and responsive to the user's questions. But the dynamic is one-directional lecture rather than collaborative back-and-forth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 2, \"rationale\": \"The solution misses the camelCase case ('HyperText Markup Language' \u2192 'HTML') which the baseline explicitly caught and fixed. No tests were even run to verify. This is a meaningful correctness gap.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Shorter than baseline (45s, 2 turns) and concise, but the brevity comes at the cost of correctness and any pedagogy. Comparable efficiency to baseline in raw terms.\" }\n  }\n}"
+}

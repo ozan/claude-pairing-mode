@@ -1,0 +1,39 @@
+{
+  "slug": "ours-fizzbuzz",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:47",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero didactic questions. It delivers two complete solutions with explanations and never engages the user with a prompt to think or decide."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices are framed for the user. The Tutor presents both approaches as fait accompli rather than surfacing the trade-off as a decision point."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the full solution and an alternative are dumped in turn 1, with all key insights (order matters, falsy empty string, scaling) spoiled upfront."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and friendly, and the explanation is well-organized, but the interaction is one-sided: the user self-teaches and ends the session without any back-and-forth from the Tutor."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to baseline; both the % 15 version and a concatenation variant are provided."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (1 turn, 12.6s vs 2 turns, 24.5s) and reaches a correct solution efficiently, though without pedagogical payoff to justify the brevity."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero didactic questions. It delivers two complete solutions with explanations and never engages the user with a prompt to think or decide.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices are framed for the user. The Tutor presents both approaches as fait accompli rather than surfacing the trade-off as a decision point.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the full solution and an alternative are dumped in turn 1, with all key insights (order matters, falsy empty string, scaling) spoiled upfront.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and friendly, and the explanation is well-organized, but the interaction is one-sided: the user self-teaches and ends the session without any back-and-forth from the Tutor.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to baseline; both the % 15 version and a concatenation variant are provided.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Shorter than baseline (1 turn, 12.6s vs 2 turns, 24.5s) and reaches a correct solution efficiently, though without pedagogical payoff to justify the brevity.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-allergies",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair never asks the user a didactic question. It explains and then answers the user's questions, but does not engage the user with Socratic prompts at any teachable moment."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No didactic questions are posed by the Pair. Forks (order semantics, error handling) are surfaced by the user and then resolved by the Pair, not framed as choices for the learner."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "There is no real scaffolded sequence of questions. The Pair dumps the full solution in turn 1 (a spoiler relative to any Socratic approach), then answers user-initiated clarifications."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, concise, and the responses are directly actionable with clean tables and examples. Conversational flow is smooth, though it is mostly Pair-explains / user-acknowledges rather than true back-and-forth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to baseline: bitmask via `1 << index`, explicit ValueError, definition-order output. Slightly different structure but solves the problem equally well."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (2 turns, 36s vs 3 turns, 61s) with a small added pedagogical payoff on order semantics and explicit error handling. Efficient given the problem."
+      }
+    }
+  },
+  "weighted": 2.4000000000000004,
+  "normalized": 0.3500000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair never asks the user a didactic question. It explains and then answers the user's questions, but does not engage the user with Socratic prompts at any teachable moment.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No didactic questions are posed by the Pair. Forks (order semantics, error handling) are surfaced by the user and then resolved by the Pair, not framed as choices for the learner.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"There is no real scaffolded sequence of questions. The Pair dumps the full solution in turn 1 (a spoiler relative to any Socratic approach), then answers user-initiated clarifications.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm, concise, and the responses are directly actionable with clean tables and examples. Conversational flow is smooth, though it is mostly Pair-explains / user-acknowledges rather than true back-and-forth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to baseline: bitmask via `1 << index`, explicit ValueError, definition-order output. Slightly different structure but solves the problem equally well.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Shorter than baseline (2 turns, 36s vs 3 turns, 61s) with a small added pedagogical payoff on order semantics and explicit error handling. Efficient given the problem.\" }\n  }\n}"
+}

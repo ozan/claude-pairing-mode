@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-edit-distance",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:25",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair never poses didactic questions to the user \u2014 it dumps the full solution upfront and then only confirms/elaborates on the user's self-generated questions. There are no Socratic prompts at teachable forks."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since the Pair asks essentially no questions, there is no targeting of crux decisions. The recurrence and space optimization are presented as exposition rather than surfaced as choices."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "The very first turn spoils the entire solution including the space-optimized version, table walkthrough, and complexity analysis. There's no gradient \u2014 everything is delivered at once, then later turns just reinforce."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the explanations (especially the pointer-movement framing for insert) are clear and actionable. The back-and-forth feels natural even if it's user-driven rather than tutor-driven."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "The 2D solution presented is correct and matches the baseline. The experiment stopped before the user implemented the space-optimized version, but the core problem is solved equivalently to baseline."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Finished in 2 turns / 52s vs baseline's 4 turns / 107s, with similar correctness. Less teaching depth but tighter conversation."
+      }
+    }
+  },
+  "weighted": 2.7,
+  "normalized": 0.42500000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair never poses didactic questions to the user \u2014 it dumps the full solution upfront and then only confirms/elaborates on the user's self-generated questions. There are no Socratic prompts at teachable forks.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"Since the Pair asks essentially no questions, there is no targeting of crux decisions. The recurrence and space optimization are presented as exposition rather than surfaced as choices.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"The very first turn spoils the entire solution including the space-optimized version, table walkthrough, and complexity analysis. There's no gradient \u2014 everything is delivered at once, then later turns just reinforce.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm and the explanations (especially the pointer-movement framing for insert) are clear and actionable. The back-and-forth feels natural even if it's user-driven rather than tutor-driven.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"The 2D solution presented is correct and matches the baseline. The experiment stopped before the user implemented the space-optimized version, but the core problem is solved equivalently to baseline.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Finished in 2 turns / 52s vs baseline's 4 turns / 107s, with similar correctness. Less teaching depth but tighter conversation.\" }\n  }\n}"
+}

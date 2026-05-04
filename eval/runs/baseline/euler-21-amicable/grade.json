@@ -1,0 +1,39 @@
+{
+  "slug": "euler-21-amicable",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:28",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asked zero didactic questions; it immediately solved the problem and explained the answer. No teachable moments were turned into prompts for the user."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions posed, so no crux choices were surfaced for the user. The \u221an optimization and perfect-square guard were explained but not framed as a decision."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the full solution and answer were revealed in one shot, the worst spoiler scenario."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and the explanation is well-organized with a tidy table, but it is one-way exposition rather than a back-and-forth dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asked zero didactic questions; it immediately solved the problem and explained the answer. No teachable moments were turned into prompts for the user.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions posed, so no crux choices were surfaced for the user. The \u221an optimization and perfect-square guard were explained but not framed as a decision.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the full solution and answer were revealed in one shot, the worst spoiler scenario.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and the explanation is well-organized with a tidy table, but it is one-way exposition rather than a back-and-forth dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly produces 31626 with an O(\u221an) divisor sum, matching a typical baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Single turn, ~21s \u2014 efficient in absolute terms for this problem class, with no extra teaching length to evaluate.\" }\n  }\n}"
+}

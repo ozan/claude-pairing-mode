@@ -1,0 +1,39 @@
+{
+  "slug": "euler-10-sum-primes",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:21",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor never poses didactic questions to the student. All questions in the conversation come from the student; the Tutor only answers them. There are no teachable-moment prompts initiated by the Pair."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since the Tutor poses no questions, there are no choices framed for the student. The pedagogy is entirely expository, not Socratic."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "The Tutor delivered the full solution with explanation up front, then answered student-driven follow-ups. There's a reasonable progression in the explanations themselves, but no scaffolded question sequence from the Tutor."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, explanations are clear and directly address the student's questions (slice length rule, p\u00b2 boundary, step semantics). Flow is natural even though it's student-driven rather than tutor-driven."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor never poses didactic questions to the student. All questions in the conversation come from the student; the Tutor only answers them. There are no teachable-moment prompts initiated by the Pair.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since the Tutor poses no questions, there are no choices framed for the student. The pedagogy is entirely expository, not Socratic.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"The Tutor delivered the full solution with explanation up front, then answered student-driven follow-ups. There's a reasonable progression in the explanations themselves, but no scaffolded question sequence from the Tutor.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm, explanations are clear and directly address the student's questions (slice length rule, p\u00b2 boundary, step semantics). Flow is natural even though it's student-driven rather than tutor-driven.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Correct answer 142,913,828,922 in ~33 ms using a clean sieve with bytearray slice assignment. Minor inefficiency: outer loop increments p by 1 rather than skipping evens or only iterating over known primes, but well within problem requirements.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Three turns to solve and explain \u2014 efficient given that the explanations included substantive Python details (extended slice length rule, p\u00b2 invariant). No baseline available; absolute friction is reasonable for this problem.\" }\n  }\n}"
+}

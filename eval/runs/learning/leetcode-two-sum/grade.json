@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-two-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:38",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair (tutor) asks essentially zero didactic questions. It delivers explanations and answers the user's questions but never turns the dialogue back to probe the student's understanding."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No substantive choices are framed for the student. The tutor presents the optimal solution directly and explains tradeoffs unilaterally rather than eliciting them."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "The tutor dumps the full solution with code in turn 1, which is a spoiler-heavy approach. The follow-up explanation about ordering is well-structured, but there's no progressive scaffolding from problem to solution."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are clear and actionable, but flow is broken at the end by a confused meta-moment ('I should clarify \u2014 I'm the assistant in this session') and a garbled 'Human of being' artifact, hurting the conversational experience."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to baseline and correctly solves Two Sum with O(n) time/space. Equivalent quality to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took the same number of turns as baseline (2) with somewhat more elaborate explanations. The extra length included a useful deep-dive on ordering, roughly proportional to the (modest) pedagogical payoff, though the end-of-turn confusion adds noise."
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair (tutor) asks essentially zero didactic questions. It delivers explanations and answers the user's questions but never turns the dialogue back to probe the student's understanding.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No substantive choices are framed for the student. The tutor presents the optimal solution directly and explains tradeoffs unilaterally rather than eliciting them.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"The tutor dumps the full solution with code in turn 1, which is a spoiler-heavy approach. The follow-up explanation about ordering is well-structured, but there's no progressive scaffolding from problem to solution.\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is warm and explanations are clear and actionable, but flow is broken at the end by a confused meta-moment ('I should clarify \u2014 I'm the assistant in this session') and a garbled 'Human of being' artifact, hurting the conversational experience.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical to baseline and correctly solves Two Sum with O(n) time/space. Equivalent quality to baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took the same number of turns as baseline (2) with somewhat more elaborate explanations. The extra length included a useful deep-dive on ordering, roughly proportional to the (modest) pedagogical payoff, though the end-of-turn confusion adds noise.\" }\n  }\n}"
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "leetcode-trap-rain-water",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 3,
+  "duration_s": 65.9704737663269,
+  "propose_options_calls": 2,
+  "leaks_detected": 0,
+  "error": null
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-rna-transcription",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:55",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks no didactic questions of the user. It writes the solution directly, and only answers questions posed by the student. There are zero teachable-moment prompts initiated by the tutor."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are surfaced to the student. The Pair makes all design decisions unilaterally (translate vs loop, frozenset vs set, validate-first ordering) without inviting student input."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding because there are no questions. The Pair delivers a complete solution, then explains in depth \u2014 closer to a lecture than guided discovery."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and the explanations in Turn 2 are technically excellent and directly responsive to the student's follow-ups. However, the interaction is one-directional: tutor solves, student asks, tutor explains, student concludes."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks no didactic questions of the user. It writes the solution directly, and only answers questions posed by the student. There are zero teachable-moment prompts initiated by the tutor.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks are surfaced to the student. The Pair makes all design decisions unilaterally (translate vs loop, frozenset vs set, validate-first ordering) without inviting student input.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding because there are no questions. The Pair delivers a complete solution, then explains in depth \u2014 closer to a lecture than guided discovery.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and the explanations in Turn 2 are technically excellent and directly responsive to the student's follow-ups. However, the interaction is one-directional: tutor solves, student asks, tutor explains, student concludes.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly solves the problem with input validation, uses str.translate idiomatically, and passes the inline test suite. Comparable to a baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Resolved in 2 turns with minor friction from the read-only filesystem error and a pytest failure that was worked around with an inline script. Reasonable efficiency for the problem.\" }\n  }\n}"
+}

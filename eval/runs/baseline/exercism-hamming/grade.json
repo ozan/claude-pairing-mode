@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-hamming",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:44",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero didactic questions. It immediately writes the solution and explains it. The only questions in the conversation come from the Student."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks were surfaced to the student. The crux (zip's silent truncation, why the guard must come first) was explained reactively rather than posed as a question."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding because there are no questions. The Tutor delivered the full solution upfront, leaving nothing for the learner to derive."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are clear and accurate, including a nice note about the empty-sum identity and zip truncation. But it's a one-way explanation, not a pedagogical dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero didactic questions. It immediately writes the solution and explains it. The only questions in the conversation come from the Student.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks were surfaced to the student. The crux (zip's silent truncation, why the guard must come first) was explained reactively rather than posed as a question.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding because there are no questions. The Tutor delivered the full solution upfront, leaving nothing for the learner to derive.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations are clear and accurate, including a nice note about the empty-sum identity and zip truncation. But it's a one-way explanation, not a pedagogical dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct, idiomatic, and handles the empty case and length mismatch properly. Equivalent to a typical baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns, minimal overhead beyond a brief filesystem hiccup. Efficient for the problem class.\" }\n  }\n}"
+}

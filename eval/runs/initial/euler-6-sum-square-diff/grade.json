@@ -1,0 +1,39 @@
+{
+  "slug": "euler-6-sum-square-diff",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:02",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "Only one real didactic prompt \u2014 the A/B choice at the start. After the user picked A, the tutor offered information but didn't engage with further questions at teachable moments (e.g., didn't probe the generator vs list distinction)."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The single A/B fork does target a meaningful trade-off (concrete loop vs closed-form identities) which is the central design tension of this problem, but it's framed as a preference rather than probing the underlying math."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Scaffolding is minimal \u2014 one fork, then straight to writing code, then a tangential note about generators. No progression toward deeper understanding (e.g., the identities, divisibility) like the baseline achieved."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, respects the user's stated preference, and conversation flows naturally. The offer to revisit closed-form later is gracious, though it left meaningful pedagogical content on the table."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and produces 25164150, equivalent to baseline's brute-force version. Slightly less elegant than baseline's closed-form but functionally identical."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (2 turns vs 3) and got to a working answer quickly. However, the brevity came at the cost of the rich derivation/divisibility teaching the baseline delivered."
+      }
+    }
+  },
+  "weighted": 2.9000000000000004,
+  "normalized": 0.4750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"Only one real didactic prompt \u2014 the A/B choice at the start. After the user picked A, the tutor offered information but didn't engage with further questions at teachable moments (e.g., didn't probe the generator vs list distinction).\" },\n    \"question_quality\":   { \"score\": 3, \"rationale\": \"The single A/B fork does target a meaningful trade-off (concrete loop vs closed-form identities) which is the central design tension of this problem, but it's framed as a preference rather than probing the underlying math.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"Scaffolding is minimal \u2014 one fork, then straight to writing code, then a tangential note about generators. No progression toward deeper understanding (e.g., the identities, divisibility) like the baseline achieved.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm, respects the user's stated preference, and conversation flows naturally. The offer to revisit closed-form later is gracious, though it left meaningful pedagogical content on the table.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and produces 25164150, equivalent to baseline's brute-force version. Slightly less elegant than baseline's closed-form but functionally identical.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Shorter than baseline (2 turns vs 3) and got to a working answer quickly. However, the brevity came at the cost of the rich derivation/divisibility teaching the baseline delivered.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-median-two-sorted",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:14",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero didactic questions. It dumps the full solution upfront and only confirms understanding when the student asks their own question."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions or forks were posed by the Tutor. No teachable choice points (e.g., why search the smaller array, why half uses +1, sentinel choice) were turned into prompts."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "The Tutor front-loaded the entire solution including code, traces, and complexity analysis \u2014 a complete spoiler with no progressive scaffold."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the second-turn clarification of the i+j invariant is genuinely useful, but the dynamic is lecture-then-confirm rather than collaborative."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero didactic questions. It dumps the full solution upfront and only confirms understanding when the student asks their own question.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions or forks were posed by the Tutor. No teachable choice points (e.g., why search the smaller array, why half uses +1, sentinel choice) were turned into prompts.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"The Tutor front-loaded the entire solution including code, traces, and complexity analysis \u2014 a complete spoiler with no progressive scaffold.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the second-turn clarification of the i+j invariant is genuinely useful, but the dynamic is lecture-then-confirm rather than collaborative.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code is correct, handles edge cases (empty arrays, sentinels), and achieves O(log(min(m,n))). Solid, idiomatic solution.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Resolved in just 2 turns with a complete, correct solution and a useful clarification on the invariant. Efficient, though essentially baseline-style with minimal teaching dialogue.\" }\n  }\n}"
+}

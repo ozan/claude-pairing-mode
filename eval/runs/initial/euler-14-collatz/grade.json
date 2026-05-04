@@ -1,0 +1,39 @@
+{
+  "slug": "euler-14-collatz",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:09:49",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair surfaced two explicit decision points (memoize vs brute-force, recursive vs iterative). That's a reasonable cadence for this small problem, but no further questions were asked about edge cases or verification."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Both forks hit substantive issues: the time/space trade-off of memoization, and the recursion-limit gotcha tied to intermediate values exceeding 1M. These are the two most consequential design choices for this problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from algorithmic strategy to implementation detail, with smooth difficulty gradient. Slight spoiler in option B's diff revealing the path-backfill technique before the user could reason about it themselves."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Clean back-and-forth with affirming but not sycophantic feedback ('Spot on \u2014 and you correctly identified why'). The post-solution observations about the 1.5B peak value tied nicely back to the earlier decision."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly returns 837799 using the same iterative backfill approach as the baseline. Equivalent solution quality."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Three turns vs baseline's two, but the extra turn delivered proportional pedagogical payoff by letting the user reason through both forks before seeing the solution, rather than receiving it pre-built."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair surfaced two explicit decision points (memoize vs brute-force, recursive vs iterative). That's a reasonable cadence for this small problem, but no further questions were asked about edge cases or verification.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Both forks hit substantive issues: the time/space trade-off of memoization, and the recursion-limit gotcha tied to intermediate values exceeding 1M. These are the two most consequential design choices for this problem.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from algorithmic strategy to implementation detail, with smooth difficulty gradient. Slight spoiler in option B's diff revealing the path-backfill technique before the user could reason about it themselves.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Clean back-and-forth with affirming but not sycophantic feedback ('Spot on \u2014 and you correctly identified why'). The post-solution observations about the 1.5B peak value tied nicely back to the earlier decision.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly returns 837799 using the same iterative backfill approach as the baseline. Equivalent solution quality.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Three turns vs baseline's two, but the extra turn delivered proportional pedagogical payoff by letting the user reason through both forks before seeing the solution, rather than receiving it pre-built.\" }\n  }\n}"
+}

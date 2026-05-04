@@ -1,0 +1,39 @@
+{
+  "slug": "euler-15-lattice-paths",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:09:50",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offers one explicit A/B choice early on, which is more didactic engagement than baseline. Subsequent turns are more expository with no further questions, but the user drives elaboration."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B choice (full 2D table vs 1D rolling array) hits a substantive design tension \u2014 space optimization and the subtle update-order semantics that follow. This sets up the deeper insight about left-to-right vs right-to-left in rolling DP."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: combinatorial framing \u2192 implementation choice \u2192 trace of update order \u2192 general pattern (0/1 vs unbounded knapsack). The reveal of the knapsack connection is well-timed after the user articulates the directional insight."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Natural back-and-forth; the Pair confirms the user's mental models and extends them. One minor issue: the Pair acknowledged misstating the number earlier but the printed code answer (137,846,528,820) is actually wrong \u2014 the correct value is 137,846,528,640 \u2014 and this went unflagged."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 2,
+        "rationale": "The final stated answer 137,846,528,820 is incorrect; C(40,20) = 137,846,528,640. The Pair even claimed 'the code is the source of truth' while propagating the typo, and the user accepted it. Baseline got the right number."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns vs baseline's two, with proportional pedagogical payoff (the rolling array trace and knapsack analogy is genuine added value). Length is reasonable for the teaching gain, though marred by the numerical error."
+      }
+    }
+  },
+  "weighted": 3.1,
+  "normalized": 0.525,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offers one explicit A/B choice early on, which is more didactic engagement than baseline. Subsequent turns are more expository with no further questions, but the user drives elaboration.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The A/B choice (full 2D table vs 1D rolling array) hits a substantive design tension \u2014 space optimization and the subtle update-order semantics that follow. This sets up the deeper insight about left-to-right vs right-to-left in rolling DP.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: combinatorial framing \u2192 implementation choice \u2192 trace of update order \u2192 general pattern (0/1 vs unbounded knapsack). The reveal of the knapsack connection is well-timed after the user articulates the directional insight.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Natural back-and-forth; the Pair confirms the user's mental models and extends them. One minor issue: the Pair acknowledged misstating the number earlier but the printed code answer (137,846,528,820) is actually wrong \u2014 the correct value is 137,846,528,640 \u2014 and this went unflagged.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 2, \"rationale\": \"The final stated answer 137,846,528,820 is incorrect; C(40,20) = 137,846,528,640. The Pair even claimed 'the code is the source of truth' while propagating the typo, and the user accepted it. Baseline got the right number.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Three turns vs baseline's two, with proportional pedagogical payoff (the rolling array trace and knapsack analogy is genuine added value). Length is reasonable for the teaching gain, though marred by the numerical error.\" }\n  }\n}"
+}

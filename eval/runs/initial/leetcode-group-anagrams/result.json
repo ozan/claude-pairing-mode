@@ -1,0 +1,10 @@
+{
+  "slug": "leetcode-group-anagrams",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 74.97608304023743,
+  "propose_options_calls": 2,
+  "leaks_detected": 0,
+  "error": null
+}

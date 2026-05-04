@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-valid-parens",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:39",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks essentially no didactic questions. Turn 1 is a complete lecture with full solution; Turn 2 is validation plus test cases. There are no Socratic prompts at any decision point."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No real choices are surfaced to the user. The dict direction, the short-circuit guard, and the empty-stack semantics are all explained directly rather than posed as questions."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "The full solution including the matching dict and short-circuit guard is dumped in turn 1, eliminating any opportunity for graduated discovery. No scaffolding gradient exists."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the user echoes understanding fluidly, but the conversation is one-directional lecture\u2192affirmation rather than genuine back-and-forth. Two turns and done."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, clean, and equivalent to the baseline solution, handling all standard edge cases."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Slightly tighter than baseline (2 turns vs 3) but with less teaching payoff \u2014 baseline at least had the user explicitly trigger the IndexError to internalize the guard. Comparable overall."
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks essentially no didactic questions. Turn 1 is a complete lecture with full solution; Turn 2 is validation plus test cases. There are no Socratic prompts at any decision point.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No real choices are surfaced to the user. The dict direction, the short-circuit guard, and the empty-stack semantics are all explained directly rather than posed as questions.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"The full solution including the matching dict and short-circuit guard is dumped in turn 1, eliminating any opportunity for graduated discovery. No scaffolding gradient exists.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the user echoes understanding fluidly, but the conversation is one-directional lecture\u2192affirmation rather than genuine back-and-forth. Two turns and done.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct, clean, and equivalent to the baseline solution, handling all standard edge cases.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Slightly tighter than baseline (2 turns vs 3) but with less teaching payoff \u2014 baseline at least had the user explicitly trigger the IndexError to internalize the guard. Comparable overall.\" }\n  }\n}"
+}

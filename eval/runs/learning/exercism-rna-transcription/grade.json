@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-rna-transcription",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:13",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair never asks the user any didactic questions. It writes the solution end-to-end and only responds to the user's questions. No teachable-moment prompts are surfaced."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions framed by the Pair, so no choice points were surfaced. Discussion of trade-offs only happens reactively when the student asks."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolded sequence; the Pair dumps the full solution then explains. Learning happens only because the student happens to ask follow-ups."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the responses are actionable (benchmark, plural fix). But the flow is monologue-then-Q&A, not pair-programming dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code correctly solves the problem with validation; slightly improved over baseline by adding the singular/plural error message refinement."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Comparable to baseline in length and turns (2 turns, ~80s), with a useful empirical benchmark and a small code refinement adding modest value."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair never asks the user any didactic questions. It writes the solution end-to-end and only responds to the user's questions. No teachable-moment prompts are surfaced.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions framed by the Pair, so no choice points were surfaced. Discussion of trade-offs only happens reactively when the student asks.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolded sequence; the Pair dumps the full solution then explains. Learning happens only because the student happens to ask follow-ups.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the responses are actionable (benchmark, plural fix). But the flow is monologue-then-Q&A, not pair-programming dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code correctly solves the problem with validation; slightly improved over baseline by adding the singular/plural error message refinement.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Comparable to baseline in length and turns (2 turns, ~80s), with a useful empirical benchmark and a small code refinement adding modest value.\" }\n  }\n}"
+}

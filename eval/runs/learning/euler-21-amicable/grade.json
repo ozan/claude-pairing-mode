@@ -1,0 +1,39 @@
+{
+  "slug": "euler-21-amicable",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:18:46",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions across both turns. It presents the full solution upfront and only responds to the student's questions, never engaging the student with prompts of its own."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are surfaced for the student. The b != a guard and perfect-number edge case are explained reactively, not posed as a question."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolded sequence \u2014 the complete answer including code and the final sum is dumped in turn 1, which is essentially all spoiler."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the explanations are clear and accurate (e.g., the table clarifying double-counting concerns). But there's no genuine back-and-forth driven by the Pair; the student leads all the inquiry."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and produces 31626, equivalent to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "About 2x the baseline turns/time (2 turns, 41.8s vs 1 turn, 21.4s), with a modest pedagogical payoff in the perfect-number clarification \u2014 roughly proportional."
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions across both turns. It presents the full solution upfront and only responds to the student's questions, never engaging the student with prompts of its own.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks are surfaced for the student. The b != a guard and perfect-number edge case are explained reactively, not posed as a question.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolded sequence \u2014 the complete answer including code and the final sum is dumped in turn 1, which is essentially all spoiler.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the explanations are clear and accurate (e.g., the table clarifying double-counting concerns). But there's no genuine back-and-forth driven by the Pair; the student leads all the inquiry.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and produces 31626, equivalent to baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"About 2x the baseline turns/time (2 turns, 41.8s vs 1 turn, 21.4s), with a modest pedagogical payoff in the perfect-number clarification \u2014 roughly proportional.\" }\n  }\n}"
+}

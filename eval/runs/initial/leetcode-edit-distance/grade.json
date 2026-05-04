@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-edit-distance",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:50",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed a structured A/B question at every meaningful decision point: top-down vs bottom-up, recurrence shape, and space-optimization variant. Three substantive didactic forks across four turns is solid frequency."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The choices targeted exactly the cruxes: algorithmic strategy, the necessity of the substitute branch, and\u2014most pointedly\u2014the in-place diagonal-overwrite gotcha in the rolling-array version. The third question is a particularly well-chosen trap that tests deep understanding."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Progression from approach \u2192 recurrence \u2192 implementation \u2192 space optimization is textbook. Difficulty ramps smoothly, and the trap option in turn 3 exposes the subtle diagonal-overwrite issue without spoiling it."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirmations are specific (\"you identified both bugs in B independently\"). Conversation flows naturally; the structured options format is slightly rigid but doesn't impede dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 4,
+        "rationale": "Final code is correct, tested, and arrives at the O(n) space-optimized solution with a single scalar for the diagonal\u2014arguably tighter than baseline's two-array approach. Function name (min_distance vs LeetCode's minDistance) is a minor deviation."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Comparable turn count and time to baseline (4 turns, 111s vs 107s) while delivering more student engagement and a more sophisticated single-array optimization. Modest extra work yields proportional teaching gain."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed a structured A/B question at every meaningful decision point: top-down vs bottom-up, recurrence shape, and space-optimization variant. Three substantive didactic forks across four turns is solid frequency.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"The choices targeted exactly the cruxes: algorithmic strategy, the necessity of the substitute branch, and\u2014most pointedly\u2014the in-place diagonal-overwrite gotcha in the rolling-array version. The third question is a particularly well-chosen trap that tests deep understanding.\" },\n    \"scaffolding\":        { \"score\": 5, \"rationale\": \"Progression from approach \u2192 recurrence \u2192 implementation \u2192 space optimization is textbook. Difficulty ramps smoothly, and the trap option in turn 3 exposes the subtle diagonal-overwrite issue without spoiling it.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and affirmations are specific (\\\"you identified both bugs in B independently\\\"). Conversation flows naturally; the structured options format is slightly rigid but doesn't impede dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code is correct, tested, and arrives at the O(n) space-optimized solution with a single scalar for the diagonal\u2014arguably tighter than baseline's two-array approach. Function name (min_distance vs LeetCode's minDistance) is a minor deviation.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Comparable turn count and time to baseline (4 turns, 111s vs 107s) while delivering more student engagement and a more sophisticated single-array optimization. Modest extra work yields proportional teaching gain.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-hamming",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:25",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair offers one explicit A/B choice at the start, but no further didactic questions follow. Most teaching is delivered as exposition rather than through questioning."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The single A/B fork hits the actual crux of the problem: whether to add a length check or rely on zip's silent truncation. That's the most consequential decision in this exercise."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "The fork is well-framed and not spoiled, and follow-up notes about bool/int and laziness build reasonably. But with only one question, there's no real progression \u2014 subsequent teaching points are just told."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is direct and warm, the user's follow-up about ValueError is answered cleanly with both practical and semantic angles. Conversation flows naturally though it's mostly user-driven after turn 1."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to the baseline solution and correct: length guard + sum of zip comparisons."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "One extra turn vs baseline (3 vs 2) and a bit more prose, but the A/B choice plus TypeError/ValueError discussion provides proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 2.9000000000000004,
+  "normalized": 0.4750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair offers one explicit A/B choice at the start, but no further didactic questions follow. Most teaching is delivered as exposition rather than through questioning.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The single A/B fork hits the actual crux of the problem: whether to add a length check or rely on zip's silent truncation. That's the most consequential decision in this exercise.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"The fork is well-framed and not spoiled, and follow-up notes about bool/int and laziness build reasonably. But with only one question, there's no real progression \u2014 subsequent teaching points are just told.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is direct and warm, the user's follow-up about ValueError is answered cleanly with both practical and semantic angles. Conversation flows naturally though it's mostly user-driven after turn 1.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical to the baseline solution and correct: length guard + sum of zip comparisons.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"One extra turn vs baseline (3 vs 2) and a bit more prose, but the A/B choice plus TypeError/ValueError discussion provides proportional pedagogical payoff.\" }\n  }\n}"
+}

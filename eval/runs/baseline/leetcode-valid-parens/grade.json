@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-valid-parens",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:23",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks essentially zero didactic questions. It dumps a complete solution upfront and then answers the student's questions rather than probing the student's understanding. All questions in the conversation come from the student, not the Tutor."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since the Tutor doesn't pose choices or forks, there's nothing to evaluate as hitting the crux. The Tutor reactively explains rather than framing decisions for the student to work through."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "The very first turn reveals the entire solution including code, the dict trick, and edge case table \u2014 a maximum spoiler. There is no progression of difficulty because the answer is given immediately."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the explanations are clear and actionable, with good follow-ups on short-circuit evaluation and the trace of `({)}`. But the flow is one-directional (Tutor lectures, student summarizes) rather than a true back-and-forth pedagogical dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks essentially zero didactic questions. It dumps a complete solution upfront and then answers the student's questions rather than probing the student's understanding. All questions in the conversation come from the student, not the Tutor.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since the Tutor doesn't pose choices or forks, there's nothing to evaluate as hitting the crux. The Tutor reactively explains rather than framing decisions for the student to work through.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"The very first turn reveals the entire solution including code, the dict trick, and edge case table \u2014 a maximum spoiler. There is no progression of difficulty because the answer is given immediately.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the explanations are clear and actionable, with good follow-ups on short-circuit evaluation and the trace of `({)}`. But the flow is one-directional (Tutor lectures, student summarizes) rather than a true back-and-forth pedagogical dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct, idiomatic, O(n)/O(n), and passes all the listed test cases including edge cases. Comparable to a baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Three turns and ~50s for a standard problem; no wasted cycles, and the student demonstrably writes and tests the code. Length is reasonable for the problem class.\" }\n  }\n}"
+}

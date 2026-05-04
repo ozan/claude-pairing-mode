@@ -1,0 +1,375 @@
+{
+  "tag": "learning",
+  "condition": "learning",
+  "n": 36,
+  "by_reason": {
+    "done": 35,
+    "max_turns": 0,
+    "error": 1,
+    "mcp_failed": 0
+  },
+  "total_propose_options_calls": 0,
+  "total_leaks": 0,
+  "results": [
+    {
+      "slug": "leetcode-two-sum",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 44.209856033325195,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-valid-parens",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 37.465171813964844,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-climbing-stairs",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 41.08400201797485,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-longest-substring",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 1,
+      "duration_s": 22.218552112579346,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-coin-change",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 56.0358030796051,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-group-anagrams",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 50.860347032547,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-trap-rain-water",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 75.8140561580658,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-edit-distance",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 52.529492139816284,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "leetcode-median-two-sorted",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 74.90856099128723,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-leap-year",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 1,
+      "duration_s": 12.720303058624268,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-hamming",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 51.807249784469604,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-pangram",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 27.2862708568573,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-rna-transcription",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 79.61827397346497,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-acronym",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 45.43760299682617,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-roman-numerals",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 1,
+      "duration_s": 16.38317108154297,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-bowling",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 7,
+      "duration_s": 408.20797204971313,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-zebra-puzzle",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 1,
+      "duration_s": 74.16706895828247,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "exercism-allergies",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 36.10530996322632,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-1-multiples",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 36.35366988182068,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-2-even-fib",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 32.39510202407837,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-6-sum-square-diff",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 25.940738916397095,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-10-sum-primes",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 49.445395946502686,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-14-collatz",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 1,
+      "duration_s": 16.72908592224121,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-17-letter-counts",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 68.86232089996338,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-15-lattice-paths",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 96.00107598304749,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-21-amicable",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 41.773091077804565,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "euler-67-max-path-sum",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 74.35944390296936,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-fizzbuzz",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 1,
+      "duration_s": 12.55541181564331,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-word-counter",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 32.39080095291138,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-run-length-encoding",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 56.14500975608826,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-caesar-cipher",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 49.68965291976929,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-tic-tac-toe",
+      "condition": "learning",
+      "end_reason": "error",
+      "turns": 1,
+      "duration_s": 606.1688101291656,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": "turn idle for 600s \u2014 likely SDK hang"
+    },
+    {
+      "slug": "ours-todo-cli",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 1,
+      "duration_s": 43.05252408981323,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-mini-calculator",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 130.37254691123962,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-game-of-life",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 2,
+      "duration_s": 170.0242292881012,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    },
+    {
+      "slug": "ours-lru-cache",
+      "condition": "learning",
+      "end_reason": "done",
+      "turns": 3,
+      "duration_s": 141.11639189720154,
+      "propose_options_calls": 0,
+      "leaks_detected": 0,
+      "error": null
+    }
+  ]
+}

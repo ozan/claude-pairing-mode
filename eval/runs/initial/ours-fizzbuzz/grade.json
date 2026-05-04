@@ -1,0 +1,39 @@
+{
+  "slug": "ours-fizzbuzz",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:14",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair opens with a clear A/B fork and follows up with a subtle gotcha about the falsy-zero edge case. Only one explicit choice point, but it's well-placed."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A/B choice surfaces the real design tension (explicit conditional vs. string-building idiom), and the follow-up about `s or n` with `n=0` hits a genuine Pythonic subtlety about falsiness."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose approach \u2192 implement \u2192 verify \u2192 discuss edge case. No spoilers in the options, and difficulty escalates naturally from syntax to the falsy-zero gotcha."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Concise, warm, and natural back-and-forth. The Pair confirms the student's understanding before writing code, and the edge-case discussion lands cleanly."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly solves FizzBuzz and was actually executed and verified, equivalent to baseline (which presented both solutions but recommended the explicit version)."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Comparable turn count to baseline (2 turns) with added value: actual execution verification and the falsy-zero edge case discussion. Slightly longer wall time but proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair opens with a clear A/B fork and follows up with a subtle gotcha about the falsy-zero edge case. Only one explicit choice point, but it's well-placed.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The A/B choice surfaces the real design tension (explicit conditional vs. string-building idiom), and the follow-up about `s or n` with `n=0` hits a genuine Pythonic subtlety about falsiness.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: choose approach \u2192 implement \u2192 verify \u2192 discuss edge case. No spoilers in the options, and difficulty escalates naturally from syntax to the falsy-zero gotcha.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Concise, warm, and natural back-and-forth. The Pair confirms the student's understanding before writing code, and the edge-case discussion lands cleanly.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly solves FizzBuzz and was actually executed and verified, equivalent to baseline (which presented both solutions but recommended the explicit version).\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Comparable turn count to baseline (2 turns) with added value: actual execution verification and the falsy-zero edge case discussion. Slightly longer wall time but proportional pedagogical payoff.\" }\n  }\n}"
+}

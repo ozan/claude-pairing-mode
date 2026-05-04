@@ -1,0 +1,39 @@
+{
+  "slug": "ours-game-of-life",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:20",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed a clear A/B choice at each of the three main design decisions (new vs in-place, finite vs toroidal, ANSI vs os.system). That's consistent didactic engagement at every meaningful fork, though limited to binary choices rather than open questions."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The first two forks (simultaneous update, boundary handling) hit genuine cruxes of Game of Life. The third (clear screen) is more cosmetic/peripheral. Missing forks include neighbor iteration style and pretty-print encoding."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Decisions are sequenced logically from core correctness (simultaneous update) to semantics (boundaries) to presentation (clearing). Difficulty descends smoothly. The diff-style options reveal the implementation, which is mildly spoiler-ish but appropriate for a junior engineer comparing approaches."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and affirming ('you nailed the reasoning'), the user's reasoning is acknowledged substantively, and the back-and-forth is fluid. Slightly mechanical due to the repeated A/B template, but conversational overall."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly implements Game of Life with a working glider animation, comparable to baseline. Baseline included both blinker and glider demos plus richer pretty-printing; experiment only does glider. Functionally equivalent for the core task."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Completed in 4 turns / 124s versus baseline's 5 turns / 212s \u2014 tighter than baseline while delivering meaningful pedagogical engagement at each design fork. Good efficiency-to-teaching ratio."
+      }
+    }
+  },
+  "weighted": 3.8000000000000003,
+  "normalized": 0.7000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed a clear A/B choice at each of the three main design decisions (new vs in-place, finite vs toroidal, ANSI vs os.system). That's consistent didactic engagement at every meaningful fork, though limited to binary choices rather than open questions.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The first two forks (simultaneous update, boundary handling) hit genuine cruxes of Game of Life. The third (clear screen) is more cosmetic/peripheral. Missing forks include neighbor iteration style and pretty-print encoding.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Decisions are sequenced logically from core correctness (simultaneous update) to semantics (boundaries) to presentation (clearing). Difficulty descends smoothly. The diff-style options reveal the implementation, which is mildly spoiler-ish but appropriate for a junior engineer comparing approaches.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and affirming ('you nailed the reasoning'), the user's reasoning is acknowledged substantively, and the back-and-forth is fluid. Slightly mechanical due to the repeated A/B template, but conversational overall.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly implements Game of Life with a working glider animation, comparable to baseline. Baseline included both blinker and glider demos plus richer pretty-printing; experiment only does glider. Functionally equivalent for the core task.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Completed in 4 turns / 124s versus baseline's 5 turns / 212s \u2014 tighter than baseline while delivering meaningful pedagogical engagement at each design fork. Good efficiency-to-teaching ratio.\" }\n  }\n}"
+}

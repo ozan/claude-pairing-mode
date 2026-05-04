@@ -1,0 +1,39 @@
+{
+  "slug": "euler-67-max-path-sum",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:35",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asked zero didactic questions. All questions in the conversation came from the Student; the Tutor only delivered explanations and confirmations."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks were posed by the Tutor. Substantive points (tiebreaker semantics, copy vs. mutation trade-off) were stated directly rather than elicited."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding because there are no questions. The Tutor dumped a complete solution in turn 1 and explained reactively."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are clear and well-organized with helpful tables. But the dynamic is one-way: Tutor explains, Student affirms, with no genuine pedagogical back-and-forth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asked zero didactic questions. All questions in the conversation came from the Student; the Tutor only delivered explanations and confirmations.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks were posed by the Tutor. Substantive points (tiebreaker semantics, copy vs. mutation trade-off) were stated directly rather than elicited.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding because there are no questions. The Tutor dumped a complete solution in turn 1 and explained reactively.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations are clear and well-organized with helpful tables. But the dynamic is one-way: Tutor explains, Student affirms, with no genuine pedagogical back-and-forth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code correctly produces 696, includes path reconstruction and a cross-check, and handles the last-row edge case. Slightly more than required but correct and clean.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"No baseline; the session is efficient in absolute terms \u2014 solved in turn 1 with three follow-up clarifications. Reasonable for the problem class.\" }\n  }\n}"
+}

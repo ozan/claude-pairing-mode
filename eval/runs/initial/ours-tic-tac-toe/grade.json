@@ -1,0 +1,39 @@
+{
+  "slug": "ours-tic-tac-toe",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:13:08",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Nearly every turn presents an A/B options choice to the user \u2014 board representation, AI strategy, display, win detection, AI heuristic structure, and input validation. Six substantive forks across the implementation."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Most forks hit real design tensions: flat vs nested board (affects all downstream code), minimax vs heuristic (correctness vs scope), loop vs recursion for input (a genuine footgun). The display and check_winner forks are slightly more cosmetic but still defensible."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Decisions progress logically from data structure \u2192 AI \u2192 display \u2192 win check \u2192 AI logic \u2192 input \u2192 loop, with the tutor consistently affirming choices and noting trade-offs (e.g., flagging the heuristic's weakness). No spoilers; small jump in that the AI strategy decision came before display, but reasonable."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is concise and warm, with affirmations like 'clarity beats cleverness' and 'right on all counts'. The back-and-forth feels structured but natural; one minor oddity where the tutor seems to accept its own answer ('Tutor: A \u2014 showing move numbers') before the student replies."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is playable end-to-end with proper input validation, win detection, and a heuristic AI. It's weaker than baseline (which used minimax) since the heuristic can be beaten \u2014 but the user explicitly chose that trade-off, and the tutor verified it runs."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Seven turns in 130s vs baseline's five turns in 165s \u2014 actually tighter than baseline while delivering substantially more pedagogical engagement through the options framework. Good payoff for the structure."
+      }
+    }
+  },
+  "weighted": 4.1000000000000005,
+  "normalized": 0.7750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Nearly every turn presents an A/B options choice to the user \u2014 board representation, AI strategy, display, win detection, AI heuristic structure, and input validation. Six substantive forks across the implementation.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"Most forks hit real design tensions: flat vs nested board (affects all downstream code), minimax vs heuristic (correctness vs scope), loop vs recursion for input (a genuine footgun). The display and check_winner forks are slightly more cosmetic but still defensible.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Decisions progress logically from data structure \u2192 AI \u2192 display \u2192 win check \u2192 AI logic \u2192 input \u2192 loop, with the tutor consistently affirming choices and noting trade-offs (e.g., flagging the heuristic's weakness). No spoilers; small jump in that the AI strategy decision came before display, but reasonable.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is concise and warm, with affirmations like 'clarity beats cleverness' and 'right on all counts'. The back-and-forth feels structured but natural; one minor oddity where the tutor seems to accept its own answer ('Tutor: A \u2014 showing move numbers') before the student replies.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is playable end-to-end with proper input validation, win detection, and a heuristic AI. It's weaker than baseline (which used minimax) since the heuristic can be beaten \u2014 but the user explicitly chose that trade-off, and the tutor verified it runs.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Seven turns in 130s vs baseline's five turns in 165s \u2014 actually tighter than baseline while delivering substantially more pedagogical engagement through the options framework. Good payoff for the structure.\" }\n  }\n}"
+}

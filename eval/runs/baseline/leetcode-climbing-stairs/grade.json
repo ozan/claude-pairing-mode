@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-climbing-stairs",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:00",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero didactic questions. It dumps a complete solution in turn 1 and only confirms the user's self-generated questions in turn 2. There are no teachable-moment prompts."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions are posed by the Tutor at all, so there are no choices framed for the student. The student drove all the inquiry."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "The first turn spoils everything: the recurrence, full code, complexity table, and walkthrough. No gradient of difficulty, no opportunity for discovery."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the Tutor's confirmations are accurate and well-organized (sliding window framing, expected values table). But it's a one-way explanation rather than genuine back-and-forth pedagogy."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero didactic questions. It dumps a complete solution in turn 1 and only confirms the user's self-generated questions in turn 2. There are no teachable-moment prompts.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions are posed by the Tutor at all, so there are no choices framed for the student. The student drove all the inquiry.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"The first turn spoils everything: the recurrence, full code, complexity table, and walkthrough. No gradient of difficulty, no opportunity for discovery.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the Tutor's confirmations are accurate and well-organized (sliding window framing, expected values table). But it's a one-way explanation rather than genuine back-and-forth pedagogy.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and matches the canonical O(n)/O(1) solution; trace-throughs verify n=5 and n=7. Equivalent to a baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns, ~33s, no wasted effort. Efficient in absolute terms for this trivial problem, though the heavy first-turn dump means little teaching payoff per word.\" }\n  }\n}"
+}

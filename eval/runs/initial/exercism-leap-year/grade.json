@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-leap-year",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:25",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "One well-placed didactic question (A vs B options) at the key decision point. No further questions in turn 2, but for a problem this small, one substantive question is reasonable."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The A/B choice targets the exact crux of the problem: the classic short-circuit trap where `or year % 4 == 0` bypasses the century guard. This is the most consequential subtlety in the leap-year rule."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Good progression: present two plausible options, let user reason, then catch the trace error and articulate the general lesson about boolean short-circuit traps. No spoilers in the question itself."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth; tutor catches the user's trace error gracefully and turns it into a memorable lesson with a quotable heuristic ('can B be true even when A is false?'). Tone is supportive without flattery."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to baseline and correct: `year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)`."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "About 2x the baseline duration (57s vs 26s) but with a clear pedagogical payoff: the user discovered (with help) a real subtle bug in their own trace, learning a transferable lesson about short-circuit logic."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"One well-placed didactic question (A vs B options) at the key decision point. No further questions in turn 2, but for a problem this small, one substantive question is reasonable.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"The A/B choice targets the exact crux of the problem: the classic short-circuit trap where `or year % 4 == 0` bypasses the century guard. This is the most consequential subtlety in the leap-year rule.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Good progression: present two plausible options, let user reason, then catch the trace error and articulate the general lesson about boolean short-circuit traps. No spoilers in the question itself.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Natural back-and-forth; tutor catches the user's trace error gracefully and turns it into a memorable lesson with a quotable heuristic ('can B be true even when A is false?'). Tone is supportive without flattery.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is identical to baseline and correct: `year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)`.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"About 2x the baseline duration (57s vs 26s) but with a clear pedagogical payoff: the user discovered (with help) a real subtle bug in their own trace, learning a transferable lesson about short-circuit logic.\" }\n  }\n}"
+}

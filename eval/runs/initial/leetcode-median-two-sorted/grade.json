@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-median-two-sorted",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:02",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "The Pair posed three explicit OPTIONS-style decision points (search strategy, partition adjustment direction, median extraction) plus follow-up framing. Nearly every meaningful decision was offered to the user."
+      },
+      "question_quality": {
+        "score": 5,
+        "rationale": "The choices target the actual cruxes: value-vs-partition search, direction of binary search adjustment, and the parity edge case. The third question even contained a subtle trap (B sounds elegant but is wrong), creating a high-value teachable moment."
+      },
+      "scaffolding": {
+        "score": 5,
+        "rationale": "Logical progression from algorithm choice \u2192 invariant + adjustment direction \u2192 median extraction. Difficulty ramps smoothly, no spoilers, and the final question's misconception was caught and corrected with a concrete counterexample."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Tone is direct and warm; the Pair pushed back firmly but constructively when the student picked the wrong option, with a concrete counterexample. Back-and-forth feels natural and pedagogically grounded."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code passes all test cases including edge cases, equivalent to baseline solution. Same algorithm, same complexity."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns / ~120s vs baseline's 2 turns / ~54s \u2014 about 2x longer, but with substantially more pedagogical engagement (three decision points, one corrected misconception). Proportional payoff for the extra length."
+      }
+    }
+  },
+  "weighted": 4.2,
+  "normalized": 0.8,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"The Pair posed three explicit OPTIONS-style decision points (search strategy, partition adjustment direction, median extraction) plus follow-up framing. Nearly every meaningful decision was offered to the user.\" },\n    \"question_quality\":   { \"score\": 5, \"rationale\": \"The choices target the actual cruxes: value-vs-partition search, direction of binary search adjustment, and the parity edge case. The third question even contained a subtle trap (B sounds elegant but is wrong), creating a high-value teachable moment.\" },\n    \"scaffolding\":        { \"score\": 5, \"rationale\": \"Logical progression from algorithm choice \u2192 invariant + adjustment direction \u2192 median extraction. Difficulty ramps smoothly, no spoilers, and the final question's misconception was caught and corrected with a concrete counterexample.\" },\n    \"flow_and_tone\":      { \"score\": 5, \"rationale\": \"Tone is direct and warm; the Pair pushed back firmly but constructively when the student picked the wrong option, with a concrete counterexample. Back-and-forth feels natural and pedagogically grounded.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code passes all test cases including edge cases, equivalent to baseline solution. Same algorithm, same complexity.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took 4 turns / ~120s vs baseline's 2 turns / ~54s \u2014 about 2x longer, but with substantially more pedagogical engagement (three decision points, one corrected misconception). Proportional payoff for the extra length.\" }\n  }\n}"
+}

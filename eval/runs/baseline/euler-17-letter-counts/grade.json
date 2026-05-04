@@ -1,0 +1,39 @@
+{
+  "slug": "euler-17-letter-counts",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:26",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero questions. It dumps the entire solution in one turn with no engagement of the user."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are surfaced to the user. Subtleties like the 'and' rule and the 1000 boundary are stated, not problematized."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolding exists \u2014 the full answer (21,124) is revealed immediately. Maximum spoiler."
+      },
+      "flow_and_tone": {
+        "score": 2,
+        "rationale": "Tone is clear and well-organized, but it's a monologue followed by the student verifying alone. No back-and-forth dynamic."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 1.9000000000000001,
+  "normalized": 0.22500000000000003,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero questions. It dumps the entire solution in one turn with no engagement of the user.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No choices or forks are surfaced to the user. Subtleties like the 'and' rule and the 1000 boundary are stated, not problematized.\" },\n    \"scaffolding\": { \"score\": 1, \"rationale\": \"No scaffolding exists \u2014 the full answer (21,124) is revealed immediately. Maximum spoiler.\" },\n    \"flow_and_tone\": { \"score\": 2, \"rationale\": \"Tone is clear and well-organized, but it's a monologue followed by the student verifying alone. No back-and-forth dynamic.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final answer 21,124 is correct and matches the canonical Project Euler answer. Equivalent to a baseline solution.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Single-turn resolution in 40s is efficient; no extra friction relative to a baseline approach.\" }\n  }\n}"
+}

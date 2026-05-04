@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-two-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:07",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offers a clear A/B choice upfront, then follows up with 'Want to go with B?' and 'Want to add some test cases?' Multiple decision points engage the user, though the user drove much of the deeper questioning."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The initial fork (brute force vs hash map) targets the central algorithmic trade-off of the problem, which is exactly the crux. Other prompts are lighter (test cases, finalization), so not every question is high-leverage."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: approach choice \u2192 complement intuition with trace \u2192 edge case (duplicates) \u2192 check-before-insert subtlety. The Pair appropriately let the user surface the [3,3] case rather than spoiling it, though the initial options reveal both implementations directly."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural conversational flow: Pair responds to user's request for trade-off explanation with a clear table and trace, validates user's reasoning, and highlights the subtle ordering insight precisely when the user asks about the duplicate edge case."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical in correctness and style to the baseline \u2014 canonical hash-map one-pass solution."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 3 turns vs baseline's 2 and ~40s vs ~30s, but the extra length delivered meaningful pedagogical payoff (trade-off table, complement intuition trace, ordering subtlety driven by user inquiry)."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offers a clear A/B choice upfront, then follows up with 'Want to go with B?' and 'Want to add some test cases?' Multiple decision points engage the user, though the user drove much of the deeper questioning.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The initial fork (brute force vs hash map) targets the central algorithmic trade-off of the problem, which is exactly the crux. Other prompts are lighter (test cases, finalization), so not every question is high-leverage.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: approach choice \u2192 complement intuition with trace \u2192 edge case (duplicates) \u2192 check-before-insert subtlety. The Pair appropriately let the user surface the [3,3] case rather than spoiling it, though the initial options reveal both implementations directly.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Natural conversational flow: Pair responds to user's request for trade-off explanation with a clear table and trace, validates user's reasoning, and highlights the subtle ordering insight precisely when the user asks about the duplicate edge case.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical in correctness and style to the baseline \u2014 canonical hash-map one-pass solution.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 3 turns vs baseline's 2 and ~40s vs ~30s, but the extra length delivered meaningful pedagogical payoff (trade-off table, complement intuition trace, ordering subtlety driven by user inquiry).\" }\n  }\n}"
+}

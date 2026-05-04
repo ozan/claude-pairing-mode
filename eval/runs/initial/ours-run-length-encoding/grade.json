@@ -1,0 +1,39 @@
+{
+  "slug": "ours-run-length-encoding",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:27",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 5,
+        "rationale": "Three distinct decision forks were posed to the user (encode approach, decode approach, test structure), covering essentially every meaningful design choice in the problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The forks hit real trade-offs: manual loop vs groupby (idiom/state), regex vs manual parsing (concision vs error visibility), and pytest vs __main__ (tooling integration). The test-structure question is somewhat less consequential than the first two, but all are substantive."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from encode \u2192 decode \u2192 tests, with each choice building on the prior. The pair adds value after each user choice (e.g., the consecutive-only nuance, the silent-skip behavior of findall, CI exit codes) without spoiling. No abrupt jumps."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth: user asks clarifying questions (groupby semantics, malformed input), pair answers concretely with examples, then advances. Tone is warm and collaborative without being saccharine."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code works correctly on all five test cases, with encode/decode and a __main__ harness \u2014 equivalent in correctness to baseline. Slightly fewer test cases than baseline (no multi-digit run like 'aaaaaaaaaa'), but functionally comparable."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "4 turns / 90s vs baseline's 2 turns / 62s \u2014 moderately longer, but the extra length comes from genuine pedagogical forks (3 substantive choices) rather than wheel-spinning. Proportional payoff for the added length."
+      }
+    }
+  },
+  "weighted": 4.0,
+  "normalized": 0.75,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 5, \"rationale\": \"Three distinct decision forks were posed to the user (encode approach, decode approach, test structure), covering essentially every meaningful design choice in the problem.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The forks hit real trade-offs: manual loop vs groupby (idiom/state), regex vs manual parsing (concision vs error visibility), and pytest vs __main__ (tooling integration). The test-structure question is somewhat less consequential than the first two, but all are substantive.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from encode \u2192 decode \u2192 tests, with each choice building on the prior. The pair adds value after each user choice (e.g., the consecutive-only nuance, the silent-skip behavior of findall, CI exit codes) without spoiling. No abrupt jumps.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Natural back-and-forth: user asks clarifying questions (groupby semantics, malformed input), pair answers concretely with examples, then advances. Tone is warm and collaborative without being saccharine.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code works correctly on all five test cases, with encode/decode and a __main__ harness \u2014 equivalent in correctness to baseline. Slightly fewer test cases than baseline (no multi-digit run like 'aaaaaaaaaa'), but functionally comparable.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"4 turns / 90s vs baseline's 2 turns / 62s \u2014 moderately longer, but the extra length comes from genuine pedagogical forks (3 substantive choices) rather than wheel-spinning. Proportional payoff for the added length.\" }\n  }\n}"
+}

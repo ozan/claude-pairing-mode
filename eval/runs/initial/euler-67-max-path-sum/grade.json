@@ -1,0 +1,39 @@
+{
+  "slug": "euler-67-max-path-sum",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:13",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered three explicit decision points (traversal direction, copy vs in-place, path reconstruction strategy), engaging the user at each meaningful fork. Could have surfaced more (e.g., tiebreakers, edge cases) but the cadence is solidly didactic."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The bottom-up vs top-down and greedy-trace vs recorded-choices forks hit real algorithmic trade-offs. The copy vs in-place choice is more cosmetic but still substantive. None reach the deepest issue (e.g., correctness of greedy backtrack), but they're consequential."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose direction \u2192 choose memory model \u2192 solve \u2192 choose reconstruction strategy. Difficulty rises smoothly without spoilers; option descriptions are neutral. Slight missed opportunity to probe why the greedy trace actually works."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Natural back-and-forth with concise affirmations and clear next steps. The structured OPTIONS format is clean if a bit mechanical, but conversation reads well and stays actionable."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly computes max sum (62) and reconstructs the path on a 10-row triangle, equivalent to baseline. Baseline used the actual PE #67 numbers and added a cross-check sum; experiment used a smaller invented triangle, but meets the stated requirements."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns and ~2x the wall time of baseline, but the extra length delivered three genuine decision points and pedagogical payoff proportional to the overhead."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered three explicit decision points (traversal direction, copy vs in-place, path reconstruction strategy), engaging the user at each meaningful fork. Could have surfaced more (e.g., tiebreakers, edge cases) but the cadence is solidly didactic.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The bottom-up vs top-down and greedy-trace vs recorded-choices forks hit real algorithmic trade-offs. The copy vs in-place choice is more cosmetic but still substantive. None reach the deepest issue (e.g., correctness of greedy backtrack), but they're consequential.\" },\n    \"scaffolding\":        { \"score\": 4, \"rationale\": \"Logical progression: choose direction \u2192 choose memory model \u2192 solve \u2192 choose reconstruction strategy. Difficulty rises smoothly without spoilers; option descriptions are neutral. Slight missed opportunity to probe why the greedy trace actually works.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Natural back-and-forth with concise affirmations and clear next steps. The structured OPTIONS format is clean if a bit mechanical, but conversation reads well and stays actionable.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly computes max sum (62) and reconstructs the path on a 10-row triangle, equivalent to baseline. Baseline used the actual PE #67 numbers and added a cross-check sum; experiment used a smaller invented triangle, but meets the stated requirements.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Took 4 turns and ~2x the wall time of baseline, but the extra length delivered three genuine decision points and pedagogical payoff proportional to the overhead.\" }\n  }\n}"
+}

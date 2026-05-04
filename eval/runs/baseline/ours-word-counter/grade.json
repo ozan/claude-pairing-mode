@@ -1,0 +1,39 @@
+{
+  "slug": "ours-word-counter",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:47",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asked zero didactic questions. It delivered a complete solution with explanations but never engaged the user with prompts or teachable forks."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices were framed for the user. The 'Key design decisions' table presents conclusions rather than surfacing tensions (e.g., regex vs translate, Unicode punctuation handling) for the user to reason about."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no progression \u2014 it's a single-turn dump of the full solution. No gradient of difficulty, no opportunity for the user to attempt anything."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and friendly, and the user's recap was acknowledged implicitly by ending. But there's no real back-and-forth; the conversation ends in one turn with the user essentially self-checking."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asked zero didactic questions. It delivered a complete solution with explanations but never engaged the user with prompts or teachable forks.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices were framed for the user. The 'Key design decisions' table presents conclusions rather than surfacing tensions (e.g., regex vs translate, Unicode punctuation handling) for the user to reason about.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no progression \u2014 it's a single-turn dump of the full solution. No gradient of difficulty, no opportunity for the user to attempt anything.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and friendly, and the user's recap was acknowledged implicitly by ending. But there's no real back-and-forth; the conversation ends in one turn with the user essentially self-checking.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"The solution correctly strips ASCII punctuation, lowercases, and tallies via Counter, matching the spec. Note that em dash '\u2014' is not actually in string.punctuation (Unicode), so the claimed example output is slightly misleading, but functionality is acceptable.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Single-turn delivery is efficient in absolute terms for a trivial problem, comparable to a baseline. No wasted exchanges, though also no pedagogical payoff for the brevity.\" }\n  }\n}"
+}

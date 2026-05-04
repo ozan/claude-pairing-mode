@@ -1,0 +1,39 @@
+{
+  "slug": "ours-caesar-cipher",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:26",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asked zero didactic questions. All teachable content was delivered as exposition after the user asked their own questions. The roles were essentially inverted \u2014 the student drove the inquiry."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks were framed by the Tutor. The Tutor wrote the full solution upfront and then explained it; no consequential decision points were posed."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding to speak of \u2014 the complete solution and tests were dumped in turn 1, and explanation followed only in response to student-initiated questions."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the explanations of Python's modulo behavior and the helper-extraction rationale are clear and actionable. Flow is fine but one-directional (lecture-style)."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asked zero didactic questions. All teachable content was delivered as exposition after the user asked their own questions. The roles were essentially inverted \u2014 the student drove the inquiry.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No choices or forks were framed by the Tutor. The Tutor wrote the full solution upfront and then explained it; no consequential decision points were posed.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding to speak of \u2014 the complete solution and tests were dumped in turn 1, and explanation followed only in response to student-initiated questions.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and the explanations of Python's modulo behavior and the helper-extraction rationale are clear and actionable. Flow is fine but one-directional (lecture-style).\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code correctly handles case preservation, non-letters, wrap-around, and negative/large shifts, and is verified by a robust smoke test. Clean and idiomatic.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Solved in two turns with verification; concise and efficient. Without a baseline, this reads as low-friction for the problem class.\" }\n  }\n}"
+}

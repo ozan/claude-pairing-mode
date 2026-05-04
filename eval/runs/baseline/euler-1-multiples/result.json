@@ -1,0 +1,10 @@
+{
+  "slug": "euler-1-multiples",
+  "condition": "baseline",
+  "end_reason": "done",
+  "turns": 1,
+  "duration_s": 14.298934936523438,
+  "propose_options_calls": 0,
+  "leaks_detected": 0,
+  "error": null
+}

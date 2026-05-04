@@ -1,0 +1,39 @@
+{
+  "slug": "ours-todo-cli",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:47",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Tutor never proactively asked the user didactic questions. All the questions in the conversation came from the Student. The Tutor only delivered explanations and code, missing teachable-moment prompts."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since the Tutor asked no didactic questions, there are no choices framed for the user. The Tutor decided everything (id strategy, set_defaults dispatch, sys.exit convention) without inviting reasoning."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "There's a logical post-hoc explanation flow (id, dispatch, exit, then extension example), but it's all expository rather than scaffolded discovery. No graduated questions, and the extension is fully spoiled before the student tries it."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and explanations are crisp, well-organized with tables and concrete examples. The back-and-forth is responsive to the student's questions, though it's largely Tutor-monologue rather than dialogic."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.5,
+  "normalized": 0.375,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Tutor never proactively asked the user didactic questions. All the questions in the conversation came from the Student. The Tutor only delivered explanations and code, missing teachable-moment prompts.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since the Tutor asked no didactic questions, there are no choices framed for the user. The Tutor decided everything (id strategy, set_defaults dispatch, sys.exit convention) without inviting reasoning.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"There's a logical post-hoc explanation flow (id, dispatch, exit, then extension example), but it's all expository rather than scaffolded discovery. No graduated questions, and the extension is fully spoiled before the student tries it.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and explanations are crisp, well-organized with tables and concrete examples. The back-and-forth is responsive to the student's questions, though it's largely Tutor-monologue rather than dialogic.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly implements add/list/done/rm with JSON persistence and even adds an edit command. Smoke tests pass including bad-id paths. Solid baseline-equivalent solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns, ~79s, with a self-caught bug (save(todo) \u2192 save(todos)) and a directory permission hiccup quickly resolved. Reasonable efficiency for the problem class.\" }\n  }\n}"
+}

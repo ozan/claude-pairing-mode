@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-two-sum",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:19",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks zero didactic questions. It delivers a complete solution with explanation upfront and follows up with more exposition, never engaging the student with a teachable prompt."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions are posed, so no choices or forks are surfaced for the student to reason about. The crux (ordering of insert vs. check, duplicate handling) is stated rather than elicited."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the full optimized solution and walkthrough are revealed immediately, spoiling any opportunity for graduated discovery."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the explanations are clear and actionable, but it's a one-way lecture rather than a dialogue. The student's trace is acknowledged but not built upon pedagogically."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks zero didactic questions. It delivers a complete solution with explanation upfront and follows up with more exposition, never engaging the student with a teachable prompt.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions are posed, so no choices or forks are surfaced for the student to reason about. The crux (ordering of insert vs. check, duplicate handling) is stated rather than elicited.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the full optimized solution and walkthrough are revealed immediately, spoiling any opportunity for graduated discovery.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and the explanations are clear and actionable, but it's a one-way lecture rather than a dialogue. The student's trace is acknowledged but not built upon pedagogically.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is the canonical O(n) hash map solution, correct and equivalent to a baseline solution.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Concise two-turn resolution with no wasted effort; appropriate for the problem's difficulty.\" }\n  }\n}"
+}

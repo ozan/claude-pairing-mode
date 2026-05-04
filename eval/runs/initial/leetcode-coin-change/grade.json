@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-coin-change",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:50",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two explicit didactic forks (sentinel initialization, and the boundary guard `<` vs `<=`) before writing code. That's a high frequency given the small problem, though a third opportunity (e.g., why forward vs backward iteration) was delivered as exposition rather than a question."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Both questions hit real subtleties: the inf-vs-(-1) sentinel is a genuine idiom worth knowing, and the `coin <= i` boundary is a classic off-by-one trap. Neither is cosmetic, though the inf vs amount+1 sentinel choice (the baseline's teaching point) was skipped."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: initialize \u2192 fill condition \u2192 assemble. Difficulty gradient is smooth and no answers are spoiled. Slightly abrupt jump to the assembled solution without asking about the final unreachable check."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, affirmations are specific (\"`inf + 1` is still `inf`\"), and the back-and-forth is natural. The MCP tool search at the start is a minor blemish but doesn't disrupt flow."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and passes tests, equivalent to the baseline's solution (uses `float('inf')` instead of `amount+1` sentinel, both valid)."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Three turns / 89s vs baseline's 2 turns / 53s \u2014 modestly longer, but the extra length delivered two genuine teachable forks (sentinel choice, boundary guard) rather than baseline's monologue style. Proportional pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 3.8000000000000003,
+  "normalized": 0.7000000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two explicit didactic forks (sentinel initialization, and the boundary guard `<` vs `<=`) before writing code. That's a high frequency given the small problem, though a third opportunity (e.g., why forward vs backward iteration) was delivered as exposition rather than a question.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Both questions hit real subtleties: the inf-vs-(-1) sentinel is a genuine idiom worth knowing, and the `coin <= i` boundary is a classic off-by-one trap. Neither is cosmetic, though the inf vs amount+1 sentinel choice (the baseline's teaching point) was skipped.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: initialize \u2192 fill condition \u2192 assemble. Difficulty gradient is smooth and no answers are spoiled. Slightly abrupt jump to the assembled solution without asking about the final unreachable check.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm, affirmations are specific (\\\"`inf + 1` is still `inf`\\\"), and the back-and-forth is natural. The MCP tool search at the start is a minor blemish but doesn't disrupt flow.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and passes tests, equivalent to the baseline's solution (uses `float('inf')` instead of `amount+1` sentinel, both valid).\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Three turns / 89s vs baseline's 2 turns / 53s \u2014 modestly longer, but the extra length delivered two genuine teachable forks (sentinel choice, boundary guard) rather than baseline's monologue style. Proportional pedagogical payoff.\" }\n  }\n}"
+}

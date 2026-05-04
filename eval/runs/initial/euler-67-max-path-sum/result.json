@@ -1,0 +1,10 @@
+{
+  "slug": "euler-67-max-path-sum",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 4,
+  "duration_s": 123.6273467540741,
+  "propose_options_calls": 3,
+  "leaks_detected": 0,
+  "error": null
+}

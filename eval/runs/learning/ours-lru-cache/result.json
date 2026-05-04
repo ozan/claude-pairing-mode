@@ -1,0 +1,10 @@
+{
+  "slug": "ours-lru-cache",
+  "condition": "learning",
+  "end_reason": "done",
+  "turns": 3,
+  "duration_s": 141.11639189720154,
+  "propose_options_calls": 0,
+  "leaks_detected": 0,
+  "error": null
+}

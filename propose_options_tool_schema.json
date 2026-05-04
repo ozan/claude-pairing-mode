@@ -1,0 +1,43 @@
+{
+  "mcp_server_name": "pairing",
+  "tool_name": "propose_options",
+  "description": "Propose exactly two options for the user to choose between at a didactic decision point. Option A is what you would do if the user just asked, and option B is a plausible-looking alternative presented for educational purposes (or vice versa — vary which letter is your preference). Pass each field as a plain string or integer; do not JSON-encode them.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "option_a_title": {
+        "type": "string",
+        "description": "Short label for option A, 2-5 words. No punctuation."
+      },
+      "option_a_body": {
+        "type": "string",
+        "description": "Markdown justification for option A. Ideally 1-3 sentences. For code options, use a fenced ```diff block with a `+++ filename` header and a `@@ -OLD,_ +NEW,_ @@` hunk header."
+      },
+      "option_b_title": {
+        "type": "string",
+        "description": "Short label for option B, 2-5 words. No punctuation."
+      },
+      "option_b_body": {
+        "type": "string",
+        "description": "Markdown justification for option B. Same formatting rules as option_a_body."
+      },
+      "best_letter": {
+        "type": "string",
+        "enum": ["A", "B"],
+        "description": "\"A\" if option A is your honest best recommendation, \"B\" if option B is."
+      },
+      "rationale": {
+        "type": "string",
+        "description": "Your reasoning for and against the preferred option. Hidden from the user; used by the eval/transcript layer to score whether the user picked correctly."
+      }
+    },
+    "required": [
+      "option_a_title",
+      "option_a_body",
+      "option_b_title",
+      "option_b_body",
+      "best_letter",
+      "rationale"
+    ]
+  }
+}

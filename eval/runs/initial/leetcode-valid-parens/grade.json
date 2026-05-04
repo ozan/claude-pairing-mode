@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-valid-parens",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:07",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair offered a binary choice upfront (A/B), invited the user to mentally trace '([)]', and ended with an open question about adding more cases. Three engagement points across three turns is moderate."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The A/B fork is substantive \u2014 stack vs. brute-force pair-removal touches on efficiency and directness. The mental trace prompt for '([)]' targets the 'right order' constraint. But subsequent questions are softer (more tests? happy?)."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: choose algorithm \u2192 trace example \u2192 write code \u2192 discuss idioms. No spoilers in the choice, and edge cases are surfaced incrementally. Slight loss because the initial options already showed full code."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational flow is natural and warm. The Pair builds on the user's reasoning, and the trace tables are clear. Tone is appropriate without being saccharine."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to the baseline solution \u2014 handles all standard edge cases with a clean stack-based implementation."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns, similar length to baseline, with tests actually executed via tools. Slightly longer wall-clock time but comparable density and a clean A/B framing that justifies the small overhead."
+      }
+    }
+  },
+  "weighted": 3.2,
+  "normalized": 0.55,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair offered a binary choice upfront (A/B), invited the user to mentally trace '([)]', and ended with an open question about adding more cases. Three engagement points across three turns is moderate.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The A/B fork is substantive \u2014 stack vs. brute-force pair-removal touches on efficiency and directness. The mental trace prompt for '([)]' targets the 'right order' constraint. But subsequent questions are softer (more tests? happy?).\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: choose algorithm \u2192 trace example \u2192 write code \u2192 discuss idioms. No spoilers in the choice, and edge cases are surfaced incrementally. Slight loss because the initial options already showed full code.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversational flow is natural and warm. The Pair builds on the user's reasoning, and the trace tables are clear. Tone is appropriate without being saccharine.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to the baseline solution \u2014 handles all standard edge cases with a clean stack-based implementation.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Three turns, similar length to baseline, with tests actually executed via tools. Slightly longer wall-clock time but comparable density and a clean A/B framing that justifies the small overhead.\" }\n  }\n}"
+}

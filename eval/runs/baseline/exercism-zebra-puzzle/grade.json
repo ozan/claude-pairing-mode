@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-zebra-puzzle",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:59",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asked zero didactic questions throughout the session. It delivered the full solution upfront and only responded to the user's questions. No teachable moments were turned into prompts for the user."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions were posed by the Pair. While the explanation of pruning was substantive, there's no choice-framing or fork-surfacing for the user to engage with."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "The Pair dumped the full solution immediately, then explained it post-hoc. The follow-up explanation of pruning was clear and well-structured, but there's no progressive scaffolding \u2014 it's all exposition triggered by the user's curiosity."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the technical explanations (especially the compounding tree diagram) are clear and actionable. But the dynamic is one-directional: Pair lectures, user paraphrases. Not a true back-and-forth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asked zero didactic questions throughout the session. It delivered the full solution upfront and only responded to the user's questions. No teachable moments were turned into prompts for the user.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No questions were posed by the Pair. While the explanation of pruning was substantive, there's no choice-framing or fork-surfacing for the user to engage with.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"The Pair dumped the full solution immediately, then explained it post-hoc. The follow-up explanation of pruning was clear and well-structured, but there's no progressive scaffolding \u2014 it's all exposition triggered by the user's curiosity.\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is warm and the technical explanations (especially the compounding tree diagram) are clear and actionable. But the dynamic is one-directional: Pair lectures, user paraphrases. Not a true back-and-forth.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 4, \"rationale\": \"Final code correctly returns Norwegian/Japanese, uses the Exercism API, and includes thoughtful pruning with reverse-lookup arrays. Solid, working solution.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two-turn resolution at 84s is efficient. No baseline provided; in absolute terms this is tight for the problem class, with reasonable explanation depth.\" }\n  }\n}"
+}

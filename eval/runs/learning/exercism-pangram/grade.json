@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-pangram",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:06",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks essentially no didactic questions. It presents the solution and explanations, with the user driving the questions instead."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No substantive choices or forks are surfaced for the user to consider. The 'common gotcha' about reversed direction is presented as a statement, not as a question."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "There's no questioning sequence to scaffold. The Pair does present the direction-of-subset gotcha at a useful moment, but it's exposition rather than guided learning."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, responses are actionable and clarify the user's confusion well. Flow is natural but it's the user driving learning, not the Pair."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final solution is correct and equivalent to baseline (`set(alphabet).issubset(text.lower())`)."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (27s vs 68s, less prose) while still covering the key direction-of-subset gotcha. Slightly less depth on internals than baseline but proportionate."
+      }
+    }
+  },
+  "weighted": 2.4000000000000004,
+  "normalized": 0.3500000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks essentially no didactic questions. It presents the solution and explanations, with the user driving the questions instead.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No substantive choices or forks are surfaced for the user to consider. The 'common gotcha' about reversed direction is presented as a statement, not as a question.\" },\n    \"scaffolding\": { \"score\": 2, \"rationale\": \"There's no questioning sequence to scaffold. The Pair does present the direction-of-subset gotcha at a useful moment, but it's exposition rather than guided learning.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm, responses are actionable and clarify the user's confusion well. Flow is natural but it's the user driving learning, not the Pair.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final solution is correct and equivalent to baseline (`set(alphabet).issubset(text.lower())`).\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Shorter than baseline (27s vs 68s, less prose) while still covering the key direction-of-subset gotcha. Slightly less depth on internals than baseline but proportionate.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "euler-17-letter-counts",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:03",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair offered four distinct A/B forks across turns: overall approach, lookup table structure, helper extraction, and letter-counting style. Most meaningful decision points involved the user."
+      },
+      "question_quality": {
+        "score": 3,
+        "rationale": "The first fork (build vs arithmetic) is genuinely substantive about trade-offs. The lookup-table fork touches a real idiom (1-19 indexing avoids teen branches). However, the helper-extraction and isalpha-vs-replace forks are more stylistic than crux-level, and no question probed the trickiest part: British 'and' placement."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical bottom-up progression: approach \u2192 tables \u2192 conversion \u2192 counting \u2192 verification. Difficulty gradient is smooth and no answers were spoiled. Could have pushed harder on the 'and' rule as its own teachable moment."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation is natural, the Pair confirms choices warmly, and verification with concrete examples matching the problem statement is a nice closing beat. Minor friction from a duplicated final question in Turn 1, but otherwise smooth."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final answer 21124 is correct and matches baseline; code is clean, tested with concrete examples including the problem's own 342 example."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "About 5x the baseline turns and 3x the time, but the experiment produced runnable verified code rather than a hand calculation, and each fork delivered some teaching value. Reasonable trade."
+      }
+    }
+  },
+  "weighted": 3.5,
+  "normalized": 0.625,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair offered four distinct A/B forks across turns: overall approach, lookup table structure, helper extraction, and letter-counting style. Most meaningful decision points involved the user.\" },\n    \"question_quality\": { \"score\": 3, \"rationale\": \"The first fork (build vs arithmetic) is genuinely substantive about trade-offs. The lookup-table fork touches a real idiom (1-19 indexing avoids teen branches). However, the helper-extraction and isalpha-vs-replace forks are more stylistic than crux-level, and no question probed the trickiest part: British 'and' placement.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical bottom-up progression: approach \u2192 tables \u2192 conversion \u2192 counting \u2192 verification. Difficulty gradient is smooth and no answers were spoiled. Could have pushed harder on the 'and' rule as its own teachable moment.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversation is natural, the Pair confirms choices warmly, and verification with concrete examples matching the problem statement is a nice closing beat. Minor friction from a duplicated final question in Turn 1, but otherwise smooth.\" },\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final answer 21124 is correct and matches baseline; code is clean and runs successfully.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Roughly 5 turns and ~130s vs baseline's 1 turn / 40s, but the experiment actually wrote and tested working code while the baseline only did arithmetic. The extra length yields proportional pedagogical and verification payoff.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final answer 21124 is correct and matches baseline; code is clean, tested with concrete examples including the problem's own 342 example.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"About 5x the baseline turns and 3x the time, but the experiment produced runnable verified code rather than a hand calculation, and each fork delivered some teaching value. Reasonable trade.\" }\n  }\n}"
+}

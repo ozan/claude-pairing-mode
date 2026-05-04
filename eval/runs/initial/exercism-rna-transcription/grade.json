@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-rna-transcription",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:36",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 3,
+        "rationale": "The Pair posed one substantive design choice (A vs B) and offered a follow-up opening, but didn't pepper the conversation with multiple didactic questions. Limited to a single fork plus a 'want to add tests?' check."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The A vs B fork hits a genuine crux: explicit pre-validation vs EAFP, two-pass vs one-pass, and source-of-truth duplication. It's the most consequential design tension in this trivial problem."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Nice progression: present options, let user reason, then pushback on the two-pass and EAFP misconceptions, then implement with extra notes on `from e` and empty strings. No spoilers; correction was well-timed after user committed to a choice."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversational and warm; the pushback was substantive and actionable, and the user visibly updated their mental model. Slightly perfunctory close but overall natural."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly maps and validates with EAFP. Comparable to baseline, though baseline collected all invalid characters in one error and included tests; experiment skipped tests entirely."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "3 turns vs baseline's 2, with similar wall-clock time. The extra turn delivered real teaching value (EAFP, two-pass insight) proportional to the added length."
+      }
+    }
+  },
+  "weighted": 3.3000000000000003,
+  "normalized": 0.5750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 3, \"rationale\": \"The Pair posed one substantive design choice (A vs B) and offered a follow-up opening, but didn't pepper the conversation with multiple didactic questions. Limited to a single fork plus a 'want to add tests?' check.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The A vs B fork hits a genuine crux: explicit pre-validation vs EAFP, two-pass vs one-pass, and source-of-truth duplication. It's the most consequential design tension in this trivial problem.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Nice progression: present options, let user reason, then pushback on the two-pass and EAFP misconceptions, then implement with extra notes on `from e` and empty strings. No spoilers; correction was well-timed after user committed to a choice.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversational and warm; the pushback was substantive and actionable, and the user visibly updated their mental model. Slightly perfunctory close but overall natural.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly maps and validates with EAFP. Comparable to baseline, though baseline collected all invalid characters in one error and included tests; experiment skipped tests entirely.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"3 turns vs baseline's 2, with similar wall-clock time. The extra turn delivered real teaching value (EAFP, two-pass insight) proportional to the added length.\" }\n  }\n}"
+}

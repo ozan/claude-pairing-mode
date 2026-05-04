@@ -1,0 +1,39 @@
+{
+  "slug": "ours-todo-cli",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:11:32",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "Only one didactic question is posed (the A/B fork on ID storage). The rest of the session is exposition and a closing offer to extend, with no further engagement at teachable moments like the empty-list gotcha or dispatch pattern."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The single A/B choice targets a genuine design tension (derive vs. persist counter) with real trade-offs around deletions and file format. It's a substantive fork, even if isolated."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "The one fork is well-framed with diffs and trade-offs, and the empty-list gotcha follows naturally from the user's choice. But there's no progression \u2014 the session ends after one decision point without building further skills."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is crisp and professional, the options block is actionable, and the follow-up acknowledges the user's reasoning before flagging the ValueError. Flow is natural but brief."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code correctly implements all four subcommands, persistence works, and the smoke test passes. Comparable to baseline, though slightly less polished (no strikethrough, less docstring detail)."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (55s vs 79s, 2 turns each) with one meaningful pedagogical exchange built in. Modest teaching gain for less time."
+      }
+    }
+  },
+  "weighted": 3.1,
+  "normalized": 0.525,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"Only one didactic question is posed (the A/B fork on ID storage). The rest of the session is exposition and a closing offer to extend, with no further engagement at teachable moments like the empty-list gotcha or dispatch pattern.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"The single A/B choice targets a genuine design tension (derive vs. persist counter) with real trade-offs around deletions and file format. It's a substantive fork, even if isolated.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"The one fork is well-framed with diffs and trade-offs, and the empty-list gotcha follows naturally from the user's choice. But there's no progression \u2014 the session ends after one decision point without building further skills.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is crisp and professional, the options block is actionable, and the follow-up acknowledges the user's reasoning before flagging the ValueError. Flow is natural but brief.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code correctly implements all four subcommands, persistence works, and the smoke test passes. Comparable to baseline, though slightly less polished (no strikethrough, less docstring detail).\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Shorter than baseline (55s vs 79s, 2 turns each) with one meaningful pedagogical exchange built in. Modest teaching gain for less time.\" }\n  }\n}"
+}

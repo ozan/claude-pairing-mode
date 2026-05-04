@@ -1,0 +1,39 @@
+{
+  "slug": "euler-1-multiples",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:18",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It dumps the full solution with table and answer immediately, leaving no teachable moments for the user to engage with."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No choices or forks are surfaced to the user. The inclusion-exclusion insight, the brute-force trade-off, and the n=floor(999/k) boundary are all stated as facts rather than posed as questions."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the answer is fully revealed in turn one, including the final number. The user had to self-scaffold by retracing the math themselves."
+      },
+      "flow_and_tone": {
+        "score": 2,
+        "rationale": "Tone is clear and the explanation is well-organized, but the flow is one-shot lecture followed by user self-verification. There is no back-and-forth dialog."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 1.9000000000000001,
+  "normalized": 0.22500000000000003,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It dumps the full solution with table and answer immediately, leaving no teachable moments for the user to engage with.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No choices or forks are surfaced to the user. The inclusion-exclusion insight, the brute-force trade-off, and the n=floor(999/k) boundary are all stated as facts rather than posed as questions.\" },\n    \"scaffolding\": { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the answer is fully revealed in turn one, including the final number. The user had to self-scaffold by retracing the math themselves.\" },\n    \"flow_and_tone\": { \"score\": 2, \"rationale\": \"Tone is clear and the explanation is well-organized, but the flow is one-shot lecture followed by user self-verification. There is no back-and-forth dialog.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"The final answer 233,168 is correct and verified with a brute-force snippet. Solves the problem fully.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Single-turn resolution is efficient in absolute terms for this trivially small problem, with no wasted exchanges.\" }\n  }\n}"
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "euler-17-letter-counts",
+  "condition": "baseline",
+  "end_reason": "done",
+  "turns": 1,
+  "duration_s": 39.60698485374451,
+  "propose_options_calls": 0,
+  "leaks_detected": 0,
+  "error": null
+}

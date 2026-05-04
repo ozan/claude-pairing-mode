@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-allergies",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:14",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two explicit OPTIONS forks (data structure choice; refactor of is_allergic_to) at meaningful decision points, plus an open invitation to test. That's high frequency for a small problem."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Both forks targeted real design tensions: dict-vs-list-as-source-of-truth and DRY-vs-direct-bit-check (premature abstraction). These are the substantive cruxes for this exercise, though neither is deeply algorithmic."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression: data representation \u2192 implementation \u2192 refactor consideration \u2192 verification. No spoilers; each option was presented neutrally and the user reasoned independently. Difficulty gradient is smooth."
+      },
+      "flow_and_tone": {
+        "score": 5,
+        "rationale": "Natural back-and-forth, warm affirmations grounded in the user's reasoning, and the live verification of the user's mental trace was a particularly nice pedagogical touch."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct, concise (13 lines), handles scores >255, and matches baseline functionality. Equivalent quality to baseline."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Took 4 turns / 80s vs baseline's 3 turns / 61s, with comparable teaching payoff (the OPTIONS forks added genuine design discussion the baseline lacked, though the baseline's bool() exposition was deeper). Roughly proportional."
+      }
+    }
+  },
+  "weighted": 3.7,
+  "normalized": 0.675,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two explicit OPTIONS forks (data structure choice; refactor of is_allergic_to) at meaningful decision points, plus an open invitation to test. That's high frequency for a small problem.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Both forks targeted real design tensions: dict-vs-list-as-source-of-truth and DRY-vs-direct-bit-check (premature abstraction). These are the substantive cruxes for this exercise, though neither is deeply algorithmic.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression: data representation \u2192 implementation \u2192 refactor consideration \u2192 verification. No spoilers; each option was presented neutrally and the user reasoned independently. Difficulty gradient is smooth.\" },\n    \"flow_and_tone\": { \"score\": 5, \"rationale\": \"Natural back-and-forth, warm affirmations grounded in the user's reasoning, and the live verification of the user's mental trace was a particularly nice pedagogical touch.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is correct, concise (13 lines), handles scores >255, and matches baseline functionality. Equivalent quality to baseline.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Took 4 turns / 80s vs baseline's 3 turns / 61s, with comparable teaching payoff (the OPTIONS forks added genuine design discussion the baseline lacked, though the baseline's bool() exposition was deeper). Roughly proportional.\" }\n  }\n}"
+}

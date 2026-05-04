@@ -1,0 +1,39 @@
+{
+  "slug": "euler-21-amicable",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:10:02",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 4,
+        "rationale": "The Pair posed two substantive multiple-choice forks (sqrt vs. linear divisor loop, and inline vs. precomputed) plus a follow-up efficiency question. Given the problem's small surface area, this is high-frequency engagement at the meaningful decision points."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "Both forks target real trade-offs: the O(\u221an) vs O(n) divisor algorithm (the central efficiency idea) and caching vs recomputation with the bounds-check gotcha. The questions miss a chance to probe the perfect-number edge case directly, but they hit the core algorithmic cruxes."
+      },
+      "scaffolding": {
+        "score": 4,
+        "rationale": "Logical progression from inner function to outer loop, with difficulty escalating appropriately. The options are presented without spoiling \u2014 though showing the full diff with the bounds check effectively previews that subtlety rather than letting the student discover it."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, responses confirm and extend the student's reasoning (e.g., affirming the perfect-number observation), and back-and-forth feels natural. Slightly mechanical due to the rigid OPTIONS format, but actionable throughout."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code outputs 31626 correctly, equivalent to baseline. Solution quality is comparable."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Three turns and ~67s vs baseline's one turn and ~21s, but the extra length delivers proportional pedagogical value through two genuine decision points and student reasoning checks."
+      }
+    }
+  },
+  "weighted": 3.6,
+  "normalized": 0.65,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 4, \"rationale\": \"The Pair posed two substantive multiple-choice forks (sqrt vs. linear divisor loop, and inline vs. precomputed) plus a follow-up efficiency question. Given the problem's small surface area, this is high-frequency engagement at the meaningful decision points.\" },\n    \"question_quality\": { \"score\": 4, \"rationale\": \"Both forks target real trade-offs: the O(\u221an) vs O(n) divisor algorithm (the central efficiency idea) and caching vs recomputation with the bounds-check gotcha. The questions miss a chance to probe the perfect-number edge case directly, but they hit the core algorithmic cruxes.\" },\n    \"scaffolding\": { \"score\": 4, \"rationale\": \"Logical progression from inner function to outer loop, with difficulty escalating appropriately. The options are presented without spoiling \u2014 though showing the full diff with the bounds check effectively previews that subtlety rather than letting the student discover it.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Tone is warm, responses confirm and extend the student's reasoning (e.g., affirming the perfect-number observation), and back-and-forth feels natural. Slightly mechanical due to the rigid OPTIONS format, but actionable throughout.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code outputs 31626 correctly, equivalent to baseline. Solution quality is comparable.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Three turns and ~67s vs baseline's one turn and ~21s, but the extra length delivers proportional pedagogical value through two genuine decision points and student reasoning checks.\" }\n  }\n}"
+}

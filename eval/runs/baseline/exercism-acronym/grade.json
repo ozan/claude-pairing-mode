@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-acronym",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:00:37",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks zero didactic questions. It writes the solution, tests it, fixes the camelCase issue, and explains the result. The student is the one who ends up asking the questions."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions were posed by the Pair, so there are no choices framed for the student. Teachable forks (camelCase handling, hyphen-as-separator) were resolved unilaterally."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "No scaffolded progression \u2014 the Pair simply produced the full solution, then patched it. The final explanation is decent but everything is revealed at once."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is clear and the final summary table is helpful, but the interaction is monologic: Pair solves, student reacts. Conversational flow exists only because the student volunteered comprehension checks."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks zero didactic questions. It writes the solution, tests it, fixes the camelCase issue, and explains the result. The student is the one who ends up asking the questions.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions were posed by the Pair, so there are no choices framed for the student. Teachable forks (camelCase handling, hyphen-as-separator) were resolved unilaterally.\" },\n    \"scaffolding\":        { \"score\": 1, \"rationale\": \"No scaffolded progression \u2014 the Pair simply produced the full solution, then patched it. The final explanation is decent but everything is revealed at once.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is clear and the final summary table is helpful, but the interaction is monologic: Pair solves, student reacts. Conversational flow exists only because the student volunteered comprehension checks.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 4, \"rationale\": \"Final code correctly handles all the standard Exercism cases including camelCase, hyphens, embedded punctuation, and all-caps words. Verified by an extensive test sweep.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Solved in a single turn with one targeted bugfix. Efficient in absolute terms for this trivial problem, though the lack of pedagogy means no extra value to justify any length.\" }\n  }\n}"
+}

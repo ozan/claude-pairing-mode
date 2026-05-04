@@ -1,0 +1,39 @@
+{
+  "slug": "exercism-hamming",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:02",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks no didactic questions of the user. It delivers a complete solution with explanation, then only responds to the user's questions. No teachable moments are surfaced as prompts."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions are framed by the Pair. The error-message digression is informative but presented as exposition, not as a choice for the user to reason through."
+      },
+      "scaffolding": {
+        "score": 1,
+        "rationale": "There is no scaffolding \u2014 the full solution is shown immediately with all reasoning revealed. No progression of difficulty or guided discovery."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and the explanations are well-organized, but the dynamic is monologue-driven rather than a back-and-forth dialogue. The error-message tangent is genuinely interesting but user-led, not Pair-led."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is identical to baseline and passes a more thorough self-test. Solves the problem correctly and idiomatically."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns and ~50s, comparable to baseline's 35s. Slightly longer prose but the error-message contract discussion adds modest value."
+      }
+    }
+  },
+  "weighted": 2.0,
+  "normalized": 0.25,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks no didactic questions of the user. It delivers a complete solution with explanation, then only responds to the user's questions. No teachable moments are surfaced as prompts.\" },\n    \"question_quality\": { \"score\": 1, \"rationale\": \"No questions are framed by the Pair. The error-message digression is informative but presented as exposition, not as a choice for the user to reason through.\" },\n    \"scaffolding\": { \"score\": 1, \"rationale\": \"There is no scaffolding \u2014 the full solution is shown immediately with all reasoning revealed. No progression of difficulty or guided discovery.\" },\n    \"flow_and_tone\": { \"score\": 3, \"rationale\": \"Tone is warm and the explanations are well-organized, but the dynamic is monologue-driven rather than a back-and-forth dialogue. The error-message tangent is genuinely interesting but user-led, not Pair-led.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is identical to baseline and passes a more thorough self-test. Solves the problem correctly and idiomatically.\" },\n    \"friction\": { \"score\": 3, \"rationale\": \"Two turns and ~50s, comparable to baseline's 35s. Slightly longer prose but the error-message contract discussion adds modest value.\" }\n  }\n}"
+}

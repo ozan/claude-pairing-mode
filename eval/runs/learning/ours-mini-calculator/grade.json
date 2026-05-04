@@ -1,0 +1,39 @@
+{
+  "slug": "ours-mini-calculator",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:56",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair never actually poses didactic questions to the user \u2014 it presents the solution and explanations, and the user drives the questioning. The 'learning' condition didn't manifest in any Socratic prompts at teachable moments."
+      },
+      "question_quality": {
+        "score": 2,
+        "rationale": "Since the Pair doesn't pose substantive choices, there's no question crux to evaluate. It does respond well to user questions about associativity and parentheses, but the forks (e.g., right-associativity, exponentiation) are mentioned in passing, not as decision points for the user."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "The explanations are well-ordered (tokeniser \u2192 parser \u2192 grammar \u2192 traces), and the second-turn confirmations build on user understanding without spoilers. But there's no real difficulty gradient driven by the Pair \u2014 scaffolding is largely user-led."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Conversation flows naturally and warmly; the traces in turn 2 directly address the user's three questions with concrete examples and a nice comparison table. Tone is engaged and responsive, even if not particularly Socratic."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is a working recursive descent parser with 22 passing tests, equivalent in correctness to the baseline (which had 28 tests). Both solve the original problem cleanly."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Wrapped in 2 turns / 130s vs baseline's 3 turns / 165s, with comparable explanatory depth. Slightly tighter than baseline without losing pedagogical content, though baseline went deeper into edge cases like `2++3` and regex ordering."
+      }
+    }
+  },
+  "weighted": 2.9000000000000004,
+  "normalized": 0.4750000000000001,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair never actually poses didactic questions to the user \u2014 it presents the solution and explanations, and the user drives the questioning. The 'learning' condition didn't manifest in any Socratic prompts at teachable moments.\" },\n    \"question_quality\": { \"score\": 2, \"rationale\": \"Since the Pair doesn't pose substantive choices, there's no question crux to evaluate. It does respond well to user questions about associativity and parentheses, but the forks (e.g., right-associativity, exponentiation) are mentioned in passing, not as decision points for the user.\" },\n    \"scaffolding\": { \"score\": 3, \"rationale\": \"The explanations are well-ordered (tokeniser \u2192 parser \u2192 grammar \u2192 traces), and the second-turn confirmations build on user understanding without spoilers. But there's no real difficulty gradient driven by the Pair \u2014 scaffolding is largely user-led.\" },\n    \"flow_and_tone\": { \"score\": 4, \"rationale\": \"Conversation flows naturally and warmly; the traces in turn 2 directly address the user's three questions with concrete examples and a nice comparison table. Tone is engaged and responsive, even if not particularly Socratic.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\": { \"score\": 3, \"rationale\": \"Final code is a working recursive descent parser with 22 passing tests, equivalent in correctness to the baseline (which had 28 tests). Both solve the original problem cleanly.\" },\n    \"friction\": { \"score\": 4, \"rationale\": \"Wrapped in 2 turns / 130s vs baseline's 3 turns / 165s, with comparable explanatory depth. Slightly tighter than baseline without losing pedagogical content, though baseline went deeper into edge cases like `2++3` and regex ordering.\" }\n  }\n}"
+}

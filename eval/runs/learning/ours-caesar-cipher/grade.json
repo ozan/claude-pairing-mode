@@ -1,0 +1,39 @@
+{
+  "slug": "ours-caesar-cipher",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:43",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair never asks the user any didactic questions. It writes the full solution, explains it, then answers the user's questions. No teachable-moment prompts are surfaced."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "Since there are essentially no Pair-initiated questions or framed choices, there is nothing of substance to evaluate. The Pair just delivers a complete solution."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "There is no progression of pedagogical questions. The explanations themselves are well-organized (offset math, edge cases, algebra of decode), but scaffolding requires guided discovery, which is absent."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the explanations are clear and actionable, with a nice algebra trace showing why round-trip works. Flow is natural but one-directional \u2014 Pair lectures, user confirms."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is essentially identical to the baseline (same _shift_char/encode/decode structure) and correctly meets all requirements."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns, ~50s, comparable to baseline. Slightly more user-driven exploration of negative shifts but similar overall length and payoff."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair never asks the user any didactic questions. It writes the full solution, explains it, then answers the user's questions. No teachable-moment prompts are surfaced.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"Since there are essentially no Pair-initiated questions or framed choices, there is nothing of substance to evaluate. The Pair just delivers a complete solution.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"There is no progression of pedagogical questions. The explanations themselves are well-organized (offset math, edge cases, algebra of decode), but scaffolding requires guided discovery, which is absent.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and the explanations are clear and actionable, with a nice algebra trace showing why round-trip works. Flow is natural but one-directional \u2014 Pair lectures, user confirms.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is essentially identical to the baseline (same _shift_char/encode/decode structure) and correctly meets all requirements.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns, ~50s, comparable to baseline. Slightly more user-driven exploration of negative shifts but similar overall length and payoff.\" }\n  }\n}"
+}

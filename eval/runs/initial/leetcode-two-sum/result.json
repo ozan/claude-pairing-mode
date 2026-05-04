@@ -1,0 +1,10 @@
+{
+  "slug": "leetcode-two-sum",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 3,
+  "duration_s": 41.50578808784485,
+  "propose_options_calls": 1,
+  "leaks_detected": 0,
+  "error": null
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "euler-10-sum-primes",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:09:49",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 2,
+        "rationale": "The Pair posed only one didactic question (start at p\u00b2 vs 2p) before writing the code. Other teachable moments (bytearray choice, slice length matching for extended slices, sqrt bound) were explained rather than questioned."
+      },
+      "question_quality": {
+        "score": 4,
+        "rationale": "The single question targeted the central correctness/efficiency insight of the sieve \u2014 why p\u00b2 is the right starting point \u2014 which is genuinely the crux of the algorithm."
+      },
+      "scaffolding": {
+        "score": 3,
+        "rationale": "Clean A/B framing with no spoilers, and the user reasoned it out. But scaffolding is shallow: only one rung, then straight to final code and a bullet-list explanation, with no follow-up probes."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and crisp; the Pair affirmed the student's reasoning and tied later notes back to it. Flow is natural though brief."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct (142,913,828,922) and essentially equivalent to the baseline, using the same bytearray sieve idiom."
+      },
+      "friction": {
+        "score": 4,
+        "rationale": "Shorter than baseline (2 turns, 43s vs 3 turns, 84s) and reached the correct answer with one substantive pedagogical exchange \u2014 modestly tighter with comparable teaching payoff."
+      }
+    }
+  },
+  "weighted": 3.1,
+  "normalized": 0.525,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 2, \"rationale\": \"The Pair posed only one didactic question (start at p\u00b2 vs 2p) before writing the code. Other teachable moments (bytearray choice, slice length matching for extended slices, sqrt bound) were explained rather than questioned.\" },\n    \"question_quality\":   { \"score\": 4, \"rationale\": \"The single question targeted the central correctness/efficiency insight of the sieve \u2014 why p\u00b2 is the right starting point \u2014 which is genuinely the crux of the algorithm.\" },\n    \"scaffolding\":        { \"score\": 3, \"rationale\": \"Clean A/B framing with no spoilers, and the user reasoned it out. But scaffolding is shallow: only one rung, then straight to final code and a bullet-list explanation, with no follow-up probes.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and crisp; the Pair affirmed the student's reasoning and tied later notes back to it. Flow is natural though brief.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct (142,913,828,922) and essentially equivalent to the baseline, using the same bytearray sieve idiom.\" },\n    \"friction\":           { \"score\": 4, \"rationale\": \"Shorter than baseline (2 turns, 43s vs 3 turns, 84s) and reached the correct answer with one substantive pedagogical exchange \u2014 modestly tighter with comparable teaching payoff.\" }\n  }\n}"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ours-fizzbuzz",
+  "is_baseline": true,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:01:26",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Tutor asks no didactic questions. It delivers solutions and explanations directly; the only questions in the conversation come from the student."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions are posed by the Tutor, so no consequential forks are surfaced for the user to reason through."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Content is logically ordered (solution \u2192 ordering gotcha \u2192 alternative \u2192 idiom explanation), but it's pure exposition with the answer immediately revealed rather than scaffolded discovery."
+      },
+      "flow_and_tone": {
+        "score": 3,
+        "rationale": "Tone is warm and explanations are accurate and actionable, but it's lecture-style rather than back-and-forth pair programming. The student drove the only real dialogue."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "(pinned to 3 \u2014 this is the baseline reference run)"
+      }
+    }
+  },
+  "weighted": 2.1,
+  "normalized": 0.275,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Tutor asks no didactic questions. It delivers solutions and explanations directly; the only questions in the conversation come from the student.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions are posed by the Tutor, so no consequential forks are surfaced for the user to reason through.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"Content is logically ordered (solution \u2192 ordering gotcha \u2192 alternative \u2192 idiom explanation), but it's pure exposition with the answer immediately revealed rather than scaffolded discovery.\" },\n    \"flow_and_tone\":      { \"score\": 3, \"rationale\": \"Tone is warm and explanations are accurate and actionable, but it's lecture-style rather than back-and-forth pair programming. The student drove the only real dialogue.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code correctly solves FizzBuzz with a clean if/elif/else and offers a valid alternative. Equivalent to a typical baseline.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two-turn, ~24s exchange is efficient for the problem with a small bonus discussion of `or` semantics and Pythonic style.\" }\n  }\n}"
+}

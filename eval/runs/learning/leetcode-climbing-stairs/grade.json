@@ -1,0 +1,39 @@
+{
+  "slug": "leetcode-climbing-stairs",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:18",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks essentially zero didactic questions. It delivers a full lecture-style breakdown and answers the user's questions, but never turns the dialogue back to the user with a teachable prompt."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No questions are posed by the Pair. There are no choice-points surfaced for the user to reason through; the solution is presented top-down."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Content is well-organized worst-to-best, but it's a spoiler-heavy data dump: the optimal solution is given immediately rather than progressively elicited. Scaffolding exists for explanation, not for inquiry."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and the Pair responds precisely to the user's follow-up about loop bounds with a strong sliding-window analogy and a generalization. Flow is natural, just one-sided."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and equivalent to baseline \u2014 same O(n)/O(1) two-variable solution with proper base cases."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Slightly longer than baseline (41s vs 33s) with comparable structure; the extra 'why start at 3' explanation is a modest pedagogical bonus proportional to the added length."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks essentially zero didactic questions. It delivers a full lecture-style breakdown and answers the user's questions, but never turns the dialogue back to the user with a teachable prompt.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No questions are posed by the Pair. There are no choice-points surfaced for the user to reason through; the solution is presented top-down.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"Content is well-organized worst-to-best, but it's a spoiler-heavy data dump: the optimal solution is given immediately rather than progressively elicited. Scaffolding exists for explanation, not for inquiry.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and the Pair responds precisely to the user's follow-up about loop bounds with a strong sliding-window analogy and a generalization. Flow is natural, just one-sided.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and equivalent to baseline \u2014 same O(n)/O(1) two-variable solution with proper base cases.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Slightly longer than baseline (41s vs 33s) with comparable structure; the extra 'why start at 3' explanation is a modest pedagogical bonus proportional to the added length.\" }\n  }\n}"
+}

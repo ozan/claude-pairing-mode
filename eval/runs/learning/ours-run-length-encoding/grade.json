@@ -1,0 +1,39 @@
+{
+  "slug": "ours-run-length-encoding",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:58",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair asks essentially no didactic questions. It presents a complete solution upfront and only responds to questions the student raises. There are no teachable-moment prompts back to the user."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "No substantive choices are framed for the user. The Pair makes all design decisions itself (regex pattern, flush approach, character class) without inviting the student to reason through any of them."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "There is no question sequence to scaffold. The Pair does respond well to the student's questions with a nice trace and ambiguity discussion, but this is reactive explanation, not pedagogical scaffolding."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm and explanations are clear and actionable. The flush trace and digit-ambiguity table are particularly well-targeted to the student's questions, producing smooth back-and-forth, even if not Socratic."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code works correctly on all round-trip tests, comparable to baseline. Uses manual loop instead of baseline's groupby, but functionally equivalent."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Two turns, ~56s \u2014 essentially identical to baseline's 2 turns/62s. Slight extra pedagogical payoff from the digit-ambiguity discussion balances the more verbose initial dump."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair asks essentially no didactic questions. It presents a complete solution upfront and only responds to questions the student raises. There are no teachable-moment prompts back to the user.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"No substantive choices are framed for the user. The Pair makes all design decisions itself (regex pattern, flush approach, character class) without inviting the student to reason through any of them.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"There is no question sequence to scaffold. The Pair does respond well to the student's questions with a nice trace and ambiguity discussion, but this is reactive explanation, not pedagogical scaffolding.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm and explanations are clear and actionable. The flush trace and digit-ambiguity table are particularly well-targeted to the student's questions, producing smooth back-and-forth, even if not Socratic.\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code works correctly on all round-trip tests, comparable to baseline. Uses manual loop instead of baseline's groupby, but functionally equivalent.\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Two turns, ~56s \u2014 essentially identical to baseline's 2 turns/62s. Slight extra pedagogical payoff from the digit-ambiguity discussion balances the more verbose initial dump.\" }\n  }\n}"
+}

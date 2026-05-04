@@ -1,0 +1,10 @@
+{
+  "slug": "ours-tic-tac-toe",
+  "condition": "learning",
+  "end_reason": "error",
+  "turns": 1,
+  "duration_s": 606.1688101291656,
+  "propose_options_calls": 0,
+  "leaks_detected": 0,
+  "error": "turn idle for 600s \u2014 likely SDK hang"
+}

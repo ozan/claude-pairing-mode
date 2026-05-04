@@ -1,0 +1,39 @@
+{
+  "slug": "ours-lru-cache",
+  "is_baseline": false,
+  "model": "claude-opus-4-7",
+  "graded_at": "2026-05-04T21:19:51",
+  "grade": {
+    "pedagogical": {
+      "question_frequency": {
+        "score": 1,
+        "rationale": "The Pair never asks the user any didactic questions. It delivers a complete implementation up front and only answers the user's questions. All teachable moments are surfaced as monologue, not as Socratic prompts."
+      },
+      "question_quality": {
+        "score": 1,
+        "rationale": "There are essentially no Pair-initiated choices or forks presented to the user. The user drives the inquiry; the Pair never frames a decision point for the user to reason about."
+      },
+      "scaffolding": {
+        "score": 2,
+        "rationale": "Since the Pair leads with the full solution and detailed explanations, there is no progressive scaffolding. The follow-up answers are well-organized but the entire solution is a spoiler from turn 1."
+      },
+      "flow_and_tone": {
+        "score": 4,
+        "rationale": "Tone is warm, organized, and responsive. The Pair gives clear, well-structured answers to each user question with useful tables and diagrams, producing a smooth conversation, though the dynamic is one-directional (lecture/Q&A rather than dialogue)."
+      }
+    },
+    "productivity": {
+      "effectiveness": {
+        "score": 3,
+        "rationale": "Final code is correct and passes all 6 tests; functionally equivalent to the baseline (in fact uses the same pre-existing file)."
+      },
+      "friction": {
+        "score": 3,
+        "rationale": "Slightly longer than baseline (3 turns / 141s vs 2 turns / 100s) with somewhat more elaboration on pointer safety, API design, and test rationale. The extra length yields modest pedagogical payoff."
+      }
+    }
+  },
+  "weighted": 2.2,
+  "normalized": 0.30000000000000004,
+  "raw_response": "{\n  \"pedagogical\": {\n    \"question_frequency\": { \"score\": 1, \"rationale\": \"The Pair never asks the user any didactic questions. It delivers a complete implementation up front and only answers the user's questions. All teachable moments are surfaced as monologue, not as Socratic prompts.\" },\n    \"question_quality\":   { \"score\": 1, \"rationale\": \"There are essentially no Pair-initiated choices or forks presented to the user. The user drives the inquiry; the Pair never frames a decision point for the user to reason about.\" },\n    \"scaffolding\":        { \"score\": 2, \"rationale\": \"Since the Pair leads with the full solution and detailed explanations, there is no progressive scaffolding. The follow-up answers are well-organized but the entire solution is a spoiler from turn 1.\" },\n    \"flow_and_tone\":      { \"score\": 4, \"rationale\": \"Tone is warm, organized, and responsive. The Pair gives clear, well-structured answers to each user question with useful tables and diagrams, producing a smooth conversation, though the dynamic is one-directional (lecture/Q&A rather than dialogue).\" }\n  },\n  \"productivity\": {\n    \"effectiveness\":      { \"score\": 3, \"rationale\": \"Final code is correct and passes all 6 tests; functionally equivalent to the baseline (in fact uses the same pre-existing file).\" },\n    \"friction\":           { \"score\": 3, \"rationale\": \"Slightly longer than baseline (3 turns / 141s vs 2 turns / 100s) with somewhat more elaboration on pointer safety, API design, and test rationale. The extra length yields modest pedagogical payoff.\" }\n  }\n}"
+}

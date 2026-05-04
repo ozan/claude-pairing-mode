@@ -1,0 +1,10 @@
+{
+  "slug": "euler-6-sum-square-diff",
+  "condition": "regular",
+  "end_reason": "done",
+  "turns": 2,
+  "duration_s": 34.185699224472046,
+  "propose_options_calls": 1,
+  "leaks_detected": 0,
+  "error": null
+}
