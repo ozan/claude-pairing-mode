@@ -1,6 +1,6 @@
 # Claude "pair programming mode"
 
-This repository contains a prototype of a Claude Code plugin to help users learn while they code, by presenting side-by-side options at key decision points, and asking questions. See the [design rationale document](https://docs.google.com/document/d/1RXf2w8dDN_kLg49BCdubveS7BXONwBpVVQSae0SC-AM/edit?usp=sharing) and [video](https://www.youtube.com/watch?v=HQf4qhI8dOE) for context.
+This repository contains a prototype of a Claude Code plugin to help users learn while they code, by presenting side-by-side options at key decision points, and asking questions.
 
 ![Screenshot of pair programming mode](screenshot.png)
 
@@ -25,7 +25,7 @@ This launches a minimal clone of Claude Code with the side-by-side option tool e
 
 ## Evals
 
-A minimal eval suite was constructed to compare this feature to both a bare Claude Code baseline, as well as to Anthropic's learning-output-style plugin. The eval is also useful for iterating on the prompt. It runs a Haiku user/student and a Sonnet pair/assistant then uses Opus to grade the transcript based on a rubric. See the [design doc](https://docs.google.com/document/d/1RXf2w8dDN_kLg49BCdubveS7BXONwBpVVQSae0SC-AM/edit?usp=sharing) for more detail on the rubric design.
+A minimal eval suite was constructed to compare this feature to both a bare Claude Code baseline, as well as to Anthropic's learning-output-style plugin. The eval is also useful for iterating on the prompt. It runs a Haiku user/student and a Sonnet pair/assistant then uses Opus to grade the transcript based on a rubric. See the design doc for more detail on the rubric design.
 
 Headline results:
 
