@@ -6,15 +6,15 @@ This repository contains a prototype of a Claude Code plugin to help users learn
 
 ## Headline results
 
- |  | Baseline | learning-output-style | pair programming mode |
- |---|---:|---:|---:|
- | Question frequency | 1.06 | 1.11 | 4.17 |
- | Question quality | 1.06 | 1.14 | 4.08 |
- | Scaffolding | 1.31 | 1.53 | 3.97 |
- | Flow and tone | 3.11 | 3.22 | 4.25 |
- | Friction | 3.00 | 3.31 | 3.19 |
- | Effectiveness | 3.00 | 3.03 | 3.25 |
- | **Final score (0–1)** | **0.27** | **0.30** | **0.69** |
+|  | Baseline | learning-output-style | pair programming mode |
+|---|---:|---:|---:|
+| Question frequency | 1.06 | 1.11 | 4.17 |
+| Question quality | 1.06 | 1.14 | 4.08 |
+| Scaffolding | 1.31 | 1.53 | 3.97 |
+| Flow and tone | 3.11 | 3.22 | 4.25 |
+| Friction | 3.00 | 3.31 | 3.19 |
+| Effectiveness | 3.00 | 3.03 | 3.25 |
+| **Final score (0–1)** | **0.27** | **0.30** | **0.69** |
 
 See the design doc for discussion of the eval design.
 
