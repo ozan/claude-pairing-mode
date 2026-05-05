@@ -1,22 +1,9 @@
 # Claude "pair programming mode"
 
-This repository contains a prototype of a Claude Code plugin to help users learn while they code, by presenting side-by-side options at key decision points, and asking questions. See the [design rationale document](https://docs.google.com/document/d/1RXf2w8dDN_kLg49BCdubveS7BXONwBpVVQSae0SC-AM/edit?usp=sharing) and TODO [video]() for context.
+This repository contains a prototype of a Claude Code plugin to help users learn while they code, by presenting side-by-side options at key decision points, and asking questions. See the [design rationale document](https://docs.google.com/document/d/1RXf2w8dDN_kLg49BCdubveS7BXONwBpVVQSae0SC-AM/edit?usp=sharing) and [video](https://www.youtube.com/watch?v=HQf4qhI8dOE) for context.
 
 ![Screenshot of pair programming mode](screenshot.png)
 
-## Headline results
-
-|  | Baseline | learning-output-style | pair programming mode |
-|---|---:|---:|---:|
-| Question frequency | 1.06 | 1.11 | 4.17 |
-| Question quality | 1.06 | 1.14 | 4.08 |
-| Scaffolding | 1.31 | 1.53 | 3.97 |
-| Flow and tone | 3.11 | 3.22 | 4.25 |
-| Friction | 3.00 | 3.31 | 3.19 |
-| Effectiveness | 3.00 | 3.03 | 3.25 |
-| **Final score (0–1)** | **0.27** | **0.30** | **0.69** |
-
-See the design doc for discussion of the eval design.
 
 ## Run it
 
@@ -38,7 +25,19 @@ This launches a minimal clone of Claude Code with the side-by-side option tool e
 
 ## Evals
 
-A minimal eval suite was constructed to compare this feature to both a bare Claude Code baseline, as well as to Anthropic's learning-output-style plugin. The eval is also useful for iterating on the prompt. It runs a Haiku user/student and a Sonnet pair/assistant then uses Opus to grade the transcript based on a rubric.
+A minimal eval suite was constructed to compare this feature to both a bare Claude Code baseline, as well as to Anthropic's learning-output-style plugin. The eval is also useful for iterating on the prompt. It runs a Haiku user/student and a Sonnet pair/assistant then uses Opus to grade the transcript based on a rubric. See the [design doc](https://docs.google.com/document/d/1RXf2w8dDN_kLg49BCdubveS7BXONwBpVVQSae0SC-AM/edit?usp=sharing) for more detail on the rubric design.
+
+Headline results:
+
+|  | Baseline | learning-output-style | pair programming mode |
+|---|---:|---:|---:|
+| Question frequency | 1.06 | 1.11 | 4.17 |
+| Question quality | 1.06 | 1.14 | 4.08 |
+| Scaffolding | 1.31 | 1.53 | 3.97 |
+| Flow and tone | 3.11 | 3.22 | 4.25 |
+| Friction | 3.00 | 3.31 | 3.19 |
+| Effectiveness | 3.00 | 3.03 | 3.25 |
+| **Final score (0–1)** | **0.27** | **0.30** | **0.69** |
 
 To run the eval yourself (one condition x N problems -> one tagged run):
 
