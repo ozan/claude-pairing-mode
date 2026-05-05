@@ -4,8 +4,19 @@ This repository contains a prototype of a Claude Code plugin to help users learn
 
 [screenshot]
 
-[headline results]
+## Headline results
 
+ |  | Baseline | learning-output-style | pair programming mode |
+ |---|---:|---:|---:|
+ | Question frequency | 1.06 | 1.11 | 4.17 |
+ | Question quality | 1.06 | 1.14 | 4.08 |
+ | Scaffolding | 1.31 | 1.53 | 3.97 |
+ | Flow and tone | 3.11 | 3.22 | 4.25 |
+ | Friction | 3.00 | 3.31 | 3.19 |
+ | Effectiveness | 3.00 | 3.03 | 3.25 |
+ | **Final score (0–1)** | **0.27** | **0.30** | **0.69** |
+
+See the design doc for discussion of the eval design.
 
 ## Run it
 
@@ -16,6 +27,13 @@ cd tui && bun start
 ```
 
 This launches a minimal clone of Claude Code with the side-by-side option tool enabled. This requires [bun](https://bun.com/docs/installation) to be installed, as well as the `claude` CLI on path (as it is invoked by the agent SDK).
+
+
+## Interesting files
+
+- [Prompt used for pairing mode](https://github.com/ozan/claude-pairing-mode/blob/main/pairing_prompt.md)
+- [Grader logic](https://github.com/ozan/claude-pairing-mode/blob/main/eval/grade.py) particularly the [grader rubric prompt](https://github.com/ozan/claude-pairing-mode/blob/main/eval/grade.py#L42-L102)
+- [Eval problem set](https://github.com/ozan/claude-pairing-mode/blob/main/eval/problems.json)
 
 
 ## Evals
@@ -69,8 +87,3 @@ cd eval && uv run generate_viewer.py
 ```
 
 
-## Interesting files
-
-- [Prompt used for pairing mode](https://github.com/ozan/claude-pairing-mode/blob/main/pairing_prompt.md)
-- [Grader logic](https://github.com/ozan/claude-pairing-mode/blob/main/eval/grade.py) particularly the [grader rubric prompt](https://github.com/ozan/claude-pairing-mode/blob/main/eval/grade.py#L42-L102)
-- [Eval problem set](https://github.com/ozan/claude-pairing-mode/blob/main/eval/problems.json)
