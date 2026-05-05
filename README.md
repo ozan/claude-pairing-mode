@@ -2,7 +2,7 @@
 
 This repository contains a prototype of a Claude Code plugin to help users learn while they code, by presenting side-by-side options at key decision points, and asking questions. See the [design rationale document](https://docs.google.com/document/d/1RXf2w8dDN_kLg49BCdubveS7BXONwBpVVQSae0SC-AM/edit?usp=sharing) and TODO [video]() for context.
 
-[screenshot]
+![Screenshot of pair programming mode](screenshot.png)
 
 ## Headline results
 
