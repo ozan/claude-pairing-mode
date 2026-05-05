@@ -21,11 +21,21 @@ export const UserLine = memo(function UserLine({ text }: { text: string }) {
 });
 
 
-export const AssistantBlock = memo(function AssistantBlock({ text }: { text: string }) {
+// Assistant text block. `isFirst` controls whether the leading ⏺ marker and
+// top margin are rendered. Soft-committed continuation chunks (see App.tsx)
+// pass isFirst={false} so multiple chunks visually stack as one logical
+// block.
+export const AssistantBlock = memo(function AssistantBlock({
+  text,
+  isFirst = true,
+}: {
+  text: string;
+  isFirst?: boolean;
+}) {
   return (
-    <Box flexDirection="row" marginTop={1}>
+    <Box flexDirection="row" marginTop={isFirst ? 1 : 0}>
       <Box width={2}>
-        <Text>⏺</Text>
+        <Text>{isFirst ? '⏺' : ' '}</Text>
       </Box>
       <Box flexDirection="column" flexGrow={1}>
         <Markdown src={text} />

@@ -7,7 +7,8 @@
 // row pinned at the bottom with thin grey rule lines above and below.
 
 import React, { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
-import { Box, Static, Text, useInput } from 'ink';
+import { appendFileSync } from 'node:fs';
+import { Box, Static, Text, useInput, useStdout } from 'ink';
 import { Spinner } from '@inkjs/ui';
 import { ChatInput } from './components/Input.js';
 import { type Session } from './Session.js';
@@ -22,11 +23,53 @@ import {
 } from './components/Entries.js';
 
 
+// Streaming-commit policy. Ink's live region redraw leaks stale copies into
+// scrollback once it can't reach the top of the previous render — even
+// growing by a single row causes leakage when the static area above is tall
+// (which it gets after a few turns). The robust fix: commit complete lines
+// to <Static> (write-once, never redrawn → safe) as soon as a `\n` arrives,
+// keeping only the in-progress partial line in the live region. The live
+// region stays ≤ 1 visual row in normal cases.
+//
+// Edge case: a long single-line paragraph (no `\n` yet) can grow the live
+// region past 1 visual row. We force-commit when its visual rows exceed
+// FORCE_COMMIT_AT_VISUAL_ROWS, splitting at the last word boundary.
+// Markdown for the split paragraph may render slightly differently across
+// the seam, but that's far better than the duplication.
+//
+// Code fences: split markdown inside a fence renders broken on both halves,
+// so while inside a fence (odd `\`\`\`` count) we suppress committing and
+// just accumulate. Fences close within a few lines in practice.
+const FORCE_COMMIT_AT_VISUAL_ROWS = 1;
+
+
+function estimatedVisualRows(text: string, cols: number): number {
+  if (cols <= 0) return text.split('\n').length;
+  return text.split('\n').reduce(
+    (sum, line) => sum + Math.max(1, Math.ceil(line.length / cols)),
+    0,
+  );
+}
+
+
+// TUI live-region duplication diagnostic. Appends to /tmp/tui-debug.log.
+// Toggle by setting TUI_DEBUG=1 in the environment.
+const DEBUG = process.env.TUI_DEBUG === '1';
+function dbg(tag: string, info: unknown = {}): void {
+  if (!DEBUG) return;
+  try {
+    appendFileSync('/tmp/tui-debug.log', `${new Date().toISOString().slice(11, 23)} ${tag} ${JSON.stringify(info)}\n`);
+  } catch {}
+}
+
+
 // "Committed" entries — already past, won't change. Subset of AgentEvent
-// kinds plus the entry envelope.
+// kinds plus the entry envelope. assistant.isFirst lets soft-committed
+// continuation chunks render without the leading ⏺ marker so they stack
+// visually as one logical block.
 type CoreFrozenEntry =
   | { kind: 'user'; text: string }
-  | { kind: 'assistant'; text: string }
+  | { kind: 'assistant'; text: string; isFirst: boolean }
   | {
       kind: 'tool';
       name: string;
@@ -36,11 +79,23 @@ type CoreFrozenEntry =
   | { kind: 'footer'; elapsedSec: number }
   | { kind: 'error'; message: string };
 
-// "Live" entries — currently streaming.
+// "Live" entries — currently streaming. isFirst is true for the very first
+// chunk of a streaming block, false for any continuation chunks that follow
+// a soft-commit.
 type CoreLiveEntry =
-  | { kind: 'assistant'; text: string }
+  | { kind: 'assistant'; text: string; isFirst: boolean }
   | { kind: 'tool'; id: string; name: string; input: unknown }
   | null;
+
+
+// True if the accumulated streaming text currently has an UNCLOSED ```fence
+// — soft-committing inside a code block would split the fence and break
+// markdown rendering for both halves. We just keep accumulating until the
+// fence closes.
+function insideCodeFence(text: string): boolean {
+  const m = text.match(/```/g);
+  return m !== null && m.length % 2 === 1;
+}
 
 /**
  * Optional extension point for experiments: when the session emits an event
@@ -92,14 +147,41 @@ export function App<E = never, X = never>({
   // kept in lockstep via a wrapper.
   const liveRef = useRef<CoreLiveEntry>(null);
 
+  // Track terminal cols so soft-commit's visual-row estimate stays accurate
+  // across resize. Subtract a couple cols for the assistant marker indent.
+  const { stdout } = useStdout();
+  const [cols, setCols] = useState<number>(() => stdout?.columns ?? 80);
+  useEffect(() => {
+    if (!stdout) return;
+    const onResize = () => setCols(stdout.columns ?? 80);
+    stdout.on('resize', onResize);
+    return () => { stdout.off('resize', onResize); };
+  }, [stdout]);
+  const colsRef = useRef(cols);
+  useEffect(() => { colsRef.current = cols; }, [cols]);
+
   const updateLive = useCallback((next: CoreLiveEntry) => {
     liveRef.current = next;
     setLive(next);
+    dbg('updateLive', {
+      kind: next?.kind ?? null,
+      textLen: next && next.kind === 'assistant' ? next.text.length : undefined,
+      head: next && next.kind === 'assistant' ? next.text.slice(0, 60) : undefined,
+    });
   }, []);
 
   const freeze = useCallback(
     (entry: CoreFrozenEntry | { kind: '__extra__'; entry: X }) => {
-      setFrozen((prev) => [...prev, entry]);
+      setFrozen((prev) => {
+        const next = [...prev, entry];
+        dbg('freeze', {
+          newLen: next.length,
+          kind: entry.kind,
+          textLen: 'text' in entry ? entry.text.length : undefined,
+          head: 'text' in entry ? entry.text.slice(0, 60) : undefined,
+        });
+        return next;
+      });
     },
     [],
   );
@@ -107,21 +189,57 @@ export function App<E = never, X = never>({
   const handleEvent = useCallback(
     (ev: CoreAgentEvent | E) => {
       const e = ev as { kind: string };
+      if (DEBUG) dbg('event', { kind: e.kind });
       if (e.kind === 'text_delta') {
         const t = (ev as { text: string }).text;
         const cur = liveRef.current;
-        if (cur && cur.kind === 'assistant') {
-          updateLive({ ...cur, text: cur.text + t });
-        } else {
-          updateLive({ kind: 'assistant', text: t });
+        const isFirst = cur && cur.kind === 'assistant' ? cur.isFirst : true;
+        const newText = cur && cur.kind === 'assistant' ? cur.text + t : t;
+        const inFence = insideCodeFence(newText);
+        const lastNl = newText.lastIndexOf('\n');
+
+        // Inside a code fence: don't commit yet; the fence will close in a
+        // few lines and we'll get a chance then. Avoids splitting code mid-block.
+        if (inFence) {
+          updateLive({ kind: 'assistant', text: newText, isFirst });
+          return;
         }
+
+        // Have at least one newline: commit everything up to the last newline,
+        // keep the partial trailing line in the live region.
+        if (lastNl >= 0) {
+          const committed = newText.slice(0, lastNl);
+          const remainder = newText.slice(lastNl + 1);
+          if (committed) {
+            freeze({ kind: 'assistant', text: committed, isFirst });
+          }
+          updateLive({ kind: 'assistant', text: remainder, isFirst: committed ? false : isFirst });
+          return;
+        }
+
+        // No newline yet — partial line is growing in the live region. If
+        // it's getting too tall (long paragraph wrapping past N rows), force
+        // a commit at the last word boundary so the live region resets.
+        const visualRows = estimatedVisualRows(newText, Math.max(20, colsRef.current - 2));
+        if (visualRows > FORCE_COMMIT_AT_VISUAL_ROWS) {
+          const lastSpace = newText.lastIndexOf(' ');
+          const cutAt = lastSpace > 0 ? lastSpace : newText.length;
+          const committed = newText.slice(0, cutAt);
+          const remainder = newText.slice(cutAt + (lastSpace > 0 ? 1 : 0));
+          freeze({ kind: 'assistant', text: committed, isFirst });
+          updateLive({ kind: 'assistant', text: remainder, isFirst: false });
+          return;
+        }
+
+        updateLive({ kind: 'assistant', text: newText, isFirst });
         return;
       }
       if (e.kind === 'text_block_done') {
         const cur = liveRef.current;
+        dbg('text_block_done', { curKind: cur?.kind ?? null, curTextLen: cur && cur.kind === 'assistant' ? cur.text.length : undefined });
         if (cur && cur.kind === 'assistant') {
           updateLive(null);
-          freeze({ kind: 'assistant', text: cur.text });
+          freeze({ kind: 'assistant', text: cur.text, isFirst: cur.isFirst });
         }
         return;
       }
@@ -129,7 +247,7 @@ export function App<E = never, X = never>({
         const t = ev as { id: string; name: string; input: unknown };
         const cur = liveRef.current;
         if (cur && cur.kind === 'assistant') {
-          freeze({ kind: 'assistant', text: cur.text });
+          freeze({ kind: 'assistant', text: cur.text, isFirst: cur.isFirst });
         }
         updateLive({ kind: 'tool', id: t.id, name: t.name, input: t.input });
         return;
@@ -167,7 +285,7 @@ export function App<E = never, X = never>({
         const cur = liveRef.current;
         if (cur && cur.kind === 'assistant') {
           updateLive(null);
-          freeze({ kind: 'assistant', text: cur.text });
+          freeze({ kind: 'assistant', text: cur.text, isFirst: cur.isFirst });
         }
         const elapsed = (Date.now() - turnStartRef.current) / 1000;
         freeze({ kind: 'footer', elapsedSec: elapsed });
@@ -187,7 +305,7 @@ export function App<E = never, X = never>({
           const cur = liveRef.current;
           if (cur && cur.kind === 'assistant') {
             updateLive(null);
-            freeze({ kind: 'assistant', text: cur.text });
+            freeze({ kind: 'assistant', text: cur.text, isFirst: cur.isFirst });
           }
           freeze({ kind: '__extra__', entry: x });
         }
@@ -251,7 +369,7 @@ export function App<E = never, X = never>({
             return null;
           }
           if (entry.kind === 'user') return <UserLine key={i} text={entry.text} />;
-          if (entry.kind === 'assistant') return <AssistantBlock key={i} text={entry.text} />;
+          if (entry.kind === 'assistant') return <AssistantBlock key={i} text={entry.text} isFirst={entry.isFirst} />;
           if (entry.kind === 'tool') {
             if (entry.result) {
               return (
@@ -272,7 +390,7 @@ export function App<E = never, X = never>({
         }}
       </Static>
 
-      {live && live.kind === 'assistant' ? <AssistantBlock text={live.text} /> : null}
+      {live && live.kind === 'assistant' ? <AssistantBlock text={live.text} isFirst={live.isFirst} /> : null}
       {live && live.kind === 'tool' ? <ToolPillRunning name={live.name} input={live.input} /> : null}
 
       {showLoader ? (
